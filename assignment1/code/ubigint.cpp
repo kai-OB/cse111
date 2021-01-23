@@ -11,18 +11,43 @@ using namespace std;
 #include "relops.h"
 #include "ubigint.h"
 
-ubigint::ubigint (unsigned long that): uvalue (that) {
-   DEBUGF ('~', this << " -> " << uvalue)
+ubigint::ubigint (unsigned long that): /*uvalue (that)*/ {
+  // DEBUGF ('~', this << " -> " << uvalue); FIGURE OUT HOW TO DO DEBUG THEN UNCOMMENT 
+   //take the rightmost digit and do a pushback into the result vector
+   //delete this initializer list and make a loop inside the constructor
+   //copy string constructor?
+  // for (char digit: that) {
+      //if (not isdigit (digit)) {
+      //   throw invalid_argument ("ubigint::ubigint(" + that + ")");
+     // }
+     // uvalue = uvalue * 10 + digit - '0';
+      //pushback
+  // }
+
+   while(that > 0){
+      ubig_value.push_back(that% 0);
+      (that/10);
+   }
+   
 }
 
-ubigint::ubigint (const string& that): uvalue(0) {
-   DEBUGF ('~', "that = \"" << that << "\"");
+ubigint::ubigint (const string& that): /* init in default uvalue(0)*/ {
+  // DEBUGF ('~', "that = \"" << that << "\""); FIGURE OUT HOW TO DO DEBUG THEN UNCOMMEMT
    for (char digit: that) {
+      //for (char digit = that.crbegin(); digit!= that.crend(); ++ digit){
       if (not isdigit (digit)) {
          throw invalid_argument ("ubigint::ubigint(" + that + ")");
       }
-      uvalue = uvalue * 10 + digit - '0';
+     // uvalue = uvalue * 10 + digit - '0';//this code isnt going to work?
+      ubig_value.push_back(digit-'0');
    }
+   //get rid of the initializer list and loop over the string in reverse
+   // direction from end to front
+   // just reverse at the end actually
+   //for each digit in the string subtract off "0" and do a pushback on 
+   // to the vector
+   reverse(ubig_value.begin(),ubig_value.end());
+   //reverse ubig_value
 }
 
 ubigint ubigint::operator+ (const ubigint& that) const {
