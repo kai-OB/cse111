@@ -170,8 +170,8 @@ quo_rem udivide (const ubigint& dividend, const ubigint& divisor_) {
       divisor.divide_by_2();
       power_of_2.divide_by_2();
    }
-   DEBUGF ('/', "quotient = " << quotient);
-   DEBUGF ('/', "remainder = " << remainder);
+   //DEBUGF ('/', "quotient = " << quotient);
+  // DEBUGF ('/', "remainder = " << remainder);
    return {.quotient = quotient, .remainder = remainder};
 }
 
