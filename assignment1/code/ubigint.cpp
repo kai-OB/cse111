@@ -191,7 +191,17 @@ bool ubigint::operator< (const ubigint& that) const {
    return uvalue < that.uvalue;
 }
 
-ostream& operator<< (ostream& out, const ubigint& that) { 
-   return out << "ubigint(" << that.uvalue << ")";
+ostream& operator<< (ostream& out, const ubigint& that) { //will have errors till implement
+  if(that.uvalue.size()==0){
+     out << '0';
+  }
+
+   else{
+      for(auto i = 0; i < that.uvalue.size(); i++){ //need to check if vector is bigger than 0?
+            out << that.uvalue.at(i)+'0';
+      }
+   }
+  // return out << "ubigint(" << that.uvalue << ")";
+  return out;
 }
 
