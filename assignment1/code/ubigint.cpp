@@ -25,8 +25,8 @@ ubigint::ubigint (unsigned long that)/*: uvalue (that)*/ {
   // }
 
    while(that > 0){
-      uvalue.push_back(that% 0);
-      (that/10);
+      uvalue.push_back(that % 0);
+      that = (that/10);
    }
    //this stores in the correct order right??????
 }
@@ -90,7 +90,7 @@ ubigint ubigint::operator+ (const ubigint& that) const {
       }
       if(sum >9){ // if there is a remainder then:
          carry = 1;  //carry 1 to start loop over with sum = carry
-         sum % 10;   // and mod 10
+         sum = (sum % 10);   // and mod 10
       }
       add_result.uvalue.push_back(sum); //push back the sum of two digits (or longer and 0)
    }
@@ -109,7 +109,7 @@ ubigint ubigint::operator- (const ubigint& that) const {
    unsigned int sub = 0; //subtraction of two digits
    unsigned int borrow = 0;   //digit to be borrowed
 
-   for(auto i = 0; i < that.uvalue.size(); i++){  //that will be bigger
+   for(unsigned int i = 0; i < that.uvalue.size(); i++){  //that will be bigger
       sub -= borrow; //subtract borrow 
       borrow = 0;
 
