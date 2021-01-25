@@ -197,7 +197,7 @@ ostream& operator<< (ostream& out, const ubigint& that) { //will have errors til
   }
 
    else{
-      for(int i = 0; i < that.uvalue.size(); i++){ //need to check if vector is bigger than 0?
+      for(unsigned int i = 0; i < that.uvalue.size(); i++){ //need to check if vector is bigger than 0?
             out << that.uvalue.at(i)+'0';
       }
    }
