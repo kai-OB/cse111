@@ -184,11 +184,38 @@ ubigint ubigint::operator% (const ubigint& that) const {
 }
 
 bool ubigint::operator== (const ubigint& that) const {
-   return uvalue == that.uvalue;
+   if(uvalue.size()!=that.uvalue.size()){ //if sizes are different returns false
+      return false;
+   }
+   int i = 0;
+   while(i < uvalue.size()){ //<=?? inf loop check
+      if(uvalue.at(i)!=that.uvalue.at(i)){   //if the digits are not the same
+         return false;  //returns false
+      }
+      i++;  //increments 
+   }
+   return true;   //otherwise returns true
 }
 
 bool ubigint::operator< (const ubigint& that) const {
-   return uvalue < that.uvalue;
+  // return uvalue < that.uvalue;
+    if(uvalue.size() < that.uvalue.size()){ //this size is less than that size
+      return true;  // than this is less than that, return true
+   }
+   
+   if(uvalue.size() > that.uvalue.size()){ //this size is greater than that size
+      return false;  // than this is greater than that, return false
+   }
+   //otherwise sizes are equal and evaluate digit by digit
+   //go from highest to lowest order digit
+   int i = uvalue.size();
+   while(i > 0){ //<=??  and inf loop check
+      if(uvalue.at(i) > that.uvalue.at(i)){   //if this > that then automatically false
+         return false;  //returns false
+      }
+      i--;  //decrements 
+   }
+   return true; // if all digits of this are less than that, return true
 }
 
 ostream& operator<< (ostream& out, const ubigint& that) { //will have errors till implement
