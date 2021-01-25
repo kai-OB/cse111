@@ -106,14 +106,14 @@ ubigint ubigint::operator+ (const ubigint& that) const {
 ubigint ubigint::operator- (const ubigint& that) const {
    if (*this < that) throw domain_error ("ubigint::operator-(a<b)");
    ubigint sub_result;  //empty vector
-   unsigned int sub; //subtraction of two digits
+   unsigned int sub = 0; //subtraction of two digits
    unsigned int borrow = 0;   //digit to be borrowed
 
    for(auto i = 0; i < that.uvalue.size(); i++){  //that will be bigger
       sub -= borrow; //subtract borrow 
       borrow = 0;
 
-      sub = uvalue(i) - that.uvalue(i); // sub can be negative so just sub
+      sub = uvalue.at(i) - that.uvalue.at(i); // sub can be negative so just sub
       
       if( sub < 0){
          sub += 10;
