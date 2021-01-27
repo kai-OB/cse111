@@ -128,20 +128,69 @@ ubigint ubigint::operator- (const ubigint& that) const {
    }
       
    return sub_result;
-   //assumes the left operand is not less than the right operand
-   /* 
-
-
-
-   */
+ 
 }
 
 ubigint ubigint::operator* (const ubigint& that) const {
-   return ubigint (uvalue * that.uvalue);
+  // return ubigint (uvalue * that.uvalue);
+  ubigint product;  //empty vector
+  unsigned int digit = 0;   //mult of each digit
+  unsigned int carry = 0;  //digit to be carried
+
+  //make product the size of uvalue+that.uvalue
+   int prod_size = (uvalue.size()+that.uvalue.size())-1;
+   int k = 0;
+   while(k < prod_size){                  //initializes the vector to all zeroes
+      product.uvalue.push_back('0' + 0);  //allocating a new vector equal to the 
+      k++;                                //sums of the sizes of the two vectors
+   } 
+
+  for(unsigned int i = 0; i < uvalue.size(); i++){  //i E [0,m)
+      carry = 0;  // c <-0
+      for(unsigned int j = 0; j < that.uvalue.size(); j++){  //j E [0,n)
+         // d <- P(i+j) + u(i)v(j) + c
+         digit = (product.uvalue.at(i+j)+(uvalue.at(i) * that.uvalue.at(i))+carry);
+      
+         product.uvalue.at(i+j) = digit % 10; // P(i+j) <- d rem 10
+
+         carry = /*floor*/(digit / 10);   // c <- floor (d / 10)
+         
+      }
+      // P(i+n) <-c
+      product.uvalue.at(i + that.uvalue.size()) = carry;
+
+  }
+  //get rid of leading zeroes
+   while (product.uvalue.size() > 0 and product.uvalue.back() == 0){ 
+         product.uvalue.pop_back();
+   }
+
+   return product;
 }
 
 void ubigint::multiply_by_2() {
-   uvalue *= 2;
+   //uvalue *= 2;
+
+   //no return statement
+   ubigint mult_2;  //empty vector
+   unsigned int digit = 0;   //mult of each digit
+   unsigned int carry = 0;  //digit to be carried
+
+   for(unsigned int i = 0; i < uvalue.size(); i++){  //just one loop cause one number
+      digit = (uvalue.at(i)*2 + carry);
+      carry = (digit / 10);
+      digit = digit-carry; // or digit = digit %10;
+      mult_2.uvalue.push_back(digit);
+   }
+   mult_2.uvalue.push_back(carry);
+
+   //get rid of leading zeroes
+   while (mult_2.uvalue.size() > 0 and mult_2.uvalue.back() == 0){ 
+         mult_2.uvalue.pop_back();
+   }
+
+   return mult_2; //allocate to be bigger and fill with 0's!
+
 }
 
 void ubigint::divide_by_2() {
