@@ -172,29 +172,31 @@ void ubigint::multiply_by_2() {
    //uvalue *= 2;
 
    //no return statement
-   ubigint mult_2;  //empty vector
    unsigned int digit = 0;   //mult of each digit
    unsigned int carry = 0;  //digit to be carried
 
    for(unsigned int i = 0; i < uvalue.size(); i++){  //just one loop cause one number
       digit = (uvalue.at(i)*2 + carry);
       carry = (digit / 10);
-      digit = digit-carry; // or digit = digit %10;
-      mult_2.uvalue.push_back(digit);
-   }
-   mult_2.uvalue.push_back(carry);
+      digit = digit%10; //same code as above basically
+     //no return so change values of uvalue
 
-   //get rid of leading zeroes
-   while (mult_2.uvalue.size() > 0 and mult_2.uvalue.back() == 0){ 
-         mult_2.uvalue.pop_back();
+     uvalue.at(i) = digit; //change uvalue to digit
    }
 
-   return mult_2; //allocate to be bigger and fill with 0's!
-
+   if(carry == 1){   //if there is a carry then pushback
+       uvalue.push_back(carry); 
+   }
+  
+   //check for leading zeroes
+   while (uvalue.size() > 0 and uvalue.back() == 0){ 
+      uvalue.pop_back();
+   }
+   //no return
 }
 
 void ubigint::divide_by_2() {
-   uvalue /= 2;
+   //uvalue /= 2;
 }
 
 
