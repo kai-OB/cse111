@@ -197,6 +197,27 @@ void ubigint::multiply_by_2() {
 
 void ubigint::divide_by_2() {
    //uvalue /= 2;
+   //no return
+   unsigned int rem = 0;   //remainder
+   unsigned int quo = 0;   //quotient of two and digit
+
+   for(unsigned int i = uvalue.size(); i > 0; i--){  //start at highest order digit (back of vector)
+
+      quo = uvalue.at(i)/2;   //divide by 2
+      rem = quo % 2; //remainder will be mod 2
+
+      //if (rem > 0){     //if there is remainder
+         quo += rem;    //add to quotient
+        // rem = 0;
+     // }
+      uvalue.at(i) = quo;     //change uvalues to quotient
+      
+   }
+   //check for leading zeroes
+   while (uvalue.size() > 0 and uvalue.back() == 0){ 
+      uvalue.pop_back();
+   }
+   //no return
 }
 
 
@@ -227,11 +248,11 @@ quo_rem udivide (const ubigint& dividend, const ubigint& divisor_) {
 }
 
 ubigint ubigint::operator/ (const ubigint& that) const {
-   return udivide (*this, that).quotient;
+   return udivide (*this, that).quotient; //shouldnt have to change if udivide works right?
 }
 
 ubigint ubigint::operator% (const ubigint& that) const {
-   return udivide (*this, that).remainder;
+   return udivide (*this, that).remainder;   //should have to change if udivide works right?
 }
 
 bool ubigint::operator== (const ubigint& that) const {
