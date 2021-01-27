@@ -54,7 +54,7 @@ ubigint::ubigint (const string& that)/*: init in default uvalue(0)*/ {
    //reverse ubig_value
 
    for (ssize_t index = that.size() - 1; index >= 0; --index){
-      uvalue.push_back(index-'0');
+      uvalue.push_back(index-'0');  //casting as int?
 
    }
    //this should store in correct order??
