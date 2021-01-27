@@ -10,52 +10,32 @@ using namespace std;
 #include "debug.h"
 #include "relops.h"
 #include "ubigint.h"
+//////////////////////////////
+//CLEAN UP CODE!!!!!!!!!!
+///////////////////////////////
+/////////////////////////////
+///////////////////////
+////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 ubigint::ubigint (unsigned long that)/*: uvalue (that)*/ {
-  // DEBUGF ('~', this << " -> " << uvalue); FIGURE OUT HOW TO DO DEBUG THEN UNCOMMENT 
-   //take the rightmost digit and do a pushback into the result vector
-   //delete this initializer list and make a loop inside the constructor
+   // DEBUGF ('~', this << " -> " << uvalue); 
    //copy string constructor?
-  // for (char digit: that) {
-      //if (not isdigit (digit)) {
-      //   throw invalid_argument ("ubigint::ubigint(" + that + ")");
-     // }
-     // uvalue = uvalue * 10 + digit - '0';
-      //pushback
-  // }
-
-   while(that > 0){
-      uvalue.push_back(that % 0);
-      that = (that/10);
+   string s = to_string(that);   //casting that as a string
+    for (ssize_t index = s.size() - 1; index >= 0; --index){
+      uvalue.push_back(index-'0');  //casting as int?
    }
-   //this stores in the correct order right??????
 }
 
 ubigint::ubigint (const string& that)/*: init in default uvalue(0)*/ {
-  // DEBUGF ('~', "that = \"" << that << "\""); FIGURE OUT HOW TO DO DEBUG THEN UNCOMMEMT
-   //for (char digit: that) {
-      //for (char digit = that.crbegin(); digit!= that.crend(); ++ digit){
-     // if (not isdigit (digit)) {
-      //   throw invalid_argument ("ubigint::ubigint(" + that + ")");
-      //}
-     // uvalue = uvalue * 10 + digit - '0';//this code isnt going to work?
-    // ** uvalue.push_back(digit-'0');
-  // }
-   //********
+   // DEBUGF ('~', "that = \"" << that << "\""); 
    //get rid of the initializer list and loop over the string in reverse
    // direction from end to front
-   // just reverse at the end actually
    //for each digit in the string subtract off "0" and do a pushback on 
    // to the vector
- //  reverse(uvalue.begin(),uvalue.end());
-
-   //cast as int?? loop in reverse
-   //subtracting 0 turns it into an int
-   //reverse ubig_value
-
+ 
    for (ssize_t index = that.size() - 1; index >= 0; --index){
       uvalue.push_back(index-'0');  //casting as int?
-
    }
    //this should store in correct order??
 }
@@ -133,7 +113,7 @@ ubigint ubigint::operator- (const ubigint& that) const {
 
 ubigint ubigint::operator* (const ubigint& that) const {
   // return ubigint (uvalue * that.uvalue);
-  ubigint product;  //empty vector
+  ubigint product(0);  //empty vector
   unsigned int digit = 0;   //mult of each digit
   unsigned int carry = 0;  //digit to be carried
 
@@ -259,7 +239,7 @@ bool ubigint::operator== (const ubigint& that) const {
    if(uvalue.size()!=that.uvalue.size()){ //if sizes are different returns false
       return false;
    }
-   int i = 0;
+   unsigned int i = 0;
    while(i < uvalue.size()){ //<=?? inf loop check
       if(uvalue.at(i)!=that.uvalue.at(i)){   //if the digits are not the same
          return false;  //returns false
