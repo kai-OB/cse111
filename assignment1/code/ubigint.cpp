@@ -35,22 +35,22 @@ ubigint::ubigint (const string& that): uvalue(0) {
 ubigint ubigint::operator+ (const ubigint& that) const {
   
    ubigint add_result;
-   unsigned int sum; // sum of two digits pairwise while adding the vectors
+   unsigned int sum; // sum of two digits while adding vectors
    unsigned int carry = 0;  // remainder to be carried if sum>=10
-   ssize_t longer; //longer vector to be added (may be same length!) ssize_t is a typedef long
+   ssize_t longer; //longer vector to be added (may be same length!)
    
-   if(uvalue.size() > that.uvalue.size()){      //sets longer and shorter values
-      longer = uvalue.size();   //so that "When you run out of digits in the shorter number, [you can] 
+   if(uvalue.size() > that.uvalue.size()){//sets longer and shorter values
+      longer = uvalue.size();//when run out of digits in the shorter number 
    }
    else{ //this->value is the same as uvalue
       longer = that.uvalue.size();  //might not need this idk!!!!!!
    }
 
-   for(auto i = 0; i < longer; i++){   //should keep adding when the shorter vector runs out
-      sum = carry;      //should i be auto?
+   for(auto i = 0; i < longer; i++){   
+      sum = carry;      
       carry = 0;
       
-      if( i <= uvalue.at(i) ){ // <= or <?   //if this hasnt run out then add
+      if( i <= uvalue.at(i) ){  //if this hasnt run out then add
          sum+= uvalue.at(i);
       }
       if(i <= that.uvalue.at(i) ){  //if that hasnt run out then add
@@ -60,10 +60,9 @@ ubigint ubigint::operator+ (const ubigint& that) const {
          carry = 1;  //carry 1 to start loop over with sum = carry
          sum = (sum % 10);   // and mod 10
       }
-      add_result.uvalue.push_back(sum); //push back the sum of two digits (or longer and 0)
+      add_result.uvalue.push_back(sum); //push back the sum of two digits
    }
-   /*After computing a value from any one of the six arithmetic
-   operators, always trim the vector by removing all high-order zeros :*/
+   /* trim the vector by removing all high-order zeros :*/
    while (add_result.uvalue.size() > 0 and add_result.uvalue.back() == 0){ 
       add_result.uvalue.pop_back();
    }
@@ -77,11 +76,11 @@ ubigint ubigint::operator- (const ubigint& that) const {
    unsigned int sub = 0; //subtraction of two digits
    unsigned int borrow = 0;   //digit to be borrowed
 
-   for(unsigned int i = 0; i < that.uvalue.size(); i++){  //that will be bigger
+   for(unsigned int i = 0; i < that.uvalue.size(); i++){//that will be bigger
       sub = borrow; //subtract borrow 
       borrow = 0;
 
-      sub = uvalue.at(i) - that.uvalue.at(i); // sub can be negative so just sub
+      sub = uvalue.at(i) - that.uvalue.at(i);//sub can be negative so just sub
       
       if( sub < 0){
          sub += 10;
@@ -109,9 +108,9 @@ ubigint ubigint::operator* (const ubigint& that) const {
   //make product the size of uvalue+that.uvalue
    int prod_size = (uvalue.size()+that.uvalue.size())-1;
    int k = 0;
-   while(k < prod_size){                  //initializes the vector to all zeroes
-      product.uvalue.push_back('0' + 0);  //allocating a new vector equal to the 
-      k++;                                //sums of the sizes of the two vectors
+   while(k < prod_size){//initializes the vector to all zeroes
+      product.uvalue.push_back('0' + 0);//new vector size = the 
+      k++; //sums of the sizes of the two vectors
    } 
 
   for(unsigned int i = 0; i < uvalue.size(); i++){  //i E [0,m)
@@ -143,7 +142,7 @@ void ubigint::multiply_by_2() {
    unsigned int digit = 0;   //mult of each digit
    unsigned int carry = 0;  //digit to be carried
 
-   for(unsigned int i = 0; i < uvalue.size(); i++){  //just one loop cause one number
+   for(unsigned int i = 0; i < uvalue.size(); i++){//just one loop,one number
       digit = (uvalue.at(i)*2 + carry);
       carry = (digit / 10);
       digit = digit%10; //same code as above basically
@@ -168,7 +167,7 @@ void ubigint::divide_by_2() {
    unsigned int rem = 0;   //remainder
    unsigned int quo = 0;   //quotient of two and digit
 
-   for(unsigned int i = uvalue.size(); i > 0; i--){  //start at highest order digit (back of vector)
+   for(unsigned int i = uvalue.size(); i > 0; i--){//start @ highest order digit
 
       quo = uvalue.at(i)/2;   //divide by 2
       rem = quo % 2; //remainder will be mod 2
@@ -214,11 +213,11 @@ quo_rem udivide (const ubigint& dividend, const ubigint& divisor_) {
 }
 
 ubigint ubigint::operator/ (const ubigint& that) const {
-   return udivide (*this, that).quotient; //shouldnt have to change if udivide works right?
+   return udivide (*this, that).quotient; 
 }
 
 ubigint ubigint::operator% (const ubigint& that) const {
-   return udivide (*this, that).remainder;   //should have to change if udivide works right?
+   return udivide (*this, that).remainder;  
 }
 
 bool ubigint::operator== (const ubigint& that) const {
@@ -227,7 +226,7 @@ bool ubigint::operator== (const ubigint& that) const {
    }
    unsigned int i = 0;
    while(i < uvalue.size()){ //<=?? inf loop check
-      if(uvalue.at(i)!=that.uvalue.at(i)){   //if the digits are not the same
+      if(uvalue.at(i)!=that.uvalue.at(i)){//if the digits are not the same
          return false;  //returns false
       }
       i++;  //increments 
@@ -237,18 +236,18 @@ bool ubigint::operator== (const ubigint& that) const {
 
 bool ubigint::operator< (const ubigint& that) const {
  
-    if(uvalue.size() < that.uvalue.size()){ //this size is less than that size
-      return true;  // than this is less than that, return true
+    if(uvalue.size() < that.uvalue.size()){//this size is less than that size
+      return true;  
    }
    
    if(uvalue.size() > that.uvalue.size()){ //this size is greater than that size
-      return false;  // than this is greater than that, return false
+      return false;  
    }
    //otherwise sizes are equal and evaluate digit by digit
    //go from highest to lowest order digit
    int i = uvalue.size();
    while(i > 0){ //<=??  and inf loop check
-      if(uvalue.at(i) > that.uvalue.at(i)){   //if this > that then automatically false
+      if(uvalue.at(i) > that.uvalue.at(i)){//if this > that then automatically false
          return false;  //returns false
       }
       i--;  //decrements 
@@ -256,14 +255,14 @@ bool ubigint::operator< (const ubigint& that) const {
    return true; // if all digits of this are less than that, return true
 }
 
-ostream& operator<< (ostream& out, const ubigint& that) { //will have errors till implement
+ostream& operator<< (ostream& out, const ubigint& that) { 
   //if(that.uvalue.size()==0){
  //    out << '0';
  // }
 
    //else{
       
-      for(unsigned int i = 0; i < that.uvalue.size(); i++){ //need to check if vector is bigger than 0?
+      for(unsigned int i = 0; i < that.uvalue.size(); i++){ 
             out << (that.uvalue.at(i)+ '0');
       
    }
