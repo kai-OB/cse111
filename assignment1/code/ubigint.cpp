@@ -11,7 +11,7 @@ using namespace std;
 #include "relops.h"
 #include "ubigint.h"
 
-ubigint::ubigint (unsigned long that)/*: uvalue (that)*/ {
+ubigint::ubigint (unsigned long that): uvalue (that) {
   
    
    /*while(that>0){
@@ -27,7 +27,7 @@ ubigint::ubigint (unsigned long that)/*: uvalue (that)*/ {
    }
 }
 
-ubigint::ubigint (const string& that)/*: uvalue(0)*/ {
+ubigint::ubigint (const string& that): uvalue(0) {
   
    for (unsigned long index = 0; index < that.size(); ++index){
     
