@@ -15,6 +15,8 @@ using namespace std;
 class ubigint {
    friend ostream& operator<< (ostream&, const ubigint&);
    private:
+      using unumber = unsigned long;
+      unumber uval {};
       using ubigvalue_t = vector<uint8_t>;
       ubigvalue_t uvalue;  
       //per instructions in assignment
