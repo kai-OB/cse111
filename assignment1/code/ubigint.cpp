@@ -18,13 +18,7 @@ ubigint::ubigint (unsigned long that)/*: uvalue (that) */{
       uvalue.push_back(that % 10);
       that = that/10;
    }
-   /*string s = to_string(that);
-   for (unsigned long index = 0; index < s.size(); ++index){
-    
-      uvalue.push_back(s.at(index)-0);  //casting as int?
-     
-     
-   }*/
+   
 }
 
 ubigint::ubigint (const string& that/*: uvalue(0)*/ {
