@@ -10,13 +10,6 @@ using namespace std;
 #include "debug.h"
 #include "relops.h"
 #include "ubigint.h"
-//////////////////////////////
-//CLEAN UP CODE!!!!!!!!!!
-///////////////////////////////
-/////////////////////////////
-///////////////////////
-////////////////////////
-////////////////////////////////////////////////////////////////////////////////
 
 ubigint::ubigint (unsigned long that): uvalue (that) {
   
@@ -30,9 +23,8 @@ ubigint::ubigint (unsigned long that): uvalue (that) {
 }
 
 ubigint::ubigint (const string& that): uvalue(0) {
-   // DEBUGF ('~', "that = \"" << that << "\""); 
   
-   for (unsigned long index = that.size() - 1; index >= 0; --index){
+   for (unsigned long index = 0; index < that.size() - 1; ++index){
     
       uvalue.push_back(index-'0');  //casting as int?
      

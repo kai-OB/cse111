@@ -10,28 +10,19 @@ using namespace std;
 
 bigint::bigint (long that): uvalue (that), is_negative (that < 0) {
   
-   /*string s = to_string(that);   //casting that as a string
-  
-   for (char digit: s) {
-     
-      bigint.push_back(digit);
-     
-   }*/
-   //dont change?
-  // cout << "bigint";
      
 }
 
 bigint::bigint (const ubigint& uvalue_, bool is_negative_):
                 uvalue(uvalue_), is_negative(is_negative_) {//dont change?
-                cout << "bigint";
+               
 
 }
 
 bigint::bigint (const string& that) {
    is_negative = that.size() > 0 and that[0] == '_';
    uvalue = ubigint (that.substr (is_negative ? 1 : 0));
-   cout << "bigint";
+
 
 }
 
