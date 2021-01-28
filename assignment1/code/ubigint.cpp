@@ -18,22 +18,26 @@ using namespace std;
 ////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-ubigint::ubigint (unsigned long that)/*: uvalue (that)*/ {
+ubigint::ubigint (unsigned long that): uvalue (that) {
    // DEBUGF ('~', this << " -> " << uvalue); 
    //copy string constructor?
    string s = to_string(that);   //casting that as a string
-    for (ssize_t index = s.size() - 1; index >= 0; --index){
+   /* for (ssize_t index = s.size() - 1; index >= 0; --index){
+     
       uvalue.push_back(index-'0');  //casting as int?
+   }*/
+   for (char digit: s) {
+      /*if (not isdigit (digit)) {
+         throw invalid_argument ("ubigint::ubigint(" + that + ")");
+      }*/
+      //uvalue = uvalue * 10 + digit - '0';
+      uvalue.push_back(digit);
    }
 }
 
-ubigint::ubigint (const string& that)/*: init in default uvalue(0)*/ {
+ubigint::ubigint (const string& that): uvalue(0) {
    // DEBUGF ('~', "that = \"" << that << "\""); 
-   //get rid of the initializer list and loop over the string in reverse
-   // direction from end to front
-   //for each digit in the string subtract off "0" and do a pushback on 
-   // to the vector
- 
+  
    for (ssize_t index = that.size() - 1; index >= 0; --index){
       uvalue.push_back(index-'0');  //casting as int?
    }
@@ -46,12 +50,9 @@ ubigint ubigint::operator+ (const ubigint& that) const {
    unsigned int sum; // sum of two digits pairwise while adding the vectors
    unsigned int carry = 0;  // remainder to be carried if sum>=10
    ssize_t longer; //longer vector to be added (may be same length!) ssize_t is a typedef long
-   //ssize_t shorter; //shorter vector to be added (may be same length!)
-   // uint_8 digit = i < v.size() ? v[i] : 0;
-   //do this^ if this doesnt work
+   
    if(uvalue.size() > that.uvalue.size()){      //sets longer and shorter values
       longer = uvalue.size();   //so that "When you run out of digits in the shorter number, [you can] 
-     // shorter = that.uvalue.size(); //continue, matching the longer vector with zeros, until it is done."
    }
    else{ //this->value is the same as uvalue
       longer = that.uvalue.size();  //might not need this idk!!!!!!
@@ -149,8 +150,7 @@ ubigint ubigint::operator* (const ubigint& that) const {
 }
 
 void ubigint::multiply_by_2() {
-   //uvalue *= 2;
-
+  
    //no return statement
    unsigned int digit = 0;   //mult of each digit
    unsigned int carry = 0;  //digit to be carried
@@ -176,7 +176,6 @@ void ubigint::multiply_by_2() {
 }
 
 void ubigint::divide_by_2() {
-   //uvalue /= 2;
    //no return
    unsigned int rem = 0;   //remainder
    unsigned int quo = 0;   //quotient of two and digit
@@ -276,8 +275,9 @@ ostream& operator<< (ostream& out, const ubigint& that) { //will have errors til
   }
 
    else{
+      
       for(unsigned int i = 0; i < that.uvalue.size(); i++){ //need to check if vector is bigger than 0?
-            out << that.uvalue.at(i)+'0';
+            out << (that.uvalue.at(i)+'0');
       }
    }
   // return out << "ubigint(" << that.uvalue << ")";

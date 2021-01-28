@@ -45,7 +45,7 @@ bigint bigint::operator- () const { //flips the sign
 }
 
 bigint bigint::operator+ (const bigint& that) const {
-   bigint plus_result;
+   ubigint plus_result;
    bool sign = false; //(positive)
    // both negative
    if(is_negative and is_negative){   
@@ -75,13 +75,11 @@ bigint bigint::operator+ (const bigint& that) const {
       }
    }
 
-   return (plus_result, sign);   //returns appropriate bigint and sign
-
-
+   return {plus_result, sign};   //returns appropriate bigint and sign
 }
 
 bigint bigint::operator- (const bigint& that) const {
-   bigint sub_result;
+   ubigint sub_result;
    bool sign = false; //(positive)
 
    // both negative
@@ -113,7 +111,7 @@ bigint bigint::operator- (const bigint& that) const {
          sub_result = that.uvalue + uvalue;   //subtract from larger
       }
    }
-   return (sub_result , sign);
+   return {sub_result , sign};
 }
 
 
@@ -122,10 +120,10 @@ bigint bigint::operator* (const bigint& that) const {
    if(is_negative == that.is_negative){
       sign = false;
    }
-   bigint times_result = uvalue * that.uvalue;
+   ubigint times_result = uvalue * that.uvalue;
    
 
-   return (times_result , sign);
+   return {times_result , sign};
 }
 
 bigint bigint::operator/ (const bigint& that) const {
@@ -133,8 +131,8 @@ bigint bigint::operator/ (const bigint& that) const {
    if(is_negative == that.is_negative){
       sign = false;
    }
-   bigint div_result = uvalue / that.uvalue;
-   return (div_result,sign);
+   ubigint div_result = uvalue / that.uvalue;
+   return {div_result,sign};
 }
 
 bigint bigint::operator% (const bigint& that) const {
@@ -142,8 +140,8 @@ bigint bigint::operator% (const bigint& that) const {
    if(is_negative == that.is_negative){
       sign = false;
    }
-   bigint mod_result = uvalue % that.uvalue;
-   return (mod_result,sign);
+   ubigint mod_result = uvalue % that.uvalue;
+   return {mod_result,sign};
 }
 
 bool bigint::operator== (const bigint& that) const {
@@ -157,7 +155,10 @@ bool bigint::operator< (const bigint& that) const {
 }
 
 ostream& operator<< (ostream& out, const bigint& that) {
+  
    return out << "bigint(" << (that.is_negative ? "-" : "+")
-              << "," << that.uvalue << ")";
+              << "\n" << that.uvalue << ")";
+   //^cdfpq
+              
 }
 

@@ -1,1 +1,1 @@
-gmake: *** No targets specified and no makefile found.  Stop.
+./mk.build: line 8: gmake: command not found
