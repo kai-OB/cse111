@@ -13,13 +13,7 @@ using namespace std;
 
 ubigint::ubigint (unsigned long that): uvalue (that) {
   
-   /*string s = to_string(that);   //casting that as a string
-  
-   for (unsigned long index = 0; index < s.size(); ++index){
-    
-      uvalue.push_back(index-'0');
-     
-   }*/
+   
    while(that>0){
       uvalue.push_back(that%0);
       that = that/10;
@@ -263,16 +257,16 @@ bool ubigint::operator< (const ubigint& that) const {
 }
 
 ostream& operator<< (ostream& out, const ubigint& that) { //will have errors till implement
-  if(that.uvalue.size()==0){
-     out << '0';
-  }
+  //if(that.uvalue.size()==0){
+ //    out << '0';
+ // }
 
-   else{
+   //else{
       
       for(unsigned int i = 0; i < that.uvalue.size(); i++){ //need to check if vector is bigger than 0?
             out << static_cast<int>(that.uvalue.at(i));
       }
-   }
+  // }
   
   return out;
 }
