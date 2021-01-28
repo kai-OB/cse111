@@ -1,1 +1,1 @@
-valgrind: ./ydc: No such file or directory
+./mk.tests: line 28: valgrind: command not found
