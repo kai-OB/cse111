@@ -63,7 +63,7 @@ ubigint ubigint::operator+ (const ubigint& that) const {
       add_result.uvalue.push_back(sum); //push back the sum 
    }
    /* trim the vector by removing all high-order zeros :*/
-   while (add_result.uvalue.size()>0 and add_result.uvalue.back() == 0){ 
+   while (add_result.uvalue.size()>0 and add_result.uvalue.back()==0){ 
       add_result.uvalue.pop_back();
    }
    return add_result;
@@ -76,22 +76,24 @@ ubigint ubigint::operator- (const ubigint& that) const {
    unsigned int sub = 0; //subtraction of two digits
    unsigned int borrow = 0;   //digit to be borrowed
 
-   for(unsigned int i = 0; i<that.uvalue.size(); i++){//that will be bigger
+   for(unsigned int i = 0; i<that.uvalue.size(); i++){
       sub = borrow; //subtract borrow 
       borrow = 0;
 
-      sub = uvalue.at(i)-that.uvalue.at(i);//sub can be negative so just sub
+      sub = uvalue.at(i)-that.uvalue.at(i);
       
-      if( sub < 0){
+
+      if( uvalue.size() < that.uvalue.size()){
          sub += 10;
          borrow = -1;
       }
 
       sub_result.uvalue.push_back(sub);
       
+      
    }
 
-   while (sub_result.uvalue.size()>0 and sub_result.uvalue.back() == 0){ 
+   while(sub_result.uvalue.size()>0 and sub_result.uvalue.back()==0){ 
       sub_result.uvalue.pop_back();
    }
       
@@ -117,7 +119,7 @@ ubigint ubigint::operator* (const ubigint& that) const {
       carry = 0;  // c <-0
       for(unsigned int j = 0; j < that.uvalue.size(); j++){  //j E [0,n)
          // d <- P(i+j) + u(i)v(j) + c
-         digit=(product.uvalue.at(i+j)+(uvalue.at(i) * that.uvalue.at(i))+carry);
+         digit=(product.uvalue.at(i+j)+(uvalue.at(i)*that.uvalue.at(i))+carry);
       
          product.uvalue.at(i+j) = digit % 10; // P(i+j) <- d rem 10
 
@@ -142,7 +144,7 @@ void ubigint::multiply_by_2() {
    unsigned int digit = 0;   //mult of each digit
    unsigned int carry = 0;  //digit to be carried
 
-   for(unsigned int i = 0; i < uvalue.size(); i++){//just one loop,one number
+   for(unsigned int i = 0; i < uvalue.size(); i++){
       digit = (uvalue.at(i)*2 + carry);
       carry = (digit / 10);
       digit = digit%10; //same code as above basically
@@ -167,8 +169,7 @@ void ubigint::divide_by_2() {
    unsigned int rem = 0;   //remainder
    unsigned int quo = 0;   //quotient of two and digit
 
-   for(unsigned int i = uvalue.size(); i > 0; i--){//start @ highest order digit
-
+   for(unsigned int i = uvalue.size(); i > 0; i--){
       quo = uvalue.at(i)/2;   //divide by 2
       rem = quo % 2; //remainder will be mod 2
 
