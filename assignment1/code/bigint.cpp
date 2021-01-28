@@ -9,13 +9,13 @@ using namespace std;
 #include "bigint.h"
 
 bigint::bigint (long that): uvalue (that), is_negative (that < 0) {
-  
-     
+   
+    // bigint = (uvalue(that),is_negative(that<0));//ubigvalue_t
 }
 
 bigint::bigint (const ubigint& uvalue_, bool is_negative_):
-                uvalue(uvalue_), is_negative(is_negative_) {//dont change?
-               
+      uvalue(uvalue_), is_negative(is_negative_) {//dont change?
+              // bigint = uvalue(uvalue_), is_negative(is_negative_) ;
 
 }
 
@@ -146,8 +146,8 @@ bool bigint::operator< (const bigint& that) const {
 
 ostream& operator<< (ostream& out, const bigint& that) {
    
-   out << "bigint(" << (that.is_negative ? "-" : "+");
-      out << "\n" << that.uvalue << ")";  //should call uvalue print statement
+   out << (that.is_negative ? "-" : "+");
+      out << "\n" << that.uvalue;  //should call uvalue print statement
    //^cdfpq
    return out;
               
