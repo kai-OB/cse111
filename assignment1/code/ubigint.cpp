@@ -39,8 +39,8 @@ ubigint ubigint::operator+ (const ubigint& that) const {
    unsigned int carry = 0;  // remainder to be carried if sum>=10
    ssize_t longer; //longer vector to be added (may be same length!)
    
-   if(uvalue.size() > that.uvalue.size()){//sets longer and shorter values
-      longer = uvalue.size();//when run out of digits in the shorter number 
+   if(uvalue.size() > that.uvalue.size()){//sets longer + shorter val
+      longer = uvalue.size();//when run out of digits in shorter number 
    }
    else{ //this->value is the same as uvalue
       longer = that.uvalue.size();  //might not need this idk!!!!!!
@@ -60,10 +60,10 @@ ubigint ubigint::operator+ (const ubigint& that) const {
          carry = 1;  //carry 1 to start loop over with sum = carry
          sum = (sum % 10);   // and mod 10
       }
-      add_result.uvalue.push_back(sum); //push back the sum of two digits
+      add_result.uvalue.push_back(sum); //push back the sum 
    }
    /* trim the vector by removing all high-order zeros :*/
-   while (add_result.uvalue.size() > 0 and add_result.uvalue.back() == 0){ 
+   while (add_result.uvalue.size()>0 and add_result.uvalue.back() == 0){ 
       add_result.uvalue.pop_back();
    }
    return add_result;
@@ -76,11 +76,11 @@ ubigint ubigint::operator- (const ubigint& that) const {
    unsigned int sub = 0; //subtraction of two digits
    unsigned int borrow = 0;   //digit to be borrowed
 
-   for(unsigned int i = 0; i < that.uvalue.size(); i++){//that will be bigger
+   for(unsigned int i = 0; i<that.uvalue.size(); i++){//that will be bigger
       sub = borrow; //subtract borrow 
       borrow = 0;
 
-      sub = uvalue.at(i) - that.uvalue.at(i);//sub can be negative so just sub
+      sub = uvalue.at(i)-that.uvalue.at(i);//sub can be negative so just sub
       
       if( sub < 0){
          sub += 10;
@@ -91,7 +91,7 @@ ubigint ubigint::operator- (const ubigint& that) const {
       
    }
 
-   while (sub_result.uvalue.size() > 0 and sub_result.uvalue.back() == 0){ 
+   while (sub_result.uvalue.size()>0 and sub_result.uvalue.back() == 0){ 
       sub_result.uvalue.pop_back();
    }
       
@@ -117,7 +117,7 @@ ubigint ubigint::operator* (const ubigint& that) const {
       carry = 0;  // c <-0
       for(unsigned int j = 0; j < that.uvalue.size(); j++){  //j E [0,n)
          // d <- P(i+j) + u(i)v(j) + c
-         digit = (product.uvalue.at(i+j)+(uvalue.at(i) * that.uvalue.at(i))+carry);
+         digit=(product.uvalue.at(i+j)+(uvalue.at(i) * that.uvalue.at(i))+carry);
       
          product.uvalue.at(i+j) = digit % 10; // P(i+j) <- d rem 10
 
@@ -125,7 +125,7 @@ ubigint ubigint::operator* (const ubigint& that) const {
          
       }
       // P(i+n) <-c
-      product.uvalue.at(i + that.uvalue.size()) = carry;
+      product.uvalue.at(i+that.uvalue.size()) = carry;
 
   }
   //get rid of leading zeroes
@@ -221,12 +221,12 @@ ubigint ubigint::operator% (const ubigint& that) const {
 }
 
 bool ubigint::operator== (const ubigint& that) const {
-   if(uvalue.size()!=that.uvalue.size()){ //if sizes are different returns false
+   if(uvalue.size()!=that.uvalue.size()){ //if size diff, false
       return false;
    }
    unsigned int i = 0;
    while(i < uvalue.size()){ //<=?? inf loop check
-      if(uvalue.at(i)!=that.uvalue.at(i)){//if the digits are not the same
+      if(uvalue.at(i)!=that.uvalue.at(i)){//if the digits ! same
          return false;  //returns false
       }
       i++;  //increments 
@@ -236,18 +236,18 @@ bool ubigint::operator== (const ubigint& that) const {
 
 bool ubigint::operator< (const ubigint& that) const {
  
-    if(uvalue.size() < that.uvalue.size()){//this size is less than that size
+    if(uvalue.size() < that.uvalue.size()){
       return true;  
    }
    
-   if(uvalue.size() > that.uvalue.size()){ //this size is greater than that size
+   if(uvalue.size() > that.uvalue.size()){ 
       return false;  
    }
    //otherwise sizes are equal and evaluate digit by digit
    //go from highest to lowest order digit
    int i = uvalue.size();
    while(i > 0){ //<=??  and inf loop check
-      if(uvalue.at(i) > that.uvalue.at(i)){//if this > that then automatically false
+      if(uvalue.at(i) > that.uvalue.at(i)){//if this > that then false
          return false;  //returns false
       }
       i--;  //decrements 
