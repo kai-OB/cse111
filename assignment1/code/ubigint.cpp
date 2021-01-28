@@ -13,12 +13,16 @@ using namespace std;
 
 ubigint::ubigint (unsigned long that): uvalue (that) {
   
-   string s = to_string(that);   //casting that as a string
+   /*string s = to_string(that);   //casting that as a string
   
    for (unsigned long index = 0; index < s.size(); ++index){
     
       uvalue.push_back(index-'0');
      
+   }*/
+   while(that>0){
+      uvalue.push_back(that%0);
+      that = that/10;
    }
 }
 
@@ -80,7 +84,7 @@ ubigint ubigint::operator- (const ubigint& that) const {
    unsigned int borrow = 0;   //digit to be borrowed
 
    for(unsigned int i = 0; i < that.uvalue.size(); i++){  //that will be bigger
-      sub -= borrow; //subtract borrow 
+      sub = borrow; //subtract borrow 
       borrow = 0;
 
       sub = uvalue.at(i) - that.uvalue.at(i); // sub can be negative so just sub
@@ -91,6 +95,7 @@ ubigint ubigint::operator- (const ubigint& that) const {
       }
 
       sub_result.uvalue.push_back(sub);
+      
    }
 
    while (sub_result.uvalue.size() > 0 and sub_result.uvalue.back() == 0){ 
