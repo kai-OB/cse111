@@ -15,7 +15,7 @@ ubigint::ubigint (unsigned long that)/*: uvalue (that)*/ {
   
    
    /*while(that>0){
-      uvalue.push_back(that%10);
+      uvalue.push_back(that%10)
       that = that/10;
    }*/
    string s = to_string(that);
@@ -272,7 +272,7 @@ ostream& operator<< (ostream& out, const ubigint& that) {
    //else{
       
       for(unsigned int i = 0; i < that.uvalue.size(); i++){ 
-            out << (that.uvalue.at(i)+ '0');
+            out << (that.uvalue.at(i)+ 0);
       
    }
   
