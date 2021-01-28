@@ -264,9 +264,9 @@ ostream& operator<< (ostream& out, const ubigint& that) { //will have errors til
    //else{
       
       for(unsigned int i = 0; i < that.uvalue.size(); i++){ //need to check if vector is bigger than 0?
-            out << static_cast<int>(that.uvalue.at(i));
-      }
-  // }
+            out << (that.uvalue.at(i)+ '0');
+      
+   }
   
   return out;
 }
