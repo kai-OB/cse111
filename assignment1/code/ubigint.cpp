@@ -115,11 +115,12 @@ ubigint ubigint::operator* (const ubigint& that) const {
       k++; //sums of the sizes of the two vectors
    } 
 
-  for(unsigned int i = 0; i < uvalue.size(); i++){  //i E [0,m)
+   for(unsigned int i = 0; i < uvalue.size(); i++){  //i E [0,m)
       carry = 0;  // c <-0
       for(unsigned int j = 0; j < that.uvalue.size(); j++){  //j E [0,n)
          // d <- P(i+j) + u(i)v(j) + c
-         digit=(product.uvalue.at(i+j)+(uvalue.at(i)*that.uvalue.at(i))+carry);
+         digit=(product.uvalue.at(i+j)+  
+            (uvalue.at(i)*that.uvalue.at(i))+carry);
       
          product.uvalue.at(i+j) = digit % 10; // P(i+j) <- d rem 10
 
