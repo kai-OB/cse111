@@ -21,7 +21,7 @@ ubigint::ubigint (unsigned long that)/*: uvalue (that)*/ {
    string s = to_string(that);
    for (unsigned long index = 0; index < s.size(); ++index){
     
-      uvalue.push_back(s.at(index)-'0');  //casting as int?
+      uvalue.push_back(s.at(index)-0);  //casting as int?
      
      
    }
@@ -31,7 +31,7 @@ ubigint::ubigint (const string& that)/*: uvalue(0)*/ {
   
    for (unsigned long index = 0; index < that.size(); ++index){
     
-      uvalue.push_back(that.at(index)-'0');  //casting as int?
+      uvalue.push_back(that.at(index)-0);  //casting as int?
      
      
    }
