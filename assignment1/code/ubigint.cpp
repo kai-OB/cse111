@@ -19,33 +19,31 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////
 
 ubigint::ubigint (unsigned long that): uvalue (that) {
-   // DEBUGF ('~', this << " -> " << uvalue); 
-   //copy string constructor?
+  
    string s = to_string(that);   //casting that as a string
-   /* for (ssize_t index = s.size() - 1; index >= 0; --index){
+  
+   for (unsigned long index = 0; index < s.size(); ++index){
+    
+      uvalue.push_back(index-'0');
      
-      uvalue.push_back(index-'0');  //casting as int?
-   }*/
-   for (char digit: s) {
-      /*if (not isdigit (digit)) {
-         throw invalid_argument ("ubigint::ubigint(" + that + ")");
-      }*/
-      //uvalue = uvalue * 10 + digit - '0';
-      uvalue.push_back(digit);
    }
 }
 
 ubigint::ubigint (const string& that): uvalue(0) {
    // DEBUGF ('~', "that = \"" << that << "\""); 
   
-   for (ssize_t index = that.size() - 1; index >= 0; --index){
+   for (unsigned long index = that.size() - 1; index >= 0; --index){
+    
       uvalue.push_back(index-'0');  //casting as int?
+     
+     
    }
-   //this should store in correct order??
+
+   
 }
 
 ubigint ubigint::operator+ (const ubigint& that) const {
-  // DEBUGF ('u', *this << "+" << that);
+  
    ubigint add_result;
    unsigned int sum; // sum of two digits pairwise while adding the vectors
    unsigned int carry = 0;  // remainder to be carried if sum>=10
@@ -56,7 +54,6 @@ ubigint ubigint::operator+ (const ubigint& that) const {
    }
    else{ //this->value is the same as uvalue
       longer = that.uvalue.size();  //might not need this idk!!!!!!
-    //  shorter = uvalue.size();
    }
 
    for(auto i = 0; i < longer; i++){   //should keep adding when the shorter vector runs out
@@ -185,10 +182,9 @@ void ubigint::divide_by_2() {
       quo = uvalue.at(i)/2;   //divide by 2
       rem = quo % 2; //remainder will be mod 2
 
-      //if (rem > 0){     //if there is remainder
+     
          quo += rem;    //add to quotient
-        // rem = 0;
-     // }
+       
       uvalue.at(i) = quo;     //change uvalues to quotient
       
    }
@@ -249,7 +245,7 @@ bool ubigint::operator== (const ubigint& that) const {
 }
 
 bool ubigint::operator< (const ubigint& that) const {
-  // return uvalue < that.uvalue;
+ 
     if(uvalue.size() < that.uvalue.size()){ //this size is less than that size
       return true;  // than this is less than that, return true
    }
@@ -277,10 +273,10 @@ ostream& operator<< (ostream& out, const ubigint& that) { //will have errors til
    else{
       
       for(unsigned int i = 0; i < that.uvalue.size(); i++){ //need to check if vector is bigger than 0?
-            out << (that.uvalue.at(i)+'0');
+            out << static_cast<int>(that.uvalue.at(i));
       }
    }
-  // return out << "ubigint(" << that.uvalue << ")";
+  
   return out;
 }
 

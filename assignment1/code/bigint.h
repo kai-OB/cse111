@@ -7,6 +7,7 @@
 #include <iostream>
 #include <limits>
 #include <utility>
+#include <vector>
 using namespace std;
 
 #include "debug.h"

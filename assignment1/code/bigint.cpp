@@ -9,31 +9,30 @@ using namespace std;
 #include "bigint.h"
 
 bigint::bigint (long that): uvalue (that), is_negative (that < 0) {
-  // DEBUGF ('~', this << " -> " << uvalue)
-   /*
-   if(is_negative == true){   //need to do anything else
-      while(that<0){          //for the sign?
-         bigint.push_back(that%0);  
-         that/10;
-      }
-   }
-
-   else{
-      while(that > 0){  //if that is negative,
-         bigint.push_back(that%0);  
-         that/10;
-      }
+  
+   /*string s = to_string(that);   //casting that as a string
+  
+   for (char digit: s) {
+     
+      bigint.push_back(digit);
+     
    }*/
    //dont change?
+  // cout << "bigint";
+     
 }
 
 bigint::bigint (const ubigint& uvalue_, bool is_negative_):
                 uvalue(uvalue_), is_negative(is_negative_) {//dont change?
+                cout << "bigint";
+
 }
 
 bigint::bigint (const string& that) {
    is_negative = that.size() > 0 and that[0] == '_';
    uvalue = ubigint (that.substr (is_negative ? 1 : 0));
+   cout << "bigint";
+
 }
 
 bigint bigint::operator+ () const { //returns argument
@@ -155,10 +154,11 @@ bool bigint::operator< (const bigint& that) const {
 }
 
 ostream& operator<< (ostream& out, const bigint& that) {
-  
-   return out << "bigint(" << (that.is_negative ? "-" : "+")
-              << "\n" << that.uvalue << ")";
+   
+   out << "bigint(" << (that.is_negative ? "-" : "+");
+      out << "\n" << that.uvalue << ")";  //should call uvalue print statement
    //^cdfpq
+   return out;
               
 }
 
