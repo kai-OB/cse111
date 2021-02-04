@@ -29,15 +29,20 @@ inode_state::inode_state() {
 
    //inode state constructor
    //establish inode state
-   //create root directory
+   //create root directory /
    //make sure root directory (parent ..) points at itseld
-   //can call inode constructor and pass in a filetype
-   //then modify it after the fact
-   //can call the make shared plain file and directory
+   //can call inode constructor and pass in a filetype /
+   //then modify it after the fact?
+   //can call the make shared plain file and directory/?
    //i node and inode state are friends
    //which means once you have an inode the inode state can go in and zap 
    //the fields in appropriate manners
-
+   root = make_shared <inode> (file_type::DIRECTORY_TYPE);  //right?
+   //root = make_shared <inode> (root_file);  //so the root can change but root dir doesnt?
+   cwd = root;
+   
+   mkdir(root);   //initializes .. and . and /????
+   
    
 }
 

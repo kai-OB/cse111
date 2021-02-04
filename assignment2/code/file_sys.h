@@ -104,6 +104,11 @@ class inode {
       size_t get_next_inode_nr();   //getter
       //dont need a setter for next inode number bc will just increment
       file_type get_file_type(file_type); //getter need this??
+
+      //parent and child   ?
+      inode_ptr get_parent(inode_ptr);
+      inode_ptr set_parent(inode_ptr);
+
 };
 
 
@@ -146,6 +151,7 @@ class base_file {
       //only appropriate if we are dealing with directories?
       virtual inode_ptr mkdir (const string& dirname);
       virtual inode_ptr mkfile (const string& filename);
+      virtual void parent(const string& filename, const inode_ptr& name);
       //need to know filetype or filename? setters or getters???
 };
 
@@ -215,13 +221,14 @@ class directory: public base_file {
          return result;
       }
    public:
-   virtual ~directory() = default;
+      virtual ~directory() = default;
       virtual size_t size() const override;//????? need to override
       virtual void remove (const string& filename) override;   //need to implement to throw error?    
-                                                               //if directory name is called
+                                                              //if directory name is called
       virtual inode_ptr mkdir (const string& dirname) override;
       virtual inode_ptr mkfile (const string& filename) override;
-       virtual void writefile (const wordvec& newdata) override;//????
+      virtual void writefile (const wordvec& newdata) override;//????
+      virtual void add_entries(const string& filename, const inode_ptr& name)override;
        //make a num files
 };
 
