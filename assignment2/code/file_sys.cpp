@@ -38,34 +38,48 @@ inode_state::inode_state() {
    //which means once you have an inode the inode state can go in and zap 
    //the fields in appropriate manners
    root = make_shared <inode> (file_type::DIRECTORY_TYPE);  //right?
-   //root = make_shared <inode> (root_file);  //so the root can change but root dir doesnt?
+   shared_ptr <directory> root_dir = dynamic_pointer_cast<directory>
+                                    (root->get_contents());
    cwd = root;
-   
-   mkdir(root);   //initializes .. and . and /????
-   
+
+   root->mkdir(root);
+  // parent("."root);  //cal inside mkdir? or here?
+  // parent("..",root);
    
 }
-
-      void inode_state::prompt(const string& s){
-         prompt_  = s;
-      }  //implement later?
+//inode_state method implementations
+void inode_state::prompt(const string& s){
+      prompt_  = s;
+}  //implement later?
       //sets the prompts
 
-      inode_ptr inode_state::get_root(){
-         return root;
-      }
-      inode_ptr inode_state::get_cwd(){
-         return cwd;
-      }
-      void inode_state::set_cwd(inode_ptr new_cwd){
-         cwd = new_cwd;
-      }
-      void inode_state::set_root(inode_ptr new_root){
-         root = new_root;
-      }    
+inode_ptr inode_state::get_root(){
+   return root;   //state.root? or just root?
+}
+inode_ptr inode_state::get_cwd(){
+   return cwd;
+}
+void inode_state::set_cwd(inode_ptr new_cwd){
+   cwd = new_cwd;
+}
+void inode_state::set_root(inode_ptr new_root){
+   root = new_root;
+}    
+   
 
 const string& inode_state::prompt() const { return prompt_; }
 //just returns the prompt
+
+/////////// inode_state destructor////////  
+
+inode_state::~inode_state(){
+   shared_ptr <directory> root_dir = dynamic_pointer_cast<directory>
+                                    (root->get_contents());
+   clear_dir(root_dir);  //call erase files on all files then root will be delete
+   root = nullptr;        //maybe write  inside the deconstructor idk
+   cwd = nullptr;
+
+}
 
 ostream& operator<< (ostream& out, const inode_state& state) {
    //just prints out inode state
@@ -106,6 +120,14 @@ size_t inode::get_inode_nr() const {
    DEBUGF ('i', "inode = " << inode_nr);
    return inode_nr;
 }
+void inode::set_contents(base_file_ptr);   //setter
+base_file_ptr inode::get_contents(); //getter
+
+size_t inode::get_next_inode_nr();   //getter
+      //dont need a setter for next inode number bc will just increment
+file_type inode::get_file_type(file_type); //getter need this??
+
+      
 
 
 file_error::file_error (const string& what):

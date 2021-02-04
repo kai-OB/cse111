@@ -105,10 +105,6 @@ class inode {
       //dont need a setter for next inode number bc will just increment
       file_type get_file_type(file_type); //getter need this??
 
-      //parent and child   ?
-      inode_ptr get_parent(inode_ptr);
-      inode_ptr set_parent(inode_ptr);
-
 };
 
 
@@ -189,7 +185,8 @@ class plain_file: public base_file {
       //to make it easier to debug
       //keyword virtal is optional
        virtual void remove (const string& filename)override;
-       virtual inode_ptr mkdir (const string& dirname) override;  //error will be thrown, implement
+       virtual inode_ptr mkdir (const string& dirname) override;  //error will be thrown if basefile version is called
+                                                               //, implement in directory
       virtual void writefile (const wordvec& newdata) override;
       virtual inode_ptr mkfile (const string& filename) override;
 };
@@ -228,7 +225,7 @@ class directory: public base_file {
       virtual inode_ptr mkdir (const string& dirname) override;
       virtual inode_ptr mkfile (const string& filename) override;
       virtual void writefile (const wordvec& newdata) override;//????
-      virtual void add_entries(const string& filename, const inode_ptr& name)override;
+      virtual void parent(const string& filename, const inode_ptr& name)override;
        //make a num files
 };
 
