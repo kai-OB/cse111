@@ -93,6 +93,8 @@ class inode {
                            //directory and plainfile as subclasses
                            //dir and pl do all the work
       //inode contains a pointer to base file
+      file_type fileType;  //to know the filetype
+
    public:
    virtual ~inode() = default;   //destructor?
       inode (file_type);   //gets filetype or creates filetype?
@@ -103,7 +105,7 @@ class inode {
 
       size_t get_next_inode_nr();   //getter
       //dont need a setter for next inode number bc will just increment
-      file_type get_file_type(file_type); //getter need this??
+      file_type get_file_type(); //getter need this??
 
 };
 

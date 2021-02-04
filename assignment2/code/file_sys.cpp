@@ -97,6 +97,7 @@ inode::inode(file_type type): inode_nr (next_inode_nr++) {
    //so just say new node and give it the particular filetype that you want to 
    //create
    //depends on the command it is being called from
+   fileType = type;
    switch (type) {
       case file_type::PLAIN_TYPE:
            contents = make_shared<plain_file>();
@@ -120,12 +121,21 @@ size_t inode::get_inode_nr() const {
    DEBUGF ('i', "inode = " << inode_nr);
    return inode_nr;
 }
-void inode::set_contents(base_file_ptr);   //setter
-base_file_ptr inode::get_contents(); //getter
+void inode::set_contents(base_file_ptr new_contents){
 
-size_t inode::get_next_inode_nr();   //getter
+   contents = new_contents;
+}   //setter
+base_file_ptr inode::get_contents(){
+   return contents;
+} //getter
+
+size_t inode::get_next_inode_nr(){  //maybe take away
+   return next_inode_nr;//?
+}   //getter
       //dont need a setter for next inode number bc will just increment
-file_type inode::get_file_type(file_type); //getter need this??
+file_type inode::get_file_type(){
+   return fileType;
+} //getter need this??
 
       
 
