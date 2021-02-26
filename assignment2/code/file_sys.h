@@ -98,10 +98,9 @@ class inode {
       void set_contents(base_file_ptr);   //setter
       base_file_ptr get_contents(); //getter
 
-      size_t get_next_inode_nr();   //getter
-      //dont need a setter for next inode number bc will just increment
       file_type get_file_type(); //getter need this??
-      inode_ptr get_parent();
+      //basically is_dir
+      inode_ptr get_parent(); //need these?
       void set_parent(inode_ptr);
       
 
@@ -148,7 +147,6 @@ class base_file {
       virtual inode_ptr mkdir (const string& dirname);
       virtual inode_ptr mkfile (const string& filename);
       virtual map<string,inode_ptr>& get_dirents();
-      virtual void rm_r()
       virtual bool is_dir();
 };
 

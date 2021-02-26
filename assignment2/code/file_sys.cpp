@@ -53,8 +53,11 @@ inode_state::inode_state() {
 //inode_state method implementations
 void inode_state::prompt(const string& s){
       prompt_  = s;
-}  //implement later?
+}  //implement later? its ok
       //sets the prompts
+const string& inode_state::prompt() const { return prompt_; }
+//just returns the prompt
+
 
 inode_ptr inode_state::get_root(){ return root; } 
 
@@ -63,11 +66,6 @@ inode_ptr inode_state::get_cwd(){ return cwd; }
 void inode_state::set_cwd(inode_ptr new_cwd){
    cwd = new_cwd;
 }
-   
-   
-
-const string& inode_state::prompt() const { return prompt_; }
-//just returns the prompt
 
 /////////// inode_state destructor////////  
 
@@ -82,12 +80,12 @@ void rm_r( inode_ptr roo){
    map<string,inode_ptr>& roo_dirents = (roo->get_contents()->get_dirents());
    //create map of dirents of the file roo
    for(auto ritor = roo_dirents.crbegin(); ritor != roo_dirents.crend(); ++ritor){ //cr or nah
-      //if it is a directory but not the root(parent of itself)
-      //and not the cwd
+      //recur over each entry other than dot or dot dot
       if(ritor->first!="." and ritor->first != ".."
-         and ritor->second->get_contents()->is_dir()==true){//->get_contents()?
+         and ritor->second->get_contents()->get_file_type()==DIRECTORY_TYPE){//->get_contents()?
          rm_r(ritor->second);
       }
+      //if not directory, or empty directory, erase
       roo_dirents.erase(ritor->first);
    }
    roo_dirents.erase("."); //erasing root last
@@ -135,26 +133,19 @@ size_t inode::get_inode_nr() const {
    DEBUGF ('i', "inode = " << inode_nr);
    return inode_nr;
 }
-void inode::set_contents(base_file_ptr new_contents){
-   contents = new_contents;
-}   //setter
+//void inode::set_contents(base_file_ptr new_contents){
+//   contents = new_contents;
+//}   //dont ever need to set new contents though right?
 base_file_ptr inode::get_contents(){ return contents; } //getter
 
-size_t inode::get_next_inode_nr(){  return next_inode_nr; } //need this?
-      //dont need a setter for next inode number bc will just increment
 file_type inode::get_file_type(){ return fileType; } //getter need this??
+//or just use is_dir
 
 inode_ptr inode::get_parent(){ 
    return parent;
 }
-void inode::set_parent(inode_ptr new_parent){
-   parent = new_parent;
-}
 
 
-      
-
-
 file_error::file_error (const string& what):
 //implementation of a file error could have been done in line? idk
 //need to change?
@@ -187,23 +178,36 @@ inode_ptr base_file::mkdir (const string&) {
 inode_ptr base_file::mkfile (const string&) {
    throw file_error ("is a " + error_file_type()); //dont work
 }
+//added functions
+map<string,inode_ptr>& base_file::get_dirents() {
+   throw file_error ("is a " + error_file_type()); //dont work
+}
+bool base_file::is_dir() {
+   throw file_error ("is a " + error_file_type()); //dont work
+}
 
 //plainfile must override read and writefile
    //but can go ahead and inherit remove mkdir and mkfile
 //all of these need to be done!!!
 size_t plain_file::size() const {   //constant function
-   size_t size {0};  //must change to actually return size
+   //use wordvec data
+   //size_t size  = data.size();  //does this work
    DEBUGF ('i', "size = " << size);
-   return size;
+   return data.size();  //calling size function from map?
 }
 
 const wordvec& plain_file::readfile() const {
    DEBUGF ('i', data);
-   return data;   //must change
+   return data;   //dont change?
 }
 
 void plain_file::writefile (const wordvec& words) {
    DEBUGF ('i', words);//must change
+   data = words;  //sets data to the wordvec words
+}
+
+bool base_file::is_dir() {
+   return  false;
 }
 //directory must override remove mkdir and mkfile but can inherit
 //readfile and writefile
@@ -214,9 +218,9 @@ void plain_file::writefile (const wordvec& words) {
 //needs to have a directory file in it
 //but the last three wont be used if dont test using those, dont make or delete files
 size_t directory::size() const {
-   size_t size {0};  //can use directory.size function in map?
+   //size_t size = dirents.size();  //can use directory.size function in map?
    DEBUGF ('i', "size = " << size);
-   return size;
+   return dirents.size();
 }
 //just override the base files
 
