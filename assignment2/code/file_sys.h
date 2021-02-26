@@ -44,7 +44,7 @@ class inode_state {  //only one can exist in the entire filesystem
       //to them in the constructor!!!
       string prompt_ {"% "};  //cant have the fuction and field name be the same
    public:
-   virtual ~inode_state() = default;
+      virtual ~inode_state() = default;   //default or make own?
       inode_state (const inode_state&) = delete; // copy ctor
       inode_state& operator= (const inode_state&) = delete; // op=
       //-delete says that if u attempt to copy it the compiler
@@ -58,15 +58,11 @@ class inode_state {  //only one can exist in the entire filesystem
       void prompt (const string&);  //implement later?
       //sets the prompts
 
-      //implement getters and setters//////////////
-   
-      //inode_ptr& get_root() { return this->root; }
-      //inode_ptr& get_cwd() { return this->cwd; }
-      //just initialize methods?
       inode_ptr get_root();
       inode_ptr get_cwd();
-      void set_cwd(inode_ptr);//???
+      void set_cwd(inode_ptr);//??? //yes
       void set_root(inode_ptr);//???
+      
 };
 
 // class inode -
@@ -94,7 +90,7 @@ class inode {
                            //dir and pl do all the work
       //inode contains a pointer to base file
       file_type fileType;  //to know the filetype
-
+      inode_ptr parent{nullptr}; //initializes it to null in case there isnt a parent?
    public:
    virtual ~inode() = default;   //destructor?
       inode (file_type);   //gets filetype or creates filetype?
@@ -106,6 +102,11 @@ class inode {
       size_t get_next_inode_nr();   //getter
       //dont need a setter for next inode number bc will just increment
       file_type get_file_type(); //getter need this??
+      inode_ptr get_parent();
+      void set_parent(inode_ptr);
+      inode_ptr get_root();
+      void set_root(inode_ptr);
+
 
 };
 

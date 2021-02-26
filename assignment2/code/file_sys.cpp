@@ -38,14 +38,17 @@ inode_state::inode_state() {
    //which means once you have an inode the inode state can go in and zap 
    //the fields in appropriate manners
    root = make_shared <inode> (file_type::DIRECTORY_TYPE);  //right?
-   shared_ptr <directory> root_dir = dynamic_pointer_cast<directory>
-                                    (root->get_contents());
+  // shared_ptr <directory> root_dir = dynamic_pointer_cast<directory>
+   //                              (root->get_contents());
+   //shared_ptr <directory>  
    cwd = root;
 
-   root->mkdir(root);
-  // parent("."root);  //cal inside mkdir? or here?
-  // parent("..",root);
+   pair <string, inode_ptr> dot = {".", root};  //sets root to root
+   (root->get_contents()->get_dirents()).insert(dot);  
    
+   pair <string, inode_ptr> dot_dot  = {"..", root};  //sets the parent to root
+   (root->get_contents()->get_dirents()).insert(dot_dot);
+  
 }
 //inode_state method implementations
 void inode_state::prompt(const string& s){
@@ -53,18 +56,14 @@ void inode_state::prompt(const string& s){
 }  //implement later?
       //sets the prompts
 
-inode_ptr inode_state::get_root(){
-   return root;   //state.root? or just root?
-}
-inode_ptr inode_state::get_cwd(){
-   return cwd;
-}
+inode_ptr inode_state::get_root(){ return root; } 
+//state.root? or just root?
+
+inode_ptr inode_state::get_cwd(){ return cwd; }
 void inode_state::set_cwd(inode_ptr new_cwd){
    cwd = new_cwd;
 }
-void inode_state::set_root(inode_ptr new_root){
-   root = new_root;
-}    
+   
    
 
 const string& inode_state::prompt() const { return prompt_; }
@@ -88,7 +87,7 @@ ostream& operator<< (ostream& out, const inode_state& state) {
        << ", cwd = " << state.cwd;
    return out;
 }
-
+/////////////////////////////////inode//////////////////
 inode::inode(file_type type): inode_nr (next_inode_nr++) {
    //constructor
    //need a virtual constructor but no such thing in c++
@@ -122,20 +121,21 @@ size_t inode::get_inode_nr() const {
    return inode_nr;
 }
 void inode::set_contents(base_file_ptr new_contents){
-
    contents = new_contents;
 }   //setter
-base_file_ptr inode::get_contents(){
-   return contents;
-} //getter
+base_file_ptr inode::get_contents(){ return contents; } //getter
 
-size_t inode::get_next_inode_nr(){  //maybe take away
-   return next_inode_nr;//?
-}   //getter
+size_t inode::get_next_inode_nr(){  return next_inode_nr; } //need this?
       //dont need a setter for next inode number bc will just increment
-file_type inode::get_file_type(){
-   return fileType;
-} //getter need this??
+file_type inode::get_file_type(){ return fileType; } //getter need this??
+
+inode_ptr inode::get_parent(){ 
+   return parent;
+}
+void inode::set_parent(inode_ptr new_parent){
+   parent = new_parent;
+}
+
 
       
 
