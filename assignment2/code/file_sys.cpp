@@ -43,10 +43,10 @@ inode_state::inode_state() {
    //shared_ptr <directory>  
    cwd = root;
 
-   pair <string, inode_ptr> dot = {".", root};  //sets root to root
+   pair <string, inode_ptr> dot = {".", root};  //sets dot, cwd, to root
    (root->get_contents()->get_dirents()).insert(dot);  
    
-   pair <string, inode_ptr> dot_dot  = {"..", root};  //sets the parent to root
+   pair <string, inode_ptr> dot_dot  = {"..", root};  //sets dot dot, the parent to root
    (root->get_contents()->get_dirents()).insert(dot_dot);
   
 }
@@ -57,9 +57,9 @@ void inode_state::prompt(const string& s){
       //sets the prompts
 
 inode_ptr inode_state::get_root(){ return root; } 
-//state.root? or just root?
 
 inode_ptr inode_state::get_cwd(){ return cwd; }
+
 void inode_state::set_cwd(inode_ptr new_cwd){
    cwd = new_cwd;
 }
@@ -72,11 +72,26 @@ const string& inode_state::prompt() const { return prompt_; }
 /////////// inode_state destructor////////  
 
 inode_state::~inode_state(){
-   shared_ptr <directory> root_dir = dynamic_pointer_cast<directory>
-                                    (root->get_contents());
-   clear_dir(root_dir);  //call erase files on all files then root will be delete
-   root = nullptr;        //maybe write  inside the deconstructor idk
-   cwd = nullptr;
+   
+   rm_r(root);
+   cwd = nullptr;//need to do this?
+   root = nullptr;//idk
+}
+void rm_r( inode_ptr roo){
+   //depth first search (postorder)
+   map<string,inode_ptr>& roo_dirents = (roo->get_contents()->get_dirents());
+   //create map of dirents of the file roo
+   for(auto ritor = roo_dirents.crbegin(); ritor != roo_dirents.crend(); ++ritor){ //cr or nah
+      //if it is a directory but not the root(parent of itself)
+      //and not the cwd
+      if(ritor->first!="." and ritor->first != ".."
+         and ritor->second->get_contents()->is_dir()==true){//->get_contents()?
+         rm_r(ritor->second);
+      }
+      roo_dirents.erase(ritor->first);
+   }
+   roo_dirents.erase("."); //erasing root last
+   roo_dirents.erase(".."); //erasing root last
 
 }
 

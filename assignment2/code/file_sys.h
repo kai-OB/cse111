@@ -61,7 +61,6 @@ class inode_state {  //only one can exist in the entire filesystem
       inode_ptr get_root();
       inode_ptr get_cwd();
       void set_cwd(inode_ptr);//??? //yes
-      void set_root(inode_ptr);//???
       
 };
 
@@ -104,9 +103,7 @@ class inode {
       file_type get_file_type(); //getter need this??
       inode_ptr get_parent();
       void set_parent(inode_ptr);
-      inode_ptr get_root();
-      void set_root(inode_ptr);
-
+      
 
 };
 
@@ -150,8 +147,9 @@ class base_file {
       //only appropriate if we are dealing with directories?
       virtual inode_ptr mkdir (const string& dirname);
       virtual inode_ptr mkfile (const string& filename);
-      virtual void parent(const string& filename, const inode_ptr& name);
-      //need to know filetype or filename? setters or getters???
+      virtual map<string,inode_ptr>& get_dirents();
+      virtual void rm_r()
+      virtual bool is_dir();
 };
 
 // class plain_file -
@@ -192,6 +190,9 @@ class plain_file: public base_file {
                                                                //, implement in directory
       virtual void writefile (const wordvec& newdata) override;
       virtual inode_ptr mkfile (const string& filename) override;
+
+      virtual bool is_dir() override;
+      
 };
 
 // class directory -
@@ -228,8 +229,11 @@ class directory: public base_file {
       virtual inode_ptr mkdir (const string& dirname) override;
       virtual inode_ptr mkfile (const string& filename) override;
       virtual void writefile (const wordvec& newdata) override;//????
-      virtual void parent(const string& filename, const inode_ptr& name)override;
        //make a num files
+      virtual map<string,inode_ptr>& get_dirents()override;
+      virtual bool is_dir() override;
+
+       
 };
 
 #endif
