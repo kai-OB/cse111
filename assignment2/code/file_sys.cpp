@@ -82,7 +82,7 @@ void rm_r( inode_ptr roo){
    for(auto ritor = roo_dirents.crbegin(); ritor != roo_dirents.crend(); ++ritor){ //cr or nah
       //recur over each entry other than dot or dot dot
       if(ritor->first!="." and ritor->first != ".."
-         and ritor->second->get_contents()->get_file_type()==DIRECTORY_TYPE){//->get_contents()?
+         and ritor->second->get_contents()->is_dir()==true){//->get_contents()?
          rm_r(ritor->second);
       }
       //if not directory, or empty directory, erase
@@ -206,7 +206,7 @@ void plain_file::writefile (const wordvec& words) {
    data = words;  //sets data to the wordvec words
 }
 
-bool base_file::is_dir() {
+bool plain_file::is_dir() {
    return  false;
 }
 //directory must override remove mkdir and mkfile but can inherit
@@ -226,6 +226,17 @@ size_t directory::size() const {
 
 void directory::remove (const string& filename) {
    DEBUGF ('i', filename); //needs to delete something from a directory
+   //idk look at this more
+   //if empty directory or if file
+   //use find() function
+   //shouldnt work on root though? idk
+   //map<string,inode_ptr>& file_name = (dirents.find(filename));
+   bool file_is_dir = dirents.find(filename)->second->
+                     get_contents()->is_dir();
+   if(file_is_dir == false||dirents.find(filename)->first != ".."){
+      dirents.erase(filename);
+   }
+    
 }
 
 inode_ptr directory::mkdir (const string& dirname) {
@@ -236,5 +247,12 @@ inode_ptr directory::mkdir (const string& dirname) {
 inode_ptr directory::mkfile (const string& filename) {
    DEBUGF ('i', filename); //creates file
    return nullptr;
+}
+
+map<string,inode_ptr>& directory::get_dirents() {
+   return dirents;
+}
+bool directory::is_dir() {
+   return true;
 }
 
