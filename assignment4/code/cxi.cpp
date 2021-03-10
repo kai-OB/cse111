@@ -103,31 +103,35 @@ void cxi_put (client_socket& server, vector<string>& splitvec) {
    //if !file.exist ->error
    //use ifstream
    ifstream read_file (header.filename);
-   FILE* pipe = popen ("ls-l", "r");
+  /* FILE* pipe = popen ("ls-l", "r");
    if(!pipe){
       cerr<< header.filename << " does not exist" << endl;
       return;
    }
-   else{
+   else{*/
       //init buffer
-      struct stat put_nbytes;
-      stat(header.filename, &put_nbytes);
-      auto buffer = make_unique<char[]> (put_nbytes.st_size);
+      struct stat stat_buf;
+      int status = stat(header.filename, &stat_buf);
+      if(status !=0){
+         cerr<< header.filename << " does not exist" << endl;
+         return;
+      }
+      auto buffer = make_unique<char[]> (stat_buf.st_size);
       //send payload
-      read_file.read(buffer.get(), put_nbytes.st_size);
+      read_file.read(buffer.get(), stat_buf.st_size);
       //header.command = cxi_command::PUT;????
       send_packet (server, &header, sizeof header);
-      send_packet (server, buffer.get(), sizeof buffer); //put_nbytes.st_size?
+      send_packet (server, buffer.get(), stat_buf.st_size); //put_nbytes.st_size?
       recv_packet (server, &header, sizeof header);
       
-   }
+   //}
    if(header.command == cxi_command::ACK){
       cout << "PUT: ACK, sucess" << endl;
    }
    if(header.command == cxi_command::NAK){
       cout << "PUT: NAK, failure" << endl;
    }
-   pclose(pipe);
+   //pclose(pipe);
    read_file.close();// ?? 
 }
 

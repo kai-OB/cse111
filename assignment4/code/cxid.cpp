@@ -23,32 +23,77 @@ struct cxi_exit: public exception {};
 void reply_ls (accepted_socket& client_sock, cxi_header& header) {
    const char* ls_cmd = "ls -l 2>&1";
    FILE* ls_pipe = popen (ls_cmd, "r");
-   if (ls_pipe == NULL) { 
+   if (ls_pipe == NULL) { //gets ls output
       outlog << ls_cmd << ": " << strerror (errno) << endl;
-      header.command = cxi_command::NAK;
+      header.command = cxi_command::NAK;//if err return NAK
       header.nbytes = htonl (errno);
       send_packet (client_sock, &header, sizeof header);
       return;
    }
    string ls_output;
-   char buffer[0x1000];
+   char buffer[0x1000];//else create buffer
    for (;;) {
       char* rc = fgets (buffer, sizeof buffer, ls_pipe);
       if (rc == nullptr) break;
-      ls_output.append (buffer);
+      ls_output.append (buffer);//make output
    }
-   int status = pclose (ls_pipe);
+   int status = pclose (ls_pipe);//close status
    if (status < 0) outlog << ls_cmd << ": " << strerror (errno) << endl;
               else outlog << ls_cmd << ": exit " << (status >> 8)
                           << " signal " << (status & 0x7F)
                           << " core " << (status >> 7 & 1) << endl;
-   header.command = cxi_command::LSOUT;
-   header.nbytes = htonl (ls_output.size());
-   memset (header.filename, 0, FILENAME_SIZE);
+   header.command = cxi_command::LSOUT;//sends LSOUT
+   header.nbytes = htonl (ls_output.size());//sets nbytes
+   memset (header.filename, 0, FILENAME_SIZE);//memset
    outlog << "sending header " << header << endl;
-   send_packet (client_sock, &header, sizeof header);
-   send_packet (client_sock, ls_output.c_str(), ls_output.size());
+   send_packet (client_sock, &header, sizeof header);//sends lsout
+   send_packet (client_sock, ls_output.c_str(), ls_output.size());//sends lsoutput
    outlog << "sent " << ls_output.size() << " bytes" << endl;
+}
+void reply_get (accepted_socket& client_sock, cxi_header& header) {
+   struct stat stat_buf;   //or file?
+   int status = stat(header.filename, &stat_buf);
+   if(status !=0){   //check if this works lol
+      cerr<< "Cannot get file. File: " << header.filename << 
+             " does not exist" << endl;
+      header.command = cxi_command::NAK;  //send NAK
+      header.nbytes = htonl (errno);
+      send_packet (client_sock, &header, sizeof header);
+      return;
+   }
+   //check size of file
+   //declare buff
+   //set nbytes
+   auto buffer = make_unique<char[]> (stat_buf.st_size);
+   ifstream read_file (header.filename);
+   read_file.read(buffer.get(), stat_but.st_size);
+   read_file.close();
+   //send (FILEOUT)
+   header.command = cxi_command::FILEOUT;
+   //send output
+   header.nbytes = htonl (stat_buf.st_size);//set nbytes
+   memset (header.filename, 0, FILENAME_SIZE);//memset need this??
+   outlog << "sending header " << header << endl;
+   send_packet (client_sock, &header, sizeof header);//sends FILEOUT
+   send_packet (client_sock, buffer.c_str(), buffer.size());//sends output
+}
+void reply_put (accepted_socket& client_sock, cxi_header& header) {
+   struct stat stat_buf;
+   int status = stat(header.filename, &stat_buf);
+   if(status !=0){   //check if this works lol
+      cerr<< "Cannot get file. File: " << header.filename << 
+             " does not exist" << endl;
+      return;
+   }
+}
+void reply_rm (accepted_socket& client_sock, cxi_header& header) {
+   struct stat stat_buf;
+   int status = stat(header.filename, &stat_buf);
+   if(status !=0){   //check if this works lol
+      cerr<< "Cannot get file. File: " << header.filename << 
+             " does not exist" << endl;
+      return;
+   }
 }
 
 //edit
@@ -64,6 +109,15 @@ void run_server (accepted_socket& client_sock) {
             case cxi_command::LS:   //put, rm, get
                reply_ls (client_sock, header);
                break;
+            case cxi_command::GET:   
+               cxi_get (server, splitline);
+               break;
+            case cxi_command::PUT:   
+               cxi_put (server, splitline);
+               break;
+            case cxi_command::RM:   
+               cxi_rm (server, splitline);
+               break;   
             default:
                outlog << "invalid client header:" << header << endl;
                break;
