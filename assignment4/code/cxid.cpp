@@ -3,10 +3,14 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
+
 using namespace std;
 
 #include <libgen.h>
 #include <sys/types.h>
+#include <sys/stat.h>
+
 #include <unistd.h>
 
 #include "protocol.h"
@@ -47,7 +51,7 @@ void reply_ls (accepted_socket& client_sock, cxi_header& header) {
    outlog << "sent " << ls_output.size() << " bytes" << endl;
 }
 
-
+//edit
 void run_server (accepted_socket& client_sock) {
    outlog.execname (outlog.execname() + "*");
    outlog << "connected to " << to_string (client_sock) << endl;
@@ -56,8 +60,8 @@ void run_server (accepted_socket& client_sock) {
          cxi_header header; 
          recv_packet (client_sock, &header, sizeof header);
          outlog << "received header " << header << endl;
-         switch (header.command) {
-            case cxi_command::LS: 
+         switch (header.command) { //add more cases for diff commands
+            case cxi_command::LS:   //put, rm, get
                reply_ls (client_sock, header);
                break;
             default:
