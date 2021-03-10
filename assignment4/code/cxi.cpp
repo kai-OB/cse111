@@ -104,12 +104,31 @@ void cxi_put (client_socket& server, vector<string>& splitvec) {
    //use ifstream
 
    ifstream read_file (header.filename);
-   
-   if(read_file){
-      cerr<< header.filename << " does not exist" << endl
+   /*
+   if(!read_file){
+      cerr<< header.filename << " does not exist" << endl;
+      return;
+   }*/
+   //FILE* pipe = popen ("ls-l", "r");
+   if(!read_file){
+      cerr<< header.filename << " does not exist" << endl;
       return;
    }
-   
+   else{
+      //init buffer
+      struct stat put_nbytes;
+      //check  filesize to set nbytes of put
+      //create buffer of filesize
+      //use ifstream::read() to fill buffer
+      stat(header.filename, &put_nbytes);
+
+      auto buffer = make_unique<char[]> (put_nbytes.st_size);
+      //send payload
+      read_file.read(buffer.get(), put_nbytes.st_size);
+
+
+   }
+   pclose(read_file);
 }
 
 
