@@ -58,7 +58,7 @@ void cxi_ls (client_socket& server) {
       outlog << "server returned " << header << endl;
    }else {
       size_t host_nbytes = ntohl (header.nbytes);//setnbytes
-      auto buffer = make_unique<char[]> (host_nbytes + 1);//declare buffer
+      auto buffer = make_unique<char[]> (host_nbytes + 1);
       recv_packet (server, buffer.get(), host_nbytes); 
       outlog << "received " << host_nbytes << " bytes" << endl;
       buffer[host_nbytes] = '\0';
@@ -84,7 +84,6 @@ void cxi_get (client_socket& server, vector<string>& splitvec) {
       size_t host_nbytes = ntohl (header.nbytes);
       auto buffer = make_unique<char[]> (host_nbytes + 1);
       recv_packet (server, buffer.get(), host_nbytes);
-   //ged rid of outlogs outlog << "received " << host_nbytes << " bytes" << endl;
       buffer[host_nbytes] = '\0';
       cout << buffer.get();
    //create ofstream and write 
@@ -122,7 +121,7 @@ void cxi_put (client_socket& server, vector<string>& splitvec) {
       read_file.read(buffer.get(), stat_buf.st_size);
       header.command = cxi_command::PUT;//send PUT
       send_packet (server, &header, sizeof header);
-      send_packet (server, buffer.get(), stat_buf.st_size); //put_nbytes.st_size?
+      send_packet (server, buffer.get(), stat_buf.st_size); 
       recv_packet (server, &header, sizeof header);
       
    //}
