@@ -84,7 +84,7 @@ void cxi_get (client_socket& server, vector<string>& splitvec) {
       buffer[host_nbytes] = '\0';
       cout << buffer.get();
    //create ofstream and write 
-   ofstream write_file (header.filename);
+   ofstream write_file (header.filename, ios::out |ios::binary);
    write_file.write(buffer.get(),host_nbytes);  
    write_file.close();
    write_file << "GET sucess" << endl;
@@ -106,7 +106,7 @@ void cxi_put (client_socket& server, vector<string>& splitvec) {
    }
    auto buffer = make_unique<char[]> (stat_buf.st_size);
    //send payload
-   ifstream read_file (header.filename);
+   ifstream read_file (header.filename, ios::in | ios::binary);
    read_file.read(buffer.get(), stat_buf.st_size);
    header.command = cxi_command::PUT;//send PUT
    send_packet (server, &header, sizeof header);

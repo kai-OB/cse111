@@ -62,7 +62,7 @@ void reply_get (accepted_socket& client_sock, cxi_header& header) {
    }
    //check size of file, declare buf, set nbytes
    auto buffer = make_unique<char[]> (stat_buf.st_size);
-   ifstream read_file (header.filename);
+   ifstream read_file (header.filename, ios::in | ios::binary);
    read_file.read(buffer.get(), stat_buf.st_size);
    read_file.close();
    header.command = cxi_command::FILEOUT;
@@ -88,7 +88,7 @@ void reply_put (accepted_socket& client_sock, cxi_header& header) {
 
    recv_packet (client_sock, buffer.get(), host_nbytes);
    buffer[host_nbytes] = '\0';
-   ofstream write_file (header.filename);
+   ofstream write_file (header.filename, ios::out | ios::binary);
    write_file.write(buffer.get(),host_nbytes);  
    header.command = cxi_command::ACK;  //send ACK
    send_packet (client_sock, &header, sizeof header);//sends FILEOUT
