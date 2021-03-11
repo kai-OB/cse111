@@ -4,13 +4,12 @@
 #include <string>
 #include <vector>
 #include <fstream>
-
+#include <memory>
 using namespace std;
 
 #include <libgen.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-
 #include <unistd.h>
 
 #include "protocol.h"
@@ -66,7 +65,7 @@ void reply_get (accepted_socket& client_sock, cxi_header& header) {
    //set nbytes
    auto buffer = make_unique<char[]> (stat_buf.st_size);
    ifstream read_file (header.filename);
-   read_file.read(buffer.get(), stat_but.st_size);
+   read_file.read(buffer.get(), stat_buf.st_size);
    read_file.close();
    //send (FILEOUT)
    header.command = cxi_command::FILEOUT;

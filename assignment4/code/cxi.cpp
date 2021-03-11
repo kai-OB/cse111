@@ -53,13 +53,13 @@ void cxi_ls (client_socket& server) {
    send_packet (server, &header, sizeof header);
    recv_packet (server, &header, sizeof header);
    outlog << "received header " << header << endl;
-   if (header.command != cxi_command::LSOUT) {
+   if (header.command != cxi_command::LSOUT) {  //if!LSOUT
       outlog << "sent LS, server did not return LSOUT" << endl;
       outlog << "server returned " << header << endl;
    }else {
-      size_t host_nbytes = ntohl (header.nbytes);
-      auto buffer = make_unique<char[]> (host_nbytes + 1);
-      recv_packet (server, buffer.get(), host_nbytes);
+      size_t host_nbytes = ntohl (header.nbytes);//setnbytes based on header
+      auto buffer = make_unique<char[]> (host_nbytes + 1);//declare buffer
+      recv_packet (server, buffer.get(), host_nbytes); recv
       outlog << "received " << host_nbytes << " bytes" << endl;
       buffer[host_nbytes] = '\0';
       cout << buffer.get();
@@ -101,25 +101,26 @@ void cxi_put (client_socket& server, vector<string>& splitvec) {
    
    strncpy(header.filename,splitvec[1].c_str(),splitvec.size());
    //if !file.exist ->error
-   //use ifstream
-   ifstream read_file (header.filename);
+   //use ifstrea
   /* FILE* pipe = popen ("ls-l", "r");
    if(!pipe){
       cerr<< header.filename << " does not exist" << endl;
       return;
-   }
+   }  //do pipe, filename or status
    else{*/
       //init buffer
       struct stat stat_buf;
       int status = stat(header.filename, &stat_buf);
-      if(status !=0){
-         cerr<< header.filename << " does not exist" << endl;
+      if(status !=0){   //check if this works lol
+         cerr<< "Cannot put file. File: "<< header.filename << 
+                " does not exist" << endl;
          return;
       }
       auto buffer = make_unique<char[]> (stat_buf.st_size);
       //send payload
+      ifstream read_file (header.filename);
       read_file.read(buffer.get(), stat_buf.st_size);
-      //header.command = cxi_command::PUT;????
+      header.command = cxi_command::PUT;//send PUT
       send_packet (server, &header, sizeof header);
       send_packet (server, buffer.get(), stat_buf.st_size); //put_nbytes.st_size?
       recv_packet (server, &header, sizeof header);
@@ -137,7 +138,7 @@ void cxi_put (client_socket& server, vector<string>& splitvec) {
 
 void cxi_rm (client_socket& server, vector<string>& splitvec) {
    cxi_header header;
-   header.command = cxi_command::RM;
+   header.command = cxi_command::RM;//send RM
    strncpy(header.filename,splitvec[1].c_str(),splitvec.size());
 
    send_packet (server, &header, sizeof header);
