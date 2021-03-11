@@ -57,7 +57,7 @@ void cxi_ls (client_socket& server) {
       outlog << "sent LS, server did not return LSOUT" << endl;
       outlog << "server returned " << header << endl;
    }else {
-      size_t host_nbytes = ntohl (header.nbytes);//setnbytes based on header
+      size_t host_nbytes = ntohl (header.nbytes);//setnbytes
       auto buffer = make_unique<char[]> (host_nbytes + 1);//declare buffer
       recv_packet (server, buffer.get(), host_nbytes); 
       outlog << "received " << host_nbytes << " bytes" << endl;

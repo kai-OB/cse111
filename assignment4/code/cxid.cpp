@@ -46,7 +46,7 @@ void reply_ls (accepted_socket& client_sock, cxi_header& header) {
    memset (header.filename, 0, FILENAME_SIZE);//memset
    outlog << "sending header " << header << endl;
    send_packet (client_sock, &header, sizeof header);//sends lsout
-   send_packet (client_sock, ls_output.c_str(), ls_output.size());//sends lsoutput
+   send_packet (client_sock, ls_output.c_str(), ls_output.size());
    outlog << "sent " << ls_output.size() << " bytes" << endl;
 }
 void reply_get (accepted_socket& client_sock, cxi_header& header) {
@@ -67,12 +67,12 @@ void reply_get (accepted_socket& client_sock, cxi_header& header) {
    ifstream read_file (header.filename);
    read_file.read(buffer.get(), stat_buf.st_size);
    read_file.close();
-   //send (FILEOUT)
    header.command = cxi_command::FILEOUT;
-   //send output
    header.nbytes = htonl (stat_buf.st_size);//set nbytes
-   send_packet (client_sock, &header, sizeof header);//sends FILEOUT
-   send_packet (client_sock, buffer.c_str(), stat_buf.st_size);//sends output
+   //sends FILEOUT
+   send_packet (client_sock, &header, sizeof header);
+   //sends output
+   send_packet (client_sock, buffer.get(), stat_buf.st_size);
 }
 void reply_put (accepted_socket& client_sock, cxi_header& header) {
    struct stat stat_buf;
