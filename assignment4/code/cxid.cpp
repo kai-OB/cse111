@@ -102,7 +102,7 @@ void reply_rm (accepted_socket& client_sock, cxi_header& header) {
    if(status !=0){  
       header.command = cxi_command::NAK;  //send NAK
       header.nbytes = htonl (errno);
-      send_packet (client_sock, &header, sizeof header);/
+      send_packet (client_sock, &header, sizeof header);
    }     
    header.command = cxi_command::ACK;  //send ACK
    send_packet (client_sock, &header, sizeof header);
