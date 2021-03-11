@@ -65,7 +65,7 @@ void cxi_ls (client_socket& server) {
 void cxi_get (client_socket& server, vector<string>& splitvec) {
    cxi_header header;
    header.command = cxi_command::GET;
-   strncpy(header.filename,splitvec[1].c_str(),splitvec.size());
+   strcpy(header.filename,splitvec[1].c_str());
    
    outlog << "sending header " << header << endl;
    send_packet (server, &header, sizeof header);
@@ -95,7 +95,7 @@ void cxi_put (client_socket& server, vector<string>& splitvec) {
    cxi_header header;
    header.command = cxi_command::PUT;
    
-   strncpy(header.filename,splitvec[1].c_str(),splitvec.size());
+   strcpy(header.filename,splitvec[1].c_str());
    //if !file.exist ->error
    struct stat stat_buf;
    int status = stat(header.filename, &stat_buf);
@@ -125,7 +125,7 @@ void cxi_put (client_socket& server, vector<string>& splitvec) {
 void cxi_rm (client_socket& server, vector<string>& splitvec) {
    cxi_header header;
    header.command = cxi_command::RM;//send RM
-   strncpy(header.filename,splitvec[1].c_str(),splitvec.size());
+   strcpy(header.filename,splitvec[1].c_str());
 
    send_packet (server, &header, sizeof header);
    recv_packet (server, &header, sizeof header);
