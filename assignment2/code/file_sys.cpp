@@ -242,6 +242,8 @@ void directory::remove (const string& filename) {
 inode_ptr directory::mkdir (const string& dirname) {
    DEBUGF ('i', dirname);//creates directory
    return nullptr;
+
+   
 }
 
 inode_ptr directory::mkfile (const string& filename) {
