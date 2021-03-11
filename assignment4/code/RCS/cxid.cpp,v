@@ -1,9 +1,14 @@
-head	1.4;
+head	1.5;
 access;
 symbols;
 locks;
 comment	@// @;
 
+
+1.5
+date	2021.03.11.03.57.08;	author -;	state -;
+branches;
+next	1.4;
 
 1.4
 date	2021.03.11.01.21.54;	author -;	state -;
@@ -30,12 +35,12 @@ desc
 @@
 
 
-1.4
+1.5
 log
 @-
 @
 text
-@// $Id: cxid.cpp,v 1.3 2020-12-12 22:09:29-08 - - $
+@// $Id: cxid.cpp,v 1.4 2021-03-10 17:21:54-08 - - $
 
 #include <iostream>
 #include <string>
@@ -97,9 +102,7 @@ void reply_get (accepted_socket& client_sock, cxi_header& header) {
       send_packet (client_sock, &header, sizeof header);
       return;
    }
-   //check size of file
-   //declare buff
-   //set nbytes
+   //check size of file, declare buf, set nbytes
    auto buffer = make_unique<char[]> (stat_buf.st_size);
    ifstream read_file (header.filename);
    read_file.read(buffer.get(), stat_buf.st_size);
@@ -114,7 +117,7 @@ void reply_get (accepted_socket& client_sock, cxi_header& header) {
 void reply_put (accepted_socket& client_sock, cxi_header& header) {
    struct stat stat_buf;
    int status = stat(header.filename, &stat_buf);
-   if(status !=0){   //check if this works lol
+   if(status !=0){ 
       cerr<< "Cannot get file. File: " << header.filename << 
              " does not exist" << endl;
       header.command = cxi_command::NAK;  //send NAK
@@ -127,24 +130,24 @@ void reply_put (accepted_socket& client_sock, cxi_header& header) {
 
    recv_packet (client_sock, buffer.get(), host_nbytes);
    buffer[host_nbytes] = '\0';
-   ofstream write_file (header.filename); //need this?
-   write_file.write(buffer.get(),host_nbytes);  //need this?
+   ofstream write_file (header.filename);
+   write_file.write(buffer.get(),host_nbytes);  
    header.command = cxi_command::ACK;  //send ACK
    send_packet (client_sock, &header, sizeof header);//sends FILEOUT
 
-   write_file.close();//need this?
+   write_file.close();
 
 
 }
 void reply_rm (accepted_socket& client_sock, cxi_header& header) {
    int status = unlink(header.filename);
-   if(status !=0){   //check if this works lol
-      header.command = cxi_command::NAK;  //send ACK
+   if(status !=0){  
+      header.command = cxi_command::NAK;  //send NAK
       header.nbytes = htonl (errno);
-      send_packet (client_sock, &header, sizeof header);//sends FILEOUT
+      send_packet (client_sock, &header, sizeof header);
    }     
    header.command = cxi_command::ACK;  //send ACK
-   send_packet (client_sock, &header, sizeof header);//sends FILEOUT
+   send_packet (client_sock, &header, sizeof header);
 }
 
 //edit
@@ -156,7 +159,7 @@ void run_server (accepted_socket& client_sock) {
          cxi_header header; 
          recv_packet (client_sock, &header, sizeof header);
          outlog << "received header " << header << endl;
-         switch (header.command) { //add more cases for diff commands
+         switch (header.command) { 
             case cxi_command::LS:   //put, rm, get
                reply_ls (client_sock, header);
                break;
@@ -272,6 +275,45 @@ int main (int argc, char** argv) {
    return 0;
 }
 
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: cxid.cpp,v 1.3 2020-12-12 22:09:29-08 - - $
+d63 1
+a63 3
+   //check size of file
+   //declare buff
+   //set nbytes
+d78 1
+a78 1
+   if(status !=0){   //check if this works lol
+d91 2
+a92 2
+   ofstream write_file (header.filename); //need this?
+   write_file.write(buffer.get(),host_nbytes);  //need this?
+d96 1
+a96 1
+   write_file.close();//need this?
+d102 2
+a103 2
+   if(status !=0){   //check if this works lol
+      header.command = cxi_command::NAK;  //send ACK
+d105 1
+a105 1
+      send_packet (client_sock, &header, sizeof header);//sends FILEOUT
+d108 1
+a108 1
+   send_packet (client_sock, &header, sizeof header);//sends FILEOUT
+d120 1
+a120 1
+         switch (header.command) { //add more cases for diff commands
 @
 
 
