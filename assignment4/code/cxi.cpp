@@ -59,7 +59,7 @@ void cxi_ls (client_socket& server) {
    }else {
       size_t host_nbytes = ntohl (header.nbytes);//setnbytes based on header
       auto buffer = make_unique<char[]> (host_nbytes + 1);//declare buffer
-      recv_packet (server, buffer.get(), host_nbytes); recv
+      recv_packet (server, buffer.get(), host_nbytes); 
       outlog << "received " << host_nbytes << " bytes" << endl;
       buffer[host_nbytes] = '\0';
       cout << buffer.get();
