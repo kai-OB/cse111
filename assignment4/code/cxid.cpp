@@ -60,9 +60,7 @@ void reply_get (accepted_socket& client_sock, cxi_header& header) {
       send_packet (client_sock, &header, sizeof header);
       return;
    }
-   //check size of file
-   //declare buff
-   //set nbytes
+   //check size of file, declare buf, set nbytes
    auto buffer = make_unique<char[]> (stat_buf.st_size);
    ifstream read_file (header.filename);
    read_file.read(buffer.get(), stat_buf.st_size);
@@ -77,7 +75,7 @@ void reply_get (accepted_socket& client_sock, cxi_header& header) {
 void reply_put (accepted_socket& client_sock, cxi_header& header) {
    struct stat stat_buf;
    int status = stat(header.filename, &stat_buf);
-   if(status !=0){   //check if this works lol
+   if(status !=0){ 
       cerr<< "Cannot get file. File: " << header.filename << 
              " does not exist" << endl;
       header.command = cxi_command::NAK;  //send NAK
@@ -90,24 +88,24 @@ void reply_put (accepted_socket& client_sock, cxi_header& header) {
 
    recv_packet (client_sock, buffer.get(), host_nbytes);
    buffer[host_nbytes] = '\0';
-   ofstream write_file (header.filename); //need this?
-   write_file.write(buffer.get(),host_nbytes);  //need this?
+   ofstream write_file (header.filename);
+   write_file.write(buffer.get(),host_nbytes);  
    header.command = cxi_command::ACK;  //send ACK
    send_packet (client_sock, &header, sizeof header);//sends FILEOUT
 
-   write_file.close();//need this?
+   write_file.close();
 
 
 }
 void reply_rm (accepted_socket& client_sock, cxi_header& header) {
    int status = unlink(header.filename);
-   if(status !=0){   //check if this works lol
-      header.command = cxi_command::NAK;  //send ACK
+   if(status !=0){  
+      header.command = cxi_command::NAK;  //send NAK
       header.nbytes = htonl (errno);
-      send_packet (client_sock, &header, sizeof header);//sends FILEOUT
+      send_packet (client_sock, &header, sizeof header);/
    }     
    header.command = cxi_command::ACK;  //send ACK
-   send_packet (client_sock, &header, sizeof header);//sends FILEOUT
+   send_packet (client_sock, &header, sizeof header);
 }
 
 //edit
@@ -119,7 +117,7 @@ void run_server (accepted_socket& client_sock) {
          cxi_header header; 
          recv_packet (client_sock, &header, sizeof header);
          outlog << "received header " << header << endl;
-         switch (header.command) { //add more cases for diff commands
+         switch (header.command) { 
             case cxi_command::LS:   //put, rm, get
                reply_ls (client_sock, header);
                break;
