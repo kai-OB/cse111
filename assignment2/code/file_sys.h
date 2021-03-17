@@ -99,7 +99,6 @@ class inode {
       base_file_ptr get_contents(); //getter
 
       file_type get_file_type(); //getter need this??
-      //basically is_dir
       inode_ptr get_parent(); //need these?
       void set_parent(inode_ptr);
 
@@ -146,7 +145,7 @@ class base_file {
       virtual inode_ptr mkdir (const string& dirname);
       virtual inode_ptr mkfile (const string& filename);
       virtual map<string,inode_ptr>& get_dirents();
-      virtual bool is_dir();
+     // virtual bool is_dir();
 };
 
 // class plain_file -
@@ -188,7 +187,7 @@ class plain_file: public base_file {
       virtual void writefile (const wordvec& newdata) override;
       virtual inode_ptr mkfile (const string& filename) override;
 
-      virtual bool is_dir() override;
+     // virtual bool is_dir() override;
       
 };
 
@@ -228,10 +227,8 @@ class directory: public base_file {
       virtual void writefile (const wordvec& newdata) override;//????
        //make a num files
       virtual map<string,inode_ptr>& get_dirents()override;
-      virtual bool is_dir() override;
-      inode_ptr get_cwd() override; 
-
-       
+     // virtual bool is_dir() override;
+      
 };
 
 #endif
