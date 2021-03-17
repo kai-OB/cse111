@@ -228,6 +228,8 @@ class directory: public base_file {
        //make a num files
       virtual map<string,inode_ptr>& get_dirents()override;
      // virtual bool is_dir() override;
+      inode_ptr get_cwd() override;
+
       
 };
 
