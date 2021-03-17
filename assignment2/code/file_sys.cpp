@@ -233,14 +233,7 @@ void directory::remove (const string& filename) {
    //if empty directory or if file
    //use find() function
    //shouldnt work on root though? idk
-   //map<string,inode_ptr>& file_name = (dirents.find(filename));
-   /*bool file_is_dir = dirents.find(filename)->second->
-                     get_contents()->is_dir();
-   if(file_is_dir == false||dirents.find(filename)->first != ".."){
-      dirents.erase(filename);
-   }*/
-  // map<string,inode_ptr> rm_ptr = dirents.find(filename);
-   inode_ptr rm_ptr = dirents.find(filename)->second;
+     inode_ptr rm_ptr = dirents.find(filename)->second;
    if(rm_ptr->get_fileType() == file_type::PLAIN_FILE
       ||dirents.find(filename)->first != ".."){
       dirents.erase(filename);
