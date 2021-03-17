@@ -24,8 +24,8 @@ ostream& operator<< (ostream& out, file_type type) {
 
 
 inode_state::inode_state() {
-   DEBUGF ('i', "root = " << root << ", cwd = " << cwd
-          << ", prompt = \"" << prompt() << "\"");
+  // DEBUGF ('i', "root = " << root << ", cwd = " << cwd
+  //        << ", prompt = \"" << prompt() << "\"");
 
    //inode state constructor
    //establish inode state
@@ -82,7 +82,8 @@ void rm_r( inode_ptr roo){
    for(auto ritor = roo_dirents.crbegin(); ritor != roo_dirents.crend(); ++ritor){ //cr or nah
       //recur over each entry other than dot or dot dot
       if(ritor->first!="." and ritor->first != ".."
-         and ritor->second->get_contents()->is_dir()==true){//->get_contents()?
+         and ritor->second->get_contents()->is_dir()
+         ==file_type::DIRECTORY_TYPE){//->get_contents()?
          rm_r(ritor->second);
       }
       //if not directory, or empty directory, erase
@@ -124,13 +125,13 @@ inode::inode(file_type type): inode_nr (next_inode_nr++) {
            break;
       default: assert (false);   //for the sake of clarity
    }
-   DEBUGF ('i', "inode " << inode_nr << ", type = " << type);
+   //F ('i', "inode " << inode_nr << ", type = " << type);
 }
 
 size_t inode::get_inode_nr() const {
 
    //just gets inode number, already done
-   DEBUGF ('i', "inode = " << inode_nr);
+  // DEBUGF ('i', "inode = " << inode_nr);
    return inode_nr;
 }
 //void inode::set_contents(base_file_ptr new_contents){
@@ -138,7 +139,7 @@ size_t inode::get_inode_nr() const {
 //}   //dont ever need to set new contents though right?
 base_file_ptr inode::get_contents(){ return contents; } //getter
 
-file_type inode::get_file_type(){ return fileType; } //getter need this??
+file_type inode::get_fileType(){ return fileType; } //getter need this??
 //or just use is_dir
 
 inode_ptr inode::get_parent(){ 
@@ -184,9 +185,9 @@ inode_ptr base_file::mkfile (const string&) {
 map<string,inode_ptr>& base_file::get_dirents() {
    throw file_error ("is a " + error_file_type()); //dont work
 }
-bool base_file::is_dir() {
+/*bool base_file::is_dir() {
    throw file_error ("is a " + error_file_type()); //dont work
-}
+}*/
 
 //plainfile must override read and writefile
    //but can go ahead and inherit remove mkdir and mkfile
@@ -194,23 +195,23 @@ bool base_file::is_dir() {
 size_t plain_file::size() const {   //constant function
    //use wordvec data
    //size_t size  = data.size();  //does this work
-   DEBUGF ('i', "size = " << size);
+  // DEBUGF ('i', "size = " << size);
    return data.size();  //calling size function from map?
 }
 
 const wordvec& plain_file::readfile() const {
-   DEBUGF ('i', data);
+  // DEBUGF ('i', data);
    return data;   //dont change?
 }
 
 void plain_file::writefile (const wordvec& words) {
-   DEBUGF ('i', words);//must change
+  // DEBUGF ('i', words);//must change
    data = words;  //sets data to the wordvec words
 }
-
+/*
 bool plain_file::is_dir() {
    return  false;
-}
+}*/
 //directory must override remove mkdir and mkfile but can inherit
 //readfile and writefile
 //all of these need to be done!!!
@@ -227,29 +228,34 @@ size_t directory::size() const {
 //just override the base files
 
 void directory::remove (const string& filename) {
-   DEBUGF ('i', filename); //needs to delete something from a directory
+   //DEBUGF ('i', filename); //needs to delete something from a directory
    //idk look at this more
    //if empty directory or if file
    //use find() function
    //shouldnt work on root though? idk
    //map<string,inode_ptr>& file_name = (dirents.find(filename));
-   bool file_is_dir = dirents.find(filename)->second->
+   /*bool file_is_dir = dirents.find(filename)->second->
                      get_contents()->is_dir();
    if(file_is_dir == false||dirents.find(filename)->first != ".."){
       dirents.erase(filename);
+   }*/
+  // map<string,inode_ptr> rm_ptr = dirents.find(filename);
+   inode_ptr rm_ptr = dirents.find(filename)->second;
+   if(rm_ptr->get_fileType() == file_type::PLAIN_FILE
+      ||dirents.find(filename)->first != ".."){
+      dirents.erase(filename);
    }
-    
 }
 
 inode_ptr directory::mkdir (const string& dirname) {
-   DEBUGF ('i', dirname);//creates directory
+  // DEBUGF ('i', dirname);//creates directory
    //error if file or directory of same name is already
    //created, or if the complete pathname to the parent of
    //this dir does not already exist
    //dot and dot dot added to dirents
 
    if(dirents.find(dirname)->second == inode_ptr()){  //if it has been created
-      throw file_error ("file already exists: " + dirname); //throw error
+      throw file_error ("mkdir: file already exists: " + dirname); //throw error
    }
 
    inode_ptr newDir = make_shared<inode>(file_type::DIRECTORY_TYPE);
@@ -270,20 +276,19 @@ inode_ptr directory::mkdir (const string& dirname) {
 }
 
 inode_ptr directory::mkfile (const string& filename) {
-   DEBUGF ('i', filename); //creates file
+   //DEBUGF ('i', filename); //creates file
 //file specified is created and the rest of the words
 //are put in that file
 //if the file already exists, a new one is not created but the 
 //contents are replaced
 //error to specify a directory
 //if there are no words the file is empty
-   if(dirents.find(filename)->second == inode_ptr()){  //if it has been created
-      if(dirents.find(filename)->second->fileType ==file_type::DIRECTORY_TYPE){
-         throw file_error ("file: " + dirname); //throw error
-      }
+   inode_ptr i_node_ptr = dirents.find(filename)->second;
+   if(i_node_ptr->get_fileType() == file_type::DIRECTORY_FILE)){
+         throw file_error ("mkfile: file is a directory " + filename); //throw error
    }
    //make new file
-   inode_ptr newFile = make_shared<inode>(file_type::PLAINFILE);
+   inode_ptr newFile = make_shared<inode>(file_type::PLAIN_FILE);
    //insert/replace contents
    pair<string,inode_ptr> newFilePair = {filename,newFile};
    dirents.insert(newFilePair);
@@ -293,10 +298,12 @@ inode_ptr directory::mkfile (const string& filename) {
 map<string,inode_ptr>& directory::get_dirents() {
    return dirents;
 }
-bool directory::is_dir() {
+/*bool directory::is_dir() {
    return true;
+}*/
+inode_ptr directory::get_cwd(){
+   dirents.find(".")->second;
 }
-inode_ptr directory::get_cwd(){ 
-   return dirents.find(".")->second;
-}
+
+
 
