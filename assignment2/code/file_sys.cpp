@@ -144,9 +144,7 @@ file_type inode::get_file_type(){ return fileType; } //getter need this??
 inode_ptr inode::get_parent(){ 
    return parent;
 }
-inode_ptr inode::get_cwd(){ 
-   return dirents.find(".")->second;
-}
+
 
 
 
@@ -269,13 +267,27 @@ inode_ptr directory::mkdir (const string& dirname) {
    (newDir->get_contents()->get_dirents()).insert(dot_dot);
   
    return newDir;
-
-   
 }
 
 inode_ptr directory::mkfile (const string& filename) {
    DEBUGF ('i', filename); //creates file
-   return nullptr;
+//file specified is created and the rest of the words
+//are put in that file
+//if the file already exists, a new one is not created but the 
+//contents are replaced
+//error to specify a directory
+//if there are no words the file is empty
+   if(dirents.find(filename)->second == inode_ptr()){  //if it has been created
+      if(dirents.find(filename)->second->fileType ==file_type::DIRECTORY_TYPE){
+         throw file_error ("file: " + dirname); //throw error
+      }
+   }
+   //make new file
+   inode_ptr newFile = make_shared<inode>(file_type::PLAINFILE);
+   //insert/replace contents
+   pair<string,inode_ptr> newFilePair = {filename,newFile};
+   dirents.insert(newFilePair);
+   return newFile;
 }
 
 map<string,inode_ptr>& directory::get_dirents() {
@@ -283,5 +295,8 @@ map<string,inode_ptr>& directory::get_dirents() {
 }
 bool directory::is_dir() {
    return true;
+}
+inode_ptr directory::get_cwd(){ 
+   return dirents.find(".")->second;
 }
 

@@ -102,8 +102,6 @@ class inode {
       //basically is_dir
       inode_ptr get_parent(); //need these?
       void set_parent(inode_ptr);
-      inode_ptr get_cwd() override; 
-
 
 };
 
@@ -231,6 +229,7 @@ class directory: public base_file {
        //make a num files
       virtual map<string,inode_ptr>& get_dirents()override;
       virtual bool is_dir() override;
+      inode_ptr get_cwd() override; 
 
        
 };
