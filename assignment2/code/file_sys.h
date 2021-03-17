@@ -102,7 +102,8 @@ class inode {
       //basically is_dir
       inode_ptr get_parent(); //need these?
       void set_parent(inode_ptr);
-      
+      inode_ptr get_cwd() override; 
+
 
 };
 
