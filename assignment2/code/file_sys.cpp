@@ -144,6 +144,10 @@ file_type inode::get_file_type(){ return fileType; } //getter need this??
 inode_ptr inode::get_parent(){ 
    return parent;
 }
+inode_ptr inode::get_cwd(){ 
+   return dirents.find(".")->second;
+}
+
 
 
 file_error::file_error (const string& what):
@@ -241,7 +245,30 @@ void directory::remove (const string& filename) {
 
 inode_ptr directory::mkdir (const string& dirname) {
    DEBUGF ('i', dirname);//creates directory
-   return nullptr;
+   //error if file or directory of same name is already
+   //created, or if the complete pathname to the parent of
+   //this dir does not already exist
+   //dot and dot dot added to dirents
+
+   if(dirents.find(dirname)->second == inode_ptr()){  //if it has been created
+      throw file_error ("file already exists: " + dirname); //throw error
+   }
+
+   inode_ptr newDir = make_shared<inode>(file_type::DIRECTORY_TYPE);
+   //make new dir
+   
+   //insert new dir to dirents
+   pair<string,inode_ptr> newPair = {dirname,newDir};
+   dirents.insert(newPair);
+
+   //add dot/dotdot to current dir
+   pair <string, inode_ptr> dot = {".", newDir};  //sets dot, cwd
+   (newDir->get_contents()->get_dirents()).insert(dot);  
+   
+   pair <string, inode_ptr> dot_dot  = {"..", get_cwd()};  //sets dot dot, the paren(cwd before new dir)
+   (newDir->get_contents()->get_dirents()).insert(dot_dot);
+  
+   return newDir;
 
    
 }
