@@ -1,4 +1,26 @@
-// $Id: main.cpp,v 1.1 2021-04-15 00:02:47-07 - - $
+head	1.1;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.1
+date	2021.04.15.07.02.47;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// $Id: main.cpp,v 1.2 2019-12-12 19:22:40-08 - - $
 
 #include <cassert>
 #include <deque>
@@ -106,10 +128,10 @@ void do_function (bigint_stack& stack, const char oper) {
 void scan_options (int argc, char** argv) {
    opterr = 0;
    for (;;) {
-      int option = getopt (argc, argv, "@:");
+      int option = getopt (argc, argv, "@@:");
       if (option == EOF) break;
       switch (option) {
-         case '@':
+         case '@@':
             debugflags::setflags (optarg);
             break;
          default:
@@ -161,3 +183,4 @@ int main (int argc, char** argv) {
    return exec::status();
 }
 
+@

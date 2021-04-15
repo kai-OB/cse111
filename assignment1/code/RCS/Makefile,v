@@ -1,4 +1,26 @@
-# $Id: Makefile,v 1.1 2021-04-15 00:02:47-07 - - $
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2021.04.15.07.02.47;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@# $Id: Makefile,v 1.8 2020-12-27 19:59:14-08 - - $
 
 MKFILE      = Makefile
 DEPSFILE    = ${MKFILE}.deps
@@ -25,7 +47,7 @@ export PATH := ${PATH}:/afs/cats.ucsc.edu/courses/cse110a-wm/bin
 all : ${EXECBIN}
 
 ${EXECBIN} : ${OBJECTS}
-	${COMPILECPP} -o $@ ${OBJECTS}
+	${COMPILECPP} -o $@@ ${OBJECTS}
 
 %.o : %.cpp
 	- checksource $<
@@ -50,11 +72,11 @@ spotless : clean
 
 
 deps : ${CPPSOURCE} ${CPPHEADER}
-	@ echo "# ${DEPSFILE} created `LC_TIME=C date`" >${DEPSFILE}
+	@@ echo "# ${DEPSFILE} created `LC_TIME=C date`" >${DEPSFILE}
 	${MAKEDEPSCPP} ${CPPSOURCE} >>${DEPSFILE}
 
 ${DEPSFILE} :
-	@ touch ${DEPSFILE}
+	@@ touch ${DEPSFILE}
 	${GMAKE} deps
 
 again :
@@ -64,3 +86,4 @@ ifeq (${NEEDINCL}, )
 include ${DEPSFILE}
 endif
 
+@

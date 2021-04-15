@@ -1,4 +1,26 @@
-// $Id: ubigint.cpp,v 1.1 2021-04-15 00:02:47-07 - - $
+head	1.1;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.1
+date	2021.04.15.07.02.47;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// $Id: ubigint.cpp,v 1.12 2020-10-19 13:14:59-07 - - $
 
 #include <cctype>
 #include <cstdlib>
@@ -272,3 +294,4 @@ ostream& operator<< (ostream& out, const ubigint& that) {
   return out;
 }
 
+@

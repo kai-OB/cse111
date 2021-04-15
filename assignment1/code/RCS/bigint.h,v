@@ -1,4 +1,26 @@
-// $Id: bigint.h,v 1.1 2021-04-15 00:02:47-07 - - $
+head	1.1;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.1
+date	2021.04.15.07.02.47;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// $Id: bigint.h,v 1.2 2020-01-06 13:39:55-08 - - $
 
 #ifndef __BIGINT_H__
 #define __BIGINT_H__
@@ -41,3 +63,4 @@ class bigint {
 
 #endif
 
+@

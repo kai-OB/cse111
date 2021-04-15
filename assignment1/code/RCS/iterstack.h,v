@@ -1,4 +1,26 @@
-// $Id: iterstack.h,v 1.1 2021-04-15 00:02:47-07 - - $
+head	1.1;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.1
+date	2021.04.15.07.02.47;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// $Id: iterstack.h,v 1.1 2019-12-12 18:19:23-08 - - $
 
 // 
 // The class std::stack does not provide an iterator, which is
@@ -45,3 +67,4 @@ class iterstack {
 
 #endif
 
+@

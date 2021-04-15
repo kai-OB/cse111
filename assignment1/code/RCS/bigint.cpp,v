@@ -1,4 +1,26 @@
-// $Id: bigint.cpp,v 1.1 2021-04-15 00:02:47-07 - - $
+head	1.1;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.1
+date	2021.04.15.07.02.47;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// $Id: bigint.cpp,v 1.3 2020-10-11 12:47:51-07 - - $
 
 #include <cstdlib>
 #include <exception>
@@ -153,3 +175,4 @@ ostream& operator<< (ostream& out, const bigint& that) {
               
 }
 
+@
