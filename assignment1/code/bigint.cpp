@@ -147,7 +147,7 @@ bool bigint::operator< (const bigint& that) const {
 ostream& operator<< (ostream& out, const bigint& that) {
    
    out << (that.is_negative ? "-" : "");
-      out << that.uvalue;  //should call uvalue print statement
+      out << that.uvalue << " ";  //should call uvalue print statement
    //^cdfpq
    return out;
               
