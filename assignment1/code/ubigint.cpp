@@ -250,13 +250,13 @@ bool ubigint::operator< (const ubigint& that) const {
    //otherwise sizes are equal and evaluate digit by digit
    //go from highest to lowest order digit
    else{
-      
-     for(int i = that.uvalue.size()-1; i >0; i--){//<=??  and inf loop check
-         if(that.uvalue.at(i) < uvalue.at(i)){//if this > that then false
-            return true;  //returns false
-            break;
-         }
-       
+      if(that.uvalue.size() == uvalue.size() && uvalue.size() > 0){
+         for(int i = that.uvalue.size()-1; i >0; i--){//<=??  and inf loop check
+               if(uvalue.at(i) < that.uvalue.at(i)){//if this > that then false
+                  return true;  //returns false
+                  break;
+               }
+            }
       }
    }
    return false; // if all digits of this are less than that, return true
