@@ -258,17 +258,17 @@ bool ubigint::operator< (const ubigint& that) const {
 }
 
 ostream& operator<< (ostream& out, const ubigint& that) { 
-  //if(that.uvalue.size()==0){
- //    out << '0';
- // }
+  if(that.uvalue.size()==0){
+     out << '0';
+ }
 
-   //else{
+  else{
       
-      for(unsigned int i = 0; i < that.uvalue.size(); i++){ 
-            out << static_cast<char>(that.uvalue.at(i)+ 0);
+   for(unsigned int i = 0; i < that.uvalue.size(); i++){ 
+      out << static_cast<char>(that.uvalue.at(i)+ '0');
       
    }
-  
+}
   return out;
 }
 
