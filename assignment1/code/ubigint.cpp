@@ -16,7 +16,7 @@ ubigint::ubigint (unsigned long that)/*: uvalue (that) */{
    
    while(that > 0){
      
-      uvalue.push_back(that % 10);
+      uvalue.push_back((that % 10) -'0');
       that = that/10;
    }
    
