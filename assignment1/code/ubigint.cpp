@@ -238,14 +238,14 @@ bool ubigint::operator== (const ubigint& that) const {
 
 bool ubigint::operator< (const ubigint& that) const {
  
-    if(that.uvalue.size() < uvalue.size()){
+   if(that.uvalue == uvalue){   //if equal then false
+       return false;
+    }
+   else if(uvalue.size() < that.uvalue.size()){ 
       return true; 
-      break; 
    }
-   
-   if(that.uvalue.size() > uvalue.size()){ 
+   else if(that.uvalue.size() < uvalue.size()){ 
       return false; 
-      break; 
    }
    //otherwise sizes are equal and evaluate digit by digit
    //go from highest to lowest order digit
