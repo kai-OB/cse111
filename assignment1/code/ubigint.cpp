@@ -265,7 +265,7 @@ ostream& operator<< (ostream& out, const ubigint& that) {
   else{
       
    for(unsigned int i = 0; i < that.uvalue.size(); i++){ 
-      out << (that.uvalue.at(i)) << " ";
+      out << static_cast <char> (that.uvalue.at(i) +'0');
       
    }
 }
