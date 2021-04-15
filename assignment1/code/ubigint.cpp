@@ -25,10 +25,10 @@ ubigint::ubigint (unsigned long that)/*: uvalue (that) */{
 ubigint::ubigint (const string& that)/*: uvalue(0)*/ {
   
    for (unsigned long index = 0; index < that.size(); ++index){
-      uvalue.push_back(that.at(index));  //casting as int?
+      uvalue.push_back(that.at(index)- '0');  //casting as int?
     
    }
-
+   //reverse?
    
 }
 
