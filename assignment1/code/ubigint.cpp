@@ -1,4 +1,4 @@
-// $Id: ubigint.cpp,v 1.1 2021-04-15 00:02:47-07 - - $
+// $Id: ubigint.cpp,v 1.12 2020-10-19 13:14:59-07 - - $
 
 #include <cctype>
 #include <cstdlib>
@@ -25,7 +25,7 @@ ubigint::ubigint (unsigned long that)/*: uvalue (that) */{
 ubigint::ubigint (const string& that)/*: uvalue(0)*/ {
   
    for (unsigned long index = 0; index < that.size(); ++index){
-      uvalue.push_back(that.at(index)+0);  //casting as int?
+      uvalue.push_back(that.at(index)+'0');  //casting as int?
     
    }
 
@@ -60,7 +60,7 @@ ubigint ubigint::operator+ (const ubigint& that) const {
          carry = 1;  //carry 1 to start loop over with sum = carry
          sum = (sum % 10);   // and mod 10
       }
-      add_result.uvalue.push_back(sum); //push back the sum 
+      add_result.uvalue.push_back(sum + '0'); //push back the sum 
    }
    /* trim the vector by removing all high-order zeros :*/
    while (add_result.uvalue.size()>0 and add_result.uvalue.back()==0){ 
@@ -88,7 +88,7 @@ ubigint ubigint::operator- (const ubigint& that) const {
          borrow = -1;
       }
 
-      sub_result.uvalue.push_back(sub);
+      sub_result.uvalue.push_back(sub + '0');
       
       
    }
@@ -155,7 +155,7 @@ void ubigint::multiply_by_2() {
    }
 
    if(carry == 1){   //if there is a carry then pushback
-       uvalue.push_back(carry); 
+       uvalue.push_back(carry + '0'); 
    }
   
    //check for leading zeroes
