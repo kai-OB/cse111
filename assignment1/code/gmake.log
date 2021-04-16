@@ -1,1 +1,34 @@
-Makefile.deps:1: *** missing separator.  Stop.
+checksource main.cpp
+checksource: TOTAL COMPLAINTS: 0
+cpplint.py.perl main.cpp
+Done processing main.cpp
+g++ -std=gnu++2a -g -O0 -Wall -Wextra -Wpedantic -Wshadow -Wold-style-cast -fdiagnostics-color=never -c main.cpp
+main.cpp:61:39: error: expected ‘,’ or ‘...’ before ‘t’
+ void do_print (bigint_stack& stackcat t const char) {
+                                       ^
+main.cpp: In function ‘void do_print(bigint_stack&)’:
+main.cpp:62:8: error: ‘stack’ was not declared in this scope
+    if (stack.size() < 1) throw ydc_error ("stack empty");
+        ^~~~~
+main.cpp:62:8: note: ‘std::stack’ is defined in header ‘<stack>’; did you forget to ‘#include <stack>’?
+main.cpp:19:1:
++#include <stack>
+ 
+main.cpp:62:8:
+    if (stack.size() < 1) throw ydc_error ("stack empty");
+        ^~~~~
+main.cpp:63:12: error: ‘stack’ was not declared in this scope
+    cout << stack.top() << endl;
+            ^~~~~
+main.cpp:63:12: note: ‘std::stack’ is defined in header ‘<stack>’; did you forget to ‘#include <stack>’?
+main.cpp:61:30: warning: unused parameter ‘stackcat’ [-Wunused-parameter]
+ void do_print (bigint_stack& stackcat t const char) {
+                ~~~~~~~~~~~~~~^~~~~~~~
+main.cpp: In function ‘void do_function(bigint_stack&, char)’:
+main.cpp:95:41: error: too many arguments to function ‘void do_print(bigint_stack&)’
+       case 'p': do_print    (stack, oper); break;
+                                         ^
+main.cpp:61:6: note: declared here
+ void do_print (bigint_stack& stackcat t const char) {
+      ^~~~~~~~
+gmake: *** [Makefile:33: main.o] Error 1
