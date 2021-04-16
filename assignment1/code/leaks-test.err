@@ -1,152 +1,152 @@
-==16279== Memcheck, a memory error detector
-==16279== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==16279== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
-==16279== Command: ./ydc
-==16279== 
+==19860== Memcheck, a memory error detector
+==19860== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==19860== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==19860== Command: ./ydc
+==19860== 
 terminate called after throwing an instance of 'std::out_of_range'
   what():  vector::_M_range_check: __n (which is 36) >= this->size() (which is 36)
-==16279== 
-==16279== Process terminating with default action of signal 6 (SIGABRT)
-==16279==    at 0x568D3D7: raise (in /usr/lib64/libc-2.17.so)
-==16279==    by 0x568EAC7: abort (in /usr/lib64/libc-2.17.so)
-==16279==    by 0x4E97A94: __gnu_cxx::__verbose_terminate_handler() (vterminate.cc:95)
-==16279==    by 0x4E95A05: __cxxabiv1::__terminate(void (*)()) (eh_terminate.cc:38)
-==16279==    by 0x4E95A32: std::terminate() (eh_terminate.cc:48)
-==16279==    by 0x4E95C52: __cxa_throw (eh_throw.cc:87)
-==16279==    by 0x4039B5: std::__throw_out_of_range_fmt(char const*, ...) [clone .cold.0] (in /afs/cats.ucsc.edu/users/f/kimobrie/cse111/assignment1/code/ydc)
-==16279==    by 0x406395: std::vector<unsigned char, std::allocator<unsigned char> >::_M_range_check(unsigned long) const (stl_vector.h:960)
-==16279==    by 0x40583A: std::vector<unsigned char, std::allocator<unsigned char> >::at(unsigned long) const (stl_vector.h:999)
-==16279==    by 0x4040E8: ubigint::operator+(ubigint const&) const (ubigint.cpp:74)
-==16279==    by 0x408252: bigint::operator+(bigint const&) const (bigint.cpp:47)
-==16279==    by 0x40CC2E: do_arith(iterstack<bigint, std::vector<bigint, std::allocator<bigint> > >&, char) (main.cpp:32)
-==16279== 
-==16279== HEAP SUMMARY:
-==16279==     in use at exit: 627 bytes in 9 blocks
-==16279==   total heap usage: 66 allocs, 57 frees, 2,416 bytes allocated
-==16279== 
-==16279== 26 bytes in 1 blocks are still reachable in loss record 1 of 9
-==16279==    at 0x4C2A483: operator new(unsigned long) (vg_replace_malloc.c:344)
-==16279==    by 0x407AED: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (new_allocator.h:111)
-==16279==    by 0x4074B7: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (basic_string.tcc:1057)
-==16279==    by 0x40B434: char* std::string::_S_construct<char const*>(char const*, char const*, std::allocator<char> const&, std::forward_iterator_tag) (basic_string.tcc:578)
-==16279==    by 0x40B249: char* std::string::_S_construct_aux<char const*>(char const*, char const*, std::allocator<char> const&, std::__false_type) (basic_string.h:5052)
-==16279==    by 0x40B061: char* std::string::_S_construct<char const*>(char const*, char const*, std::allocator<char> const&) (basic_string.h:5073)
-==16279==    by 0x40AEFF: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(std::initializer_list<char>, std::allocator<char> const&) (basic_string.tcc:686)
-==16279==    by 0x409661: scanner::scan() (scanner.cpp:29)
-==16279==    by 0x40D83D: main (main.cpp:138)
-==16279== 
-==16279== 28 bytes in 1 blocks are still reachable in loss record 2 of 9
-==16279==    at 0x4C2A483: operator new(unsigned long) (vg_replace_malloc.c:344)
-==16279==    by 0x407AED: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (new_allocator.h:111)
-==16279==    by 0x4074B7: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (basic_string.tcc:1057)
-==16279==    by 0x4071CE: std::string::_M_mutate(unsigned long, unsigned long, unsigned long) (basic_string.tcc:929)
-==16279==    by 0x40CA93: std::string::_M_replace_safe(unsigned long, unsigned long, char const*, unsigned long) (basic_string.tcc:1134)
-==16279==    by 0x40C9C5: std::string::assign(char const*, unsigned long) (basic_string.tcc:714)
-==16279==    by 0x40C91B: std::string::assign(char const*) (basic_string.h:4333)
-==16279==    by 0x40C84A: std::string::operator=(char const*) (basic_string.h:3656)
-==16279==    by 0x40C5E6: exec::execname(std::string const&) (util.cpp:18)
-==16279==    by 0x40D7D5: main (main.cpp:131)
-==16279== 
-==16279== 36 bytes in 1 blocks are still reachable in loss record 3 of 9
-==16279==    at 0x4C2A483: operator new(unsigned long) (vg_replace_malloc.c:344)
-==16279==    by 0x407CD5: __gnu_cxx::new_allocator<unsigned char>::allocate(unsigned long, void const*) (new_allocator.h:111)
-==16279==    by 0x407B66: std::allocator_traits<std::allocator<unsigned char> >::allocate(std::allocator<unsigned char>&, unsigned long) (alloc_traits.h:436)
-==16279==    by 0x4076E5: std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_M_allocate(unsigned long) (stl_vector.h:296)
-==16279==    by 0x406F46: std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_M_create_storage(unsigned long) (stl_vector.h:311)
-==16279==    by 0x406550: std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_Vector_base(unsigned long, std::allocator<unsigned char> const&) (stl_vector.h:260)
-==16279==    by 0x40599B: std::vector<unsigned char, std::allocator<unsigned char> >::vector(std::vector<unsigned char, std::allocator<unsigned char> > const&) (stl_vector.h:460)
-==16279==    by 0x4051A6: ubigint::ubigint(ubigint const&) (ubigint.h:15)
-==16279==    by 0x408A8C: bigint::bigint(bigint const&) (bigint.h:17)
-==16279==    by 0x40EEBA: void __gnu_cxx::new_allocator<bigint>::construct<bigint, bigint const&>(bigint*, bigint const&) (new_allocator.h:136)
-==16279==    by 0x40EA29: void std::allocator_traits<std::allocator<bigint> >::construct<bigint, bigint const&>(std::allocator<bigint>&, bigint*, bigint const&) (alloc_traits.h:475)
-==16279==    by 0x40EB21: void std::vector<bigint, std::allocator<bigint> >::_M_realloc_insert<bigint const&>(__gnu_cxx::__normal_iterator<bigint*, std::vector<bigint, std::allocator<bigint> > >, bigint const&) (vector.tcc:436)
-==16279== 
-==16279== 36 bytes in 1 blocks are still reachable in loss record 4 of 9
-==16279==    at 0x4C2A483: operator new(unsigned long) (vg_replace_malloc.c:344)
-==16279==    by 0x407CD5: __gnu_cxx::new_allocator<unsigned char>::allocate(unsigned long, void const*) (new_allocator.h:111)
-==16279==    by 0x407B66: std::allocator_traits<std::allocator<unsigned char> >::allocate(std::allocator<unsigned char>&, unsigned long) (alloc_traits.h:436)
-==16279==    by 0x4076E5: std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_M_allocate(unsigned long) (stl_vector.h:296)
-==16279==    by 0x406F46: std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_M_create_storage(unsigned long) (stl_vector.h:311)
-==16279==    by 0x406550: std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_Vector_base(unsigned long, std::allocator<unsigned char> const&) (stl_vector.h:260)
-==16279==    by 0x40599B: std::vector<unsigned char, std::allocator<unsigned char> >::vector(std::vector<unsigned char, std::allocator<unsigned char> > const&) (stl_vector.h:460)
-==16279==    by 0x4051A6: ubigint::ubigint(ubigint const&) (ubigint.h:15)
-==16279==    by 0x408A8C: bigint::bigint(bigint const&) (bigint.h:17)
-==16279==    by 0x40CB9E: do_arith(iterstack<bigint, std::vector<bigint, std::allocator<bigint> > >&, char) (main.cpp:24)
-==16279==    by 0x40D4D7: do_function(iterstack<bigint, std::vector<bigint, std::allocator<bigint> > >&, char) (main.cpp:85)
-==16279==    by 0x40D8EE: main (main.cpp:148)
-==16279== 
-==16279== 37 bytes in 1 blocks are still reachable in loss record 5 of 9
-==16279==    at 0x4C2A483: operator new(unsigned long) (vg_replace_malloc.c:344)
-==16279==    by 0x407CD5: __gnu_cxx::new_allocator<unsigned char>::allocate(unsigned long, void const*) (new_allocator.h:111)
-==16279==    by 0x407B66: std::allocator_traits<std::allocator<unsigned char> >::allocate(std::allocator<unsigned char>&, unsigned long) (alloc_traits.h:436)
-==16279==    by 0x4076E5: std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_M_allocate(unsigned long) (stl_vector.h:296)
-==16279==    by 0x406F46: std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_M_create_storage(unsigned long) (stl_vector.h:311)
-==16279==    by 0x406550: std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_Vector_base(unsigned long, std::allocator<unsigned char> const&) (stl_vector.h:260)
-==16279==    by 0x40599B: std::vector<unsigned char, std::allocator<unsigned char> >::vector(std::vector<unsigned char, std::allocator<unsigned char> > const&) (stl_vector.h:460)
-==16279==    by 0x4051A6: ubigint::ubigint(ubigint const&) (ubigint.h:15)
-==16279==    by 0x408A8C: bigint::bigint(bigint const&) (bigint.h:17)
-==16279==    by 0x40CBD1: do_arith(iterstack<bigint, std::vector<bigint, std::allocator<bigint> > >&, char) (main.cpp:27)
-==16279==    by 0x40D4D7: do_function(iterstack<bigint, std::vector<bigint, std::allocator<bigint> > >&, char) (main.cpp:85)
-==16279==    by 0x40D8EE: main (main.cpp:148)
-==16279== 
-==16279== 64 bytes in 1 blocks are still reachable in loss record 6 of 9
-==16279==    at 0x4C2A483: operator new(unsigned long) (vg_replace_malloc.c:344)
-==16279==    by 0x407CD5: __gnu_cxx::new_allocator<unsigned char>::allocate(unsigned long, void const*) (new_allocator.h:111)
-==16279==    by 0x407B66: std::allocator_traits<std::allocator<unsigned char> >::allocate(std::allocator<unsigned char>&, unsigned long) (alloc_traits.h:436)
-==16279==    by 0x4076E5: std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_M_allocate(unsigned long) (stl_vector.h:296)
-==16279==    by 0x406C17: void std::vector<unsigned char, std::allocator<unsigned char> >::_M_realloc_insert<unsigned char>(__gnu_cxx::__normal_iterator<unsigned char*, std::vector<unsigned char, std::allocator<unsigned char> > >, unsigned char&&) (vector.tcc:427)
-==16279==    by 0x406309: unsigned char& std::vector<unsigned char, std::allocator<unsigned char> >::emplace_back<unsigned char>(unsigned char&&) (vector.tcc:109)
-==16279==    by 0x405701: std::vector<unsigned char, std::allocator<unsigned char> >::push_back(unsigned char&&) (stl_vector.h:1091)
-==16279==    by 0x404162: ubigint::operator+(ubigint const&) const (ubigint.cpp:81)
-==16279==    by 0x408252: bigint::operator+(bigint const&) const (bigint.cpp:47)
-==16279==    by 0x40CC2E: do_arith(iterstack<bigint, std::vector<bigint, std::allocator<bigint> > >&, char) (main.cpp:32)
-==16279==    by 0x40D4D7: do_function(iterstack<bigint, std::vector<bigint, std::allocator<bigint> > >&, char) (main.cpp:85)
-==16279==    by 0x40D8EE: main (main.cpp:148)
-==16279== 
-==16279== 96 bytes in 1 blocks are still reachable in loss record 7 of 9
-==16279==    at 0x4C2A483: operator new(unsigned long) (vg_replace_malloc.c:344)
-==16279==    by 0x407AED: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (new_allocator.h:111)
-==16279==    by 0x4074B7: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (basic_string.tcc:1057)
-==16279==    by 0x40B434: char* std::string::_S_construct<char const*>(char const*, char const*, std::allocator<char> const&, std::forward_iterator_tag) (basic_string.tcc:578)
-==16279==    by 0x40B249: char* std::string::_S_construct_aux<char const*>(char const*, char const*, std::allocator<char> const&, std::__false_type) (basic_string.h:5052)
-==16279==    by 0x40B061: char* std::string::_S_construct<char const*>(char const*, char const*, std::allocator<char> const&) (basic_string.h:5073)
-==16279==    by 0x40AFAA: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) (basic_string.tcc:665)
-==16279==    by 0x40F7B5: std::logic_error::logic_error(char const*) (in /afs/cats.ucsc.edu/users/f/kimobrie/cse111/assignment1/code/ydc)
-==16279==    by 0x40F848: std::out_of_range::out_of_range(char const*) (in /afs/cats.ucsc.edu/users/f/kimobrie/cse111/assignment1/code/ydc)
-==16279==    by 0x40F680: std::__throw_out_of_range_fmt(char const*, ...) (in /afs/cats.ucsc.edu/users/f/kimobrie/cse111/assignment1/code/ydc)
-==16279==    by 0x406395: std::vector<unsigned char, std::allocator<unsigned char> >::_M_range_check(unsigned long) const (stl_vector.h:960)
-==16279==    by 0x40583A: std::vector<unsigned char, std::allocator<unsigned char> >::at(unsigned long) const (stl_vector.h:999)
-==16279== 
-==16279== 144 bytes in 1 blocks are possibly lost in loss record 8 of 9
-==16279==    at 0x4C29E63: malloc (vg_replace_malloc.c:309)
-==16279==    by 0x4E945A2: __cxa_allocate_exception (eh_alloc.cc:105)
-==16279==    by 0x40F66A: std::__throw_out_of_range_fmt(char const*, ...) (in /afs/cats.ucsc.edu/users/f/kimobrie/cse111/assignment1/code/ydc)
-==16279==    by 0x406395: std::vector<unsigned char, std::allocator<unsigned char> >::_M_range_check(unsigned long) const (stl_vector.h:960)
-==16279==    by 0x40583A: std::vector<unsigned char, std::allocator<unsigned char> >::at(unsigned long) const (stl_vector.h:999)
-==16279==    by 0x4040E8: ubigint::operator+(ubigint const&) const (ubigint.cpp:74)
-==16279==    by 0x408252: bigint::operator+(bigint const&) const (bigint.cpp:47)
-==16279==    by 0x40CC2E: do_arith(iterstack<bigint, std::vector<bigint, std::allocator<bigint> > >&, char) (main.cpp:32)
-==16279==    by 0x40D4D7: do_function(iterstack<bigint, std::vector<bigint, std::allocator<bigint> > >&, char) (main.cpp:85)
-==16279==    by 0x40D8EE: main (main.cpp:148)
-==16279== 
-==16279== 160 bytes in 1 blocks are still reachable in loss record 9 of 9
-==16279==    at 0x4C2A483: operator new(unsigned long) (vg_replace_malloc.c:344)
-==16279==    by 0x40F2EB: __gnu_cxx::new_allocator<bigint>::allocate(unsigned long, void const*) (new_allocator.h:111)
-==16279==    by 0x40F1E1: std::allocator_traits<std::allocator<bigint> >::allocate(std::allocator<bigint>&, unsigned long) (alloc_traits.h:436)
-==16279==    by 0x40F069: std::_Vector_base<bigint, std::allocator<bigint> >::_M_allocate(unsigned long) (stl_vector.h:296)
-==16279==    by 0x40EAD7: void std::vector<bigint, std::allocator<bigint> >::_M_realloc_insert<bigint const&>(__gnu_cxx::__normal_iterator<bigint*, std::vector<bigint, std::allocator<bigint> > >, bigint const&) (vector.tcc:427)
-==16279==    by 0x40E541: std::vector<bigint, std::allocator<bigint> >::push_back(bigint const&) (stl_vector.h:1085)
-==16279==    by 0x40DFF6: iterstack<bigint, std::vector<bigint, std::allocator<bigint> > >::push(bigint const&) (iterstack.h:41)
-==16279==    by 0x40D8B0: main (main.cpp:144)
-==16279== 
-==16279== LEAK SUMMARY:
-==16279==    definitely lost: 0 bytes in 0 blocks
-==16279==    indirectly lost: 0 bytes in 0 blocks
-==16279==      possibly lost: 144 bytes in 1 blocks
-==16279==    still reachable: 483 bytes in 8 blocks
-==16279==                       of which reachable via heuristic:
-==16279==                         stdstring          : 150 bytes in 3 blocks
-==16279==         suppressed: 0 bytes in 0 blocks
-==16279== 
-==16279== For counts of detected and suppressed errors, rerun with: -v
-==16279== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==19860== 
+==19860== Process terminating with default action of signal 6 (SIGABRT)
+==19860==    at 0x568D3D7: raise (in /usr/lib64/libc-2.17.so)
+==19860==    by 0x568EAC7: abort (in /usr/lib64/libc-2.17.so)
+==19860==    by 0x4E97A94: __gnu_cxx::__verbose_terminate_handler() (vterminate.cc:95)
+==19860==    by 0x4E95A05: __cxxabiv1::__terminate(void (*)()) (eh_terminate.cc:38)
+==19860==    by 0x4E95A32: std::terminate() (eh_terminate.cc:48)
+==19860==    by 0x4E95C52: __cxa_throw (eh_throw.cc:87)
+==19860==    by 0x4039B5: std::__throw_out_of_range_fmt(char const*, ...) [clone .cold.0] (in /afs/cats.ucsc.edu/users/f/kimobrie/cse111/assignment1/code/ydc)
+==19860==    by 0x406395: std::vector<unsigned char, std::allocator<unsigned char> >::_M_range_check(unsigned long) const (stl_vector.h:960)
+==19860==    by 0x40583A: std::vector<unsigned char, std::allocator<unsigned char> >::at(unsigned long) const (stl_vector.h:999)
+==19860==    by 0x4040E8: ubigint::operator+(ubigint const&) const (ubigint.cpp:74)
+==19860==    by 0x408252: bigint::operator+(bigint const&) const (bigint.cpp:47)
+==19860==    by 0x40CC2E: do_arith(iterstack<bigint, std::vector<bigint, std::allocator<bigint> > >&, char) (main.cpp:32)
+==19860== 
+==19860== HEAP SUMMARY:
+==19860==     in use at exit: 627 bytes in 9 blocks
+==19860==   total heap usage: 66 allocs, 57 frees, 2,416 bytes allocated
+==19860== 
+==19860== 26 bytes in 1 blocks are still reachable in loss record 1 of 9
+==19860==    at 0x4C2A483: operator new(unsigned long) (vg_replace_malloc.c:344)
+==19860==    by 0x407AED: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (new_allocator.h:111)
+==19860==    by 0x4074B7: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (basic_string.tcc:1057)
+==19860==    by 0x40B434: char* std::string::_S_construct<char const*>(char const*, char const*, std::allocator<char> const&, std::forward_iterator_tag) (basic_string.tcc:578)
+==19860==    by 0x40B249: char* std::string::_S_construct_aux<char const*>(char const*, char const*, std::allocator<char> const&, std::__false_type) (basic_string.h:5052)
+==19860==    by 0x40B061: char* std::string::_S_construct<char const*>(char const*, char const*, std::allocator<char> const&) (basic_string.h:5073)
+==19860==    by 0x40AEFF: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(std::initializer_list<char>, std::allocator<char> const&) (basic_string.tcc:686)
+==19860==    by 0x409661: scanner::scan() (scanner.cpp:29)
+==19860==    by 0x40D83D: main (main.cpp:138)
+==19860== 
+==19860== 28 bytes in 1 blocks are still reachable in loss record 2 of 9
+==19860==    at 0x4C2A483: operator new(unsigned long) (vg_replace_malloc.c:344)
+==19860==    by 0x407AED: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (new_allocator.h:111)
+==19860==    by 0x4074B7: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (basic_string.tcc:1057)
+==19860==    by 0x4071CE: std::string::_M_mutate(unsigned long, unsigned long, unsigned long) (basic_string.tcc:929)
+==19860==    by 0x40CA93: std::string::_M_replace_safe(unsigned long, unsigned long, char const*, unsigned long) (basic_string.tcc:1134)
+==19860==    by 0x40C9C5: std::string::assign(char const*, unsigned long) (basic_string.tcc:714)
+==19860==    by 0x40C91B: std::string::assign(char const*) (basic_string.h:4333)
+==19860==    by 0x40C84A: std::string::operator=(char const*) (basic_string.h:3656)
+==19860==    by 0x40C5E6: exec::execname(std::string const&) (util.cpp:18)
+==19860==    by 0x40D7D5: main (main.cpp:131)
+==19860== 
+==19860== 36 bytes in 1 blocks are still reachable in loss record 3 of 9
+==19860==    at 0x4C2A483: operator new(unsigned long) (vg_replace_malloc.c:344)
+==19860==    by 0x407CD5: __gnu_cxx::new_allocator<unsigned char>::allocate(unsigned long, void const*) (new_allocator.h:111)
+==19860==    by 0x407B66: std::allocator_traits<std::allocator<unsigned char> >::allocate(std::allocator<unsigned char>&, unsigned long) (alloc_traits.h:436)
+==19860==    by 0x4076E5: std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_M_allocate(unsigned long) (stl_vector.h:296)
+==19860==    by 0x406F46: std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_M_create_storage(unsigned long) (stl_vector.h:311)
+==19860==    by 0x406550: std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_Vector_base(unsigned long, std::allocator<unsigned char> const&) (stl_vector.h:260)
+==19860==    by 0x40599B: std::vector<unsigned char, std::allocator<unsigned char> >::vector(std::vector<unsigned char, std::allocator<unsigned char> > const&) (stl_vector.h:460)
+==19860==    by 0x4051A6: ubigint::ubigint(ubigint const&) (ubigint.h:15)
+==19860==    by 0x408A8C: bigint::bigint(bigint const&) (bigint.h:17)
+==19860==    by 0x40EEBA: void __gnu_cxx::new_allocator<bigint>::construct<bigint, bigint const&>(bigint*, bigint const&) (new_allocator.h:136)
+==19860==    by 0x40EA29: void std::allocator_traits<std::allocator<bigint> >::construct<bigint, bigint const&>(std::allocator<bigint>&, bigint*, bigint const&) (alloc_traits.h:475)
+==19860==    by 0x40EB21: void std::vector<bigint, std::allocator<bigint> >::_M_realloc_insert<bigint const&>(__gnu_cxx::__normal_iterator<bigint*, std::vector<bigint, std::allocator<bigint> > >, bigint const&) (vector.tcc:436)
+==19860== 
+==19860== 36 bytes in 1 blocks are still reachable in loss record 4 of 9
+==19860==    at 0x4C2A483: operator new(unsigned long) (vg_replace_malloc.c:344)
+==19860==    by 0x407CD5: __gnu_cxx::new_allocator<unsigned char>::allocate(unsigned long, void const*) (new_allocator.h:111)
+==19860==    by 0x407B66: std::allocator_traits<std::allocator<unsigned char> >::allocate(std::allocator<unsigned char>&, unsigned long) (alloc_traits.h:436)
+==19860==    by 0x4076E5: std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_M_allocate(unsigned long) (stl_vector.h:296)
+==19860==    by 0x406F46: std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_M_create_storage(unsigned long) (stl_vector.h:311)
+==19860==    by 0x406550: std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_Vector_base(unsigned long, std::allocator<unsigned char> const&) (stl_vector.h:260)
+==19860==    by 0x40599B: std::vector<unsigned char, std::allocator<unsigned char> >::vector(std::vector<unsigned char, std::allocator<unsigned char> > const&) (stl_vector.h:460)
+==19860==    by 0x4051A6: ubigint::ubigint(ubigint const&) (ubigint.h:15)
+==19860==    by 0x408A8C: bigint::bigint(bigint const&) (bigint.h:17)
+==19860==    by 0x40CB9E: do_arith(iterstack<bigint, std::vector<bigint, std::allocator<bigint> > >&, char) (main.cpp:24)
+==19860==    by 0x40D4D7: do_function(iterstack<bigint, std::vector<bigint, std::allocator<bigint> > >&, char) (main.cpp:85)
+==19860==    by 0x40D8EE: main (main.cpp:148)
+==19860== 
+==19860== 37 bytes in 1 blocks are still reachable in loss record 5 of 9
+==19860==    at 0x4C2A483: operator new(unsigned long) (vg_replace_malloc.c:344)
+==19860==    by 0x407CD5: __gnu_cxx::new_allocator<unsigned char>::allocate(unsigned long, void const*) (new_allocator.h:111)
+==19860==    by 0x407B66: std::allocator_traits<std::allocator<unsigned char> >::allocate(std::allocator<unsigned char>&, unsigned long) (alloc_traits.h:436)
+==19860==    by 0x4076E5: std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_M_allocate(unsigned long) (stl_vector.h:296)
+==19860==    by 0x406F46: std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_M_create_storage(unsigned long) (stl_vector.h:311)
+==19860==    by 0x406550: std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_Vector_base(unsigned long, std::allocator<unsigned char> const&) (stl_vector.h:260)
+==19860==    by 0x40599B: std::vector<unsigned char, std::allocator<unsigned char> >::vector(std::vector<unsigned char, std::allocator<unsigned char> > const&) (stl_vector.h:460)
+==19860==    by 0x4051A6: ubigint::ubigint(ubigint const&) (ubigint.h:15)
+==19860==    by 0x408A8C: bigint::bigint(bigint const&) (bigint.h:17)
+==19860==    by 0x40CBD1: do_arith(iterstack<bigint, std::vector<bigint, std::allocator<bigint> > >&, char) (main.cpp:27)
+==19860==    by 0x40D4D7: do_function(iterstack<bigint, std::vector<bigint, std::allocator<bigint> > >&, char) (main.cpp:85)
+==19860==    by 0x40D8EE: main (main.cpp:148)
+==19860== 
+==19860== 64 bytes in 1 blocks are still reachable in loss record 6 of 9
+==19860==    at 0x4C2A483: operator new(unsigned long) (vg_replace_malloc.c:344)
+==19860==    by 0x407CD5: __gnu_cxx::new_allocator<unsigned char>::allocate(unsigned long, void const*) (new_allocator.h:111)
+==19860==    by 0x407B66: std::allocator_traits<std::allocator<unsigned char> >::allocate(std::allocator<unsigned char>&, unsigned long) (alloc_traits.h:436)
+==19860==    by 0x4076E5: std::_Vector_base<unsigned char, std::allocator<unsigned char> >::_M_allocate(unsigned long) (stl_vector.h:296)
+==19860==    by 0x406C17: void std::vector<unsigned char, std::allocator<unsigned char> >::_M_realloc_insert<unsigned char>(__gnu_cxx::__normal_iterator<unsigned char*, std::vector<unsigned char, std::allocator<unsigned char> > >, unsigned char&&) (vector.tcc:427)
+==19860==    by 0x406309: unsigned char& std::vector<unsigned char, std::allocator<unsigned char> >::emplace_back<unsigned char>(unsigned char&&) (vector.tcc:109)
+==19860==    by 0x405701: std::vector<unsigned char, std::allocator<unsigned char> >::push_back(unsigned char&&) (stl_vector.h:1091)
+==19860==    by 0x404162: ubigint::operator+(ubigint const&) const (ubigint.cpp:81)
+==19860==    by 0x408252: bigint::operator+(bigint const&) const (bigint.cpp:47)
+==19860==    by 0x40CC2E: do_arith(iterstack<bigint, std::vector<bigint, std::allocator<bigint> > >&, char) (main.cpp:32)
+==19860==    by 0x40D4D7: do_function(iterstack<bigint, std::vector<bigint, std::allocator<bigint> > >&, char) (main.cpp:85)
+==19860==    by 0x40D8EE: main (main.cpp:148)
+==19860== 
+==19860== 96 bytes in 1 blocks are still reachable in loss record 7 of 9
+==19860==    at 0x4C2A483: operator new(unsigned long) (vg_replace_malloc.c:344)
+==19860==    by 0x407AED: __gnu_cxx::new_allocator<char>::allocate(unsigned long, void const*) (new_allocator.h:111)
+==19860==    by 0x4074B7: std::string::_Rep::_S_create(unsigned long, unsigned long, std::allocator<char> const&) (basic_string.tcc:1057)
+==19860==    by 0x40B434: char* std::string::_S_construct<char const*>(char const*, char const*, std::allocator<char> const&, std::forward_iterator_tag) (basic_string.tcc:578)
+==19860==    by 0x40B249: char* std::string::_S_construct_aux<char const*>(char const*, char const*, std::allocator<char> const&, std::__false_type) (basic_string.h:5052)
+==19860==    by 0x40B061: char* std::string::_S_construct<char const*>(char const*, char const*, std::allocator<char> const&) (basic_string.h:5073)
+==19860==    by 0x40AFAA: std::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, std::allocator<char> const&) (basic_string.tcc:665)
+==19860==    by 0x40F7B5: std::logic_error::logic_error(char const*) (in /afs/cats.ucsc.edu/users/f/kimobrie/cse111/assignment1/code/ydc)
+==19860==    by 0x40F848: std::out_of_range::out_of_range(char const*) (in /afs/cats.ucsc.edu/users/f/kimobrie/cse111/assignment1/code/ydc)
+==19860==    by 0x40F680: std::__throw_out_of_range_fmt(char const*, ...) (in /afs/cats.ucsc.edu/users/f/kimobrie/cse111/assignment1/code/ydc)
+==19860==    by 0x406395: std::vector<unsigned char, std::allocator<unsigned char> >::_M_range_check(unsigned long) const (stl_vector.h:960)
+==19860==    by 0x40583A: std::vector<unsigned char, std::allocator<unsigned char> >::at(unsigned long) const (stl_vector.h:999)
+==19860== 
+==19860== 144 bytes in 1 blocks are possibly lost in loss record 8 of 9
+==19860==    at 0x4C29E63: malloc (vg_replace_malloc.c:309)
+==19860==    by 0x4E945A2: __cxa_allocate_exception (eh_alloc.cc:105)
+==19860==    by 0x40F66A: std::__throw_out_of_range_fmt(char const*, ...) (in /afs/cats.ucsc.edu/users/f/kimobrie/cse111/assignment1/code/ydc)
+==19860==    by 0x406395: std::vector<unsigned char, std::allocator<unsigned char> >::_M_range_check(unsigned long) const (stl_vector.h:960)
+==19860==    by 0x40583A: std::vector<unsigned char, std::allocator<unsigned char> >::at(unsigned long) const (stl_vector.h:999)
+==19860==    by 0x4040E8: ubigint::operator+(ubigint const&) const (ubigint.cpp:74)
+==19860==    by 0x408252: bigint::operator+(bigint const&) const (bigint.cpp:47)
+==19860==    by 0x40CC2E: do_arith(iterstack<bigint, std::vector<bigint, std::allocator<bigint> > >&, char) (main.cpp:32)
+==19860==    by 0x40D4D7: do_function(iterstack<bigint, std::vector<bigint, std::allocator<bigint> > >&, char) (main.cpp:85)
+==19860==    by 0x40D8EE: main (main.cpp:148)
+==19860== 
+==19860== 160 bytes in 1 blocks are still reachable in loss record 9 of 9
+==19860==    at 0x4C2A483: operator new(unsigned long) (vg_replace_malloc.c:344)
+==19860==    by 0x40F2EB: __gnu_cxx::new_allocator<bigint>::allocate(unsigned long, void const*) (new_allocator.h:111)
+==19860==    by 0x40F1E1: std::allocator_traits<std::allocator<bigint> >::allocate(std::allocator<bigint>&, unsigned long) (alloc_traits.h:436)
+==19860==    by 0x40F069: std::_Vector_base<bigint, std::allocator<bigint> >::_M_allocate(unsigned long) (stl_vector.h:296)
+==19860==    by 0x40EAD7: void std::vector<bigint, std::allocator<bigint> >::_M_realloc_insert<bigint const&>(__gnu_cxx::__normal_iterator<bigint*, std::vector<bigint, std::allocator<bigint> > >, bigint const&) (vector.tcc:427)
+==19860==    by 0x40E541: std::vector<bigint, std::allocator<bigint> >::push_back(bigint const&) (stl_vector.h:1085)
+==19860==    by 0x40DFF6: iterstack<bigint, std::vector<bigint, std::allocator<bigint> > >::push(bigint const&) (iterstack.h:41)
+==19860==    by 0x40D8B0: main (main.cpp:144)
+==19860== 
+==19860== LEAK SUMMARY:
+==19860==    definitely lost: 0 bytes in 0 blocks
+==19860==    indirectly lost: 0 bytes in 0 blocks
+==19860==      possibly lost: 144 bytes in 1 blocks
+==19860==    still reachable: 483 bytes in 8 blocks
+==19860==                       of which reachable via heuristic:
+==19860==                         stdstring          : 150 bytes in 3 blocks
+==19860==         suppressed: 0 bytes in 0 blocks
+==19860== 
+==19860== For counts of detected and suppressed errors, rerun with: -v
+==19860== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
