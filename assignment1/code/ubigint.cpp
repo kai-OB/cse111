@@ -42,8 +42,8 @@ ubigint ubigint::operator+ (const ubigint& that) const {
    ubigint add_result;
    unsigned int sum; 
    unsigned int carry = 0;  
-   ssize_t shorter; 
-   ssize_t longer;
+   ssize_t shorter = that.uvalue.size(); 
+   ssize_t longer = uvalue.size();
    bool thisislonger = true;
    if(uvalue.size() < that.uvalue.size()){//sets longer + shorter val
       shorter = uvalue.size();  
