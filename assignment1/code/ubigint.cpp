@@ -68,7 +68,7 @@ ubigint ubigint::operator+ (const ubigint& that) const {
       longer = uvalue.size();
    }
 
-   for(unsigned int i = 0; i < longer; i++){   
+   for(unsigned int i = 0; i < shorter; i++){   
       sum = carry;      
       carry = 0;
       
@@ -86,7 +86,16 @@ ubigint ubigint::operator+ (const ubigint& that) const {
       add_result.uvalue.push_back(sum); //push back the sum 
    }
    
-   
+   if(thisislonger == true){
+      for(unsigned int i = shorter; i < longer; i++){   
+         add_result.uvalue.push_back(uvalue.at(i));
+      }
+   }
+   if(thisislonger == false){
+      for(unsigned int i = shorter; i < longer; i++){   
+         add_result.uvalue.push_back(that.uvalue.at(i));
+      }
+   }
 
    //pushback for just longer vector
    /* trim the vector by removing all high-order zeros :*/

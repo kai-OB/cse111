@@ -44,7 +44,7 @@ bigint bigint::operator+ (const bigint& that) const {
    }
    // both positive
    else if(!is_negative and !is_negative){  
-      plus_result = that.uvalue + uvalue; //calls uvalue operator+
+      plus_result = uvalue + that.uvalue; //calls uvalue operator+
       sign = false;  //set sign to false 
    }
 
