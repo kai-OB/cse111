@@ -1,3 +1,48 @@
+gmake --no-print-directory deps
+g++ -std=gnu++2a -MM -Wall -Wextra -Wpedantic -Wshadow -Wold-style-cast -fdiagnostics-color=never ubigint.cpp bigint.cpp libfns.cpp scanner.cpp debug.cpp util.cpp main.cpp >>Makefile.deps
+checksource ubigint.cpp
+checksource: TOTAL COMPLAINTS: 0
+cpplint.py.perl ubigint.cpp
+Done processing ubigint.cpp
+g++ -std=gnu++2a -g -O0 -Wall -Wextra -Wpedantic -Wshadow -Wold-style-cast -fdiagnostics-color=never -c ubigint.cpp
+ubigint.cpp: In member function ‘ubigint ubigint::operator+(const ubigint&) const’:
+ubigint.cpp:46:12: warning: variable ‘longer’ set but not used [-Wunused-but-set-variable]
+    ssize_t longer = uvalue.size();
+            ^~~~~~
+ubigint.cpp:47:9: warning: unused variable ‘thisislonger’ [-Wunused-variable]
+    bool thisislonger = true;
+         ^~~~~~~~~~~~
+checksource bigint.cpp
+checksource: TOTAL COMPLAINTS: 0
+cpplint.py.perl bigint.cpp
+Done processing bigint.cpp
+g++ -std=gnu++2a -g -O0 -Wall -Wextra -Wpedantic -Wshadow -Wold-style-cast -fdiagnostics-color=never -c bigint.cpp
+checksource libfns.cpp
+checksource: TOTAL COMPLAINTS: 0
+cpplint.py.perl libfns.cpp
+Done processing libfns.cpp
+g++ -std=gnu++2a -g -O0 -Wall -Wextra -Wpedantic -Wshadow -Wold-style-cast -fdiagnostics-color=never -c libfns.cpp
+checksource scanner.cpp
+checksource: TOTAL COMPLAINTS: 0
+cpplint.py.perl scanner.cpp
+Done processing scanner.cpp
+g++ -std=gnu++2a -g -O0 -Wall -Wextra -Wpedantic -Wshadow -Wold-style-cast -fdiagnostics-color=never -c scanner.cpp
+checksource debug.cpp
+checksource: TOTAL COMPLAINTS: 0
+cpplint.py.perl debug.cpp
+Done processing debug.cpp
+g++ -std=gnu++2a -g -O0 -Wall -Wextra -Wpedantic -Wshadow -Wold-style-cast -fdiagnostics-color=never -c debug.cpp
+checksource util.cpp
+checksource: non-ASCII character \x09 = ^I (tab)
+util.cpp: 2 errors: lines 10--11
+checksource: TOTAL COMPLAINTS: 2
+gmake: [Makefile:31: util.o] Error 1 (ignored)
+cpplint.py.perl util.cpp
+util.cpp:10:  Tab found; better to use spaces  [whitespace/tab] [1]
+util.cpp:11:  Tab found; better to use spaces  [whitespace/tab] [1]
+Done processing util.cpp
+Total errors found: 2
+g++ -std=gnu++2a -g -O0 -Wall -Wextra -Wpedantic -Wshadow -Wold-style-cast -fdiagnostics-color=never -c util.cpp
 checksource main.cpp
 checksource: TOTAL COMPLAINTS: 0
 cpplint.py.perl main.cpp
