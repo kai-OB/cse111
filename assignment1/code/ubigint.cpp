@@ -68,10 +68,10 @@ ubigint ubigint::operator+ (const ubigint& that) const {
       sum = carry;      
       carry = 0;
       
-      if( i < uvalue.at(i) ){  //if this hasnt run out then add
+      if( i < uvalue.size() ){  //if this hasnt run out then add
          sum+= uvalue.at(i);
       }
-      if(i < that.uvalue.at(i) ){  //if that hasnt run out then add
+      if(i < that.uvalue.size() ){  //if that hasnt run out then add
          sum += that.uvalue.at(i);
       }
       if(sum >9){ // if there is a remainder then:
