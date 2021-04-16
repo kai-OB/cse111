@@ -66,8 +66,6 @@ ubigint ubigint::operator+ (const ubigint& that) const {
          sum = carry;      
          carry = 0;
          
-            sum+= uvalue.at(i);
-   
         if(that.uvalue.size() > i ){ 
             sum = that.uvalue.at(i);
          }
