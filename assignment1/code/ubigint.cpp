@@ -61,11 +61,12 @@ ubigint ubigint::operator+ (const ubigint& that) const {
    if(uvalue.size() > that.uvalue.size()){//sets longer + shorter val
       shorter = that.uvalue.size();//when run out of digits in shorter number 
       longer = uvalue.size();
-      thisislonger = false;
+     
    }
    else{ //this->value is the same as uvalue
       shorter = uvalue.size();  //might not need this idk!!!!!!
       longer = that.uvalue.size();
+       thisislonger = false;
    }
 
    for(unsigned int i = 0; i < shorter-1; i++){   
