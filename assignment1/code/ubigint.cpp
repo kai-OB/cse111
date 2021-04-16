@@ -64,7 +64,7 @@ ubigint ubigint::operator+ (const ubigint& that) const {
       shorter = that.uvalue.size();  //might not need this idk!!!!!!
    }
 
-   for(auto i = 0; i < shorter; i++){   
+   for(unsigned int i = 0; i < shorter; i++){   
       sum = carry;      
       carry = 0;
       
