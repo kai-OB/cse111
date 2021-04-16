@@ -11,27 +11,35 @@ using namespace std;
 #include "relops.h"
 #include "ubigint.h"
 
-ubigint::ubigint (unsigned long that)/*: uvalue (that) */{
+ubigint::ubigint (unsigned long that)/*: uval (that) */{
   
    
    while(that > 0){
      
       uvalue.push_back((that % 10) -'0');
-       cout << ((that % 10) -'0'));
+      // cout << ((that % 10) -'0'));
       
       that = that/10;
    }
    
 }
 
-ubigint::ubigint (const string& that)/*: uvalue(0)*/ {
-  
+ubigint::ubigint (const string& that): uval(0) {
+ /*
    for (unsigned long index = 0; index < that.size(); ++index){
       uvalue.push_back(that.at(index)- '0');  //casting as int?
-      cout << (that.at(index)- '0'); 
+      //cout << (that.at(index)- '0'); 
+   }*/
+
+   for (char digit: that) {
+      if (not isdigit (digit)) {
+         throw invalid_argument ("ubigint::ubigint(" + that + ")");
+      }
+      uval = uval * 10 + digit - '0';
+      uvalue.push_back(digit- '0');
    }
    //reverse?
-   
+  // uvalue.push_back(that.at(index)- '0');
 }
 
 ubigint ubigint::operator+ (const ubigint& that) const {
