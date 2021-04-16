@@ -76,7 +76,7 @@ ubigint ubigint::operator+ (const ubigint& that) const {
    while (add_result.uvalue.size()>0 and add_result.uvalue.back()==0){ 
       add_result.uvalue.pop_back();
    }
-   return add_result;
+   return add_result; 
 
 }
 
