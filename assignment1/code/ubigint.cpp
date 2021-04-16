@@ -55,16 +55,16 @@ ubigint ubigint::operator+ (const ubigint& that) const {
    ubigint add_result;
    unsigned int sum; // sum of two digits while adding vectors
    unsigned int carry = 0;  // remainder to be carried if sum>=10
-   ssize_t longer; //longer vector to be added (may be same length!)
+   ssize_t shorter; //shorter vector to be added (may be same length!)
    
-   if(uvalue.size() > that.uvalue.size()){//sets longer + shorter val
-      longer = uvalue.size();//when run out of digits in shorter number 
+   if(uvalue.size() < that.uvalue.size()){//sets longer + shorter val
+      shorter = uvalue.size();//when run out of digits in shorter number 
    }
    else{ //this->value is the same as uvalue
-      longer = that.uvalue.size();  //might not need this idk!!!!!!
+      shorter = that.uvalue.size();  //might not need this idk!!!!!!
    }
 
-   for(auto i = 0; i < longer; i++){   
+   for(auto i = 0; i < shorter; i++){   
       sum = carry;      
       carry = 0;
       
