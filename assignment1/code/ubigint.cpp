@@ -11,15 +11,23 @@ using namespace std;
 #include "relops.h"
 #include "ubigint.h"
 
-ubigint::ubigint (unsigned long that)/*: uval (that) */{
+ubigint::ubigint (unsigned long that): uval (that) {
   
    
-   while(that > 0){
+  /* while(that > 0){
      
       uvalue.push_back((that % 10) -'0');
       // cout << ((that % 10) -'0'));
       
       that = that/10;
+   }*/
+   string longstr = to_string(uval);
+   for (char digit: longstr) {
+      if (not isdigit (digit)) {
+         throw invalid_argument ("ubigint::ubigint(" + longstr + ")");
+      }
+      uval = uval * 10 + digit - '0';
+      uvalue.push_back(digit- '0');
    }
    
 }
