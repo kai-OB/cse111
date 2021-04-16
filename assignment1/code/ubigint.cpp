@@ -71,7 +71,7 @@ ubigint ubigint::operator+ (const ubigint& that) const {
    for(unsigned int i = 0; i < shorter; i++){   
       sum = carry;      
       carry = 0;
-      
+       if(i < uvalue.size() ){ 
          sum+= uvalue.at(i);
       }
       if(i < that.uvalue.size() ){  //if that hasnt run out then add
