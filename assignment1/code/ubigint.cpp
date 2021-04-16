@@ -56,23 +56,28 @@ ubigint ubigint::operator+ (const ubigint& that) const {
    unsigned int sum; // sum of two digits while adding vectors
    unsigned int carry = 0;  // remainder to be carried if sum>=10
    ssize_t shorter; //shorter vector to be added (may be same length!)
-   
+   ssize_t longer;
    if(uvalue.size() < that.uvalue.size()){//sets longer + shorter val
       shorter = uvalue.size();//when run out of digits in shorter number 
+      longer = that.uvalue.size();
    }
    else{ //this->value is the same as uvalue
       shorter = that.uvalue.size();  //might not need this idk!!!!!!
+      longer = uvalue.size();
    }
 
-   for(unsigned int i = 0; i < shorter; i++){   
+   for(unsigned int i = 0; i < longer; i++){   
       sum = carry;      
       carry = 0;
       
-      if( i < uvalue.size() ){  //if this hasnt run out then add
+      if( i >= uvalue.size() ){  //if this hasnt run out then add
          sum+= uvalue.at(i);
       }
-      if(i < that.uvalue.size() ){  //if that hasnt run out then add
+      else if(i >= that.uvalue.size() ){  //if that hasnt run out then add
          sum += that.uvalue.at(i);
+      }
+      else {
+         sum += that.uvalue.at(i) + uvalue.at(i);
       }
       if(sum >9){ // if there is a remainder then:
          carry = 1;  //carry 1 to start loop over with sum = carry
