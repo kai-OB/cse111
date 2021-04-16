@@ -58,21 +58,20 @@ ubigint ubigint::operator+ (const ubigint& that) const {
    ssize_t shorter; //shorter vector to be added (may be same length!)
    ssize_t longer;
    bool thisislonger = true;
-   if(uvalue.size() < that.uvalue.size()){//sets longer + shorter val
-      shorter = uvalue.size();//when run out of digits in shorter number 
-      longer = that.uvalue.size();
+   if(uvalue.size() > that.uvalue.size()){//sets longer + shorter val
+      shorter = that.uvalue.size();//when run out of digits in shorter number 
+      longer = uvalue.size();
       thisislonger = false;
    }
    else{ //this->value is the same as uvalue
-      shorter = that.uvalue.size();  //might not need this idk!!!!!!
-      longer = uvalue.size();
+      shorter = uvalue.size();  //might not need this idk!!!!!!
+      longer = that.uvalue.size();
    }
 
    for(unsigned int i = 0; i < shorter; i++){   
       sum = carry;      
       carry = 0;
       
-      if( i < uvalue.size() ){  //if this hasnt run out then add
          sum+= uvalue.at(i);
       }
       if(i < that.uvalue.size() ){  //if that hasnt run out then add
