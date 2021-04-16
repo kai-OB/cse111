@@ -1,5 +1,5 @@
 // $Id: ubigint.cpp,v 1.12 2020-10-19 13:14:59-07 - - $
-
+//Kai O'brien kimobrie
 #include <cctype>
 #include <cstdlib>
 #include <exception>
@@ -21,24 +21,12 @@ ubigint::ubigint (unsigned long that)/*: uval (that)*/ {
       
       that = that/10;
    }
-   /*string longstr = to_string(uval);
-   for (char digit: longstr) {
-      if (not isdigit (digit)) {
-         throw invalid_argument ("ubigint::ubigint(" + longstr + ")");
-      }
-      uval = uval * 10 + digit - '0';
-      uvalue.push_back(digit- '0');
-   }*/
+
    
 }
 
 ubigint::ubigint (const string& that): uval(0) {
- /*
-   for (unsigned long index = 0; index < that.size(); ++index){
-      uvalue.push_back(that.at(index)- '0');  //casting as int?
-      //cout << (that.at(index)- '0'); 
-   }*/
-
+ 
    for (char digit: that) {
       if (not isdigit (digit)) {
          throw invalid_argument ("ubigint::ubigint(" + that + ")");
@@ -46,8 +34,7 @@ ubigint::ubigint (const string& that): uval(0) {
       uval = uval * 10 + digit - '0';
       uvalue.push_back(digit- '0');
    }
-   //reverse?
-  // uvalue.push_back(that.at(index)- '0');
+
 }
 
 ubigint ubigint::operator+ (const ubigint& that) const {
