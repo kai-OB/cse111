@@ -68,10 +68,10 @@ ubigint ubigint::operator+ (const ubigint& that) const {
          
             sum+= uvalue.at(i);
    
-        if(that.uvalue.size() >= i ){ 
+        if(that.uvalue.size() > i ){ 
             sum = that.uvalue.at(i);
          }
-         else if(uvalue.size() >= i ){ 
+         else if(uvalue.size() > i ){ 
             sum = uvalue.at(i);
          }
          
