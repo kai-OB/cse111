@@ -1,5 +1,4 @@
 checksource: line length > 72 characters
-ubigint.cpp: 2 errors: lines 78, 102
 ubigint.h: 3 errors: lines 27--29
 checksource: non-ASCII character \x09 = ^I (tab)
 util.cpp: 2 errors: lines 10--11
@@ -9,4 +8,4 @@ checksource: non-ASCII character \x99
 README: 1 errors: line 3
 checksource: non-ASCII character \xE2
 README: 1 errors: line 3
-checksource: TOTAL COMPLAINTS: 10
+checksource: TOTAL COMPLAINTS: 8
