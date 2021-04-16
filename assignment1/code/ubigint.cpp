@@ -53,39 +53,59 @@ ubigint::ubigint (const string& that): uval(0) {
 ubigint ubigint::operator+ (const ubigint& that) const {
   
    ubigint add_result;
-   unsigned int sum; // sum of two digits while adding vectors
-   unsigned int carry = 0;  // remainder to be carried if sum>=10
-   ssize_t shorter; //shorter vector to be added (may be same length!)
+   unsigned int sum; 
+   unsigned int carry = 0;  
+   ssize_t shorter; 
    ssize_t longer;
    bool thisislonger = true;
-   if(uvalue.size() > that.uvalue.size()){//sets longer + shorter val
-      shorter = that.uvalue.size();//when run out of digits in shorter number 
-      longer = uvalue.size();
-     
+   if(uvalue.size() < that.uvalue.size()){//sets longer + shorter val
+      for(unsigned int i = 0; i < uvalue.size(); i++){   
+         sum = carry;      
+         carry = 0;
+         
+            sum+= uvalue.at(i);
+   
+       //  if(that.uvalue.size() > i ){ 
+            sum += that.uvalue.at(i);
+        // }
+         
+         if(sum >9){ // if there is a remainder then:
+            carry = 1;  
+            sum = (sum % 10);   // and mod 10
+         }
+         add_result.uvalue.push_back(sum); //push back the sum 
+      }
+       for(unsigned int i = uvalue.size(); i < that.uvalue.size(); i++){   
+         add_result.uvalue.push_back(that.uvalue.at(i));
+      }
    }
    else{ //this->value is the same as uvalue
-      shorter = uvalue.size();  //might not need this idk!!!!!!
+      /*shorter = uvalue.size();  
       longer = that.uvalue.size();
-       thisislonger = false;
+       thisislonger = false;*/
+        for(unsigned int i = 0; i < that.uvalue.size(); i++){   
+         sum = carry;      
+         carry = 0;
+         
+            sum+= uvalue.at(i);
+   
+       //  if(that.uvalue.size() > i ){ 
+            sum += that.uvalue.at(i);
+        // }
+         
+         if(sum >9){ // if there is a remainder then:
+            carry = 1;  
+            sum = (sum % 10);   // and mod 10
+         }
+         add_result.uvalue.push_back(sum); //push back the sum 
+      }
+       for(unsigned int i = that.uvalue.size(); i < uvalue.size(); i++){   
+         add_result.uvalue.push_back(uvalue.at(i));
+      }
+
    }
 
-   for(unsigned int i = 0; i < shorter-1; i++){   
-      sum = carry;      
-      carry = 0;
-       if( uvalue.size() > i ){ 
-         sum+= uvalue.at(i);
-      }
-      if(that.uvalue.size() > i ){  //if that hasnt run out then add
-         sum += that.uvalue.at(i);
-      }
-      
-      if(sum >9){ // if there is a remainder then:
-         carry = 1;  //carry 1 to start loop over with sum = carry
-         sum = (sum % 10);   // and mod 10
-      }
-      add_result.uvalue.push_back(sum); //push back the sum 
-   }
-   
+  /* 
    if(thisislonger == true){
       for(unsigned int i = shorter; i < longer; i++){   
          add_result.uvalue.push_back(uvalue.at(i));
@@ -95,7 +115,7 @@ ubigint ubigint::operator+ (const ubigint& that) const {
       for(unsigned int i = shorter; i < longer; i++){   
          add_result.uvalue.push_back(that.uvalue.at(i));
       }
-   }
+   }*/
 
    //pushback for just longer vector
    /* trim the vector by removing all high-order zeros :*/
@@ -288,15 +308,15 @@ bool ubigint::operator< (const ubigint& that) const {
    //go from highest to lowest order digit
    else{
       if(that.uvalue.size() == uvalue.size() && uvalue.size() > 0){
-         for(int i = that.uvalue.size()-1; i >0; i--){//<=??  and inf loop check
-               if(uvalue.at(i) < that.uvalue.at(i)){//if this > that then false
+         for(int i = that.uvalue.size()-1; i >0; i--){//inf
+               if(uvalue.at(i) < that.uvalue.at(i)){
                   return true;  //returns false
                   break;
                }
             }
       }
    }
-   return false; // if all digits of this are less than that, return true
+   return false; 
 }
 
 ostream& operator<< (ostream& out, const ubigint& that) { 

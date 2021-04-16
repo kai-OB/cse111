@@ -78,7 +78,7 @@ bigint bigint::operator- (const bigint& that) const {
       sign = false; //sign is positive (negative)
    }
    else if(!is_negative and !is_negative){  
-      if(uvalue > that.uvalue){ //if one is greater or equal   //where aborts
+      if(uvalue > that.uvalue){ 
          sign = false; //both positive so remain positive
          sub_result = uvalue - that.uvalue;   //subtractfrom larger 
       }
