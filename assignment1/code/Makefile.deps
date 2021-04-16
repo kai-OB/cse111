@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Makefile.deps created Thu Apr 15 19:43:16 PDT 2021
-=======
-# Makefile.deps created Thu Apr 15 20:19:27 MST 2021
->>>>>>> 4daccb1d64f8fc58630479ee0aaac7b3216b31ab
+# Makefile.deps created Thu Apr 15 20:21:42 PDT 2021
 ubigint.o: ubigint.cpp debug.h relops.h ubigint.h
 bigint.o: bigint.cpp bigint.h debug.h relops.h ubigint.h
 libfns.o: libfns.cpp libfns.h bigint.h debug.h relops.h ubigint.h
@@ -10,4 +6,4 @@ scanner.o: scanner.cpp scanner.h debug.h
 debug.o: debug.cpp debug.h util.h
 util.o: util.cpp util.h debug.h
 main.o: main.cpp bigint.h debug.h relops.h ubigint.h iterstack.h libfns.h \
-  scanner.h util.h
+ scanner.h util.h
