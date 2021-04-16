@@ -9,6 +9,7 @@
 #ifndef __UTIL_H__
 #define __UTIL_H__
 
+
 #include <iomanip>
 #include <iostream>
 #include <sstream>
@@ -23,6 +24,7 @@ using namespace std;
 //    Indicate a problem where processing should be abandoned and
 //    the main function should take control.
 //
+
 
 class ydc_error: public runtime_error {
    public:
@@ -73,6 +75,9 @@ class exec {
 
 ostream& note();
 ostream& error();
+#ifndef __APPLE__
+std::string basename(std::string const &);
+#endif
 
 #endif
 
