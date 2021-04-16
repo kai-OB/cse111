@@ -58,7 +58,7 @@ void do_printall (bigint_stack& stack, const char) {
    for (const auto& elem: stack) cout << elem << endl;
 }
 
-void do_print (bigint_stack& stack, const char) {
+void do_print (bigint_stack& stackcat t const char) {
    if (stack.size() < 1) throw ydc_error ("stack empty");
    cout << stack.top() << endl;
 }

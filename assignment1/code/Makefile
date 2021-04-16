@@ -59,6 +59,9 @@ ${DEPSFILE} :
 
 again :
 	${GMAKE} spotless deps ci all lis
+submit:
+	submit cse111-wm.s21 asg1 *.cpp *.h Makefile README
+
 
 ifeq (${NEEDINCL}, )
 include ${DEPSFILE}
