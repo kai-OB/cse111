@@ -1,5 +1,13 @@
-checksource: Makefile: No such file or directory
-checksource: README: No such file or directory
-checksource: *.h: No such file or directory
-checksource: *.cpp: No such file or directory
-checksource: TOTAL COMPLAINTS: 4
+checksource: line length > 72 characters
+bigint.cpp: 1 errors: line 81
+ubigint.cpp: 4 errors: lines 61, 272--273, 280
+ubigint.h: 3 errors: lines 27--29
+checksource: non-ASCII character \x09 = ^I (tab)
+util.cpp: 2 errors: lines 10--11
+checksource: non-ASCII character \x80
+README: 1 errors: line 3
+checksource: non-ASCII character \x99
+README: 1 errors: line 3
+checksource: non-ASCII character \xE2
+README: 1 errors: line 3
+checksource: TOTAL COMPLAINTS: 13

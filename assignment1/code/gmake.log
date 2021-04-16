@@ -1,1 +1,1 @@
-gmake: *** No targets specified and no makefile found.  Stop.
+Makefile.deps:1: *** missing separator.  Stop.
