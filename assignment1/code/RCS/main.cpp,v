@@ -1,9 +1,14 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
 locks;
 comment	@// @;
 
+
+1.2
+date	2021.04.16.06.37.21;	author -;	state -;
+branches;
+next	1.1;
 
 1.1
 date	2021.04.15.07.02.47;	author -;	state -;
@@ -15,12 +20,12 @@ desc
 @@
 
 
-1.1
+1.2
 log
 @-
 @
 text
-@// $Id: main.cpp,v 1.2 2019-12-12 19:22:40-08 - - $
+@// $Id: main.cpp,v 1.1 2021-04-15 00:02:47-07 - - $
 
 #include <cassert>
 #include <deque>
@@ -80,7 +85,7 @@ void do_printall (bigint_stack& stack, const char) {
    for (const auto& elem: stack) cout << elem << endl;
 }
 
-void do_print (bigint_stack& stack, const char) {
+void do_print (bigint_stack& stackcat t const char) {
    if (stack.size() < 1) throw ydc_error ("stack empty");
    cout << stack.top() << endl;
 }
@@ -183,4 +188,18 @@ int main (int argc, char** argv) {
    return exec::status();
 }
 
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: main.cpp,v 1.2 2019-12-12 19:22:40-08 - - $
+d61 1
+a61 1
+void do_print (bigint_stack& stack, const char) {
 @

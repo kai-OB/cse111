@@ -1,9 +1,14 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
 locks;
 comment	@ * @;
 
+
+1.2
+date	2021.04.16.06.37.21;	author -;	state -;
+branches;
+next	1.1;
 
 1.1
 date	2021.04.15.07.02.47;	author -;	state -;
@@ -15,13 +20,13 @@ desc
 @@
 
 
-1.1
+1.2
 log
 @-
 @
 text
-@// $Id: util.h,v 1.2 2019-12-12 19:22:40-08 - - $
-
+@// $Id: util.h,v 1.1 2021-04-15 00:02:47-07 - - $
+//kai obrien kimobrie
 //
 // util -
 //    A utility class to provide various services
@@ -30,6 +35,7 @@ text
 
 #ifndef __UTIL_H__
 #define __UTIL_H__
+
 
 #include <iomanip>
 #include <iostream>
@@ -45,6 +51,7 @@ using namespace std;
 //    Indicate a problem where processing should be abandoned and
 //    the main function should take control.
 //
+
 
 class ydc_error: public runtime_error {
    public:
@@ -95,7 +102,25 @@ class exec {
 
 ostream& note();
 ostream& error();
+#ifndef __APPLE__
+std::string basename(std::string const &);
+#endif
 
 #endif
 
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 2
+a2 2
+// $Id: util.h,v 1.2 2019-12-12 19:22:40-08 - - $
+
+d12 1
+d28 1
+d78 3
 @

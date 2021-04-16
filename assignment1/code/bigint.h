@@ -1,4 +1,4 @@
-// $Id: bigint.h,v 1.1 2021-04-15 00:02:47-07 - - $
+// $Id: bigint.h,v 1.2 2021-04-15 23:37:21-07 - - $
 //kai o'brien kimobrie
 #ifndef __BIGINT_H__
 #define __BIGINT_H__

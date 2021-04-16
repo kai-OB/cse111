@@ -1,9 +1,14 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
 locks;
 comment	@// @;
 
+
+1.2
+date	2021.04.16.06.37.21;	author -;	state -;
+branches;
+next	1.1;
 
 1.1
 date	2021.04.15.07.02.47;	author -;	state -;
@@ -15,20 +20,26 @@ desc
 @@
 
 
-1.1
+1.2
 log
 @-
 @
 text
-@// $Id: util.cpp,v 1.2 2019-12-12 19:22:40-08 - - $
-
+@// $Id: util.cpp,v 1.1 2021-04-15 00:02:47-07 - - $
+//kai obrien kimobrie
 #include <cstring>
 using namespace std;
 
 #include "util.h"
-
+#ifndef __APPLE__
+std::string basename(std::string const &str)
+{
+	auto last = str.find_last_of('/');
+	return str.substr((last==std::string::npos?0:last+1), str.size());
+}
 string exec::execname_; // Must be initialized from main().
 int exec::status_ = EXIT_SUCCESS;
+
 
 void exec::execname (const string& argv0) {
    execname_ = basename (argv0.c_str());
@@ -51,4 +62,23 @@ ostream& error() {
    return note();
 }
 
+#endif
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 2
+a2 2
+// $Id: util.cpp,v 1.2 2019-12-12 19:22:40-08 - - $
+
+d7 6
+a12 1
+
+d16 1
+d37 2
 @

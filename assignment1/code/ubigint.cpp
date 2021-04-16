@@ -1,4 +1,4 @@
-// $Id: ubigint.cpp,v 1.12 2020-10-19 13:14:59-07 - - $
+// $Id: ubigint.cpp,v 1.2 2021-04-15 23:37:21-07 - - $
 //Kai O'brien kimobrie
 #include <cctype>
 #include <cstdlib>

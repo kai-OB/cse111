@@ -1,9 +1,14 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
 locks;
 comment	@# @;
 
+
+1.2
+date	2021.04.16.06.37.21;	author -;	state -;
+branches;
+next	1.1;
 
 1.1
 date	2021.04.15.07.02.47;	author -;	state -;
@@ -15,13 +20,13 @@ desc
 @@
 
 
-1.1
+1.2
 log
 @-
 @
 text
-@# $Id: Makefile,v 1.8 2020-12-27 19:59:14-08 - - $
-
+@# $Id: Makefile,v 1.1 2021-04-15 00:02:47-07 - - $
+#kai obrien kimobrie
 MKFILE      = Makefile
 DEPSFILE    = ${MKFILE}.deps
 NOINCL      = ci clean spotless
@@ -81,9 +86,25 @@ ${DEPSFILE} :
 
 again :
 	${GMAKE} spotless deps ci all lis
+submit:
+	submit cse111-wm.s21 asg1 *.cpp *.h Makefile README
+
 
 ifeq (${NEEDINCL}, )
 include ${DEPSFILE}
 endif
 
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 2
+a2 2
+# $Id: Makefile,v 1.8 2020-12-27 19:59:14-08 - - $
+
+d62 3
 @

@@ -1,9 +1,14 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
 locks;
 comment	@// @;
 
+
+1.2
+date	2021.04.16.06.37.21;	author -;	state -;
+branches;
+next	1.1;
 
 1.1
 date	2021.04.15.07.02.47;	author -;	state -;
@@ -15,13 +20,13 @@ desc
 @@
 
 
-1.1
+1.2
 log
 @-
 @
 text
 @// $Id: ubigint.cpp,v 1.12 2020-10-19 13:14:59-07 - - $
-
+//Kai O'brien kimobrie
 #include <cctype>
 #include <cstdlib>
 #include <exception>
@@ -33,58 +38,68 @@ using namespace std;
 #include "relops.h"
 #include "ubigint.h"
 
-ubigint::ubigint (unsigned long that)/*: uvalue (that) */{
+ubigint::ubigint (unsigned long that)/*: uval (that)*/ {
   
    
    while(that > 0){
      
-      uvalue.push_back(that % 10);
+      uvalue.push_back((that % 10) -'0');
+      // cout << ((that % 10) -'0'));
+      
       that = that/10;
    }
+
    
 }
 
-ubigint::ubigint (const string& that)/*: uvalue(0)*/ {
-  
-   for (unsigned long index = 0; index < that.size(); ++index){
-      uvalue.push_back(that.at(index)+0);  //casting as int?
-    
+ubigint::ubigint (const string& that): uval(0) {
+ 
+   for (char digit: that) {
+      if (not isdigit (digit)) {
+         throw invalid_argument ("ubigint::ubigint(" + that + ")");
+      }
+      uval = uval * 10 + digit - '0';
+      uvalue.push_back(digit- '0');
    }
 
-   
 }
 
 ubigint ubigint::operator+ (const ubigint& that) const {
   
    ubigint add_result;
-   unsigned int sum; // sum of two digits while adding vectors
-   unsigned int carry = 0;  // remainder to be carried if sum>=10
-   ssize_t longer; //longer vector to be added (may be same length!)
-   
-   if(uvalue.size() > that.uvalue.size()){//sets longer + shorter val
-      longer = uvalue.size();//when run out of digits in shorter number 
-   }
-   else{ //this->value is the same as uvalue
-      longer = that.uvalue.size();  //might not need this idk!!!!!!
-   }
+   unsigned int sum; 
+   unsigned int carry = 0;  
+   ssize_t shorter = that.uvalue.size(); 
+   ssize_t longer = uvalue.size();
+   bool thisislonger = true;
+   if(uvalue.size() < that.uvalue.size()){//sets longer + shorter val
+      shorter = uvalue.size();  
+      longer = that.uvalue.size();
+   } 
+      for(unsigned int i = shorter; i > 0; i--){   
+         sum = carry;      
+         carry = 0;
+         
+        if(that.uvalue.size() > i ){ 
+            sum = that.uvalue.at(i);
+         }
+         else if(uvalue.size() > i ){ 
+            sum = uvalue.at(i);
+         }
+         
+         else { 
+            sum = uvalue.at(i)+ that.uvalue.at(i);
+         }
+         if(sum >9){ // if there is a remainder then:
+            carry = 1;  
+            sum = (sum % 10);   // and mod 10
+         }
+         add_result.uvalue.push_back(sum); //push back the sum 
+      }
 
-   for(auto i = 0; i < longer; i++){   
-      sum = carry;      
-      carry = 0;
-      
-      if( i <= uvalue.at(i) ){  //if this hasnt run out then add
-         sum+= uvalue.at(i);
-      }
-      if(i <= that.uvalue.at(i) ){  //if that hasnt run out then add
-         sum += that.uvalue.at(i);
-      }
-      if(sum >9){ // if there is a remainder then:
-         carry = 1;  //carry 1 to start loop over with sum = carry
-         sum = (sum % 10);   // and mod 10
-      }
-      add_result.uvalue.push_back(sum); //push back the sum 
-   }
+   //pushback for just longer vector
    /* trim the vector by removing all high-order zeros :*/
+  
    while (add_result.uvalue.size()>0 and add_result.uvalue.back()==0){ 
       add_result.uvalue.pop_back();
    }
@@ -260,23 +275,28 @@ bool ubigint::operator== (const ubigint& that) const {
 
 bool ubigint::operator< (const ubigint& that) const {
  
-    if(uvalue.size() < that.uvalue.size()){
-      return true;  
+   if(that.uvalue == uvalue){   //if equal then false
+       return false;
+    }
+   else if(uvalue.size() < that.uvalue.size()){ 
+      return true; 
    }
-   
-   if(uvalue.size() > that.uvalue.size()){ 
-      return false;  
+   else if(that.uvalue.size() < uvalue.size()){ 
+      return false; 
    }
    //otherwise sizes are equal and evaluate digit by digit
    //go from highest to lowest order digit
-   int i = uvalue.size();
-   while(i > 0){ //<=??  and inf loop check
-      if(uvalue.at(i) > that.uvalue.at(i)){//if this > that then false
-         return false;  //returns false
+   else{
+      if(that.uvalue.size() == uvalue.size() && uvalue.size() > 0){
+         for(int i = that.uvalue.size()-1; i >0; i--){//inf
+               if(uvalue.at(i) < that.uvalue.at(i)){
+                  return true;  //returns false
+                  break;
+               }
+            }
       }
-      i--;  //decrements 
    }
-   return true; // if all digits of this are less than that, return true
+   return false; 
 }
 
 ostream& operator<< (ostream& out, const ubigint& that) { 
@@ -285,13 +305,102 @@ ostream& operator<< (ostream& out, const ubigint& that) {
  }
 
   else{
-      
+      int linelen = 0;
    for(unsigned int i = 0; i < that.uvalue.size(); i++){ 
-      out << static_cast<int>(that.uvalue.at(i)+ '0');
-      
+      if(linelen == 69){
+         out<< "\\" << endl;
+         linelen = 0;
+      }
+      out << static_cast <char> (that.uvalue.at(i) +'0');
+      linelen++;
    }
 }
   return out;
 }
 
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+
+d14 1
+a14 1
+ubigint::ubigint (unsigned long that)/*: uvalue (that) */{
+d19 3
+a21 1
+      uvalue.push_back(that % 10);
+d24 1
+d28 8
+a35 5
+ubigint::ubigint (const string& that)/*: uvalue(0)*/ {
+  
+   for (unsigned long index = 0; index < that.size(); ++index){
+      uvalue.push_back(that.at(index)+0);  //casting as int?
+    
+a37 1
+   
+d43 29
+a71 10
+   unsigned int sum; // sum of two digits while adding vectors
+   unsigned int carry = 0;  // remainder to be carried if sum>=10
+   ssize_t longer; //longer vector to be added (may be same length!)
+   
+   if(uvalue.size() > that.uvalue.size()){//sets longer + shorter val
+      longer = uvalue.size();//when run out of digits in shorter number 
+   }
+   else{ //this->value is the same as uvalue
+      longer = that.uvalue.size();  //might not need this idk!!!!!!
+   }
+d73 1
+a73 16
+   for(auto i = 0; i < longer; i++){   
+      sum = carry;      
+      carry = 0;
+      
+      if( i <= uvalue.at(i) ){  //if this hasnt run out then add
+         sum+= uvalue.at(i);
+      }
+      if(i <= that.uvalue.at(i) ){  //if that hasnt run out then add
+         sum += that.uvalue.at(i);
+      }
+      if(sum >9){ // if there is a remainder then:
+         carry = 1;  //carry 1 to start loop over with sum = carry
+         sum = (sum % 10);   // and mod 10
+      }
+      add_result.uvalue.push_back(sum); //push back the sum 
+   }
+d75 1
+d251 5
+a255 2
+    if(uvalue.size() < that.uvalue.size()){
+      return true;  
+d257 2
+a258 3
+   
+   if(uvalue.size() > that.uvalue.size()){ 
+      return false;  
+d262 8
+a269 4
+   int i = uvalue.size();
+   while(i > 0){ //<=??  and inf loop check
+      if(uvalue.at(i) > that.uvalue.at(i)){//if this > that then false
+         return false;  //returns false
+a270 1
+      i--;  //decrements 
+d272 1
+a272 1
+   return true; // if all digits of this are less than that, return true
+d281 1
+a281 1
+      
+d283 6
+a288 2
+      out << static_cast<int>(that.uvalue.at(i)+ '0');
+      
 @
