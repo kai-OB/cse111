@@ -17,6 +17,8 @@ ubigint::ubigint (unsigned long that)/*: uvalue (that) */{
    while(that > 0){
      
       uvalue.push_back((that % 10) -'0');
+       cout << ((that % 10) -'0'));
+      
       that = that/10;
    }
    
@@ -26,7 +28,7 @@ ubigint::ubigint (const string& that)/*: uvalue(0)*/ {
   
    for (unsigned long index = 0; index < that.size(); ++index){
       uvalue.push_back(that.at(index)- '0');  //casting as int?
-    
+      cout << (that.at(index)- '0'); 
    }
    //reverse?
    
