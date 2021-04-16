@@ -1,6 +1,6 @@
 checksource: line length > 72 characters
 bigint.cpp: 1 errors: line 81
-ubigint.cpp: 4 errors: lines 62, 282--283, 290
+ubigint.cpp: 4 errors: lines 62, 291--292, 299
 ubigint.h: 3 errors: lines 27--29
 checksource: non-ASCII character \x09 = ^I (tab)
 util.cpp: 2 errors: lines 10--11
