@@ -78,7 +78,7 @@ bigint bigint::operator- (const bigint& that) const {
       sign = false; //sign is positive (negative)
    }
    else if(!is_negative and !is_negative){  
-      if(uvalue > that.uvalue){ //if one is greater or equal
+      if(uvalue > that.uvalue){ //if one is greater or equal   //where aborts
          sign = false; //both positive so remain positive
          sub_result = uvalue - that.uvalue;   //subtractfrom larger 
       }
@@ -147,7 +147,7 @@ bool bigint::operator< (const bigint& that) const {
 ostream& operator<< (ostream& out, const bigint& that) {
    
    out << (that.is_negative ? "-" : "");
-      out << that.uvalue << " ";  //should call uvalue print statement
+      out << that.uvalue << "";  //should call uvalue print statement
    //^cdfpq
    return out;
               
