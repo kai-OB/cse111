@@ -286,10 +286,14 @@ ostream& operator<< (ostream& out, const ubigint& that) {
  }
 
   else{
-      
+      int linelen = 0;
    for(unsigned int i = 0; i < that.uvalue.size(); i++){ 
+      if(linelen == 69){
+         out<< "\\" << endl;
+         linelen = 0;
+      }
       out << static_cast <char> (that.uvalue.at(i) +'0');
-      
+      linelen++;
    }
 }
   return out;
