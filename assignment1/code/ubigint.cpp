@@ -59,63 +59,31 @@ ubigint ubigint::operator+ (const ubigint& that) const {
    ssize_t longer;
    bool thisislonger = true;
    if(uvalue.size() < that.uvalue.size()){//sets longer + shorter val
-      for(unsigned int i = 0; i < uvalue.size(); i++){   
-         sum = carry;      
-         carry = 0;
-         
-            sum+= uvalue.at(i);
-   
-       //  if(that.uvalue.size() > i ){ 
-            sum += that.uvalue.at(i);
-        // }
-         
-         if(sum >9){ // if there is a remainder then:
-            carry = 1;  
-            sum = (sum % 10);   // and mod 10
-         }
-         add_result.uvalue.push_back(sum); //push back the sum 
-      }
-       for(unsigned int i = uvalue.size(); i < that.uvalue.size(); i++){   
-         add_result.uvalue.push_back(that.uvalue.at(i));
-      }
-   }
-   else{ //this->value is the same as uvalue
-      /*shorter = uvalue.size();  
+      shorter = uvalue.size();  
       longer = that.uvalue.size();
-       thisislonger = false;*/
-        for(unsigned int i = 0; i < that.uvalue.size(); i++){   
+   } 
+      for(unsigned int i = 0; i < longer; i++){   
          sum = carry;      
          carry = 0;
          
             sum+= uvalue.at(i);
    
-       //  if(that.uvalue.size() > i ){ 
-            sum += that.uvalue.at(i);
-        // }
+        if(that.uvalue.size() >= i ){ 
+            sum = that.uvalue.at(i);
+         }
+         else if(uvalue.size() >= i ){ 
+            sum = uvalue.at(i);
+         }
          
+         else { 
+            sum = uvalue.at(i)+ that.uvalue.at(i);
+         }
          if(sum >9){ // if there is a remainder then:
             carry = 1;  
             sum = (sum % 10);   // and mod 10
          }
          add_result.uvalue.push_back(sum); //push back the sum 
       }
-       for(unsigned int i = that.uvalue.size(); i < uvalue.size(); i++){   
-         add_result.uvalue.push_back(uvalue.at(i));
-      }
-
-   }
-
-  /* 
-   if(thisislonger == true){
-      for(unsigned int i = shorter; i < longer; i++){   
-         add_result.uvalue.push_back(uvalue.at(i));
-      }
-   }
-   if(thisislonger == false){
-      for(unsigned int i = shorter; i < longer; i++){   
-         add_result.uvalue.push_back(that.uvalue.at(i));
-      }
-   }*/
 
    //pushback for just longer vector
    /* trim the vector by removing all high-order zeros :*/
