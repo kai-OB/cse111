@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 # $Id: Makefile,v 1.2 2021-04-15 23:37:21-07 - - $
 #kai obrien kimobrie
+=======
+# $Id: Makefile,v 1.1 2021-04-15 00:02:47-07 - - $
+#wmkaekai obrien kimobrie
+>>>>>>> 753f1637301b40ae190b62ed7f446ffed3e33dd5
 MKFILE      = Makefile
 DEPSFILE    = ${MKFILE}.deps
 NOINCL      = ci clean spotless
