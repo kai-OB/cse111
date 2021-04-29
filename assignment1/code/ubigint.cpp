@@ -72,6 +72,10 @@ ubigint ubigint::operator+ (const ubigint& that) const {
 
    //pushback for just longer vector
    /* trim the vector by removing all high-order zeros :*/
+
+   if( longer == that.uvalue.size()){
+      
+   }
   
    while (add_result.uvalue.size()>0 and add_result.uvalue.back()==0){ 
       add_result.uvalue.pop_back();
