@@ -44,7 +44,7 @@ class inode_state {  //only one can exist in the entire filesystem
       //to them in the constructor!!!
       string prompt_ {"% "};  //cant have the fuction and field name be the same
    public:
-      virtual ~inode_state() = default;   //default or make own?
+      virtual ~inode_state();   //default or make own?
       inode_state (const inode_state&) = delete; // copy ctor
       inode_state& operator= (const inode_state&) = delete; // op=
       //-delete says that if u attempt to copy it the compiler
@@ -228,7 +228,7 @@ class directory: public base_file {
        //make a num files
       virtual map<string,inode_ptr>& get_dirents()override;
      // virtual bool is_dir() override;
-      inode_ptr get_cwd() override;
+      //inode_ptr get_cwd();  //need to get rid of?
 
       
 };
