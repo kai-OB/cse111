@@ -22,7 +22,7 @@ command_fn find_command_fn (const string& cmd) {
    // Note: value_type is pair<const key_type, mapped_type>
    // So: iterator->first is key_type (string)
    // So: iterator->second is mapped_type (command_fn)
-   DEBUGF ('c', "[" << cmd << "]");
+  // DEBUGF ('c', "[" << cmd << "]");
    const auto result = cmd_hash.find (cmd);
    if (result == cmd_hash.end()) {
       throw command_error (cmd + ": no such function");
@@ -45,15 +45,19 @@ void fn_cat (inode_state& state, const wordvec& words) {
    DEBUGF ('c', words);
    //The contents of each file is copied to the standard output. An error is
    //reported if no files are specified, a file does not exist, or is a directory.
-   /*if(words.size() > 1){   //if no files are specified
-      for(auto i = 1;i < words.size(); ++i){
+   if(words.size() > 1){   //if no files are specified
+
+      if(state.get_cwd()->get_file_type() == file_type::DIRECTORY_TYPE){
+         throw file_error ("fn_cat: is a directory");
+      }
+      for(unsigned long i = 1;i < words.size(); ++i){
          wordvec words_split = split(words.at(i),"/");
         // map<string,inode_ptr>; 
-      }*/
-
-
-  // }
-
+      }
+   }
+   else{
+      throw command_error ("fn_cat: no file specified"); //dont work
+   }
 
 }
 

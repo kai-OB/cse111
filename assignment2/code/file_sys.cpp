@@ -163,30 +163,30 @@ file_error::file_error (const string& what):
 //can leave alone until plainfile size
 const wordvec& base_file::readfile() const {
    
-   throw file_error ("is a " + error_file_type());
+   throw file_error ("readfile: is a " + error_file_type());
 }
 
 void base_file::writefile (const wordvec&) {
-   throw file_error ("is a " + error_file_type());
+   throw file_error ("writefile: is a " + error_file_type());
 }
 
 void base_file::remove (const string&) {
-   throw file_error ("is a " + error_file_type());
+   throw file_error ("remove: is a " + error_file_type());
 }
 
 inode_ptr base_file::mkdir (const string&) {
-   throw file_error ("is a " + error_file_type());
+   throw file_error ("mkdir:is a " + error_file_type());
 }
 
 inode_ptr base_file::mkfile (const string&) {
-   throw file_error ("is a " + error_file_type()); //dont work
+   throw file_error ("mkfile:is a " + error_file_type()); //dont work
 }
 //added functions
 map<string,inode_ptr>& base_file::get_dirents() {
-   throw file_error ("is a " + error_file_type()); //dont work
+   throw file_error ("getdirents: is a " + error_file_type()); //dont work
 }
 /*bool base_file::is_dir() {
-   throw file_error ("is a " + error_file_type()); //dont work
+   throw file_error ("isdir: is a " + error_file_type()); //dont work
 }*/
 
 //plainfile must override read and writefile
@@ -264,7 +264,7 @@ inode_ptr directory::mkdir (const string& dirname) {
    
    pair <string, inode_ptr> dot_dot  = {"..", inode_state().get_cwd()};  //sets dot dot, the paren(cwd before new dir)
    (newDir->get_contents()->get_dirents()).insert(dot_dot);
-  
+   
    return newDir;
 }
 
