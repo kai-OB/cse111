@@ -46,9 +46,9 @@ void fn_cat (inode_state& state, const wordvec& words) {
    //The contents of each file is copied to the standard output. An error is
    //reported if no files are specified, a file does not exist, or is a directory.
    if(words.size() > 1){   //if no files are specified
-      for(int i = 1;i < words.size(); ++i){
+      for(auto i = 1;i < words.size(); ++i){
          wordvec words_split = split(words.at(i),"/");
-         map<string,inode_ptr>; 
+        // map<string,inode_ptr>; 
       }
 
 
