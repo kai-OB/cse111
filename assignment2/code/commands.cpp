@@ -57,7 +57,7 @@ void fn_cat (inode_state& state, const wordvec& words) {
          throw file_error ("cat: "+ words.at(i) +": is a directory");
          }
          //if file does not exist, find returns the last
-         else if(state_dir->get_dirents().find(words.at(i)) == words.end()){
+         else if(state_dir->get_dirents().find(words.at(i))->first == ""){
              throw file_error ("cat: "+ words.at(i) +": No such file or directory");
          }
 
