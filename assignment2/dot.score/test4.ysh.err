@@ -1,1 +1,4 @@
-./mk.tests: line 12: ./yshell: No such file or directory
+yshell: #: no such function
+yshell: cat: file8: is a directory
+yshell: #: no such function
+yshell: #: no such function

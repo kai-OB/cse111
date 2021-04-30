@@ -1,4 +1,4 @@
-// $Id: file_sys.h,v 1.9 2021-04-29 21:33:33-07 - - $
+// $Id: file_sys.h,v 1.10 2021-04-30 15:22:12-07 - - $
 
 #ifndef __INODE_H__
 #define __INODE_H__
@@ -181,11 +181,11 @@ class plain_file: public base_file {
       // would still compile but makes a compile time error so def use override
       //to make it easier to debug
       //keyword virtal is optional
-       virtual void remove (const string& filename)override;
-       virtual inode_ptr mkdir (const string& dirname) override;  //error will be thrown if basefile version is called
+      // virtual void remove (const string& filename)override;
+       //virtual inode_ptr mkdir (const string& dirname) override;  //error will be thrown if basefile version is called
                                                                //, implement in directory
       virtual void writefile (const wordvec& newdata) override;
-      virtual inode_ptr mkfile (const string& filename) override;
+      //virtual inode_ptr mkfile (const string& filename) override;
 
      // virtual bool is_dir() override;
       
@@ -224,7 +224,7 @@ class directory: public base_file {
                                                               //if directory name is called
       virtual inode_ptr mkdir (const string& dirname) override;
       virtual inode_ptr mkfile (const string& filename) override;
-      virtual void writefile (const wordvec& newdata) override;//????
+      //virtual void writefile (const wordvec& newdata) override;//????
        //make a num files
       virtual map<string,inode_ptr>& get_dirents()override;
      // virtual bool is_dir() override;

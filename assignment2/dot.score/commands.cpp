@@ -1,4 +1,4 @@
-// $Id: commands.cpp,v 1.21 2021-04-29 21:33:33-07 - - $
+// $Id: commands.cpp,v 1.22 2021-04-30 15:22:12-07 - - $
 
 #include "commands.h"
 #include "debug.h"
@@ -22,7 +22,7 @@ command_fn find_command_fn (const string& cmd) {
    // Note: value_type is pair<const key_type, mapped_type>
    // So: iterator->first is key_type (string)
    // So: iterator->second is mapped_type (command_fn)
-   DEBUGF ('c', "[" << cmd << "]");
+  // DEBUGF ('c', "[" << cmd << "]");
    const auto result = cmd_hash.find (cmd);
    if (result == cmd_hash.end()) {
       throw command_error (cmd + ": no such function");
@@ -45,15 +45,25 @@ void fn_cat (inode_state& state, const wordvec& words) {
    DEBUGF ('c', words);
    //The contents of each file is copied to the standard output. An error is
    //reported if no files are specified, a file does not exist, or is a directory.
-   /*if(words.size() > 1){   //if no files are specified
-      for(auto i = 1;i < words.size(); ++i){
-         wordvec words_split = split(words.at(i),"/");
-        // map<string,inode_ptr>; 
-      }*/
+   if(words.size() == 1){   //if no files are specified
+      throw command_error ("cat: No files are specified"); //dont work
+   }
+   else{
+      for(unsigned long i = 1;i < words.size(); ++i){
+          shared_ptr <directory> state_dir = dynamic_pointer_cast<directory>
+         (state.get_cwd()->get_contents());
+        //accounts for more than one file, if file is a directory
+        if(state.get_cwd()->get_file_type() == file_type::DIRECTORY_TYPE){
+         throw file_error ("cat: "+ words.at(i) +": is a directory");
+         }
+         //if file does not exist, find returns the last
+         else if(state_dir->get_dirents().find(words.at(i))->first == ""){
+             throw file_error ("cat: "+ words.at(i) +": No such file or directory");
+         }
 
-
-  // }
-
+        cout<< state_dir->get_dirents().find(words.at(i))->first;
+      }
+   }
 
 }
 
