@@ -45,20 +45,24 @@ void fn_cat (inode_state& state, const wordvec& words) {
    DEBUGF ('c', words);
    //The contents of each file is copied to the standard output. An error is
    //reported if no files are specified, a file does not exist, or is a directory.
-   if(words.size() > 1){   //if no files are specified
-
-      for(unsigned long i = 1;i < words.size(); ++i){
-        //accounts for more than one file
-        if(state.get_cwd()->get_file_type() == file_type::DIRECTORY_TYPE){
-         throw file_error ("cat: "+ words.at(i) +"is a directory");
-         }
-         else if(){
-            
-         }
-      }
+   if(words.size() == 1){   //if no files are specified
+      throw command_error ("cat: No files are specified"); //dont work
    }
    else{
-      throw command_error ("cat: no such files are specified"); //dont work
+      for(unsigned long i = 1;i < words.size(); ++i){
+          shared_ptr <directory> state_dir = dynamic_pointer_cast<directory>
+         (state.get_cwd()->get_contents());
+        //accounts for more than one file, if file is a directory
+        if(state.get_cwd()->get_file_type() == file_type::DIRECTORY_TYPE){
+         throw file_error ("cat: "+ words.at(i) +": is a directory");
+         }
+         //if file does not exist, find returns the last
+         else if(state_dir->get_dirents().find(words.at(i)) == words.end()){
+             throw file_error ("cat: "+ words.at(i) +": No such file or directory");
+         }
+
+        cout<< state_dir->get_dirents().find(words.at(i))->first;
+      }
    }
 
 }
