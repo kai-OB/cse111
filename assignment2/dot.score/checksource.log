@@ -1,0 +1,13 @@
+checksource: line length > 72 characters
+commands.cpp: 2 errors: lines 46--47
+file_sys.cpp: 15 errors: lines 12, 38, 49, 71, 73, 110, 119, 142, 222, 
+        224, 231, 250--251, 265, 281
+file_sys.h: 15 errors: lines 45, 92, 115, 120--121, 123, 127, 137, 
+        176--177, 181, 185--186, 223--224
+checksource: non-ASCII character \x80
+README: 1 errors: line 3
+checksource: non-ASCII character \x99
+README: 1 errors: line 3
+checksource: non-ASCII character \xE2
+README: 1 errors: line 3
+checksource: TOTAL COMPLAINTS: 35

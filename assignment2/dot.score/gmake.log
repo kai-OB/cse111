@@ -1,0 +1,4 @@
+g++ -std=gnu++17 -g -O0 -Wall -Wextra -Wpedantic -Wshadow -Wold-style-cast -fdiagnostics-color=never -o yshell commands.o debug.o file_sys.o util.o main.o
+commands.o: file not recognized: File format not recognized
+collect2: error: ld returned 1 exit status
+gmake: *** [Makefile:28: yshell] Error 1
