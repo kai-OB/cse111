@@ -298,6 +298,9 @@ map<string,inode_ptr>& directory::get_dirents() {
    dirents.find(".")->second;
 }
 */
+//void directory::writefile (const wordvec&) {
+//   throw file_error ("writefile: is a " + error_file_type());
+//}
 
 
 
