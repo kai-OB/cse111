@@ -47,16 +47,18 @@ void fn_cat (inode_state& state, const wordvec& words) {
    //reported if no files are specified, a file does not exist, or is a directory.
    if(words.size() > 1){   //if no files are specified
 
-      if(state.get_cwd()->get_file_type() == file_type::DIRECTORY_TYPE){
-         throw file_error ("fn_cat: is a directory");
-      }
       for(unsigned long i = 1;i < words.size(); ++i){
-         wordvec words_split = split(words.at(i),"/");
-        // map<string,inode_ptr>; 
+        //accounts for more than one file
+        if(state.get_cwd()->get_file_type() == file_type::DIRECTORY_TYPE){
+         throw file_error ("cat: "+ words.at(i) +"is a directory");
+         }
+         else if(){
+            
+         }
       }
    }
    else{
-      throw command_error ("fn_cat: no file specified"); //dont work
+      throw command_error ("cat: no such files are specified"); //dont work
    }
 
 }
