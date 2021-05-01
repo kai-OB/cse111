@@ -5,6 +5,3 @@ before for
 yshell: cat: second: No such file or directory
 before for 
 yshell: cat: file: No such file or directory
-yshell: #: no such function
-yshell: #: no such function
-yshell: #: no such function

@@ -1,4 +1,4 @@
-./yshell build Apr 30 2021 21:40:39
+./yshell build Apr 30 2021 22:15:33
 % pwd
 % echo Hello World
 Hello World
@@ -10,4 +10,4 @@ This is a very simple test.
 % # yshell: #: no such function
 % # $Id: test0.ysh,v 1.1 2013-01-02 19:11:43-08 - - $
 % ^D
-yshell: exit(1)
+yshell: exit(0)
