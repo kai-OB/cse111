@@ -1,4 +1,5 @@
 yshell: #: no such function
-yshell: cat: file8: is a directory
+before for 
+yshell: cat: file8: No such file or directory
 yshell: #: no such function
 yshell: #: no such function

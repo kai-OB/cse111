@@ -1,23 +1,27 @@
 commands.cpp:46:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
 commands.cpp:47:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:54:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:57:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:59:  Lines should very rarely be longer than 90 characters  [whitespace/line_length] [4]
+commands.cpp:60:  Lines should very rarely be longer than 90 characters  [whitespace/line_length] [4]
 Done processing commands.cpp
-Total errors found: 2
+Total errors found: 6
 Done processing debug.cpp
 file_sys.cpp:12:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
 file_sys.cpp:38:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
 file_sys.cpp:49:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
-file_sys.cpp:71:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
-file_sys.cpp:73:  Lines should very rarely be longer than 90 characters  [whitespace/line_length] [4]
-file_sys.cpp:110:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
-file_sys.cpp:119:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
-file_sys.cpp:142:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
-file_sys.cpp:222:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
-file_sys.cpp:224:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
-file_sys.cpp:231:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
-file_sys.cpp:250:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
-file_sys.cpp:251:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
-file_sys.cpp:265:  Lines should very rarely be longer than 90 characters  [whitespace/line_length] [4]
-file_sys.cpp:281:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+file_sys.cpp:74:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+file_sys.cpp:76:  Lines should very rarely be longer than 90 characters  [whitespace/line_length] [4]
+file_sys.cpp:113:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+file_sys.cpp:122:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+file_sys.cpp:191:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+file_sys.cpp:227:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+file_sys.cpp:229:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+file_sys.cpp:236:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+file_sys.cpp:255:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+file_sys.cpp:256:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+file_sys.cpp:270:  Lines should very rarely be longer than 90 characters  [whitespace/line_length] [4]
+file_sys.cpp:286:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
 Done processing file_sys.cpp
 Total errors found: 15
 Done processing main.cpp
