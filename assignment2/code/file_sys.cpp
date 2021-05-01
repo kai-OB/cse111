@@ -113,12 +113,14 @@ inode::inode(file_type type): inode_nr (next_inode_nr++) {
    //so just say new node and give it the particular filetype that you want to 
    //create
    //depends on the command it is being called from
-   fileType = type;
+  // fileType = type;
    switch (type) {
       case file_type::PLAIN_TYPE:
+         is_dir = false;
            contents = make_shared<plain_file>();
            break;
       case file_type::DIRECTORY_TYPE:
+         is_dir = true;
            contents = make_shared<directory>(); //make shared of a plain or directory
                //adjust the file sysem
                //making filesystem friends
@@ -142,9 +144,9 @@ size_t inode::get_inode_nr() const {
 //}   //dont ever need to set new contents though right?
 base_file_ptr inode::get_contents(){ return contents; } //getter
 
-file_type inode::get_file_type(){ 
-   cerr<< "filetype: "<< fileType;
-   return fileType; } //getter need this??
+bool inode::isdir(){ 
+   cerr<< "isdir: "<< isdir;
+   return is_dir } //getter need this??
 //or just use is_dir
 
 inode_ptr inode::get_parent(){ 
@@ -289,7 +291,7 @@ inode_ptr directory::mkfile (const string& filename) {
    inode_ptr newFile = make_shared<inode>(file_type::PLAIN_TYPE);
    //insert/replace contents
    pair<string,inode_ptr> newFilePair = {filename,newFile};
-   dirents.insert(newFilePair);
+   dirents.insert(newFilePair);//dirents[filename]= newFile;
    return newFile;
 }
 
@@ -312,10 +314,8 @@ bool directory::file_dne( const string& str){
    }
    return false;
 }
-file_type directory::get_file_helper(const string& words){
-  return dirents.find(words)->second->get_file_type();
-}
-
+bool directory::is_dir_(const string& words){
+  return( dirents.find(words)->second->isdir());
 
 
 

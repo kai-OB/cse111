@@ -56,7 +56,7 @@ void fn_cat (inode_state& state, const wordvec& words) {
          if(state_dir->file_dne(words.at(i))==true){
             throw command_error("cat: "+ words.at(i) +": No such file or directory");
          }
-         if(state_dir->get_file_helper(words.at(i))==file_type::DIRECTORY_TYPE){//everything is directory?
+         if(state_dir->is_dir_(words.at(i))==true){//everything is directory?
             throw command_error("cat: "+ words.at(i) +": is a directory!");   //throw command error not cerr or cout
          }
         //cout<< state_dir->second->get_contents()->readfile();
@@ -97,6 +97,26 @@ void fn_lsr (inode_state& state, const wordvec& words) {
 void fn_make (inode_state& state, const wordvec& words) {
    DEBUGF ('c', state);
    DEBUGF ('c', words);
+   shared_ptr <directory> state_dir = dynamic_pointer_cast<directory>
+         (state.get_cwd()->get_contents());
+   if(words.size()==1){
+      throw command_error ("make: No target specified"); //dont work
+   }
+   else if(state_dir->file_dne(words.at(1))==true){//this works
+      //if file dne then can do normal cause isnt dir or file
+      inode_ptr new_file = state.get_cwd()->get_contents()->mkfile(words.at(1));
+      new_file->get_contents()->writefile(words); //writes the name too?
+      cout<<"hi!";
+      cout<<words.at(1);
+   }
+  /* else if(state_dir->isdir(words.at(1))==true){//everything is directory?
+      throw command_error("cat: "+ words.at(1) +": is a directory!");   //throw command error not cerr or cout
+   }*/
+   else if(state_dir->is_dir_(words.at(1))==true){//everything is directory?
+      throw command_error("cat: "+ words.at(1) +": is a directory!");   //throw command error not cerr or cout
+   }
+
+
 }
 
 void fn_mkdir (inode_state& state, const wordvec& words) {
