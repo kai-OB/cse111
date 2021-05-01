@@ -76,8 +76,8 @@ void rm_r( inode_ptr roo){
    for(auto ritor = roo_dirents.crbegin(); ritor != roo_dirents.crend(); ++ritor){ //cr or nah
       //recur over each entry other than dot or dot dot
       if(ritor->first!="." and ritor->first != ".."
-         and ritor->second->get_file_type()
-         ==file_type::DIRECTORY_TYPE){//->get_contents()?
+         and ritor->second->isdir()
+         ==true){//->get_contents()?
          rm_r(ritor->second);
       }
       //if not directory, or empty directory, erase
@@ -145,8 +145,7 @@ size_t inode::get_inode_nr() const {
 base_file_ptr inode::get_contents(){ return contents; } //getter
 
 bool inode::isdir(){ 
-   cerr<< "isdir: "<< isdir;
-   return is_dir } //getter need this??
+   return is_dir; } //getter need this??
 //or just use is_dir
 
 inode_ptr inode::get_parent(){ 
@@ -241,7 +240,7 @@ void directory::remove (const string& filename) {
    //use find() function
    //shouldnt work on root though? idk
      inode_ptr rm_ptr = dirents.find(filename)->second;
-   if(rm_ptr->get_file_type() == file_type::PLAIN_TYPE
+   if(rm_ptr->isdir() == false
       ||dirents.find(filename)->first != ".."){
       dirents.erase(filename);
    }
@@ -283,10 +282,10 @@ inode_ptr directory::mkfile (const string& filename) {
 //contents are replaced
 //error to specify a directory
 //if there are no words the file is empty
-   inode_ptr i_node_ptr = dirents.find(filename)->second;
-   if(i_node_ptr->get_file_type() == file_type::DIRECTORY_TYPE){
+   //inode_ptr i_node_ptr = dirents.find(filename)->second;
+   /*if(i_node_ptr->isdir() == true){
          throw file_error ("mkfile: file is a directory " + filename); //throw error
-   }
+   }*/
    //make new file
    inode_ptr newFile = make_shared<inode>(file_type::PLAIN_TYPE);
    //insert/replace contents
@@ -316,7 +315,15 @@ bool directory::file_dne( const string& str){
 }
 bool directory::is_dir_(const string& words){
   return( dirents.find(words)->second->isdir());
+}
 
+inode_ptr directory::update_file(const string& filename, const wordvec& words){
+   inode_ptr update_ptr = dirents.find(filename)->second;
+   update_ptr->get_contents()->writefile(words);
+   pair<string,inode_ptr> update_pair = {filename,update_ptr};
+   dirents.insert(update_pair);//dirents[filename]= newFile;
+   return update_ptr;
+}
 
 
 

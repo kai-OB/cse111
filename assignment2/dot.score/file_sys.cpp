@@ -1,4 +1,4 @@
-// $Id: file_sys.cpp,v 1.12 2021-04-30 21:40:33-07 - - $
+// $Id: file_sys.cpp,v 1.10 2021-04-30 21:39:38-07 - - $
 
 #include <cassert>
 #include <iostream>
@@ -76,8 +76,8 @@ void rm_r( inode_ptr roo){
    for(auto ritor = roo_dirents.crbegin(); ritor != roo_dirents.crend(); ++ritor){ //cr or nah
       //recur over each entry other than dot or dot dot
       if(ritor->first!="." and ritor->first != ".."
-         and ritor->second->get_file_type()
-         ==file_type::DIRECTORY_TYPE){//->get_contents()?
+         and ritor->second->isdir()
+         ==true){//->get_contents()?
          rm_r(ritor->second);
       }
       //if not directory, or empty directory, erase
@@ -113,12 +113,14 @@ inode::inode(file_type type): inode_nr (next_inode_nr++) {
    //so just say new node and give it the particular filetype that you want to 
    //create
    //depends on the command it is being called from
-   fileType = type;
+  // fileType = type;
    switch (type) {
       case file_type::PLAIN_TYPE:
+         is_dir = false;
            contents = make_shared<plain_file>();
            break;
       case file_type::DIRECTORY_TYPE:
+         is_dir = true;
            contents = make_shared<directory>(); //make shared of a plain or directory
                //adjust the file sysem
                //making filesystem friends
@@ -142,9 +144,8 @@ size_t inode::get_inode_nr() const {
 //}   //dont ever need to set new contents though right?
 base_file_ptr inode::get_contents(){ return contents; } //getter
 
-file_type inode::get_file_type(){ 
-   cerr<< "filetype: "<< fileType;
-   return fileType; } //getter need this??
+bool inode::isdir(){ 
+   return is_dir; } //getter need this??
 //or just use is_dir
 
 inode_ptr inode::get_parent(){ 
@@ -239,7 +240,7 @@ void directory::remove (const string& filename) {
    //use find() function
    //shouldnt work on root though? idk
      inode_ptr rm_ptr = dirents.find(filename)->second;
-   if(rm_ptr->get_file_type() == file_type::PLAIN_TYPE
+   if(rm_ptr->isdir() == false
       ||dirents.find(filename)->first != ".."){
       dirents.erase(filename);
    }
@@ -281,15 +282,15 @@ inode_ptr directory::mkfile (const string& filename) {
 //contents are replaced
 //error to specify a directory
 //if there are no words the file is empty
-   inode_ptr i_node_ptr = dirents.find(filename)->second;
-   if(i_node_ptr->get_file_type() == file_type::DIRECTORY_TYPE){
+   //inode_ptr i_node_ptr = dirents.find(filename)->second;
+   /*if(i_node_ptr->isdir() == true){
          throw file_error ("mkfile: file is a directory " + filename); //throw error
-   }
+   }*/
    //make new file
    inode_ptr newFile = make_shared<inode>(file_type::PLAIN_TYPE);
    //insert/replace contents
    pair<string,inode_ptr> newFilePair = {filename,newFile};
-   dirents.insert(newFilePair);
+   dirents.insert(newFilePair);//dirents[filename]= newFile;
    return newFile;
 }
 
@@ -312,11 +313,17 @@ bool directory::file_dne( const string& str){
    }
    return false;
 }
-file_type directory::get_file_helper(const string& words){
-  return dirents.find(words)->second->get_file_type();
+bool directory::is_dir_(const string& words){
+  return( dirents.find(words)->second->isdir());
 }
 
-
+inode_ptr directory::update_file(const string& filename, const wordvec& words){
+   inode_ptr update_ptr = dirents.find(filename)->second;
+   update_ptr->get_contents()->writefile(words);
+   pair<string,inode_ptr> update_pair = {filename,update_ptr};
+   dirents.insert(update_pair);//dirents[filename]= newFile;
+   return update_ptr;
+}
 
 
 

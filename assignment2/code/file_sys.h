@@ -231,9 +231,9 @@ class directory: public base_file {
       virtual map<string,inode_ptr>& get_dirents()override;
      // virtual bool is_dir() override;
       //inode_ptr get_cwd();  //need to get rid of?
-      bool file_dne(const string&);
-      bool is_dir_(const string&); //getter need this??
-      
+      bool file_dne(const string& words);
+      bool is_dir_(const string& words); //getter need this??
+      inode_ptr update_file(const string& filename, const wordvec&words);
 };
 
 #endif

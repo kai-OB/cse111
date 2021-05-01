@@ -1,4 +1,4 @@
-// $Id: file_sys.h,v 1.11 2021-04-30 21:40:33-07 - - $
+// $Id: file_sys.h,v 1.9 2021-04-30 21:39:38-07 - - $
 
 #ifndef __INODE_H__
 #define __INODE_H__
@@ -89,7 +89,7 @@ class inode {
                            //directory and plainfile as subclasses
                            //dir and pl do all the work
       //inode contains a pointer to base file
-      file_type fileType;  //to know the filetype
+      bool is_dir;  //to know the filetype
       inode_ptr parent{nullptr}; //initializes it to null in case there isnt a parent?
    public:
    virtual ~inode() = default;   //destructor?
@@ -99,7 +99,7 @@ class inode {
       void set_contents(base_file_ptr);   //setter
       base_file_ptr get_contents(); //getter
 
-      file_type get_file_type(); //getter need this??
+      bool isdir(); //getter need this??
       
       inode_ptr get_parent(); //need these?
       void set_parent(inode_ptr);
@@ -231,9 +231,9 @@ class directory: public base_file {
       virtual map<string,inode_ptr>& get_dirents()override;
      // virtual bool is_dir() override;
       //inode_ptr get_cwd();  //need to get rid of?
-      bool file_dne(const string&);
-      file_type get_file_helper(const string&); //getter need this??
-      
+      bool file_dne(const string& words);
+      bool is_dir_(const string& words); //getter need this??
+      inode_ptr update_file(const string& filename, const wordvec&words);
 };
 
 #endif
