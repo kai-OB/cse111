@@ -312,6 +312,10 @@ bool directory::file_dne( const string& str){
    }
    return false;
 }
+file_type directory::get_file_helper(const string& words){
+  return dirents.find(words)->second->get_file_type();
+}
+
 
 
 

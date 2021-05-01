@@ -1,4 +1,4 @@
-// $Id: file_sys.cpp,v 1.11 2021-04-30 15:22:12-07 - - $
+// $Id: file_sys.cpp,v 1.9 2020-10-26 21:32:08-07 - - $
 
 #include <cassert>
 #include <iostream>
@@ -66,6 +66,9 @@ inode_ptr inode_state::get_cwd(){ return cwd; }//need this?
 void inode_state::set_cwd(inode_ptr new_cwd){
    cwd = new_cwd;
 }
+
+
+
 void rm_r( inode_ptr roo){
    //depth first search (postorder)
    map<string,inode_ptr>& roo_dirents = (roo->get_contents()->get_dirents());
@@ -139,7 +142,9 @@ size_t inode::get_inode_nr() const {
 //}   //dont ever need to set new contents though right?
 base_file_ptr inode::get_contents(){ return contents; } //getter
 
-file_type inode::get_file_type(){ return fileType; } //getter need this??
+file_type inode::get_file_type(){ 
+   cerr<< "filetype: "<< fileType;
+   return fileType; } //getter need this??
 //or just use is_dir
 
 inode_ptr inode::get_parent(){ 
@@ -301,6 +306,16 @@ map<string,inode_ptr>& directory::get_dirents() {
 //void directory::writefile (const wordvec&) {
 //   throw file_error ("writefile: is a " + error_file_type());
 //}
+bool directory::file_dne( const string& str){
+   if(dirents.find(str)== dirents.end()){
+      return true;
+   }
+   return false;
+}
+file_type directory::get_file_helper(const string& words){
+  return dirents.find(words)->second->get_file_type();
+}
+
 
 
 

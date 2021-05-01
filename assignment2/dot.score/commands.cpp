@@ -1,4 +1,4 @@
-// $Id: commands.cpp,v 1.22 2021-04-30 15:22:12-07 - - $
+// $Id: commands.cpp,v 1.20 2021-01-11 15:52:17-08 - - $
 
 #include "commands.h"
 #include "debug.h"
@@ -49,19 +49,18 @@ void fn_cat (inode_state& state, const wordvec& words) {
       throw command_error ("cat: No files are specified"); //dont work
    }
    else{
+        cerr<< "before for \n";
       for(unsigned long i = 1;i < words.size(); ++i){
-          shared_ptr <directory> state_dir = dynamic_pointer_cast<directory>
+         shared_ptr <directory> state_dir = dynamic_pointer_cast<directory>
          (state.get_cwd()->get_contents());
-        //accounts for more than one file, if file is a directory
-        if(state.get_cwd()->get_file_type() == file_type::DIRECTORY_TYPE){
-         throw file_error ("cat: "+ words.at(i) +": is a directory");
+         if(state_dir->file_dne(words.at(i))==true){
+            throw command_error("cat: "+ words.at(i) +": No such file or directory");
          }
-         //if file does not exist, find returns the last
-         else if(state_dir->get_dirents().find(words.at(i))->first == ""){
-             throw file_error ("cat: "+ words.at(i) +": No such file or directory");
+         if(state_dir->get_file_helper(words.at(i))==file_type::DIRECTORY_TYPE){//everything is directory?
+            throw command_error("cat: "+ words.at(i) +": is a directory!");   //throw command error not cerr or cout
          }
-
-        cout<< state_dir->get_dirents().find(words.at(i))->first;
+        //cout<< state_dir->second->get_contents()->readfile();
+       //.find(words.at(i))->first;*/
       }
    }
 

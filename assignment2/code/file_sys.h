@@ -232,7 +232,7 @@ class directory: public base_file {
      // virtual bool is_dir() override;
       //inode_ptr get_cwd();  //need to get rid of?
       bool file_dne(const string&);
-      file_type get_file_type(); //getter need this??
+      file_type get_file_helper(const string&); //getter need this??
       
 };
 
