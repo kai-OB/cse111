@@ -62,6 +62,7 @@ class inode_state {  //only one can exist in the entire filesystem
       inode_ptr get_cwd();
       void set_cwd(inode_ptr);//??? //yes
       
+      
 };
 
 // class inode -
@@ -99,6 +100,7 @@ class inode {
       base_file_ptr get_contents(); //getter
 
       file_type get_file_type(); //getter need this??
+      
       inode_ptr get_parent(); //need these?
       void set_parent(inode_ptr);
 
@@ -229,7 +231,8 @@ class directory: public base_file {
       virtual map<string,inode_ptr>& get_dirents()override;
      // virtual bool is_dir() override;
       //inode_ptr get_cwd();  //need to get rid of?
-
+      bool file_dne(const string&);
+      file_type get_file_type(); //getter need this??
       
 };
 
