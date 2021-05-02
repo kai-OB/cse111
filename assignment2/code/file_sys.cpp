@@ -324,6 +324,9 @@ inode_ptr directory::update_file(const string& filename, const wordvec& words){
    dirents.insert(update_pair);//dirents[filename]= newFile;
    return update_ptr;
 }
+inode_ptr directory::get_second(const string& filename){
+   return dirents.find(filename)->second;
+}
 
 
 
