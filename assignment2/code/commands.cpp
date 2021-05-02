@@ -127,6 +127,41 @@ void fn_make (inode_state& state, const wordvec& words) {
 void fn_mkdir (inode_state& state, const wordvec& words) {
    DEBUGF ('c', state);
    DEBUGF ('c', words);
+    if(words.size()==1){
+      throw command_error ("mkdir: No target specified"); //dont work
+   }
+    else if(words.size()>2){
+      throw command_error ("mkdir: invalid number of arguments"); //dont work
+   }
+   wordvec split_path = split(words.at(1),"/");//skips mkdir call but includes all paths
+   shared_ptr <directory> state_dir = dynamic_pointer_cast<directory>
+         (state.get_cwd()->get_contents());
+   //if has path, check if valid
+      int count = 1;
+      if(split_path.size()>1){//if its a path
+         for(auto i =split_path.begin()+1; i< split_path.end()-1;i++){ //skip last cause creating last so wont exist
+            if(state_dir->file_dne(split_path.at(count))==true){//this works //everything needs to exist but the last one
+               throw command_error ("mkdir:"+split_path.at(count)+" directory does not exist"); //dont work
+            }
+            count++; //cause the auto is an itr
+         }
+         if(state_dir->file_dne(split_path.at(count)) == false){
+            throw command_error ("mkdir:"+split_path.at(count)+" directory already exists"); //dont work
+         }
+         else{
+            state_dir->mkdir(split_path.at(count));
+         }
+      }
+      //if no path, or end of path, make sure dne
+      //should be end if has path or not right?
+      else{//if its not a path
+         if(state_dir->file_dne(split_path.at(0)) == false){
+            throw command_error ("mkdir:"+split_path.at(0)+" directory already exists"); //dont work
+         }
+         else{
+            state_dir->mkdir(split_path.at(0));
+         }
+      }
 }
 
 void fn_prompt (inode_state& state, const wordvec& words) {
