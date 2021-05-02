@@ -1,9 +1,26 @@
-checksource main.cpp
-checksource: TOTAL COMPLAINTS: 0
-cpplint.py.perl main.cpp
-Done processing main.cpp
-g++ -std=gnu++17 -g -O0 -Wall -Wextra -Wpedantic -Wshadow -Wold-style-cast -fdiagnostics-color=never -c main.cpp
+checksource commands.cpp
+checksource: line length > 72 characters
+commands.cpp: 12 errors: lines 46--47, 54, 57, 59--60, 107, 110, 
+        114--115, 118--119
+checksource: TOTAL COMPLAINTS: 12
+gmake: [Makefile:31: commands.o] Error 1 (ignored)
+cpplint.py.perl commands.cpp
+commands.cpp:46:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:47:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:54:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:57:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:59:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:60:  Lines should very rarely be longer than 90 characters  [whitespace/line_length] [4]
+commands.cpp:107:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:110:  Lines should very rarely be longer than 90 characters  [whitespace/line_length] [4]
+commands.cpp:114:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:115:  Lines should very rarely be longer than 90 characters  [whitespace/line_length] [4]
+commands.cpp:118:  Lines should be <= 72 characters long  [whitespace/line_length] [2]
+commands.cpp:119:  Lines should very rarely be longer than 90 characters  [whitespace/line_length] [4]
+Done processing commands.cpp
+Total errors found: 12
+g++ -std=gnu++17 -g -O0 -Wall -Wextra -Wpedantic -Wshadow -Wold-style-cast -fdiagnostics-color=never -c commands.cpp
 g++ -std=gnu++17 -g -O0 -Wall -Wextra -Wpedantic -Wshadow -Wold-style-cast -fdiagnostics-color=never -o yshell commands.o debug.o file_sys.o util.o main.o
-commands.o: file not recognized: File format not recognized
+debug.o: file not recognized: File format not recognized
 collect2: error: ld returned 1 exit status
 gmake: *** [Makefile:28: yshell] Error 1

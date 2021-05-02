@@ -1,4 +1,4 @@
-./yshell build Apr 30 2021 22:15:33
+./yshell build May  1 2021 17:02:56
 % mkdir foo
 % mkdir foo/bar
 % mkdir foo/bar/baz
@@ -18,4 +18,4 @@
 % # This tests decoding pathnames
 % # $Id: test4.ysh,v 1.1 2013-01-02 19:11:43-08 - - $
 % ^D
-yshell: exit(1)
+yshell: exit(0)

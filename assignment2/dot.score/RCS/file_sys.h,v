@@ -1,9 +1,14 @@
-head	1.11;
+head	1.12;
 access;
 symbols;
 locks;
 comment	@ * @;
 
+
+1.12
+date	2021.05.02.00.01.52;	author -;	state -;
+branches;
+next	1.11;
 
 1.11
 date	2021.05.01.04.40.33;	author -;	state -;
@@ -65,12 +70,12 @@ desc
 @@
 
 
-1.11
+1.12
 log
 @-
 @
 text
-@// $Id: file_sys.h,v 1.8 2020-10-22 14:37:26-07 - - $
+@// $Id: file_sys.h,v 1.9 2021-04-30 21:39:38-07 - - $
 
 #ifndef __INODE_H__
 #define __INODE_H__
@@ -161,7 +166,7 @@ class inode {
                            //directory and plainfile as subclasses
                            //dir and pl do all the work
       //inode contains a pointer to base file
-      file_type fileType;  //to know the filetype
+      bool is_dir;  //to know the filetype
       inode_ptr parent{nullptr}; //initializes it to null in case there isnt a parent?
    public:
    virtual ~inode() = default;   //destructor?
@@ -171,7 +176,7 @@ class inode {
       void set_contents(base_file_ptr);   //setter
       base_file_ptr get_contents(); //getter
 
-      file_type get_file_type(); //getter need this??
+      bool isdir(); //getter need this??
       
       inode_ptr get_parent(); //need these?
       void set_parent(inode_ptr);
@@ -303,13 +308,35 @@ class directory: public base_file {
       virtual map<string,inode_ptr>& get_dirents()override;
      // virtual bool is_dir() override;
       //inode_ptr get_cwd();  //need to get rid of?
-      bool file_dne(const string&);
-      file_type get_file_helper(const string&); //getter need this??
-      
+      bool file_dne(const string& words);
+      bool is_dir_(const string& words); //getter need this??
+      inode_ptr update_file(const string& filename, const wordvec&words);
 };
 
 #endif
 
+@
+
+
+1.11
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: file_sys.h,v 1.8 2020-10-22 14:37:26-07 - - $
+d92 1
+a92 1
+      file_type fileType;  //to know the filetype
+d102 1
+a102 1
+      file_type get_file_type(); //getter need this??
+d234 3
+a236 3
+      bool file_dne(const string&);
+      file_type get_file_helper(const string&); //getter need this??
+      
 @
 
 

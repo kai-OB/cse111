@@ -1,13 +1,14 @@
 checksource: line length > 72 characters
-commands.cpp: 6 errors: lines 46--47, 54, 57, 59--60
-file_sys.cpp: 15 errors: lines 12, 38, 49, 74, 76, 113, 122, 191, 227, 
-        229, 236, 255--256, 270, 286
-file_sys.h: 15 errors: lines 45, 93, 117, 122--123, 125, 129, 139, 
-        178--179, 183, 187--188, 225--226
+commands.cpp: 12 errors: lines 46--47, 54, 57, 59--60, 107, 110, 
+        114--115, 118--119
+file_sys.cpp: 16 errors: lines 12, 38, 49, 74, 76, 113, 124, 192, 228, 
+        230, 237, 256--257, 271, 287, 320
+file_sys.h: 16 errors: lines 45, 93, 117, 122--123, 125, 129, 139, 
+        178--179, 183, 187--188, 225--226, 236
 checksource: non-ASCII character \x80
 README: 1 errors: line 3
 checksource: non-ASCII character \x99
 README: 1 errors: line 3
 checksource: non-ASCII character \xE2
 README: 1 errors: line 3
-checksource: TOTAL COMPLAINTS: 39
+checksource: TOTAL COMPLAINTS: 47
