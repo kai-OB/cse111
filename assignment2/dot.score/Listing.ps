@@ -3,7 +3,7 @@
 %%Title: ./Listing.ps
 %%For: Kai Monique O'Brien
 %%Creator: GNU Enscript 1.6.6
-%%CreationDate: Sat May  1 17:04:24 2021
+%%CreationDate: Sun May  2 02:06:10 2021
 %%Orientation: Portrait
 %%Pages: (atend)
 %%DocumentMedia: Letter 612 792 0 () ()
@@ -506,8 +506,8 @@ _S
 /ftail (commands.h) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -653,8 +653,8 @@ _S
 /ftail (commands.cpp) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -665,7 +665,7 @@ column_borders
 do_header
 32.4 694 M (1:) s
 52.2 694 M
-(// $Id: commands.cpp,v 1.24 2021-05-01 17:01:52-07 - - $) s
+(// $Id: commands.cpp,v 1.25 2021-05-02 02:00:49-07 - - $) s
 32.4 682 M (2:) s
 32.4 670 M (3:) s
 52.2 670 M
@@ -810,18 +810,18 @@ do_header
 (   else{) s
 25.8 58 M (52:) s
 52.2 58 M
-(        cerr<< "before for \\n";) s
+(      for\(unsigned long i = 1;i < words.size\(\); ++i\){) s
 25.8 46 M (53:) s
 52.2 46 M
-(      for\(unsigned long i = 1;i < words.size\(\); ++i\){) s
-25.8 34 M (54:) s
-52.2 34 M
 (         shared_ptr <directory> state_dir = dynamic_pointer_cast<directo) s
-5 22 M
+5 34 M
 (ry>) s
+25.8 22 M (54:) s
+52.2 22 M
+(         \(state.get_cwd\(\)->get_contents\(\)\);) s
 25.8 10 M (55:) s
 52.2 10 M
-(         \(state.get_cwd\(\)->get_contents\(\)\);) s
+(         if\(state_dir->file_dne\(words.at\(i\)\)==true\){) s
 _R
 S
 %%Page: (2) 3
@@ -834,8 +834,8 @@ _S
 /ftail (commands.cpp) def
 % User defined strings:
 /pagenumstr (2) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -846,78 +846,88 @@ column_borders
 do_header
 25.8 694 M (56:) s
 52.2 694 M
-(         if\(state_dir->file_dne\(words.at\(i\)\)==true\){) s
-25.8 682 M (57:) s
-52.2 682 M
 (            throw command_error\("cat: "+ words.at\(i\) +": No such file or) s
-5 670 M
+5 682 M
 ( directory"\);) s
+25.8 670 M (57:) s
+52.2 670 M
+(         }) s
 25.8 658 M (58:) s
 52.2 658 M
-(         }) s
-25.8 646 M (59:) s
-52.2 646 M
 (         if\(state_dir->is_dir_\(words.at\(i\)\)==true\){//everything is direc) s
-5 634 M
+5 646 M
 (tory?) s
-25.8 622 M (60:) s
-52.2 622 M
+25.8 634 M (59:) s
+52.2 634 M
 (            throw command_error\("cat: "+ words.at\(i\) +": is a directory!) s
-5 610 M
+5 622 M
 ("\);   //throw command error not cerr or cout) s
+25.8 610 M (60:) s
+52.2 610 M
+(         }) s
 25.8 598 M (61:) s
 52.2 598 M
-(         }) s
+(         /*if\(\(words.at\(i\)\)=="/"\){//everything is directory?) s
 25.8 586 M (62:) s
 52.2 586 M
-(        //cout<< state_dir->second->get_contents\(\)->readfile\(\);) s
-25.8 574 M (63:) s
-52.2 574 M
-(       //.find\(words.at\(i\)\)->first;*/) s
-25.8 562 M (64:) s
+(            throw command_error\("cat: "+ words.at\(i\) +": is a directory!) s
+5 574 M
+("\);   //throw command error not cerr or cout) s
+25.8 562 M (63:) s
 52.2 562 M
-(      }) s
-25.8 550 M (65:) s
+(         }*/) s
+25.8 550 M (64:) s
 52.2 550 M
-(   }) s
-25.8 538 M (66:) s
-52.2 538 M
-(//go back to this) s
-25.8 526 M (67:) s
+(        cout<< state_dir->get_second\(words.at\(i\)\)->get_contents\(\)->readf) s
+5 538 M
+(ile\(\);//this works) s
+25.8 526 M (65:) s
 52.2 526 M
-(}) s
-25.8 514 M (68:) s
-25.8 502 M (69:) s
+(       ) s
+25.8 514 M (66:) s
+52.2 514 M
+(      }) s
+25.8 502 M (67:) s
 52.2 502 M
-(void fn_cd \(inode_state& state, const wordvec& words\) {) s
-25.8 490 M (70:) s
+(   }) s
+25.8 490 M (68:) s
 52.2 490 M
-(   DEBUGF \('c', state\);) s
-25.8 478 M (71:) s
+(//go back to this) s
+25.8 478 M (69:) s
 52.2 478 M
-(   DEBUGF \('c', words\);) s
-25.8 466 M (72:) s
-52.2 466 M
 (}) s
-25.8 454 M (73:) s
+25.8 466 M (70:) s
+25.8 454 M (71:) s
 52.2 454 M
-(//dont have to do anything???) s
-25.8 442 M (74:) s
+(void fn_cd \(inode_state& state, const wordvec& words\) {) s
+25.8 442 M (72:) s
 52.2 442 M
-(void fn_echo \(inode_state& state, const wordvec& words\) {) s
-25.8 430 M (75:) s
-52.2 430 M
 (   DEBUGF \('c', state\);) s
-25.8 418 M (76:) s
-52.2 418 M
+25.8 430 M (73:) s
+52.2 430 M
 (   DEBUGF \('c', words\);) s
-25.8 406 M (77:) s
-52.2 406 M
-(   cout << word_range \(words.cbegin\(\) + 1, words.cend\(\)\) << endl;) s
-25.8 394 M (78:) s
-52.2 394 M
+25.8 418 M (74:) s
+52.2 418 M
 (}) s
-25.8 382 M (79:) s
+25.8 406 M (75:) s
+52.2 406 M
+(//dont have to do anything???) s
+25.8 394 M (76:) s
+52.2 394 M
+(void fn_echo \(inode_state& state, const wordvec& words\) {) s
+25.8 382 M (77:) s
+52.2 382 M
+(   DEBUGF \('c', state\);) s
+25.8 370 M (78:) s
+52.2 370 M
+(   DEBUGF \('c', words\);) s
+25.8 358 M (79:) s
+52.2 358 M
+(   cout << word_range \(words.cbegin\(\) + 1, words.cend\(\)\) << endl;) s
+25.8 346 M (80:) s
+52.2 346 M
+(}) s
+25.8 334 M (81:) s
 _R
 S
 %%Page: (3) 4
@@ -930,8 +940,8 @@ _S
 /ftail (commands.cpp) def
 % User defined strings:
 /pagenumstr (3) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -940,156 +950,160 @@ _S
 %%EndPageSetup
 column_borders
 do_header
-25.8 694 M (80:) s
-25.8 682 M (81:) s
+25.8 694 M (82:) s
+25.8 682 M (83:) s
 52.2 682 M
 (void fn_exit \(inode_state& state, const wordvec& words\) {) s
-25.8 670 M (82:) s
+25.8 670 M (84:) s
 52.2 670 M
 (   DEBUGF \('c', state\);) s
-25.8 658 M (83:) s
+25.8 658 M (85:) s
 52.2 658 M
 (   DEBUGF \('c', words\);) s
-25.8 646 M (84:) s
+25.8 646 M (86:) s
 52.2 646 M
 (   throw ysh_exit\(\);) s
-25.8 634 M (85:) s
+25.8 634 M (87:) s
 52.2 634 M
 (}) s
-25.8 622 M (86:) s
-25.8 610 M (87:) s
+25.8 622 M (88:) s
+25.8 610 M (89:) s
 52.2 610 M
 (void fn_ls \(inode_state& state, const wordvec& words\) {) s
-25.8 598 M (88:) s
+25.8 598 M (90:) s
 52.2 598 M
 (   DEBUGF \('c', state\);) s
-25.8 586 M (89:) s
+25.8 586 M (91:) s
 52.2 586 M
 (   DEBUGF \('c', words\);) s
-25.8 574 M (90:) s
+25.8 574 M (92:) s
 52.2 574 M
 (}) s
-25.8 562 M (91:) s
-25.8 550 M (92:) s
+25.8 562 M (93:) s
+25.8 550 M (94:) s
 52.2 550 M
 (void fn_lsr \(inode_state& state, const wordvec& words\) {) s
-25.8 538 M (93:) s
+25.8 538 M (95:) s
 52.2 538 M
 (   DEBUGF \('c', state\);) s
-25.8 526 M (94:) s
+25.8 526 M (96:) s
 52.2 526 M
 (   DEBUGF \('c', words\);) s
-25.8 514 M (95:) s
+25.8 514 M (97:) s
 52.2 514 M
 (}) s
-25.8 502 M (96:) s
-25.8 490 M (97:) s
+25.8 502 M (98:) s
+25.8 490 M (99:) s
 52.2 490 M
 (void fn_make \(inode_state& state, const wordvec& words\) {) s
-25.8 478 M (98:) s
+19.2 478 M (100:) s
 52.2 478 M
 (   DEBUGF \('c', state\);) s
-25.8 466 M (99:) s
+19.2 466 M (101:) s
 52.2 466 M
 (   DEBUGF \('c', words\);) s
-19.2 454 M (100:) s
+19.2 454 M (102:) s
 52.2 454 M
 (   shared_ptr <directory> state_dir = dynamic_pointer_cast<directory>) s
-19.2 442 M (101:) s
+19.2 442 M (103:) s
 52.2 442 M
 (         \(state.get_cwd\(\)->get_contents\(\)\);) s
-19.2 430 M (102:) s
+19.2 430 M (104:) s
 52.2 430 M
 (   if\(words.size\(\)==1\){) s
-19.2 418 M (103:) s
+19.2 418 M (105:) s
 52.2 418 M
 (      throw command_error \("make: No target specified"\); //dont work) s
-19.2 406 M (104:) s
+19.2 406 M (106:) s
 52.2 406 M
-(   }) s
-19.2 394 M (105:) s
+(   } ) s
+19.2 394 M (107:) s
 52.2 394 M
-(   if\(state_dir->file_dne\(words.at\(1\)\)==true\){//this works) s
-19.2 382 M (106:) s
+(   else if\(state_dir->file_dne\(words.at\(1\)\)==true\){//this works) s
+19.2 382 M (108:) s
 52.2 382 M
 (      //if file dne then can do normal cause isnt dir or file) s
-19.2 370 M (107:) s
+19.2 370 M (109:) s
 52.2 370 M
 (      inode_ptr new_file = state.get_cwd\(\)->get_contents\(\)->mkfile\(words) s
 5 358 M
 (.at\(1\)\);) s
-19.2 346 M (108:) s
+19.2 346 M (110:) s
 52.2 346 M
-(      new_file->get_contents\(\)->writefile\(words\); //writes the name too?) s
-19.2 334 M (109:) s
+(      //+2 makes it not include make or filename, jsut contents) s
+19.2 334 M (111:) s
 52.2 334 M
-(      ) s
-19.2 322 M (110:) s
-52.2 322 M
-(     // cout<<new_file->get_contents\(\)->readfile\(\);  //makes the file, b) s
-5 310 M
-(ut includes "make"??) s
-19.2 298 M (111:) s
-52.2 298 M
-(      //makes a file not a dir!) s
-19.2 286 M (112:) s
+(      new_file->get_contents\(\)->writefile\(wordvec\(words.begin\(\)+2,words.) s
+5 322 M
+(end\(\)\)\); ) s
+19.2 310 M (112:) s
+52.2 310 M
+(   }) s
+19.2 298 M (113:) s
+19.2 286 M (114:) s
 52.2 286 M
-(   }) s
-19.2 274 M (113:) s
-19.2 262 M (114:) s
-52.2 262 M
-(   else if\(state_dir->is_dir_\(words.at\(1\)\)==true\){//everything is direct) s
-5 250 M
-(ory?) s
-19.2 238 M (115:) s
-52.2 238 M
+(   else if\(state_dir->is_dir_\(words.at\(1\)\)==true\){) s
+19.2 274 M (115:) s
+52.2 274 M
 (      throw command_error\("cat: "+ words.at\(1\) +": is a directory!"\);   ) s
-5 226 M
-(//throw command error not cerr or cout) s
-19.2 214 M (116:) s
-52.2 214 M
+5 262 M
+(//throw command error) s
+19.2 250 M (116:) s
+52.2 250 M
 (   }) s
-19.2 202 M (117:) s
+19.2 238 M (117:) s
+52.2 238 M
+(  /* else if\(\(words.at\(1\)\)=="/"\){//everything is directory?) s
+19.2 226 M (118:) s
+52.2 226 M
+(      throw command_error\("cat: "+ words.at\(1\) +": is a directory!"\);   ) s
+5 214 M
+(//throw command error ) s
+19.2 202 M (119:) s
 52.2 202 M
-(   else{//not dir, but updating existing file) s
-19.2 190 M (118:) s
+(   }*/) s
+19.2 190 M (120:) s
 52.2 190 M
+(   else{//not dir, but updating existing file) s
+19.2 178 M (121:) s
+52.2 178 M
 (         inode_ptr updated_pointer = state_dir->update_file\(words.at\(1\),) s
-5 178 M
-(words\);) s
-19.2 166 M (119:) s
-52.2 166 M
+5 166 M
+(wordvec\(words.begin\(\)+2,words.end\(\)\)\);) s
+19.2 154 M (122:) s
+52.2 154 M
 (        // cout<< updated_pointer->get_contents\(\)->readfile\(\);  //makes ) s
-5 154 M
+5 142 M
 (the file, but includes "make"??) s
-19.2 142 M (120:) s
-52.2 142 M
-(        }) s
-19.2 130 M (121:) s
-19.2 118 M (122:) s
-19.2 106 M (123:) s
+19.2 130 M (123:) s
+52.2 130 M
+(    }) s
+19.2 118 M (124:) s
+19.2 106 M (125:) s
 52.2 106 M
 (}) s
-19.2 94 M (124:) s
-19.2 82 M (125:) s
+19.2 94 M (126:) s
+19.2 82 M (127:) s
 52.2 82 M
 (void fn_mkdir \(inode_state& state, const wordvec& words\) {) s
-19.2 70 M (126:) s
+19.2 70 M (128:) s
 52.2 70 M
 (   DEBUGF \('c', state\);) s
-19.2 58 M (127:) s
+19.2 58 M (129:) s
 52.2 58 M
 (   DEBUGF \('c', words\);) s
-19.2 46 M (128:) s
+19.2 46 M (130:) s
 52.2 46 M
-(}) s
-19.2 34 M (129:) s
-19.2 22 M (130:) s
+(    if\(words.size\(\)==1\){) s
+19.2 34 M (131:) s
+52.2 34 M
+(      throw command_error \("mkdir: No target specified"\); //dont work) s
+19.2 22 M (132:) s
 52.2 22 M
-(void fn_prompt \(inode_state& state, const wordvec& words\) {) s
-19.2 10 M (131:) s
+(   }) s
+19.2 10 M (133:) s
 52.2 10 M
-(   DEBUGF \('c', state\);) s
+(    else if\(words.size\(\)>2\){) s
 _R
 S
 %%Page: (4) 5
@@ -1102,8 +1116,8 @@ _S
 /ftail (commands.cpp) def
 % User defined strings:
 /pagenumstr (4) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -1112,55 +1126,194 @@ _S
 %%EndPageSetup
 column_borders
 do_header
-19.2 694 M (132:) s
+19.2 694 M (134:) s
 52.2 694 M
-(   DEBUGF \('c', words\);) s
-19.2 682 M (133:) s
-52.2 682 M
-(}) s
-19.2 670 M (134:) s
-19.2 658 M (135:) s
+(      throw command_error \("mkdir: invalid number of arguments"\); //dont) s
+5 682 M
+( work) s
+19.2 670 M (135:) s
+52.2 670 M
+(   }) s
+19.2 658 M (136:) s
 52.2 658 M
-(void fn_pwd \(inode_state& state, const wordvec& words\) {) s
-19.2 646 M (136:) s
-52.2 646 M
-(   DEBUGF \('c', state\);) s
+(   wordvec split_path = split\(words.at\(1\),"/"\);//skips mkdir call but in) s
+5 646 M
+(cludes all paths) s
 19.2 634 M (137:) s
 52.2 634 M
-(   DEBUGF \('c', words\);) s
+(   shared_ptr <directory> state_dir = dynamic_pointer_cast<directory>) s
 19.2 622 M (138:) s
 52.2 622 M
-(}) s
+(         \(state.get_cwd\(\)->get_contents\(\)\);) s
 19.2 610 M (139:) s
+52.2 610 M
+(   //if has path, check if valid) s
 19.2 598 M (140:) s
 52.2 598 M
-(void fn_rm \(inode_state& state, const wordvec& words\) {) s
+(      int count = 1;) s
 19.2 586 M (141:) s
 52.2 586 M
-(   DEBUGF \('c', state\);) s
+(      if\(split_path.size\(\)>1\){//if its a path) s
 19.2 574 M (142:) s
 52.2 574 M
-(   DEBUGF \('c', words\);) s
-19.2 562 M (143:) s
-52.2 562 M
-(}) s
-19.2 550 M (144:) s
-19.2 538 M (145:) s
-52.2 538 M
-(void fn_rmr \(inode_state& state, const wordvec& words\) {) s
-19.2 526 M (146:) s
+(         for\(auto i =split_path.begin\(\)+1; i< split_path.end\(\)-1;i++\){ /) s
+5 562 M
+(/skip last cause creating last so wont exist) s
+19.2 550 M (143:) s
+52.2 550 M
+(            if\(state_dir->file_dne\(split_path.at\(count\)\)==true\){//this w) s
+5 538 M
+(orks //everything needs to exist but the last one) s
+19.2 526 M (144:) s
 52.2 526 M
-(   DEBUGF \('c', state\);) s
-19.2 514 M (147:) s
-52.2 514 M
-(   DEBUGF \('c', words\);) s
-19.2 502 M (148:) s
+(               throw command_error \("mkdir:"+split_path.at\(count\)+" dire) s
+5 514 M
+(ctory does not exist"\); //dont work) s
+19.2 502 M (145:) s
 52.2 502 M
+(            }) s
+19.2 490 M (146:) s
+52.2 490 M
+(            count++; //cause the auto is an itr) s
+19.2 478 M (147:) s
+52.2 478 M
+(         }) s
+19.2 466 M (148:) s
+52.2 466 M
+(         if\(state_dir->file_dne\(split_path.at\(count\)\) == false\){) s
+19.2 454 M (149:) s
+52.2 454 M
+(            throw command_error \("mkdir:"+split_path.at\(count\)+" directo) s
+5 442 M
+(ry already exists"\); //dont work) s
+19.2 430 M (150:) s
+52.2 430 M
+(         }) s
+19.2 418 M (151:) s
+52.2 418 M
+(         else{) s
+19.2 406 M (152:) s
+52.2 406 M
+(            state_dir->mkdir\(split_path.at\(count\)\);) s
+19.2 394 M (153:) s
+52.2 394 M
+(         }) s
+19.2 382 M (154:) s
+52.2 382 M
+(      }) s
+19.2 370 M (155:) s
+52.2 370 M
+(      //if no path, or end of path, make sure dne) s
+19.2 358 M (156:) s
+52.2 358 M
+(      //should be end if has path or not right?) s
+19.2 346 M (157:) s
+52.2 346 M
+(      else{//if its not a path) s
+19.2 334 M (158:) s
+52.2 334 M
+(         if\(state_dir->file_dne\(split_path.at\(0\)\) == false\){) s
+19.2 322 M (159:) s
+52.2 322 M
+(            throw command_error \("mkdir:"+split_path.at\(0\)+" directory a) s
+5 310 M
+(lready exists"\); //dont work) s
+19.2 298 M (160:) s
+52.2 298 M
+(         }) s
+19.2 286 M (161:) s
+52.2 286 M
+(         else{) s
+19.2 274 M (162:) s
+52.2 274 M
+(            state_dir->mkdir\(split_path.at\(0\)\);) s
+19.2 262 M (163:) s
+52.2 262 M
+(         }) s
+19.2 250 M (164:) s
+52.2 250 M
+(      }) s
+19.2 238 M (165:) s
+52.2 238 M
 (}) s
-19.2 490 M (149:) s
+19.2 226 M (166:) s
+19.2 214 M (167:) s
+52.2 214 M
+(void fn_prompt \(inode_state& state, const wordvec& words\) {) s
+19.2 202 M (168:) s
+52.2 202 M
+(   DEBUGF \('c', state\);) s
+19.2 190 M (169:) s
+52.2 190 M
+(   DEBUGF \('c', words\);) s
+19.2 178 M (170:) s
+52.2 178 M
+(}) s
+19.2 166 M (171:) s
+19.2 154 M (172:) s
+52.2 154 M
+(void fn_pwd \(inode_state& state, const wordvec& words\) {) s
+19.2 142 M (173:) s
+52.2 142 M
+(   DEBUGF \('c', state\);) s
+19.2 130 M (174:) s
+52.2 130 M
+(   DEBUGF \('c', words\);) s
+19.2 118 M (175:) s
+52.2 118 M
+(}) s
+19.2 106 M (176:) s
+19.2 94 M (177:) s
+52.2 94 M
+(void fn_rm \(inode_state& state, const wordvec& words\) {) s
+19.2 82 M (178:) s
+52.2 82 M
+(   DEBUGF \('c', state\);) s
+19.2 70 M (179:) s
+52.2 70 M
+(   DEBUGF \('c', words\);) s
+19.2 58 M (180:) s
+52.2 58 M
+(}) s
+19.2 46 M (181:) s
+19.2 34 M (182:) s
+52.2 34 M
+(void fn_rmr \(inode_state& state, const wordvec& words\) {) s
+19.2 22 M (183:) s
+52.2 22 M
+(   DEBUGF \('c', state\);) s
+19.2 10 M (184:) s
+52.2 10 M
+(   DEBUGF \('c', words\);) s
 _R
 S
-%%Page: (1) 6
+%%Page: (5) 6
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 5 def
+/fname (commands.cpp) def
+/fdir (.) def
+/ftail (commands.cpp) def
+% User defined strings:
+/pagenumstr (5) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
+/user_header_p true def
+/user_header_left_str (~/cse111/assignment2/dot.score) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+19.2 694 M (185:) s
+52.2 694 M
+(}) s
+19.2 682 M (186:) s
+_R
+S
+%%Page: (1) 7
 %%BeginPageSetup
 _S
 38 24 translate
@@ -1170,8 +1323,8 @@ _S
 /ftail (debug.h) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -1262,7 +1415,7 @@ do_header
 25.8 346 M (30:) s
 _R
 S
-%%Page: (2) 7
+%%Page: (2) 8
 %%BeginPageSetup
 _S
 38 24 translate
@@ -1272,8 +1425,8 @@ _S
 /ftail (debug.h) def
 % User defined strings:
 /pagenumstr (2) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -1372,7 +1525,7 @@ do_header
 25.8 322 M (62:) s
 _R
 S
-%%Page: (1) 8
+%%Page: (1) 9
 %%BeginPageSetup
 _S
 38 24 translate
@@ -1382,8 +1535,8 @@ _S
 /ftail (debug.cpp) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -1481,7 +1634,7 @@ do_header
 25.8 286 M (35:) s
 _R
 S
-%%Page: (1) 9
+%%Page: (1) 10
 %%BeginPageSetup
 _S
 38 24 translate
@@ -1491,8 +1644,8 @@ _S
 /ftail (file_sys.h) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -1503,7 +1656,7 @@ column_borders
 do_header
 32.4 694 M (1:) s
 52.2 694 M
-(// $Id: file_sys.h,v 1.12 2021-05-01 17:01:52-07 - - $) s
+(// $Id: file_sys.h,v 1.13 2021-05-02 02:03:57-07 - - $) s
 32.4 682 M (2:) s
 32.4 670 M (3:) s
 52.2 670 M
@@ -1572,7 +1725,7 @@ do_header
 25.8 382 M (27:) s
 _R
 S
-%%Page: (2) 10
+%%Page: (2) 11
 %%BeginPageSetup
 _S
 38 24 translate
@@ -1582,8 +1735,8 @@ _S
 /ftail (file_sys.h) def
 % User defined strings:
 /pagenumstr (2) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -1751,7 +1904,7 @@ do_header
 (   friend class inode_state;) s
 _R
 S
-%%Page: (3) 11
+%%Page: (3) 12
 %%BeginPageSetup
 _S
 38 24 translate
@@ -1761,8 +1914,8 @@ _S
 /ftail (file_sys.h) def
 % User defined strings:
 /pagenumstr (3) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -1841,7 +1994,7 @@ do_header
 19.2 406 M (108:) s
 _R
 S
-%%Page: (4) 12
+%%Page: (4) 13
 %%BeginPageSetup
 _S
 38 24 translate
@@ -1851,8 +2004,8 @@ _S
 /ftail (file_sys.h) def
 % User defined strings:
 /pagenumstr (4) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -1998,7 +2151,7 @@ do_header
 (};) s
 _R
 S
-%%Page: (5) 13
+%%Page: (5) 14
 %%BeginPageSetup
 _S
 38 24 translate
@@ -2008,8 +2161,8 @@ _S
 /ftail (file_sys.h) def
 % User defined strings:
 /pagenumstr (5) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -2181,7 +2334,7 @@ do_header
 (//    Here empty means the only entries are dot \(.\) and dotdot \(..\).) s
 _R
 S
-%%Page: (6) 14
+%%Page: (6) 15
 %%BeginPageSetup
 _S
 38 24 translate
@@ -2191,8 +2344,8 @@ _S
 /ftail (file_sys.h) def
 % User defined strings:
 /pagenumstr (6) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -2289,29 +2442,31 @@ do_header
 (     // virtual bool is_dir\(\) override;) s
 19.2 334 M (233:) s
 52.2 334 M
-(      //inode_ptr get_cwd\(\);  //need to get rid of?) s
-19.2 322 M (234:) s
-52.2 322 M
-(      bool file_dne\(const string& words\);) s
-19.2 310 M (235:) s
+(      inode_ptr get_second\(const string& filename\);  //need to get rid o) s
+5 322 M
+(f?) s
+19.2 310 M (234:) s
 52.2 310 M
-(      bool is_dir_\(const string& words\); //getter need this??) s
-19.2 298 M (236:) s
+(      bool file_dne\(const string& words\);) s
+19.2 298 M (235:) s
 52.2 298 M
+(      bool is_dir_\(const string& words\); //getter need this??) s
+19.2 286 M (236:) s
+52.2 286 M
 (      inode_ptr update_file\(const string& filename, const wordvec&words\)) s
-5 286 M
+5 274 M
 (;) s
-19.2 274 M (237:) s
-52.2 274 M
+19.2 262 M (237:) s
+52.2 262 M
 (};) s
-19.2 262 M (238:) s
-19.2 250 M (239:) s
-52.2 250 M
+19.2 250 M (238:) s
+19.2 238 M (239:) s
+52.2 238 M
 (#endif) s
-19.2 238 M (240:) s
+19.2 226 M (240:) s
 _R
 S
-%%Page: (1) 15
+%%Page: (1) 16
 %%BeginPageSetup
 _S
 38 24 translate
@@ -2321,8 +2476,8 @@ _S
 /ftail (file_sys.cpp) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -2333,7 +2488,7 @@ column_borders
 do_header
 32.4 694 M (1:) s
 52.2 694 M
-(// $Id: file_sys.cpp,v 1.13 2021-05-01 17:01:52-07 - - $) s
+(// $Id: file_sys.cpp,v 1.14 2021-05-02 02:03:57-07 - - $) s
 32.4 682 M (2:) s
 32.4 670 M (3:) s
 52.2 670 M
@@ -2486,7 +2641,7 @@ do_header
 (      prompt_  = s;) s
 _R
 S
-%%Page: (2) 16
+%%Page: (2) 17
 %%BeginPageSetup
 _S
 38 24 translate
@@ -2496,8 +2651,8 @@ _S
 /ftail (file_sys.cpp) def
 % User defined strings:
 /pagenumstr (2) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -2658,7 +2813,7 @@ do_header
 (   //so instead pass in anargument) s
 _R
 S
-%%Page: (3) 17
+%%Page: (3) 18
 %%BeginPageSetup
 _S
 38 24 translate
@@ -2668,8 +2823,8 @@ _S
 /ftail (file_sys.cpp) def
 % User defined strings:
 /pagenumstr (3) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -2834,7 +2989,7 @@ do_header
 (   //if dont override, will be inherited) s
 _R
 S
-%%Page: (4) 18
+%%Page: (4) 19
 %%BeginPageSetup
 _S
 38 24 translate
@@ -2844,8 +2999,8 @@ _S
 /ftail (file_sys.cpp) def
 % User defined strings:
 /pagenumstr (4) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -2936,7 +3091,7 @@ do_header
 19.2 334 M (197:) s
 _R
 S
-%%Page: (5) 19
+%%Page: (5) 20
 %%BeginPageSetup
 _S
 38 24 translate
@@ -2946,8 +3101,8 @@ _S
 /ftail (file_sys.cpp) def
 % User defined strings:
 /pagenumstr (5) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -3119,7 +3274,7 @@ do_header
 (   //created, or if the complete pathname to the parent of) s
 _R
 S
-%%Page: (6) 20
+%%Page: (6) 21
 %%BeginPageSetup
 _S
 38 24 translate
@@ -3129,8 +3284,8 @@ _S
 /ftail (file_sys.cpp) def
 % User defined strings:
 /pagenumstr (6) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -3301,7 +3456,7 @@ do_header
 (*/) s
 _R
 S
-%%Page: (7) 21
+%%Page: (7) 22
 %%BeginPageSetup
 _S
 38 24 translate
@@ -3311,8 +3466,8 @@ _S
 /ftail (file_sys.cpp) def
 % User defined strings:
 /pagenumstr (7) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -3382,13 +3537,22 @@ do_header
 52.2 454 M
 (}) s
 19.2 442 M (327:) s
+52.2 442 M
+(inode_ptr directory::get_second\(const string& filename\){) s
 19.2 430 M (328:) s
+52.2 430 M
+(   return dirents.find\(filename\)->second;) s
 19.2 418 M (329:) s
+52.2 418 M
+(}) s
 19.2 406 M (330:) s
 19.2 394 M (331:) s
+19.2 382 M (332:) s
+19.2 370 M (333:) s
+19.2 358 M (334:) s
 _R
 S
-%%Page: (1) 22
+%%Page: (1) 23
 %%BeginPageSetup
 _S
 38 24 translate
@@ -3398,8 +3562,8 @@ _S
 /ftail (util.h) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -3538,7 +3702,7 @@ do_header
 25.8 106 M (50:) s
 _R
 S
-%%Page: (2) 23
+%%Page: (2) 24
 %%BeginPageSetup
 _S
 38 24 translate
@@ -3548,8 +3712,8 @@ _S
 /ftail (util.h) def
 % User defined strings:
 /pagenumstr (2) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -3671,7 +3835,7 @@ do_header
 25.8 190 M (93:) s
 _R
 S
-%%Page: (1) 24
+%%Page: (1) 25
 %%BeginPageSetup
 _S
 38 24 translate
@@ -3681,8 +3845,8 @@ _S
 /ftail (util.cpp) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -3789,7 +3953,7 @@ do_header
 25.8 250 M (38:) s
 _R
 S
-%%Page: (2) 25
+%%Page: (2) 26
 %%BeginPageSetup
 _S
 38 24 translate
@@ -3799,8 +3963,8 @@ _S
 /ftail (util.cpp) def
 % User defined strings:
 /pagenumstr (2) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -3872,7 +4036,7 @@ do_header
 25.8 430 M (61:) s
 _R
 S
-%%Page: (1) 26
+%%Page: (1) 27
 %%BeginPageSetup
 _S
 38 24 translate
@@ -3882,8 +4046,8 @@ _S
 /ftail (main.cpp) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -3996,7 +4160,7 @@ do_header
 25.8 250 M (38:) s
 _R
 S
-%%Page: (2) 27
+%%Page: (2) 28
 %%BeginPageSetup
 _S
 38 24 translate
@@ -4006,8 +4170,8 @@ _S
 /ftail (main.cpp) def
 % User defined strings:
 /pagenumstr (2) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:52) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -4166,7 +4330,7 @@ do_header
 25.8 82 M (90:) s
 _R
 S
-%%Page: (1) 28
+%%Page: (1) 29
 %%BeginPageSetup
 _S
 38 24 translate
@@ -4176,8 +4340,8 @@ _S
 /ftail (Makefile) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:53) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -4314,7 +4478,7 @@ do_header
 25.8 106 M (50:) s
 _R
 S
-%%Page: (2) 29
+%%Page: (2) 30
 %%BeginPageSetup
 _S
 38 24 translate
@@ -4324,8 +4488,8 @@ _S
 /ftail (Makefile) def
 % User defined strings:
 /pagenumstr (2) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:53) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:05) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -4380,7 +4544,7 @@ do_header
 25.8 490 M (68:) s
 _R
 S
-%%Page: (1) 30
+%%Page: (1) 31
 %%BeginPageSetup
 _S
 38 24 translate
@@ -4390,8 +4554,8 @@ _S
 /ftail (Makefile.dep) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (05/01/21) def
-/modtimestr (17:01:51) def
+/moddatestr (05/02/21) def
+/modtimestr (02:06:04) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment2/dot.score) def
 /user_header_center_str () def
@@ -4402,7 +4566,7 @@ column_borders
 do_header
 32.4 694 M (1:) s
 52.2 694 M
-(# Makefile.dep created Sat May  1 17:01:51 PDT 2021) s
+(# Makefile.dep created Sun May  2 02:06:04 PDT 2021) s
 32.4 682 M (2:) s
 52.2 682 M
 (commands.o: commands.cpp commands.h file_sys.h util.h debug.h) s
@@ -4421,6 +4585,6 @@ do_header
 _R
 S
 %%Trailer
-%%Pages: 30
+%%Pages: 31
 %%DocumentNeededResources: font Times-Roman Courier-Bold Times-Bold 
 %%EOF

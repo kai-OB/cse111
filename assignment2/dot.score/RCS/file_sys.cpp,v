@@ -1,9 +1,14 @@
-head	1.13;
+head	1.14;
 access;
 symbols;
 locks;
 comment	@// @;
 
+
+1.14
+date	2021.05.02.09.03.57;	author -;	state -;
+branches;
+next	1.13;
 
 1.13
 date	2021.05.02.00.01.52;	author -;	state -;
@@ -75,7 +80,7 @@ desc
 @@
 
 
-1.13
+1.14
 log
 @-
 @
@@ -406,11 +411,23 @@ inode_ptr directory::update_file(const string& filename, const wordvec& words){
    dirents.insert(update_pair);//dirents[filename]= newFile;
    return update_ptr;
 }
+inode_ptr directory::get_second(const string& filename){
+   return dirents.find(filename)->second;
+}
 
 
 
 
 
+@
+
+
+1.13
+log
+@-
+@
+text
+@d327 3
 @
 
 

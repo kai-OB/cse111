@@ -1,9 +1,14 @@
-head	1.12;
+head	1.13;
 access;
 symbols;
 locks;
 comment	@ * @;
 
+
+1.13
+date	2021.05.02.09.03.57;	author -;	state -;
+branches;
+next	1.12;
 
 1.12
 date	2021.05.02.00.01.52;	author -;	state -;
@@ -70,7 +75,7 @@ desc
 @@
 
 
-1.12
+1.13
 log
 @-
 @
@@ -307,7 +312,7 @@ class directory: public base_file {
        //make a num files
       virtual map<string,inode_ptr>& get_dirents()override;
      // virtual bool is_dir() override;
-      //inode_ptr get_cwd();  //need to get rid of?
+      inode_ptr get_second(const string& filename);  //need to get rid of?
       bool file_dne(const string& words);
       bool is_dir_(const string& words); //getter need this??
       inode_ptr update_file(const string& filename, const wordvec&words);
@@ -315,6 +320,17 @@ class directory: public base_file {
 
 #endif
 
+@
+
+
+1.12
+log
+@-
+@
+text
+@d233 1
+a233 1
+      //inode_ptr get_cwd();  //need to get rid of?
 @
 
 

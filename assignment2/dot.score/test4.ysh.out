@@ -1,4 +1,4 @@
-./yshell build May  1 2021 17:02:56
+./yshell build May  2 2021 02:06:09
 % mkdir foo
 % mkdir foo/bar
 % mkdir foo/bar/baz
@@ -10,7 +10,7 @@
 % cd foo
 % make file8 nine ten eleven
 % cat file8
-% cd /
+nine ten eleven% cd /
 % lsr /
 % lsr foo foo/bar
 % rmr foo
@@ -18,4 +18,4 @@
 % # This tests decoding pathnames
 % # $Id: test4.ysh,v 1.1 2013-01-02 19:11:43-08 - - $
 % ^D
-yshell: exit(0)
+yshell: exit(1)
