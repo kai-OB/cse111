@@ -1,4 +1,4 @@
-// $Id: file_sys.h,v 1.12 2021-05-01 17:01:52-07 - - $
+// $Id: file_sys.h,v 1.9 2021-04-30 21:39:38-07 - - $
 
 #ifndef __INODE_H__
 #define __INODE_H__
@@ -230,7 +230,7 @@ class directory: public base_file {
        //make a num files
       virtual map<string,inode_ptr>& get_dirents()override;
      // virtual bool is_dir() override;
-      //inode_ptr get_cwd();  //need to get rid of?
+      inode_ptr get_second(const string& filename);  //need to get rid of?
       bool file_dne(const string& words);
       bool is_dir_(const string& words); //getter need this??
       inode_ptr update_file(const string& filename, const wordvec&words);

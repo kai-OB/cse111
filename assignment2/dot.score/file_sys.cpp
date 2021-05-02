@@ -1,4 +1,4 @@
-// $Id: file_sys.cpp,v 1.13 2021-05-01 17:01:52-07 - - $
+// $Id: file_sys.cpp,v 1.10 2021-04-30 21:39:38-07 - - $
 
 #include <cassert>
 #include <iostream>
@@ -323,6 +323,9 @@ inode_ptr directory::update_file(const string& filename, const wordvec& words){
    pair<string,inode_ptr> update_pair = {filename,update_ptr};
    dirents.insert(update_pair);//dirents[filename]= newFile;
    return update_ptr;
+}
+inode_ptr directory::get_second(const string& filename){
+   return dirents.find(filename)->second;
 }
 
 
