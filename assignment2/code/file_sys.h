@@ -39,8 +39,8 @@ class inode_state {  //only one can exist in the entire filesystem
    friend ostream& operator<< (ostream& out, const inode_state&);
    //must be a friend not a member
    private:
-      inode_ptr root {nullptr};
-      inode_ptr cwd {nullptr};   //need to make a different assignment
+      inode_ptr root ;
+      inode_ptr cwd ;   //need to make a different assignment
       //to them in the constructor!!!
       string prompt_ {"% "};  //cant have the fuction and field name be the same
    public:
@@ -61,7 +61,8 @@ class inode_state {  //only one can exist in the entire filesystem
       inode_ptr get_root();
       inode_ptr get_cwd();
       void set_cwd(inode_ptr);//??? //yes
-      
+      wordvec path(const inode_ptr& state_cwd);
+
       
 };
 
@@ -103,6 +104,7 @@ class inode {
       
       inode_ptr get_parent(); //need these?
       void set_parent(inode_ptr);
+      string filename = "";//to keep track of filenames
 
 };
 

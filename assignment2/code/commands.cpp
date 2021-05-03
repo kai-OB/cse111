@@ -139,7 +139,7 @@ void fn_cd (inode_state& state, const wordvec& words) {
          }
          else{
             state.set_cwd(state_dir->get_second(words.at(count)));
-         
+            //something wrong with setting the cwd?
          }
       }
       else{
@@ -294,6 +294,23 @@ void fn_prompt (inode_state& state, const wordvec& words) {
 void fn_pwd (inode_state& state, const wordvec& words) {
    DEBUGF ('c', state);
    DEBUGF ('c', words);
+   if(words.size()>2){
+      throw command_error ("mkdir: Invalid number of arguments"); //dont work
+   }
+   else{
+      //cout<< "in else\n";
+      //print from root to cwd
+      wordvec path = state.path(state.get_cwd());
+     // cout<< "\nmade path\n";
+      int i= path.size()-1;
+     // cout<< "path size:";
+     // cout<< path.size();
+      while(i>0){
+         cout<< path.at(i);
+         i--;
+      }
+   }
+  // cout<< path;
 }
 
 void fn_rm (inode_state& state, const wordvec& words) {

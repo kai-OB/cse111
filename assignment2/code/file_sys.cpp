@@ -42,7 +42,7 @@ inode_state::inode_state() {
    //                              (root->get_contents());
    //shared_ptr <directory>  
    cwd = root;
-
+   root->parent =  root;
    pair <string, inode_ptr> dot = {".", root};  //sets dot, cwd, to root
    (root->get_contents()->get_dirents()).insert(dot);  
    
@@ -65,6 +65,31 @@ inode_ptr inode_state::get_cwd(){ return cwd; }//need this?
 
 void inode_state::set_cwd(inode_ptr new_cwd){
    cwd = new_cwd;
+   //cout<<"new cwd:";
+   //cout<< cwd->filename;
+}
+wordvec inode_state::path(const inode_ptr& state_cwd){
+  
+   wordvec rootpath;
+  // cout<<"made rootpath\n";
+    rootpath.push_back(state_cwd->filename);//then pushback other names?
+  // cout<< "pushed back first time\n filename:";
+   cout<<state_cwd->filename;
+ //   cout<<"\ncalled filename";
+   inode_ptr cwd_dirents = state_cwd;
+  // cout<<"\nset cwd_dirents";
+   while(cwd_dirents->filename!=""){
+     //  cout<< "\n inwhile";
+      cwd_dirents = cwd_dirents->get_parent();//issue here!
+     // cout<< "in while filename:";
+      cout<<"/";
+      cout<<cwd_dirents->filename;
+      rootpath.push_back(cwd_dirents->filename);
+    //  cout<< "in while\n filename:";
+      //cout<<cwd_dirents->filename;
+     
+   }
+   return rootpath;
 }
 
 
@@ -151,7 +176,9 @@ bool inode::isdir(){
 inode_ptr inode::get_parent(){ 
    return parent;
 }
-
+ void inode::set_parent(inode_ptr new_parent ){
+    parent = new_parent;
+ }
 
 
 
@@ -256,21 +283,24 @@ inode_ptr directory::mkdir (const string& dirname) {
    /*if(dirents.find(dirname)->second != inode_ptr()){  //if it has been created
       throw file_error ("mkdir: file already exists: " + dirname); //throw error
    }*/
-
+   
    inode_ptr newDir = make_shared<inode>(file_type::DIRECTORY_TYPE);
    //make new dir
-   
+   newDir->filename = dirname;
+   newDir->set_parent(inode_state().get_cwd());
+   //cout<<"\nnewDir filename:";
+  // cout<< newDir->filename;
    //insert new dir to dirents
    pair<string,inode_ptr> newPair = {dirname,newDir};
    dirents.insert(newPair);
 
    //add dot/dotdot to current dir
    pair <string, inode_ptr> dot = {".", newDir};  //sets dot, cwd
-   (newDir->get_contents()->get_dirents()).insert(dot);  
-   
+   //(newDir->get_contents()->get_dirents()).insert(dot);  
+   dirents.insert(dot);
    pair <string, inode_ptr> dot_dot  = {"..", inode_state().get_cwd()};  //sets dot dot, the paren(cwd before new dir)
-   (newDir->get_contents()->get_dirents()).insert(dot_dot);
-   
+   //(newDir->get_contents()->get_dirents()).insert(dot_dot);
+   dirents.insert(dot_dot);
    return newDir;
 }
 
@@ -288,6 +318,10 @@ inode_ptr directory::mkfile (const string& filename) {
    }*/
    //make new file
    inode_ptr newFile = make_shared<inode>(file_type::PLAIN_TYPE);
+   newFile->filename  = filename;
+  // cout<< "\nfilename:";
+  // cout<< filename;
+   newFile->set_parent(inode_state().get_cwd());
    //insert/replace contents
    pair<string,inode_ptr> newFilePair = {filename,newFile};
    dirents.insert(newFilePair);//dirents[filename]= newFile;
@@ -325,8 +359,10 @@ inode_ptr directory::update_file(const string& filename, const wordvec& words){
    return update_ptr;
 }
 inode_ptr directory::get_second(const string& filename){
+
    return dirents.find(filename)->second;
 }
+
 
 
 
