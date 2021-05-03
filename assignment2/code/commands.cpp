@@ -50,20 +50,52 @@ void fn_cat (inode_state& state, const wordvec& words) {
       // program needs to continue!!!!!!
    }
    else{
-      for(unsigned long i = 1;i < words.size(); ++i){
-         shared_ptr <directory> state_dir = dynamic_pointer_cast<directory>
+       wordvec split_path;
+        shared_ptr <directory> state_dir = dynamic_pointer_cast<directory>
          (state.get_cwd()->get_contents());
-         if(state_dir->file_dne(words.at(i))==true){
-            throw command_error("cat: "+ words.at(i) +": No such file or directory");
+     // int jcount = 1;
+      for(unsigned long j = 1;j < words.size(); ++j){
+         //if there is a path, but checks on each call
+         split_path = split(words.at(j),"/");//skips make call but includes all paths
+        // cout<< "split_path:";
+        // cout<< split_path;
+        // cout<< "end split path";
+         int count =0;
+         if(split_path.size()>1){//if its a path
+            for(auto i =split_path.begin(); i< split_path.end()-1;i++){ //skip last cause creating last so wont exist
+               if(state_dir->file_dne(split_path.at(count)) == true){
+                  throw command_error ("cat: "+split_path.at(count)+": Directory does not exist"); 
+                  //like foo/wrongdir/bar/newfile
+                  //would output wrongdir: no such file or dir
+                }
+               else if(state_dir->is_dir_(split_path.at(count)) == false){
+                  throw command_error ("cat: "+split_path.at(count)+": Directory does not exist");
+               }
+                count++; //cause the auto is an itr
+            }
+            //file needs to exist
+            if(state_dir->file_dne(words.at(count))==true){
+               throw command_error("cat: "+ words.at(j) +": No such file or directory");
+            }
+            //and not be a directory
+            else if(state_dir->is_dir_(words.at(count))==true){
+               throw command_error("cat: "+ words.at(j) +": Is a directory"); 
+            }
+            
+            cout<< state_dir->get_second(words.at(count))->get_contents()->readfile();//this works
+            cout<< "\n";
+         }//endif
+         //if no path
+         else{
+            if(state_dir->file_dne(words.at(j))==true){
+               throw command_error("cat: "+ words.at(j) +": No such file or directory");
+            }
+            else if(state_dir->is_dir_(words.at(j))==true){
+               throw command_error("cat: "+ words.at(j) +": Is a directory");   
+            }
+            cout<< state_dir->get_second(words.at(j))->get_contents()->readfile();//this works
+            cout<< "\n";
          }
-         if(state_dir->is_dir_(words.at(i))==true){//everything is directory?
-            throw command_error("cat: "+ words.at(i) +": Is a directory");   //throw command error not cerr or cout
-         }
-         /*if((words.at(i))=="/"){//everything is directory?
-            throw command_error("cat: "+ words.at(i) +": is a directory!");   //throw command error not cerr or cout
-         }*/
-        cout<< state_dir->get_second(words.at(i))->get_contents()->readfile();//this works
-       
       }
    }
 //go back to this
@@ -106,32 +138,33 @@ void fn_make (inode_state& state, const wordvec& words) {
       throw command_error ("make: No target specified"); //dont work
    } 
    wordvec split_path = split(words.at(1),"/");//skips make call but includes all paths
-   int count = 1;
+   int count = 0;
    //is a path
    if(split_path.size()>1){//if its a path
-      for(auto i =split_path.begin()+1; i< split_path.end()-1;i++){ //skip last cause creating last so wont exist
-         
+      for(auto i =split_path.begin(); i< split_path.end()-1;i++){ //skip last cause creating last so wont exist
+         //if file does not exist at all
          if(state_dir->file_dne(split_path.at(count)) == true){
-            throw command_error ("make: "+split_path.at(count)+": Directory does not exist"); //dont work
+            throw command_error ("make: "+split_path.at(count)+": Directory does not exist"); 
             //like foo/wrongdir/bar/newfile
             //would output wrongdir: no such file or dir
          }
+         //if file exists but is not a directory, needs to be while in the path
          else if(state_dir->is_dir_(split_path.at(count)) == false){
-            throw command_error ("make: "+split_path.at(count)+": Directory does not exist"); //dont work
+            throw command_error ("make: "+split_path.at(count)+": Directory does not exist"); 
          }
          count++; //cause the auto is an itr
       }
-      if(state_dir->file_dne(split_path.at(count))==false){//this works
+      //after path, file being made
+      if(state_dir->file_dne(split_path.at(count))==false){// if file exists
          if(state_dir->is_dir_(split_path.at(count)) == true){
-            throw command_error ("make: "+ words.at(1) +": Is a directory"); //dont work
+            throw command_error ("make: "+ words.at(1) +": Is a directory"); 
          }
          else
          {  //updates file if exists
             inode_ptr updated_pointer = state_dir->update_file(split_path.at(count),wordvec(words.begin()+2,words.end()));
          }
-         
       }
-      else{
+      else{//if file doesnt exist already, makes it
          inode_ptr new_file = state.get_cwd()->get_contents()->mkfile(split_path.at(count));
          //+2 makes it not include make or filename, jsut contents
          new_file->get_contents()->writefile(wordvec(words.begin()+2,words.end())); 
@@ -170,9 +203,9 @@ void fn_mkdir (inode_state& state, const wordvec& words) {
    shared_ptr <directory> state_dir = dynamic_pointer_cast<directory>
          (state.get_cwd()->get_contents());
    //if has path, check if valid
-      int count = 1;
+      int count = 0;
       if(split_path.size()>1){//if its a path
-         for(auto i =split_path.begin()+1; i< split_path.end()-1;i++){ //skip last cause creating last so wont exist
+         for(auto i =split_path.begin(); i< split_path.end()-1;i++){ //skip last cause creating last so wont exist
             if(state_dir->file_dne(split_path.at(count))==true){//this works //everything needs to exist but the last one
                throw command_error ("mkdir: "+split_path.at(count)+": Directory does not exist"); //dont work
             }
