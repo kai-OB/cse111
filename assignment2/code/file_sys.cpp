@@ -253,9 +253,9 @@ inode_ptr directory::mkdir (const string& dirname) {
    //this dir does not already exist
    //dot and dot dot added to dirents
 
-   if(dirents.find(dirname)->second == inode_ptr()){  //if it has been created
+   /*if(dirents.find(dirname)->second != inode_ptr()){  //if it has been created
       throw file_error ("mkdir: file already exists: " + dirname); //throw error
-   }
+   }*/
 
    inode_ptr newDir = make_shared<inode>(file_type::DIRECTORY_TYPE);
    //make new dir

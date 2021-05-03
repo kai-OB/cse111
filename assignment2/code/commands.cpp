@@ -64,12 +64,12 @@ void fn_cat (inode_state& state, const wordvec& words) {
          if(split_path.size()>1){//if its a path
             for(auto i =split_path.begin(); i< split_path.end()-1;i++){ //skip last cause creating last so wont exist
                if(state_dir->file_dne(split_path.at(count)) == true){
-                  throw command_error ("cat: "+split_path.at(count)+": Directory does not exist"); 
+                  throw command_error ("cat: "+split_path.at(count)+": No such file or directory"); 
                   //like foo/wrongdir/bar/newfile
                   //would output wrongdir: no such file or dir
                 }
                else if(state_dir->is_dir_(split_path.at(count)) == false){
-                  throw command_error ("cat: "+split_path.at(count)+": Directory does not exist");
+                  throw command_error ("cat: "+split_path.at(count)+": No such file or directory");
                }
                 count++; //cause the auto is an itr
             }
@@ -104,6 +104,58 @@ void fn_cat (inode_state& state, const wordvec& words) {
 void fn_cd (inode_state& state, const wordvec& words) {
    DEBUGF ('c', state);
    DEBUGF ('c', words);
+   if(words.size() == 1 or words.at(1) == "/"){   //if no dir specified, send to root
+     state.set_cwd(state.get_root());
+   }
+    else if(words.size()>2){
+      throw command_error ("cd: invalid number of arguments"); 
+   }
+      else{
+      //if it is a path, then go to last one, checking validity
+      //to make sure each one is a directory, then set cwd to last dir
+      shared_ptr <directory> state_dir = dynamic_pointer_cast<directory>
+            (state.get_cwd()->get_contents());
+      wordvec split_path = split(words.at(1),"/");
+      int count = 0;
+      //if its a path   
+      if(split_path.size()>1){
+         for(auto i =split_path.begin(); i< split_path.end()-1;i++){ //skip last so can set_cwd?
+            //if file does not exist at all
+            if(state_dir->file_dne(split_path.at(count)) == true){
+               throw command_error ("cd: "+words.at(1)+": No such file or directory"); 
+            }
+            //if exists but is not a directory
+            else if(state_dir->is_dir_(split_path.at(count)) == false){
+               throw command_error ("cd: "+ words.at(1) +": No such file or directory"); 
+            }
+            count++;
+         }
+         if(state_dir->file_dne(split_path.at(count)) == true){
+               throw command_error ("cd: "+words.at(1)+": No such file or directory"); 
+            }
+            //if exists but is not a directory
+         else if(state_dir->is_dir_(split_path.at(count)) == false){
+            throw command_error ("cd: "+ words.at(1) +": No such file or directory"); 
+         }
+         else{
+            state.set_cwd(state_dir->get_second(words.at(count)));
+         
+         }
+      }
+      else{
+         if(state_dir->file_dne(words.at(1)) == true){
+               throw command_error ("cd: "+words.at(1)+": No such file or directory"); 
+            }
+            //if exists but is not a directory
+         else if(state_dir->is_dir_(words.at(1)) == false){
+            throw command_error ("cd: "+ words.at(1) +": No such file or directory"); 
+         }
+         else{
+            state.set_cwd(state_dir->get_second(words.at(1)));
+         }
+         
+      }
+   }
 }
 //dont have to do anything???
 void fn_echo (inode_state& state, const wordvec& words) {
@@ -144,13 +196,13 @@ void fn_make (inode_state& state, const wordvec& words) {
       for(auto i =split_path.begin(); i< split_path.end()-1;i++){ //skip last cause creating last so wont exist
          //if file does not exist at all
          if(state_dir->file_dne(split_path.at(count)) == true){
-            throw command_error ("make: "+split_path.at(count)+": Directory does not exist"); 
+            throw command_error ("make: "+split_path.at(count)+": No such file or directory"); 
             //like foo/wrongdir/bar/newfile
             //would output wrongdir: no such file or dir
          }
          //if file exists but is not a directory, needs to be while in the path
          else if(state_dir->is_dir_(split_path.at(count)) == false){
-            throw command_error ("make: "+split_path.at(count)+": Directory does not exist"); 
+            throw command_error ("make: "+split_path.at(count)+": No such file or directory"); 
          }
          count++; //cause the auto is an itr
       }
@@ -197,7 +249,7 @@ void fn_mkdir (inode_state& state, const wordvec& words) {
       throw command_error ("mkdir: No target specified"); //dont work
    }
     else if(words.size()>2){
-      throw command_error ("mkdir: invalid number of arguments"); //dont work
+      throw command_error ("mkdir: Invalid number of arguments"); //dont work
    }
    wordvec split_path = split(words.at(1),"/");//skips mkdir call but includes all paths
    shared_ptr <directory> state_dir = dynamic_pointer_cast<directory>
@@ -207,13 +259,13 @@ void fn_mkdir (inode_state& state, const wordvec& words) {
       if(split_path.size()>1){//if its a path
          for(auto i =split_path.begin(); i< split_path.end()-1;i++){ //skip last cause creating last so wont exist
             if(state_dir->file_dne(split_path.at(count))==true){//this works //everything needs to exist but the last one
-               throw command_error ("mkdir: "+split_path.at(count)+": Directory does not exist"); //dont work
-            }
+               throw command_error ("mkdir: "+split_path.at(count)+": No such file or directory"); //dont work
+            }//print whole path?
             count++; //cause the auto is an itr
          }
          if(state_dir->file_dne(split_path.at(count)) == false){
             if(state_dir->is_dir_(split_path.at(count)) == true){
-               throw command_error ("mkdir: "+split_path.at(count)+": Directory already exists"); //dont work
+               throw command_error ("mkdir: "+split_path.at(count)+": File exists"); //dont work
             }
          }
          else{
@@ -225,7 +277,7 @@ void fn_mkdir (inode_state& state, const wordvec& words) {
       else{//if its not a path
          if(state_dir->file_dne(split_path.at(0)) == false){
              if(state_dir->is_dir_(split_path.at(0)) == true){
-               throw command_error ("mkdir: "+split_path.at(0)+": Directory already exists"); //dont work
+               throw command_error ("mkdir: "+split_path.at(0)+": File exists"); //dont work
              }
          }
          else{
