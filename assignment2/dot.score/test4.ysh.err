@@ -1,1 +1,2 @@
-yshell: mkdir:mkdir directory does not exist
+yshell: mkdir: this: Directory does not exist
+yshell: make: foo/bar: Is a directory
