@@ -1,5 +1,5 @@
 # $Id: Makefile,v 1.42 2021-05-03 17:36:57-07 - - $
-
+#Kai O'Brien (kimobrie@ucsc.edu)
 MKFILE      = Makefile
 DEPFILE     = ${MKFILE}.dep
 NOINCL      = check lint ci clean spotless 

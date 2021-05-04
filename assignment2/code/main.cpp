@@ -1,5 +1,5 @@
 // $Id: main.cpp,v 1.12 2021-05-03 17:36:57-07 - - $
-
+//Kai O'Brien (kimobrie@ucsc.edu)
 #include <cstdlib>
 #include <iostream>
 #include <string>

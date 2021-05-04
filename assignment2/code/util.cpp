@@ -1,5 +1,5 @@
 // $Id: util.cpp,v 1.14 2019-10-08 14:01:38-07 - - $
-
+//Kai O'Brien (kimobrie@ucsc.edu)
 #include <cstdlib>
 #include <unistd.h>
 

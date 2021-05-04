@@ -1,5 +1,5 @@
 // $Id: util.h,v 1.14 2020-10-22 18:00:02-07 - - $
-
+//Kai O'Brien (kimobrie@ucsc.edu)
 // util -
 //    A utility to provide various services not conveniently
 //    included in other modules.
