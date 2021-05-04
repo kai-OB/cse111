@@ -187,14 +187,15 @@ class directory: public base_file {
    public:
       virtual ~directory() = default;
       virtual size_t size() const override;
-      virtual void remove (const string& filename) override;                                                         
+      virtual void remove (const string& filename) override;                  
       virtual inode_ptr mkdir (const string& dirname) override;
       virtual inode_ptr mkfile (const string& filename) override;
       virtual map<string,inode_ptr>& get_dirents()override;
       inode_ptr get_second(const string& filename); 
       bool file_dne(const string& words);
       bool is_dir_(const string& words); //getter need this??
-      inode_ptr update_file(const string& filename, const wordvec&words);
+      inode_ptr update_file(const string& filename, 
+      const wordvec&words);
       void print_ls(const string& filename);
       void print_lsr(inode_ptr ino_de,inode_ptr roo);
 };
