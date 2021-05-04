@@ -311,10 +311,20 @@ void fn_mkdir (inode_state& state, const wordvec& words) {
          }
       }
 }
-
+//works
 void fn_prompt (inode_state& state, const wordvec& words) {
    DEBUGF ('c', state);
    DEBUGF ('c', words);
+   if(words.size()<2){
+      throw command_error ("mkdir: Invalid number of arguments"); //dont work
+   }
+   else{
+      string fnprompt ="";
+      for(unsigned long j = 1;j < words.size(); ++j){
+         fnprompt+=words.at(j);
+      }
+      state.prompt(fnprompt);
+   }
 }
 //just doesnt print path? segfaults with ivalid paths
 //this works with the test cases but thats it i think??, idk  its good for now

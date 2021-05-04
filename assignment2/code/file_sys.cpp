@@ -72,10 +72,11 @@ void inode_state::path(const inode_ptr& state_cwd){
   
    wordvec rootpath;
    cout<<"made rootpath\n";
-rootpath.push_back("/");
+//rootpath.push_back("/");
     rootpath.push_back(state_cwd->filename);//then pushback other names?
    cout<< "pushed back first time\n filename:";
   cout<<"roothpath:";
+  cout<<"/";
   cout<< rootpath;
    
    inode_ptr cwd_dirents = state_cwd->get_contents()->get_dirents().find("..")->second;
