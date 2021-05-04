@@ -1,9 +1,14 @@
-head	1.9;
+head	1.10;
 access;
 symbols;
 locks;
 comment	@ * @;
 
+
+1.10
+date	2021.05.04.00.36.57;	author -;	state -;
+branches;
+next	1.9;
 
 1.9
 date	2021.05.01.04.39.38;	author -;	state -;
@@ -55,12 +60,12 @@ desc
 @@
 
 
-1.9
+1.10
 log
 @-
 @
 text
-@// $Id: file_sys.h,v 1.8 2020-10-22 14:37:26-07 - - $
+@// $Id: file_sys.h,v 1.9 2021-04-30 21:39:38-07 - - $
 
 #ifndef __INODE_H__
 #define __INODE_H__
@@ -101,8 +106,8 @@ class inode_state {  //only one can exist in the entire filesystem
    friend ostream& operator<< (ostream& out, const inode_state&);
    //must be a friend not a member
    private:
-      inode_ptr root {nullptr};
-      inode_ptr cwd {nullptr};   //need to make a different assignment
+      inode_ptr root ;
+      inode_ptr cwd ;   //need to make a different assignment
       //to them in the constructor!!!
       string prompt_ {"% "};  //cant have the fuction and field name be the same
    public:
@@ -123,6 +128,7 @@ class inode_state {  //only one can exist in the entire filesystem
       inode_ptr get_root();
       inode_ptr get_cwd();
       void set_cwd(inode_ptr);//??? //yes
+      void path(const inode_ptr& state_cwd);
       
       
 };
@@ -151,7 +157,7 @@ class inode {
                            //directory and plainfile as subclasses
                            //dir and pl do all the work
       //inode contains a pointer to base file
-      file_type fileType;  //to know the filetype
+      bool is_dir;  //to know the filetype
       inode_ptr parent{nullptr}; //initializes it to null in case there isnt a parent?
    public:
    virtual ~inode() = default;   //destructor?
@@ -161,10 +167,11 @@ class inode {
       void set_contents(base_file_ptr);   //setter
       base_file_ptr get_contents(); //getter
 
-      file_type get_file_type(); //getter need this??
+      bool isdir(); //getter need this??
       
       inode_ptr get_parent(); //need these?
       void set_parent(inode_ptr);
+      string filename = "";//to keep track of filenames
 
 };
 
@@ -292,14 +299,43 @@ class directory: public base_file {
        //make a num files
       virtual map<string,inode_ptr>& get_dirents()override;
      // virtual bool is_dir() override;
-      //inode_ptr get_cwd();  //need to get rid of?
-      bool file_dne(const string&);
-      file_type get_file_helper(const string&); //getter need this??
-      
+      inode_ptr get_second(const string& filename);  //need to get rid of?
+      bool file_dne(const string& words);
+      bool is_dir_(const string& words); //getter need this??
+      inode_ptr update_file(const string& filename, const wordvec&words);
 };
 
 #endif
 
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: file_sys.h,v 1.8 2020-10-22 14:37:26-07 - - $
+d42 2
+a43 2
+      inode_ptr root {nullptr};
+      inode_ptr cwd {nullptr};   //need to make a different assignment
+d64 1
+d93 1
+a93 1
+      file_type fileType;  //to know the filetype
+d103 1
+a103 1
+      file_type get_file_type(); //getter need this??
+d107 1
+d235 4
+a238 4
+      //inode_ptr get_cwd();  //need to get rid of?
+      bool file_dne(const string&);
+      file_type get_file_helper(const string&); //getter need this??
+      
 @
 
 
