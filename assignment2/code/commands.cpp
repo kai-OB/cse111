@@ -178,12 +178,16 @@ void fn_ls (inode_state& state, const wordvec& words) {
       throw command_error ("ls: Invalid number of arguments"); //dont work
    }
    else{
+      shared_ptr <directory> state_dir = dynamic_pointer_cast<directory>
+            (state.get_cwd()->get_contents());
       //if one arg, then cwd is used
       if(words.size()==1){
-        // print_ls(state.get_cwd());
+         //if everything adds to the directories right then
+         //the children should be right?? right?
+         state_dir->print_ls("");
       }
       else{//use arg specified
-        // print_ls(words.at(1)->get_second());
+         state_dir->print_ls(words.at(1));
       }
 
    }
@@ -192,6 +196,26 @@ void fn_ls (inode_state& state, const wordvec& words) {
 void fn_lsr (inode_state& state, const wordvec& words) {
    DEBUGF ('c', state);
    DEBUGF ('c', words);
+   if(words.size()>2){
+      throw command_error ("ls: Invalid number of arguments"); //dont work
+   }
+   else{
+      shared_ptr <directory> state_dir = dynamic_pointer_cast<directory>
+            (state.get_cwd()->get_contents());
+            string print_things;
+      //if one arg, then cwd is used
+      if(words.size()==1){
+         //if everything adds to the directories right then
+         //the children should be right?? right?
+         
+         state_dir->print_lsr("",print_things);
+      }
+      else{//use arg specified
+         state_dir->print_lsr(words.at(1),print_things);
+      }
+     // cout<<print_things
+   }
+
 }
 
 void fn_make (inode_state& state, const wordvec& words) {
@@ -311,7 +335,7 @@ void fn_mkdir (inode_state& state, const wordvec& words) {
          }
       }
 }
-//works
+//worksg
 void fn_prompt (inode_state& state, const wordvec& words) {
    DEBUGF ('c', state);
    DEBUGF ('c', words);

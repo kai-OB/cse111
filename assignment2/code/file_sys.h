@@ -236,6 +236,8 @@ class directory: public base_file {
       bool file_dne(const string& words);
       bool is_dir_(const string& words); //getter need this??
       inode_ptr update_file(const string& filename, const wordvec&words);
+      void print_ls(const string& filename);
+      void print_lsr(const string& filename,string print);
 };
 
 #endif

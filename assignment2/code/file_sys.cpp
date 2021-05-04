@@ -248,10 +248,13 @@ size_t plain_file::size() const {   //constant function
    //use wordvec data
    size_t size  = data.size();  //does this work
   // DEBUGF ('i', "size = " << size);{
+   
   for(auto i = data.begin();i<data.end();i++){ //will there be an extra space?
-     size += i->size();//each word
+     size +=i->size();//each word
+    
   }
-   return data.size();  //calling size function from map?
+  size--;
+   return size;  //calling size function from map?
 }
 
 const wordvec& plain_file::readfile() const {
@@ -330,7 +333,7 @@ inode_ptr directory::mkdir (const string& dirname) {
    new_dir->dirents.insert(dot);
    cout<<" inserted dot\n";
    //cout<<dirents.find(".")->second->filename;
-   newDir->set_parent(dirents.find("..")->second);
+   newDir->set_parent(dirents[".."]);
     
    pair <string, inode_ptr> dot_dot  = {"..", newDir->get_parent()};  //sets dot dot, the paren(cwd before new dir)
    //(newDir->get_contents()->get_dirents()).insert(dot_dot);
@@ -364,6 +367,7 @@ inode_ptr directory::mkfile (const string& filename) {
    //newFile->set_parent(inode_state().get_cwd());
    //insert/replace contents
    pair<string,inode_ptr> newFilePair = {filename,newFile};
+    dirents.insert(pair <string, inode_ptr>(newFile->filename,newFile));
    //dirents.at(newFile)= newFile;
   // dirents.insert(newFilePair);//dirents[filename]= newFile;
    return newFile;
@@ -402,6 +406,64 @@ inode_ptr directory::update_file(const string& filename, const wordvec& words){
 inode_ptr directory::get_second(const string& filename){
    cout<<"checking for seg  fault\n";
    return dirents.find(filename)->second;
+}
+void directory::print_ls(const string& filename){
+   string print = "/";
+   print+=filename;
+   print+=":";
+   
+   //shared_ptr <plain_file> print_file = dynamic_pointer_cast<plain_file>
+   //   (newDir->get_contents());
+   
+   for(auto i = dirents.begin();i!=dirents.end();i++){
+      if(i->second->isdir()==true){
+         shared_ptr <directory> print_dir = dynamic_pointer_cast<directory>
+         (i->second->get_contents());
+         print += (i->second->get_inode_nr())+'0';
+         print += "  ";
+         print += to_string(print_dir->size())+" ";
+         print += i->first;
+         print += "/\n";
+      }
+      else if(i->second->isdir()==false){
+          shared_ptr <plain_file> print_file = dynamic_pointer_cast<plain_file>
+         (i->second->get_contents());
+         print += (i->second->get_inode_nr())+'0';
+         print += "  ";
+         print += to_string(print_file->size())+" ";
+         print += i->first;
+         print += "\n";
+      }
+   }
+   cout<< print;
+}
+void directory::print_lsr(const string& filename,string print){
+   print += "/";
+   print+=filename;
+   print+=":";
+  for(auto i = dirents.begin();i!=dirents.end();i++){
+      if(i->second->isdir()==true){
+         shared_ptr <directory> print_dir = dynamic_pointer_cast<directory>
+         (i->second->get_contents());
+         print_dir->print_lsr(i->second->filename,print);
+         print += (i->second->get_inode_nr())+'0';
+         print += "  ";
+         print += to_string(print_dir->size())+" ";
+         print += i->first;
+         print += "/\n";
+      }
+      else if(i->second->isdir()==false){
+          shared_ptr <plain_file> print_file = dynamic_pointer_cast<plain_file>
+         (i->second->get_contents());
+         print += (i->second->get_inode_nr())+'0';
+         print += "  ";
+         print += to_string(print_file->size())+" ";
+         print += i->first;
+         print += "\n";
+      }
+   }
+   cout<< print;
+
 }
 
 
