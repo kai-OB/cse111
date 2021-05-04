@@ -32,7 +32,7 @@ inode_state::inode_state() {
    pair <string, inode_ptr> dot = {".", root};  //sets dot, cwd, to root
    (root->get_contents()->get_dirents()).insert(dot);  
    
-   pair <string, inode_ptr> dot_dot  = {"..", root};  //the parent to root
+   pair <string, inode_ptr> dot_dot  = {"..", root}; 
    (root->get_contents()->get_dirents()).insert(dot_dot);
   
 }
@@ -57,10 +57,12 @@ void inode_state::path(const inode_ptr& state_cwd){
   cout<<"/";
   cout<< rootpath;
    
-   inode_ptr cwd_dirents = state_cwd->get_contents()->get_dirents().find("..")->second;
+   inode_ptr cwd_dirents = 
+   state_cwd->get_contents()->get_dirents().find("..")->second;
  
    while(cwd_dirents->inode_nr!= 1){
-      cwd_dirents =  cwd_dirents->get_contents()->get_dirents().find("..")->second;
+      cwd_dirents =  cwd_dirents->
+      get_contents()->get_dirents().find("..")->second;
       rootpath.push_back(cwd_dirents->filename);
       rootpath.push_back("/");
      
@@ -76,9 +78,11 @@ void inode_state::path(const inode_ptr& state_cwd){
 
 void rm_r( inode_ptr roo){
    //depth first search (postorder)
-   map<string,inode_ptr>& roo_dirents = (roo->get_contents()->get_dirents());
+   map<string,inode_ptr>& roo_dirents = 
+   (roo->get_contents()->get_dirents());
    //create map of dirents of the file roo
-   for(auto ritor = roo_dirents.crbegin(); ritor != roo_dirents.crend(); ++ritor){ 
+   for(auto ritor = roo_dirents.crbegin(); 
+   ritor != roo_dirents.crend(); ++ritor){ 
       //recur over each entry other than dot or dot dot
       if(ritor->first!="." and ritor->first != ".."
          and ritor->second->isdir()
@@ -123,7 +127,7 @@ inode::inode(file_type type): inode_nr (next_inode_nr++) {
            break;
       case file_type::DIRECTORY_TYPE:
          is_dir = true;
-           contents = make_shared<directory>(); //make shared of a plain or directory
+           contents = make_shared<directory>(); 
            break;
       default: assert (false);   //for the sake of clarity
    }
@@ -213,9 +217,7 @@ void plain_file::writefile (const wordvec& words) {
 
 //could just handle plain files initially
 size_t directory::size() const {
-   //size_t size = dirents.size();  //can use directory.size function in map?
-  // DEBUGF ('i', "size = " << size);
-   
+
    return dirents.size();
 }
 void directory::remove (const string& filename) {
@@ -277,7 +279,8 @@ bool directory::is_dir_(const string& words){
   return( dirents.find(words)->second->isdir());
 }
 
-inode_ptr directory::update_file(const string& filename, const wordvec& words){
+inode_ptr directory::update_file(const string& 
+filename, const wordvec& words){
    inode_ptr update_ptr = dirents.find(filename)->second;
    update_ptr->get_contents()->writefile(words);
    pair<string,inode_ptr> update_pair = {filename,update_ptr};
@@ -294,7 +297,8 @@ void directory::print_ls(const string& filename){
  
    for(auto i = dirents.begin();i!=dirents.end();i++){
       if(i->second->isdir()==true){
-         shared_ptr <directory> print_dir = dynamic_pointer_cast<directory>
+         shared_ptr <directory> print_dir = 
+         dynamic_pointer_cast<directory>
          (i->second->get_contents());
          print += (i->second->get_inode_nr())+'0';
          print += "  ";
@@ -303,7 +307,8 @@ void directory::print_ls(const string& filename){
          print += "/\n";
       }
       else if(i->second->isdir()==false){
-          shared_ptr <plain_file> print_file = dynamic_pointer_cast<plain_file>
+          shared_ptr <plain_file> print_file = 
+          dynamic_pointer_cast<plain_file>
          (i->second->get_contents());
          print += (i->second->get_inode_nr())+'0';
          print += "  ";
@@ -322,14 +327,17 @@ void directory::print_lsr(inode_ptr ino_de,inode_ptr roo){
   for(auto i = dirents.begin();i!=dirents.end();i++){
    
       if(i->second->isdir()==true&&i->second!=roo){
-        shared_ptr <directory> print_dir = dynamic_pointer_cast<directory>
+        shared_ptr <directory> print_dir = 
+        dynamic_pointer_cast<directory>
          (i->second->get_contents());
         
           if(print_dir->size()>2){
             auto b = i;
             b++;
-            if(print_dir->get_second(b->first)->get_parent()->filename==i->second->filename){
-               print_dir->print_lsr(print_dir->get_second(b->first),roo);
+            if(print_dir->get_second(b->first)->
+            get_parent()->filename==i->second->filename){
+               print_dir->print_lsr(print_dir->
+               get_second(b->first),roo);
             }
           }
           print += (i->second->get_inode_nr())+'0';
@@ -339,7 +347,8 @@ void directory::print_lsr(inode_ptr ino_de,inode_ptr roo){
          print += "/\n";
       }
       else if(i->second->isdir()==true&&i->second ==roo){
-         shared_ptr <directory> print_dir2 = dynamic_pointer_cast<directory>
+         shared_ptr <directory> print_dir2 = 
+         dynamic_pointer_cast<directory>
          (i->second->get_contents());
          print += (i->second->get_inode_nr())+'0';
          print += "  ";
@@ -348,7 +357,8 @@ void directory::print_lsr(inode_ptr ino_de,inode_ptr roo){
          print += "/\n";
       }
       else if(i->second->isdir()==false){
-          shared_ptr <plain_file> print_file = dynamic_pointer_cast<plain_file>
+          shared_ptr <plain_file> print_file = 
+          dynamic_pointer_cast<plain_file>
          (i->second->get_contents());
          print += (i->second->get_inode_nr())+'0';
          print += "  ";
