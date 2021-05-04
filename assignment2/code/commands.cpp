@@ -182,6 +182,9 @@ void fn_ls (inode_state& state, const wordvec& words) {
       if(words.size()==1){
          state_dir->print_ls("");
       }
+      else if(words.at(1)=="/"){
+         state_dir->print_ls("");
+      }
       else{//use arg specified
          shared_ptr <directory> print_dir1 = dynamic_pointer_cast<directory>
          (state_dir->get_second(words.at(1))->get_contents());
