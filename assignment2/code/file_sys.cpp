@@ -190,7 +190,10 @@ size_t plain_file::size() const {   //constant function
   for(auto i = data.begin();i<data.end();i++){ 
      size +=i->size();//each word
   }
-  size--;
+  if(size>1){
+size--;
+  }
+  
    return size;  //calling size function from map?
 }
 
