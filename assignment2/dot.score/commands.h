@@ -1,5 +1,5 @@
 // $Id: commands.h,v 1.11 2016-01-14 14:45:21-08 - - $
-
+//Kai O'Brien (kimobrie@ucsc.edu)
 #ifndef __COMMANDS_H__
 #define __COMMANDS_H__
 

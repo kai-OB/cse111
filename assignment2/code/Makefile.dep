@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Makefile.dep created Tue May  4 00:42:58 PDT 2021
+=======
+# Makefile.dep created Tue May  4 00:46:07 MST 2021
+>>>>>>> da8101115f0c92b3c0ac05cbd2ec4d7876193ff1
 commands.o: commands.cpp commands.h file_sys.h util.h debug.h
 debug.o: debug.cpp debug.h util.h
 file_sys.o: file_sys.cpp debug.h file_sys.h util.h

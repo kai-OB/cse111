@@ -1,5 +1,5 @@
-// $Id: main.cpp,v 1.12 2021-04-30 22:15:28-07 - - $
-
+// $Id: main.cpp,v 1.12 2021-05-03 17:36:57-07 - - $
+//Kai O'Brien (kimobrie@ucsc.edu)
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -68,13 +68,13 @@ int main (int argc, char** argv) {
             // function.  Complain or call it.
             wordvec words = split (line, " \t");
             DEBUGF ('y', "words = " << words);
-            //if(words.size()>1){
+            
                string word0 = words.at(0);
                if(!(word0.at(0)=='#')){
                   command_fn fn = find_command_fn (words.at(0));
                   fn (state, words);
                }
-           // }
+           
          }catch (file_error& error) {
             complain() << error.what() << endl;
          }catch (command_error& error) {
@@ -83,6 +83,7 @@ int main (int argc, char** argv) {
       }
    } catch (ysh_exit&) {
       // This catch intentionally left blank.
+     
    }
 
    return exit_status_message();

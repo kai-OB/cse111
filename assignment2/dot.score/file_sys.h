@@ -1,5 +1,5 @@
-// $Id: file_sys.h,v 1.13 2021-05-02 02:03:57-07 - - $
-
+// $Id: file_sys.h,v 1.10 2021-05-03 17:36:57-07 - - $
+//Kai O'Brien (kimobrie@ucsc.edu)
 #ifndef __INODE_H__
 #define __INODE_H__
 
@@ -39,28 +39,21 @@ class inode_state {  //only one can exist in the entire filesystem
    friend ostream& operator<< (ostream& out, const inode_state&);
    //must be a friend not a member
    private:
-      inode_ptr root {nullptr};
-      inode_ptr cwd {nullptr};   //need to make a different assignment
-      //to them in the constructor!!!
-      string prompt_ {"% "};  //cant have the fuction and field name be the same
+      inode_ptr root ;
+      inode_ptr cwd ;  
+      string prompt_ {"% "}; 
    public:
       virtual ~inode_state();   //default or make own?
       inode_state (const inode_state&) = delete; // copy ctor
       inode_state& operator= (const inode_state&) = delete; // op=
-      //-delete says that if u attempt to copy it the compiler
-      //will refuse
+ 
       inode_state(); //constructor, have to do some work
-      //need to make a destructor?
-      //need to make a new inode and point root and cwd at it 
-
       const string& prompt() const;
-      //returns prompt when need to print stuff out
       void prompt (const string&);  //implement later?
-      //sets the prompts
-
       inode_ptr get_root();
       inode_ptr get_cwd();
-      void set_cwd(inode_ptr);//??? //yes
+      void set_cwd(inode_ptr);
+      void path(const inode_ptr& state_cwd);
       
       
 };
@@ -86,11 +79,8 @@ class inode {
       static size_t next_inode_nr;  //next inode number
       size_t inode_nr;//inode number itself
       base_file_ptr contents; //basefile is the abstract base class
-                           //directory and plainfile as subclasses
-                           //dir and pl do all the work
-      //inode contains a pointer to base file
-      bool is_dir;  //to know the filetype
-      inode_ptr parent{nullptr}; //initializes it to null in case there isnt a parent?
+      bool is_dir;  
+      inode_ptr parent{nullptr}; 
    public:
    virtual ~inode() = default;   //destructor?
       inode (file_type);   //gets filetype or creates filetype?
@@ -98,12 +88,11 @@ class inode {
       //hvae to set inode number?
       void set_contents(base_file_ptr);   //setter
       base_file_ptr get_contents(); //getter
-
-      bool isdir(); //getter need this??
+      bool isdir(); 
       
-      inode_ptr get_parent(); //need these?
+      inode_ptr get_parent(); 
       void set_parent(inode_ptr);
-
+      string filename = "";
 };
 
 
@@ -114,34 +103,25 @@ class inode {
 
 class file_error: public runtime_error {
    public:
-      explicit file_error (const string& what); //its constructor takes in a string
+      explicit file_error (const string& what); 
 };
 
 class base_file {
    protected:
-      base_file() = default;  //basefile has no fieldsl just an abstract class
-         //becasue we have constructors defined, we need to specify default
+      base_file() = default;  
+      //becasue we have constructors defined, we need to specify default
       virtual const string& error_file_type() const = 0;
-      //says that this function does not exist in basefile, is an abstract function
-      //must be overwritten in a subclass
    public:
       virtual ~base_file() = default;
-         //if you dont specify a destructor, it will be specified for you^
-         //must declare destructor as virtual, so it doesnt just delete
-         //pointers?
+       
       base_file (const base_file&) = delete;
-      //movers, not allowing files to be moved
-      //means that the implicity generated copier will be prohibited
-      //dont want to allow base files to be copied, use POINTERS  
       base_file& operator= (const base_file&) = delete;
       virtual size_t size() const = 0;
-      //base file has no meaning so it is 0
-      //no meaning because can be one thing on a plain and another on a directory file
+     
       virtual const wordvec& readfile() const;
       //will read text from file
       virtual void writefile (const wordvec& newdata);
-      //writes text to file, only available to text files
-      //error will be thrown for directory file
+   
       virtual void remove (const string& filename);
       //only appropriate if we are dealing with directories?
       virtual inode_ptr mkdir (const string& dirname);
@@ -165,31 +145,16 @@ class plain_file: public base_file {
       wordvec data;  
       virtual const string& error_file_type() const override {
          static const string result = "plain file";
-         return result;    //this is ok? no change?
-         //if you try and run a function on the wrong type of file,
-         //returns the filetype
-         //ex remove f , error f is a plainfile
-         //static to avoid creating it every time we call a function
+         return result;    
+     
       }
    public:
    virtual ~plain_file() = default;
       virtual size_t size() const override;  //must be overridden
-      //set size??
-      virtual const wordvec& readfile() const override;  //override error functions in base class
-      //could make base class functions abstract then require them to be overwritten
-      //in base class?
-      //should use keyword override
-      //cant override something that doesnt exist in the base class
-      // would still compile but makes a compile time error so def use override
-      //to make it easier to debug
-      //keyword virtal is optional
-      // virtual void remove (const string& filename)override;
-       //virtual inode_ptr mkdir (const string& dirname) override;  //error will be thrown if basefile version is called
-                                                               //, implement in directory
-      virtual void writefile (const wordvec& newdata) override;
-      //virtual inode_ptr mkfile (const string& filename) override;
 
-     // virtual bool is_dir() override;
+      virtual const wordvec& readfile() const override;  
+      virtual void writefile (const wordvec& newdata) override;
+     
       
 };
 
@@ -221,19 +186,17 @@ class directory: public base_file {
       }
    public:
       virtual ~directory() = default;
-      virtual size_t size() const override;//????? need to override
-      virtual void remove (const string& filename) override;   //need to implement to throw error?    
-                                                              //if directory name is called
+      virtual size_t size() const override;
+      virtual void remove (const string& filename) override;                                                         
       virtual inode_ptr mkdir (const string& dirname) override;
       virtual inode_ptr mkfile (const string& filename) override;
-      //virtual void writefile (const wordvec& newdata) override;//????
-       //make a num files
       virtual map<string,inode_ptr>& get_dirents()override;
-     // virtual bool is_dir() override;
-      inode_ptr get_second(const string& filename);  //need to get rid of?
+      inode_ptr get_second(const string& filename); 
       bool file_dne(const string& words);
       bool is_dir_(const string& words); //getter need this??
       inode_ptr update_file(const string& filename, const wordvec&words);
+      void print_ls(const string& filename);
+      void print_lsr(inode_ptr ino_de,inode_ptr roo);
 };
 
 #endif
