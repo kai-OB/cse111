@@ -108,7 +108,7 @@ void fn_cd (inode_state& state, const wordvec& words) {
      state.set_cwd(state.get_root());
    }
     else if(words.size()>2){
-      throw command_error ("cd: invalid number of arguments"); 
+      throw command_error ("cd: Invalid number of arguments"); 
    }
       else{
       //if it is a path, then go to last one, checking validity
@@ -174,6 +174,19 @@ void fn_exit (inode_state& state, const wordvec& words) {
 void fn_ls (inode_state& state, const wordvec& words) {
    DEBUGF ('c', state);
    DEBUGF ('c', words);
+   if(words.size()>2){
+      throw command_error ("ls: Invalid number of arguments"); //dont work
+   }
+   else{
+      //if one arg, then cwd is used
+      if(words.size()==1){
+        // print_ls(state.get_cwd());
+      }
+      else{//use arg specified
+        // print_ls(words.at(1)->get_second());
+      }
+
+   }
 }
 
 void fn_lsr (inode_state& state, const wordvec& words) {
@@ -251,10 +264,16 @@ void fn_mkdir (inode_state& state, const wordvec& words) {
     else if(words.size()>2){
       throw command_error ("mkdir: Invalid number of arguments"); //dont work
    }
+   
+  cout<< "in fn_mkdir\n";
    wordvec split_path = split(words.at(1),"/");//skips mkdir call but includes all paths
+  cout<< "made split path\n";
    shared_ptr <directory> state_dir = dynamic_pointer_cast<directory>
          (state.get_cwd()->get_contents());
    //if has path, check if valid
+   cout<< "made state_dir\n";
+   cout<< "split_path.size(): ";
+   cout<< split_path.size();
       int count = 0;
       if(split_path.size()>1){//if its a path
          for(auto i =split_path.begin(); i< split_path.end()-1;i++){ //skip last cause creating last so wont exist
@@ -269,19 +288,26 @@ void fn_mkdir (inode_state& state, const wordvec& words) {
             }
          }
          else{
+            cout<<"setting parent";
             state_dir->mkdir(split_path.at(count));
          }
       }
       //if no path, or end of path, make sure dne
       //should be end if has path or not right?
       else{//if its not a path
-         if(state_dir->file_dne(split_path.at(0)) == false){
-             if(state_dir->is_dir_(split_path.at(0)) == true){
-               throw command_error ("mkdir: "+split_path.at(0)+": File exists"); //dont work
+         if(state_dir->file_dne(words.at(1)) == false){
+             if(state_dir->is_dir_(words.at(1)) == true){
+               throw command_error ("mkdir: "+words.at(1)+": File exists"); //dont work
              }
+             cout<<"setting parent 2";
+           // state_dir->get_second(words.at(1))->set_parent(state.get_cwd());
+            state_dir->mkdir(words.at(1));
          }
          else{
-            state_dir->mkdir(split_path.at(0));
+            cout<<"setting parent 2";
+           
+           //state_dir->get_second(words.at(1))->set_parent(state.get_cwd());
+            state_dir->mkdir(words.at(1));
          }
       }
 }
@@ -290,7 +316,8 @@ void fn_prompt (inode_state& state, const wordvec& words) {
    DEBUGF ('c', state);
    DEBUGF ('c', words);
 }
-
+//just doesnt print path? segfaults with ivalid paths
+//this works with the test cases but thats it i think??, idk  its good for now
 void fn_pwd (inode_state& state, const wordvec& words) {
    DEBUGF ('c', state);
    DEBUGF ('c', words);
@@ -300,17 +327,18 @@ void fn_pwd (inode_state& state, const wordvec& words) {
    else{
       //cout<< "in else\n";
       //print from root to cwd
-      wordvec path = state.path(state.get_cwd());
+     // wordvec path =split(state.path(state.get_cwd()),"/");
      // cout<< "\nmade path\n";
-      int i= path.size()-1;
+      /*int i= path.size()-1;
      // cout<< "path size:";
      // cout<< path.size();
       while(i>0){
-         cout<< path.at(i);
+         cout<<"/";
+         cout<< path.at(i);   //this works, ish
          i--;
-      }
+      }*/
    }
-  // cout<< path;
+   state.path(state.get_cwd());
 }
 
 void fn_rm (inode_state& state, const wordvec& words) {

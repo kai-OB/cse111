@@ -61,8 +61,8 @@ class inode_state {  //only one can exist in the entire filesystem
       inode_ptr get_root();
       inode_ptr get_cwd();
       void set_cwd(inode_ptr);//??? //yes
-      wordvec path(const inode_ptr& state_cwd);
-
+      void path(const inode_ptr& state_cwd);
+      
       
 };
 
