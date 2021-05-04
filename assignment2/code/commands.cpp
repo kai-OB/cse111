@@ -339,6 +339,7 @@ void fn_pwd (inode_state& state, const wordvec& words) {
       }*/
    }
    state.path(state.get_cwd());
+
 }
 
 void fn_rm (inode_state& state, const wordvec& words) {
