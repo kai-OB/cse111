@@ -47,7 +47,7 @@ void fn_cat (inode_state& state, const wordvec& words) {
    //reported if no files are specified, a file does not exist, or is a directory.
    if(words.size() == 1){   //if no files are specified
       throw command_error ("cat: No files are specified"); //dont work
-      // program needs to continue!!!!!!
+      
    }
    else{
        wordvec split_path;
@@ -57,9 +57,7 @@ void fn_cat (inode_state& state, const wordvec& words) {
       for(unsigned long j = 1;j < words.size(); ++j){
          //if there is a path, but checks on each call
          split_path = split(words.at(j),"/");//skips make call but includes all paths
-        // cout<< "split_path:";
-        // cout<< split_path;
-        // cout<< "end split path";
+        
          int count =0;
          if(split_path.size()>1){//if its a path
             for(auto i =split_path.begin(); i< split_path.end()-1;i++){ //skip last cause creating last so wont exist
@@ -139,7 +137,7 @@ void fn_cd (inode_state& state, const wordvec& words) {
          }
          else{
             state.set_cwd(state_dir->get_second(words.at(count)));
-            //something wrong with setting the cwd?
+        
          }
       }
       else{
@@ -157,7 +155,7 @@ void fn_cd (inode_state& state, const wordvec& words) {
       }
    }
 }
-//dont have to do anything???
+
 void fn_echo (inode_state& state, const wordvec& words) {
    DEBUGF ('c', state);
    DEBUGF ('c', words);
@@ -182,12 +180,12 @@ void fn_ls (inode_state& state, const wordvec& words) {
             (state.get_cwd()->get_contents());
       //if one arg, then cwd is used
       if(words.size()==1){
-         //if everything adds to the directories right then
-         //the children should be right?? right?
          state_dir->print_ls("");
       }
       else{//use arg specified
-         state_dir->print_ls(words.at(1));
+         shared_ptr <directory> print_dir1 = dynamic_pointer_cast<directory>
+         (state_dir->get_second(words.at(1))->get_contents());
+         print_dir1->print_ls(words.at(1));
       }
 
    }
@@ -205,18 +203,20 @@ void fn_lsr (inode_state& state, const wordvec& words) {
             string print_things;
       //if one arg, then cwd is used
       if(words.size()==1){
-         //if everything adds to the directories right then
-         //the children should be right?? right?
-         
-         state_dir->print_lsr("",print_things);
+   
+         state_dir->print_lsr(state.get_root(), state.get_root());
       }
       else{//use arg specified
-         state_dir->print_lsr(words.at(1),print_things);
+      
+         inode_ptr words1= state_dir->get_second(words.at(1));
+         shared_ptr <directory> print_dir1 = dynamic_pointer_cast<directory>
+         (state_dir->get_second(words.at(1))->get_contents());
+         print_dir1->print_lsr(words1,state.get_root());
       }
-     // cout<<print_things
    }
 
 }
+
 
 void fn_make (inode_state& state, const wordvec& words) {
    DEBUGF ('c', state);
@@ -230,12 +230,11 @@ void fn_make (inode_state& state, const wordvec& words) {
    int count = 0;
    //is a path
    if(split_path.size()>1){//if its a path
-      for(auto i =split_path.begin(); i< split_path.end()-1;i++){ //skip last cause creating last so wont exist
+      for(auto i =split_path.begin(); i< split_path.end()-1;i++){ 
          //if file does not exist at all
          if(state_dir->file_dne(split_path.at(count)) == true){
             throw command_error ("make: "+split_path.at(count)+": No such file or directory"); 
-            //like foo/wrongdir/bar/newfile
-            //would output wrongdir: no such file or dir
+       
          }
          //if file exists but is not a directory, needs to be while in the path
          else if(state_dir->is_dir_(split_path.at(count)) == false){
@@ -273,7 +272,6 @@ void fn_make (inode_state& state, const wordvec& words) {
          }
          else{
             inode_ptr updated_pointer = state_dir->update_file(words.at(1),wordvec(words.begin()+2,words.end()));
-         // cout<< updated_pointer->get_contents()->readfile();  //makes the file, but includes "make"??
          }
       }
    }
@@ -289,15 +287,13 @@ void fn_mkdir (inode_state& state, const wordvec& words) {
       throw command_error ("mkdir: Invalid number of arguments"); //dont work
    }
    
-  cout<< "in fn_mkdir\n";
+
    wordvec split_path = split(words.at(1),"/");//skips mkdir call but includes all paths
-  cout<< "made split path\n";
+
    shared_ptr <directory> state_dir = dynamic_pointer_cast<directory>
          (state.get_cwd()->get_contents());
    //if has path, check if valid
-   cout<< "made state_dir\n";
-   cout<< "split_path.size(): ";
-   cout<< split_path.size();
+ 
       int count = 0;
       if(split_path.size()>1){//if its a path
          for(auto i =split_path.begin(); i< split_path.end()-1;i++){ //skip last cause creating last so wont exist
@@ -312,7 +308,7 @@ void fn_mkdir (inode_state& state, const wordvec& words) {
             }
          }
          else{
-            cout<<"setting parent";
+       
             state_dir->mkdir(split_path.at(count));
          }
       }
@@ -323,14 +319,11 @@ void fn_mkdir (inode_state& state, const wordvec& words) {
              if(state_dir->is_dir_(words.at(1)) == true){
                throw command_error ("mkdir: "+words.at(1)+": File exists"); //dont work
              }
-             cout<<"setting parent 2";
-           // state_dir->get_second(words.at(1))->set_parent(state.get_cwd());
+         
             state_dir->mkdir(words.at(1));
          }
          else{
-            cout<<"setting parent 2";
-           
-           //state_dir->get_second(words.at(1))->set_parent(state.get_cwd());
+   
             state_dir->mkdir(words.at(1));
          }
       }
@@ -359,21 +352,10 @@ void fn_pwd (inode_state& state, const wordvec& words) {
       throw command_error ("mkdir: Invalid number of arguments"); //dont work
    }
    else{
-      //cout<< "in else\n";
-      //print from root to cwd
-     // wordvec path =split(state.path(state.get_cwd()),"/");
-     // cout<< "\nmade path\n";
-      /*int i= path.size()-1;
-     // cout<< "path size:";
-     // cout<< path.size();
-      while(i>0){
-         cout<<"/";
-         cout<< path.at(i);   //this works, ish
-         i--;
-      }*/
-   }
+      
+   
    state.path(state.get_cwd());
-
+   }
 }
 
 void fn_rm (inode_state& state, const wordvec& words) {
