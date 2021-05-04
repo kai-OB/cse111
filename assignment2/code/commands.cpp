@@ -166,6 +166,13 @@ void fn_echo (inode_state& state, const wordvec& words) {
 void fn_exit (inode_state& state, const wordvec& words) {
    DEBUGF ('c', state);
    DEBUGF ('c', words);
+   /*if(words.size()==1){
+      
+       cout<< exec::execname()<<":exit(";
+       cout<<exec::status();
+       cout<<")";
+  }*/
+  exec::status(std::stoi(words[1]));
    throw ysh_exit();
 }
 
