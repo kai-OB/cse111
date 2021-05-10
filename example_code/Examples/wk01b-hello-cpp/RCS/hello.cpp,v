@@ -1,0 +1,207 @@
+head	1.7;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.7
+date	2021.04.01.10.19.29;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2021.04.01.09.47.00;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2021.04.01.02.56.58;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2021.04.01.02.32.15;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.03.31.00.16.40;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.03.23.00.48.49;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.10.01.22.41.24;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.7
+log
+@-
+@
+text
+@// $Id: hello.cpp,v 1.6 2021-04-01 02:47:00-07 - - $
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+#include "hello.h"
+#include "debug.h"
+
+#define DEBUG_HELLO DEBUG (this << "->\"" <<  message << "\"");
+
+hello::hello() {
+   DEBUG_HELLO;
+}
+
+hello::~hello() {
+   DEBUG_HELLO;
+}
+
+hello::hello (const string& message_): message(message_) {
+   DEBUG_HELLO;
+}
+
+void hello::say (ostream& out) const {
+   out << message << endl;
+}
+
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: hello.cpp,v 1.5 2021-03-31 19:56:58-07 - - $
+d10 1
+a10 1
+#define HDEBUG DEBUG (this << "->\"" <<  message << "\"");
+d13 1
+a13 1
+   HDEBUG;
+d17 1
+a17 1
+   HDEBUG;
+d21 1
+a21 1
+   HDEBUG;
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: hello.cpp,v 1.4 2021-03-31 19:32:15-07 - - $
+d10 2
+d13 1
+a13 1
+   DEBUG (this << "->\"" <<  message << "\"");
+d17 1
+a17 1
+   DEBUG (this << "->\"" <<  message << "\"");
+d21 1
+a21 1
+   DEBUG (this << "->\"" <<  message << "\"");
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: hello.cpp,v 1.3 2021-03-30 17:16:40-07 - - $
+d8 1
+a8 5
+
+void hello::debug (int line, const string& function) const {
+   cout << "debug[" << line << "]: " << function << " " << this
+        << " \"" << message << "\"" << endl;
+}
+d11 1
+a11 1
+   debug (__LINE__, __PRETTY_FUNCTION__);
+d15 1
+a15 1
+   debug (__LINE__, __PRETTY_FUNCTION__);
+d19 1
+a19 1
+   debug (__LINE__, __PRETTY_FUNCTION__);
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: hello.cpp,v 1.2 2021-03-22 17:48:49-07 - - $
+d9 2
+a10 2
+void hello::debug (const string& function) const {
+   cout << "debug: " << function << " " << this
+d15 1
+a15 1
+   debug (__PRETTY_FUNCTION__);
+d19 1
+a19 1
+   debug (__PRETTY_FUNCTION__);
+d23 1
+a23 1
+   debug (__PRETTY_FUNCTION__);
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: hello.cpp,v 1.1 2020-10-01 15:41:24-07 - - $
+d10 2
+a11 1
+   cout << function << " " << this << " \"" << message << "\"" << endl;
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: hello.cpp,v 1.9 2019-04-03 13:52:31-07 - - $
+d9 4
+d14 1
+d18 1
+d22 1
+d25 1
+a25 1
+void hello::say (ostream& out) {
+@

@@ -1,0 +1,226 @@
+head	1.9;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.9
+date	2016.08.09.22.22.27;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2016.08.09.22.17.33;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2016.08.09.22.16.15;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2016.07.22.23.24.42;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2016.07.22.23.24.02;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2016.07.22.23.23.42;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2016.07.22.23.22.03;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2016.07.22.23.19.51;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2016.07.22.22.18.09;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.9
+log
+@-
+@
+text
+@// $Id: raceclick.cpp,v 1.8 2016-08-09 15:17:33-07 - - $
+
+// Hello to threads.
+
+#include <iostream>
+#include <thread>
+#include <vector>
+using namespace std;
+
+constexpr size_t LOOPS = 10'000'000;
+
+void racer (size_t id, size_t* counter) {
+   for (size_t i = 0; i < LOOPS; ++i) ++*counter;
+   cout << "racer " << id << " looped " << LOOPS
+        << " finished *counter " << *counter << endl;
+}
+
+struct comma_t: numpunct<char> {
+   char do_thousands_sep() const { return ','; }
+   string do_grouping() const { return "\03"; }
+};
+locale comma (locale(), new comma_t());
+
+int main () {
+   cout.imbue (comma);
+   size_t counter {0};
+   cout << "main starting" << endl;
+   vector<thread> vecthr;
+   for (size_t i = 0; i < 4; ++i) {
+      vecthr.push_back (thread (racer, i, &counter));
+   }
+   for (auto& t: vecthr) t.join();
+   cout << "main finished counter " << counter << endl;
+   return 0;
+}
+
+//TEST// alias TIME='/usr/bin/time -f "%E elapsed, %S kernel, %U user"'
+//TEST// for i in 1 2 3 4
+//TEST// do
+//TEST//    TIME raceclick >raceclick.out$i 2>&1
+//TEST// done
+//TEST// more raceclick.out* >raceclick.lis </dev/null
+//TEST// mkpspdf raceclick.ps raceclick.cpp* raceclick.lis
+
+@
+
+
+1.8
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: raceclick.cpp,v 1.7 2016-08-09 15:16:15-07 - - $
+a12 1
+   cout << "racer " << id << " looping " << LOOPS << " times" << endl;
+d14 2
+a15 1
+   cout << "racer " << id << " finished *counter " << *counter << endl;
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: raceclick.cpp,v 1.6 2016-07-22 16:24:42-07 - - $
+d18 6
+d25 1
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: raceclick.cpp,v 1.5 2016-07-22 16:24:02-07 - - $
+d10 1
+a10 1
+constexpr size_t LOOPS = 1'000'000;
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: raceclick.cpp,v 1.4 2016-07-22 16:23:42-07 - - $
+d30 1
+a30 1
+//TEST// TIME() { /usr/bin/time -f "%E elapsed, %S kernel, %U user" $* }
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: raceclick.cpp,v 1.3 2016-07-22 16:22:03-07 - - $
+d30 1
+a30 1
+//TEST// TIME() { /usr/bin/time -f "%E elapsed, %S kernel, %U user"' $* }
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: raceclick.cpp,v 1.2 2016-07-22 16:19:51-07 - - $
+d30 1
+a30 1
+//TEST// alias TIME='/usr/bin/time -f "%E elapsed, %S kernel, %U user"'
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: raceclick.cpp,v 1.1 2016-07-22 15:18:09-07 - - $
+d30 1
+a30 1
+//TEST// TIME='/usr/bin/time -f "%E elapsed, %S kernel, %U user"'
+d33 1
+a33 1
+//TEST//    $TIME raceclick >raceclick.out$i 2>&1
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: raceclick.cpp,v 1.19 2016-07-22 15:16:58-07 - - $
+d30 1
+a30 1
+//TEST// alias TIME='/usr/bin/time -f "%E elapsed, %S kernel, %U user"'
+d33 1
+a33 1
+//TEST//    TIME raceclick >raceclick.out$i 2>&1
+@

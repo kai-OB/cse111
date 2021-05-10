@@ -1,0 +1,6 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting insert_list.cpp
+insert_list.cpp: $Id: insert_list.cpp,v 1.1 2016-08-12 15:33:15-07 - - $
+g++ -g -O0 -std=gnu++14 -rdynamic -Wall -Wextra -Wold-style-cast insert_list.cpp -o insert_list -lglut -lGLU -lGL -lX11 -lrt -lm
+cpplint.py.perl insert_list.cpp
+Done processing insert_list.cpp
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished insert_list.cpp

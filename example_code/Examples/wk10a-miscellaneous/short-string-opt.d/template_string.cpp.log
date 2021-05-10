@@ -1,0 +1,6 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting template_string.cpp
+template_string.cpp: $Id: template_string.cpp,v 1.4 2016-08-02 17:51:49-07 - - $
+g++ -g -O0 -std=gnu++14 -rdynamic -Wall -Wextra -Wold-style-cast template_string.cpp -o template_string -lglut -lGLU -lGL -lX11 -lrt -lm
+cpplint.py.perl template_string.cpp
+Done processing template_string.cpp
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished template_string.cpp

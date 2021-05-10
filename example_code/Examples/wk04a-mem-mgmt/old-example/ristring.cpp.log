@@ -1,0 +1,10 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting ristring.cpp
+$Id: ristring.cpp,v 1.1 2021-04-25 14:10:20-07 - - $
+checksource ristring.cpp
+checksource: TOTAL COMPLAINTS: 0
+ristring.cpp: $Id: ristring.cpp,v 1.1 2021-04-25 14:10:20-07 - - $
+cpplint.py.perl ristring.cpp
+Done processing ristring.cpp
+g++ -Wall -Wextra -Wpedantic -Wshadow -fdiagnostics-color=never -std=gnu++17 -Wold-style-cast -pthread -g -O0 ristring.cpp -o ristring -lm
+rm -f ristring.o
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished ristring.cpp

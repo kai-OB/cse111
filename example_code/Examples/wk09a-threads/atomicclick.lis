@@ -1,0 +1,40 @@
+::::::::::::::
+atomicclick.out1
+::::::::::::::
+main starting
+clicker 2 looped 10,000,000 finished atomic_counter 33,454,282
+clicker 3 looped 10,000,000 finished atomic_counter 36,272,075
+clicker 1 looped 10,000,000 finished atomic_counter 39,410,647
+clicker 0 looped 10,000,000 finished atomic_counter 40,000,000
+main finished atomic_counter 40,000,000
+0:01.02 elapsed, 0.00 kernel, 1.97 user
+::::::::::::::
+atomicclick.out2
+::::::::::::::
+main starting
+clicker 1 looped 10,000,000 finished atomic_counter 36,250,101
+clicker 3 looped 10,000,000 finished atomic_counter 38,441,735
+clicker 2 looped 10,000,000 finished atomic_counter 39,823,184
+clicker 0 looped 10,000,000 finished atomic_counter 40,000,000
+main finished atomic_counter 40,000,000
+0:00.98 elapsed, 0.00 kernel, 1.88 user
+::::::::::::::
+atomicclick.out3
+::::::::::::::
+main starting
+clicker 0 looped 10,000,000 finished atomic_counter 36,520,218
+clicker 1 looped 10,000,000 finished atomic_counter 36,812,036
+clicker 2 looped 10,000,000 finished atomic_counter 38,920,126
+clicker 3 looped 10,000,000 finished atomic_counter 40,000,000
+main finished atomic_counter 40,000,000
+0:01.25 elapsed, 0.00 kernel, 2.50 user
+::::::::::::::
+atomicclick.out4
+::::::::::::::
+main starting
+clicker 1 looped 10,000,000 finished atomic_counter 28,328,805
+clicker 3 looped 10,000,000 finished atomic_counter 29,683,809
+clicker 2 looped 10,000,000 finished atomic_counter 37,840,215
+clicker 0 looped 10,000,000 finished atomic_counter 40,000,000
+main finished atomic_counter 40,000,000
+0:00.91 elapsed, 0.00 kernel, 1.64 user

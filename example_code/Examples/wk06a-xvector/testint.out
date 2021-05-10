@@ -1,0 +1,32 @@
+==23802== Memcheck, a memory error detector
+==23802== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==23802== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==23802== Command: testint
+==23802== 
+sizeof aa = 32
+sizeof va = 32
+loop1(aa): [0]10 [1]20 [2]30 [3]40 [4]50 [5]60 [6]70 [7]80 [8]90
+loop2: 0x5a241d0->10
+loop2: 0x5a241d4->20
+loop2: 0x5a241d8->30
+loop2: 0x5a241dc->40
+loop2: 0x5a241e0->50
+loop2: 0x5a241e4->60
+loop2: 0x5a241e8->70
+loop2: 0x5a241ec->80
+loop2: 0x5a241f0->90
+loop3(va): [0]10 [1]20 [2]30 [3]40 [4]50 [5]60 [6]70 [7]80 [8]90
+0x5a242c4: 10 20
+compare(aa): [0]10 [1]20 [2]30 [3]40 [4]50 [5]60 [6]70 [7]80 [8]90
+compare(bb): [0]10 [1]20 [2]30 [3]45
+aa < bb = true
+==23802== 
+==23802== HEAP SUMMARY:
+==23802==     in use at exit: 0 bytes in 0 blocks
+==23802==   total heap usage: 10 allocs, 10 frees, 368 bytes allocated
+==23802== 
+==23802== All heap blocks were freed -- no leaks are possible
+==23802== 
+==23802== For counts of detected and suppressed errors, rerun with: -v
+==23802== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+pstatus: 0x0000 EXIT STATUS = 0

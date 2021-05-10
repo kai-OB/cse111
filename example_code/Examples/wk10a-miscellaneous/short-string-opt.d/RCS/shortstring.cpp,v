@@ -1,0 +1,616 @@
+head	1.25;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.25
+date	2016.08.03.19.54.41;	author -;	state -;
+branches;
+next	1.24;
+
+1.24
+date	2016.08.03.19.53.23;	author -;	state -;
+branches;
+next	1.23;
+
+1.23
+date	2016.08.03.19.53.03;	author -;	state -;
+branches;
+next	1.22;
+
+1.22
+date	2016.08.03.19.51.42;	author -;	state -;
+branches;
+next	1.21;
+
+1.21
+date	2016.08.03.19.50.24;	author -;	state -;
+branches;
+next	1.20;
+
+1.20
+date	2016.08.03.19.47.59;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2016.08.03.19.47.40;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2016.08.03.19.47.03;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2016.08.03.19.46.19;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2016.08.03.19.45.16;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2016.08.03.19.44.33;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2016.08.03.19.43.44;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2016.08.03.19.43.05;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2016.08.03.00.36.59;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2016.07.28.18.48.20;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2016.07.28.18.46.58;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2016.07.28.18.46.43;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2016.07.28.18.44.54;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2016.07.23.01.18.21;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2016.07.23.01.17.33;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2016.07.23.01.17.02;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2016.07.23.01.16.40;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2016.07.23.01.15.54;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2016.07.23.01.12.54;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2016.07.23.01.12.46;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.25
+log
+@-
+@
+text
+@// $Id: shortstring.cpp,v 1.24 2016-08-03 12:53:23-07 - - $
+
+// Simple short string optimization.
+// Works only on a little-endian machine.
+
+#include <iostream>
+using namespace std;
+
+struct opt_string {
+
+   struct long_string {
+      size_t size_; // stores size << 1 | 1.
+      size_t capacity_;
+      char* data_;
+   };
+
+   struct short_string {
+      unsigned char size_ {0}; // stores size << 1.
+      char data_[sizeof (long_string) - 1] {};
+   };
+
+   union {
+      long_string long_;
+      short_string short_;
+   };
+
+   bool is_long() const {
+      return short_.size_ & 1;
+   }
+
+   size_t size() const {
+      return is_long() ? short_.size_ >> 1 : long_.size_;
+   }
+
+   size_t capacity() const {
+      return is_long() ? long_.capacity_ >> 1 : sizeof short_.data_ - 1;
+   }
+
+   opt_string() { short_.size_ = short_.data_[0] = 0; }
+
+   ~opt_string() {
+      if (is_long() and long_.data_) delete[] long_.data_;
+   }
+
+};
+
+
+int offset (void* base, void* field) {
+   return static_cast<char*> (field) - static_cast<char*> (base);
+}
+
+#define SHOW(X) cout << #X << " = " << X << endl;
+int main() {
+   opt_string u;
+   SHOW (sizeof u);
+   SHOW (sizeof u.long_);
+   SHOW (sizeof u.long_.capacity_);
+   SHOW (sizeof u.long_.size_);
+   SHOW (sizeof u.long_.data_);
+   SHOW (sizeof u.short_);
+   SHOW (sizeof u.short_.size_);
+   SHOW (sizeof u.short_.data_);
+   SHOW (offset (&u, &u));
+   SHOW (offset (&u, &u.long_));
+   SHOW (offset (&u, &u.long_.capacity_));
+   SHOW (offset (&u, &u.long_.size_));
+   SHOW (offset (&u, &u.long_.data_));
+   SHOW (offset (&u, &u.short_));
+   SHOW (offset (&u, &u.short_.size_));
+   SHOW (offset (&u, &u.short_.data_));
+}
+
+//TEST// ./shortstring >shortstring.out
+//TEST// mkpspdf shortstring.ps shortstring.cpp* shortstring.out
+
+@
+
+
+1.24
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: shortstring.cpp,v 1.23 2016-08-03 12:53:03-07 - - $
+d12 1
+a13 1
+      size_t size_;
+d18 1
+a18 1
+      unsigned char size_ {0};
+@
+
+
+1.23
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: shortstring.cpp,v 1.20 2016-08-03 12:47:59-07 - - $
+d47 1
+a51 1
+
+@
+
+
+1.22
+log
+@-
+@
+text
+@d51 1
+@
+
+
+1.21
+log
+@-
+@
+text
+@d39 1
+a39 1
+   opt_string(): short_(0) {}
+@
+
+
+1.20
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: shortstring.cpp,v 1.18 2016-08-03 12:47:03-07 - - $
+d39 1
+a39 1
+   opt_string(): short_(0, "") {}
+@
+
+
+1.19
+log
+@-
+@
+text
+@d39 1
+a39 1
+   opt_string(): short_({0, ""}) {}
+@
+
+
+1.18
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: shortstring.cpp,v 1.17 2016-08-03 12:46:19-07 - - $
+d39 1
+a39 1
+   opt_string(): short_(size_(0), data_("")) {}
+@
+
+
+1.17
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: shortstring.cpp,v 1.16 2016-08-03 12:45:16-07 - - $
+d39 1
+a39 1
+   opt_string(): short_.size_(0) short_.data_("") {}
+@
+
+
+1.16
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: shortstring.cpp,v 1.15 2016-08-03 12:44:33-07 - - $
+d39 1
+a39 1
+   opt_string(): size_(0) data_("") {}
+@
+
+
+1.15
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: shortstring.cpp,v 1.14 2016-08-03 12:43:44-07 - - $
+d19 1
+a19 1
+      char data_[sizeof (long_) - 1] {};
+@
+
+
+1.14
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: shortstring.cpp,v 1.13 2016-08-03 12:43:05-07 - - $
+d28 1
+a28 1
+      return short_.size & 1;
+@
+
+
+1.13
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: shortstring.cpp,v 1.12 2016-08-02 17:36:59-07 - - $
+d55 7
+a61 7
+   SHOW (sizeof u.ls_);
+   SHOW (sizeof u.ls_.capacity_);
+   SHOW (sizeof u.ls_.size_);
+   SHOW (sizeof u.ls_.data_);
+   SHOW (sizeof u.ss_);
+   SHOW (sizeof u.ss_.size_);
+   SHOW (sizeof u.ss_.data_);
+d63 7
+a69 7
+   SHOW (offset (&u, &u.ls_));
+   SHOW (offset (&u, &u.ls_.capacity_));
+   SHOW (offset (&u, &u.ls_.size_));
+   SHOW (offset (&u, &u.ls_.data_));
+   SHOW (offset (&u, &u.ss_));
+   SHOW (offset (&u, &u.ss_.size_));
+   SHOW (offset (&u, &u.ss_.data_));
+@
+
+
+1.12
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: shortstring.cpp,v 1.11 2016-07-28 11:48:20-07 - - $
+d9 1
+a9 1
+struct short_string {
+d11 1
+a11 1
+   struct long_ {
+d16 4
+a19 3
+   struct short_ {
+      unsigned char size_;
+      char data_[sizeof (long_) - 1];;
+d21 1
+d23 2
+a24 2
+      long_ ls_;
+      short_ ss_;
+d27 18
+d53 1
+a53 1
+   short_string u;
+@
+
+
+1.11
+log
+@-
+@
+text
+@d1 4
+a4 1
+// $Id: shortstring.cpp,v 1.10 2016-07-28 11:46:58-07 - - $
+@
+
+
+1.10
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: shortstring.cpp,v 1.9 2016-07-28 11:46:43-07 - - $
+d48 4
+a51 1
+   
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: shortstring.cpp,v 1.8 2016-07-28 11:44:54-07 - - $
+d6 1
+a6 1
+struct shortstring {
+@
+
+
+1.8
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: shortstring.cpp,v 1.7 2016-07-22 18:18:21-07 - - $
+d8 9
+d18 2
+a19 9
+      struct long_ {
+         size_t capacity_;
+         size_t size_;
+         char* data_;
+      } ls_;
+      struct short_ {
+         unsigned char size_;
+         char data_[sizeof (long_) - 1];;
+      } ss_;
+d21 1
+d30 1
+a30 1
+   u_string u;
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: shortstring.cpp,v 1.6 2016-07-22 18:17:33-07 - - $
+d6 1
+a6 5
+struct long_string {
+   size_t capacity_;
+   size_t size_;
+   char* data_;
+};
+a7 1
+struct short_string {
+d9 9
+a17 2
+      unsigned char size_;
+      char lx_;
+a18 6
+   char data_[22];
+};
+
+union u_string {
+   long_string ls_;
+   short_string ss_;
+a34 1
+   SHOW (sizeof u.ss_.lx_);
+a42 1
+   SHOW (offset (&u, &u.ss_.lx_));
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: shortstring.cpp,v 1.5 2016-07-22 18:17:02-07 - - $
+d26 1
+a26 1
+   return (char*) field - (char*) base;
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: shortstring.cpp,v 1.4 2016-07-22 18:16:40-07 - - $
+d26 1
+a26 1
+   return field - base;
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: shortstring.cpp,v 1.3 2016-07-22 18:15:54-07 - - $
+d41 1
+a41 1
+   SHOW (offset (&u, u));
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: shortstring.cpp,v 1.2 2016-07-22 18:12:54-07 - - $
+d41 9
+a49 9
+   SHOW (offset (u, u));
+   SHOW (offset (u, u.ls_));
+   SHOW (offset (u, u.ls_.capacity_));
+   SHOW (offset (u, u.ls_.size_));
+   SHOW (offset (u, u.ls_.data_));
+   SHOW (offset (u, u.ss_));
+   SHOW (offset (u, u.ss_.size_));
+   SHOW (offset (u, u.ss_.lx_));
+   SHOW (offset (u, u.ss_.data_));
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: shortstring.cpp,v 1.1 2016-07-22 18:12:46-07 - - $
+d25 4
+d41 9
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id$
+d9 1
+a9 1
+   char* data_
+@

@@ -1,0 +1,60 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.2
+date	2021.05.04.22.41.21;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.05.04.22.37.42;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@// $Id: template-vector-sum.cpp,v 1.1 2021-05-04 15:37:42-07 - - $
+
+#include <vector>
+
+#include "template-sum.h"
+
+extern std::vector<int> data;
+extern int extvar;
+
+int main() {
+   extvar = sum_cont (data);
+}
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: vector-template-sum.cpp,v 1.3 2021-05-04 15:27:00-07 - - $
+d8 1
+a8 2
+
+void use (int);
+d11 1
+a11 2
+   int sum = sum_cont (data);
+   use (sum);
+@

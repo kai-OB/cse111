@@ -1,0 +1,94 @@
+head	1.3;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.3
+date	2021.05.04.22.27.00;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.05.04.22.21.02;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.05.04.22.16.51;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@-
+@
+text
+@// $Id: vector-template-sum.cpp,v 1.2 2021-05-04 15:21:02-07 - - $
+
+#include <vector>
+
+#include "template-sum.h"
+
+extern std::vector<int> data;
+
+void use (int);
+
+int main() {
+   int sum = sum_cont (data);
+   use (sum);
+}
+
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: vector-template-sum.cpp,v 1.1 2021-05-04 15:16:51-07 - - $
+d9 2
+d13 1
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: asm-template-sum.cpp,v 1.1 2021-05-04 11:48:47-07 - - $
+a2 1
+#include <list>
+a3 1
+using namespace std;
+d5 1
+a5 6
+template <typename container>
+int sum_cont (const container& cont) {
+   int sum = 0;
+   for (int n: cont) sum += n;
+   return sum;
+}
+d7 1
+a7 2
+extern list<int> lis_int;
+extern vector<int> vec_int;
+d9 2
+a10 4
+int test() {
+   int ls = sum_cont (lis_int);
+   int vs = sum_cont (vec_int);
+   return ls + vs;
+@

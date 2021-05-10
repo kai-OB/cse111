@@ -1,0 +1,578 @@
+head	1.26;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.26
+date	2021.02.27.00.38.14;	author -;	state -;
+branches;
+next	1.25;
+
+1.25
+date	2020.12.09.00.09.55;	author -;	state -;
+branches;
+next	1.24;
+
+1.24
+date	2020.12.09.00.09.14;	author -;	state -;
+branches;
+next	1.23;
+
+1.23
+date	2020.12.09.00.08.55;	author -;	state -;
+branches;
+next	1.22;
+
+1.22
+date	2020.12.09.00.07.28;	author -;	state -;
+branches;
+next	1.21;
+
+1.21
+date	2020.12.09.00.06.11;	author -;	state -;
+branches;
+next	1.20;
+
+1.20
+date	2020.12.09.00.05.34;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2020.12.09.00.05.04;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2020.12.09.00.04.52;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2020.12.08.23.40.27;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2020.12.08.23.17.34;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2020.12.08.23.17.09;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2020.12.08.23.16.55;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2020.12.08.23.14.36;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2020.12.08.23.08.21;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2020.12.08.23.05.47;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2020.12.08.23.05.38;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2020.12.08.23.05.16;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2020.12.08.23.04.46;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2020.12.08.23.04.22;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2020.12.08.23.03.49;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2020.12.08.23.02.59;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2020.12.08.23.01.56;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2020.12.08.23.01.40;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2020.12.08.22.56.45;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.12.08.22.56.35;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.26
+log
+@-
+@
+text
+@// $Id: granularity.cpp,v 1.25 2020-12-08 16:09:55-08 - - $
+
+#include <chrono>
+#include <iomanip>
+#include <vector>
+#include <iostream>
+using namespace std;
+
+using hr_clock = chrono::high_resolution_clock;
+
+struct info {
+   size_t cycle_nr;
+   double microsecs;
+};
+
+int main (int argc, char** argv) {
+   vector<info> data;
+   constexpr size_t MAXCYCLES = 1'000'000;
+   data.reserve (MAXCYCLES);
+   double threshhold_microsec = argc == 1 ? 0 : atof (argv[1]);
+   hr_clock::time_point prev = hr_clock::now();
+   cout << fixed << setprecision(6);
+   for (size_t cycle = 0; cycle < MAXCYCLES; ++cycle) {
+      hr_clock::time_point now = hr_clock::now();
+      double seconds = chrono::duration<double> (now - prev).count();
+      double microsec = seconds * 1.0e6;
+      if (microsec > threshhold_microsec) {
+         data.push_back ({cycle, microsec});
+      }
+      prev = now;
+   }
+   for (const auto& item: data) {
+         cout << setw(12) << item.cycle_nr
+              << setw(16) << item.microsecs << " microseconds" << endl;
+   }
+   return 0;
+}
+
+@
+
+
+1.25
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.24 2020-12-08 16:09:14-08 - - $
+d18 1
+a18 1
+   constexpr size_t MAXCYCLES = 10'000'000;
+@
+
+
+1.24
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.23 2020-12-08 16:08:55-08 - - $
+a10 6
+struct comma_t: numpunct<char> {
+   char do_thousands_sep() const { return ','; }
+   string do_grouping() const { return "\03"; }
+};
+locale comma (locale(), new comma_t());
+
+a16 1
+   cout.imbue (comma);
+@
+
+
+1.23
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.22 2020-12-08 16:07:28-08 - - $
+d11 1
+a11 1
+truct comma_t: numpunct<char> {
+@
+
+
+1.22
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.21 2020-12-08 16:06:11-08 - - $
+d11 6
+d23 1
+@
+
+
+1.21
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.20 2020-12-08 16:05:34-08 - - $
+d18 1
+a18 1
+   constexpr size_t MAXCYCLES = 1'000'000;
+@
+
+
+1.20
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.19 2020-12-08 16:05:04-08 - - $
+d32 1
+a32 1
+   for (const auto& item: info) {
+@
+
+
+1.19
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.18 2020-12-08 16:04:52-08 - - $
+d26 1
+d28 1
+a28 1
+         data.push_back ({cycle, seconds * 1.0e6});
+@
+
+
+1.18
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.17 2020-12-08 15:40:27-08 - - $
+d18 1
+a18 1
+   constexpr MAXCYCLES = 1'000'000;
+@
+
+
+1.17
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.16 2020-12-08 15:17:34-08 - - $
+d5 1
+d11 5
+d17 3
+d23 1
+a23 1
+   for (size_t cycle = 0;; ++cycle) {
+a25 1
+      double microsec = seconds * 1.0e6;
+d27 1
+a27 2
+         cout << setw(12) << cycle
+              << setw(16) << microsec << " microseconds" << endl;
+d30 4
+@
+
+
+1.16
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.15 2020-12-08 15:17:09-08 - - $
+d19 2
+a20 2
+         cout << setw(10) << cycle
+              << setw(12) << microsec << " microseconds" << endl;
+@
+
+
+1.15
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.14 2020-12-08 15:16:55-08 - - $
+d20 1
+a20 1
+              << setw(10) << microsec << " microseconds" << endl;
+@
+
+
+1.14
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.13 2020-12-08 15:14:36-08 - - $
+d17 1
+a17 1
+      double microsec = seconds * 1.0e3;
+@
+
+
+1.13
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.12 2020-12-08 15:08:21-08 - - $
+d11 1
+a11 1
+   double threshhold_msec = argc == 1 ? 0 : atof (argv[1]);
+d17 2
+a18 2
+      double millisec = seconds * 1.0e3;
+      if (millisec > threshhold_msec) {
+d20 1
+a20 1
+              << setw(10) << seconds * 1e3 << " milliseconds" << endl;
+@
+
+
+1.12
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.11 2020-12-08 15:05:47-08 - - $
+d10 2
+a11 1
+int main() {
+d17 5
+a21 2
+      cout << setw(10) << cycle
+           << setw(10) << seconds * 1e3 << " milliseconds" << endl;
+@
+
+
+1.11
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.10 2020-12-08 15:05:38-08 - - $
+d13 1
+a13 1
+   for(;;) {
+d16 2
+a17 1
+      cout << seconds * 1e3 << " milliseconds" << endl;
+@
+
+
+1.10
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.9 2020-12-08 15:05:16-08 - - $
+d16 1
+a16 1
+      cout << seconds * 1ee << " milliseconds" << endl;
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.8 2020-12-08 15:04:46-08 - - $
+d16 1
+a16 1
+      cout << seconds * 1e6 << " microseconds" << endl;
+@
+
+
+1.8
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.7 2020-12-08 15:04:22-08 - - $
+d16 1
+a16 1
+      cout << seconds << " milliseconds" << endl;
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.6 2020-12-08 15:03:49-08 - - $
+d16 1
+a16 1
+      cout << seconds / 1e3 << " milliseconds" << endl;
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.5 2020-12-08 15:02:59-08 - - $
+d16 1
+a16 1
+      cout << seconds / 1e6 << " microseconds" << endl;
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.4 2020-12-08 15:01:56-08 - - $
+d12 1
+a12 1
+   cout << fixed << setprecision(9);
+d16 1
+a16 1
+      cout << seconds << endl;
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.3 2020-12-08 15:01:40-08 - - $
+d11 1
+a11 1
+   hr_clock::time_point start = hr_clock::now();
+d15 1
+a15 1
+      double seconds = chrono::duration<double> (now - start).count();
+d17 1
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.2 2020-12-08 14:56:45-08 - - $
+d11 1
+a11 1
+   hr_clock::time_point start = high_res_clock::now();
+d14 1
+a14 1
+      hr_clock::time_point now = high_res_clock::now();
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: granularity.cpp,v 1.1 2020-12-08 14:56:35-08 - - $
+d11 1
+d14 3
+a16 1
+      cout << hr_clock::now() << endl;
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id$
+d5 1
+a5 1
+#include <iostram>
+@

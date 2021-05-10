@@ -1,0 +1,25 @@
+// $Id: readvector.cpp,v 1.1 2019-08-02 13:34:55-07 - - $
+
+//
+// Use read to copy an entire file from cin into a buffer and print
+// the buffer at EOF using write to cout.
+
+#include <fstream>
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   constexpr size_t READ_SIZE = 256;
+   vector<char> buffer;
+   while (not cin.eof()) {
+      size_t old_size = buffer.size();
+      buffer.resize (old_size + READ_SIZE);
+      cin.read (&buffer[old_size], READ_SIZE);
+      size_t size_read = cin.gcount();
+      if (size_read < READ_SIZE) buffer.resize (old_size + size_read);
+   }
+   cout.write (&buffer[0], buffer.size());
+   return 0;
+}
+

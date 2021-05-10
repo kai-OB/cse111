@@ -1,0 +1,80 @@
+head	1.3;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.3
+date	2020.09.18.22.47.41;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2020.09.18.22.47.15;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.09.18.22.46.12;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@-
+@
+text
+@// $Id: euler-pi.cpp,v 1.2 2020-09-18 15:47:15-07 - - $
+
+// Euler:
+// pi^2/6 = 1/1^2 + 1/2^2 + 1/3^2 + 1/4^2 + ...
+
+#include <cmath>
+#include <iomanip>
+#include <iostream>
+using namespace std;
+
+constexpr auto D_PRECISION = numeric_limits<double>::digits10;
+
+int main() {
+   cout << setprecision (D_PRECISION);
+   double pisqon6 = pow (M_PI, 2.0) / 6.0;
+   cout << "pisqon6 = " << pisqon6 << endl;
+   double sum = 0;
+   for (int i = 1; i <= 40; ++i) {
+      sum += 1.0 / pow (i, 2);
+      cout << i << ": " << sum << " " << (pisqon6 - sum) << endl;
+   }
+}
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: euler-pi.cpp,v 1.2 2020-09-18 15:43:57-07 - - $
+d18 1
+a18 1
+   for (int i = 1; i <= 10; ++i) {
+@
+
+
+1.1
+log
+@-
+@
+text
+@d20 1
+a20 1
+      cout << i << ": " << sum << endl;
+@

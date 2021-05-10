@@ -1,0 +1,17 @@
+::::::::::::::::::::::::::::::::
+boolalpha.cpp.log
+::::::::::::::::::::::::::::::::
+     1	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting boolalpha.cpp
+     2	$Id: boolalpha.cpp,v 1.5 2018-06-20 14:16:54-07 - - $
+     3	checksource boolalpha.cpp
+     4	boolalpha.cpp: $Id: boolalpha.cpp,v 1.5 2018-06-20 14:16:54-07 - - $
+     5	cpplint.py.perl boolalpha.cpp
+     6	Done processing boolalpha.cpp
+     7	g++ -Wall -Wextra -Wpedantic -Wshadow -fdiagnostics-color=never -std=gnu++2a -Wold-style-cast -g -O0 boolalpha.cpp -o boolalpha -lm
+     8	rm -f boolalpha.o
+     9	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished boolalpha.cpp
+::::::::::::::::::::::::::::::::
+boolalpha.out
+::::::::::::::::::::::::::::::::
+     1	true = 1, false = 0
+     2	true = true, false = false

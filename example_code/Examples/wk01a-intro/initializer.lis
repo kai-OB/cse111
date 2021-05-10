@@ -1,0 +1,6 @@
+arg: ./initializer
+arg: hello
+arg: world
+msd: bar 99
+msd: baz -3
+msd: foo 26

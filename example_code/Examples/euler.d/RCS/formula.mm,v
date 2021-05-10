@@ -1,0 +1,249 @@
+head	1.10;
+access;
+symbols;
+locks;
+comment	@.\" @;
+
+
+1.10
+date	2020.11.19.15.02.00;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2020.11.19.14.59.24;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2020.09.06.20.12.46;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2020.09.06.20.07.19;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2020.09.06.20.06.24;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2020.09.06.20.05.53;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2020.09.06.20.05.15;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2020.09.06.20.01.28;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2020.09.06.19.58.33;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.09.06.19.02.52;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.10
+log
+@-
+@
+text
+@.fam N
+.ds pointsize 17.28
+.ds vspacing 20.736
+.ds eqnsize 20.736
+.S \*[pointsize] \*[vspacing]
+.de TP
+.   sp 5v
+..
+.B "Euler's Formula & Identity"
+.sp
+.EQ
+size \*[eqnsize] {
+   pi ~ ~ = ~ ~ roman { acos } ~ ( -1 )
+      ~ ~ = ~ ~ 4 ~ roman { atan } ~ ( 1 )
+      ~ ~ = ~ ~ roman { atan2 } ~ ( 0 , -1 )
+}
+.EN
+.sp
+.EQ
+size \*[eqnsize] { i ~ ~ = ~ ~ sqrt { -1 } }
+.EN
+.sp 2v
+.B "Euler's Formula\|:"
+.sp
+.EQ
+size \*[eqnsize] { e sup { i x } ~ ~ = ~ ~ cos x + i sin x }
+.EN
+.sp 2v
+.B "Euler's Identity\|:"
+.sp
+.EQ
+size \*[eqnsize] { e sup { i pi } + 1 ~ ~ = ~ ~ 0 }
+.EN
+.sp 2v
+.B "Golden Ratio\|:"
+.sp
+.EQ
+size \*[eqnsize] { Phi ~ ~ = ~ ~ { 1 + sqrt 5 } over 2 }
+.EN
+@
+
+
+1.9
+log
+@-
+@
+text
+@d34 1
+a34 1
+.sp 1v
+@
+
+
+1.8
+log
+@-
+@
+text
+@d34 6
+@
+
+
+1.7
+log
+@-
+@
+text
+@d2 4
+a5 1
+.S 17.28 20.736
+d12 1
+a12 1
+size 20.736 {
+d20 1
+a20 1
+size 20.736 { i ~ ~ = ~ ~ sqrt { -1 } }
+d26 1
+a26 1
+size 20.736 { e sup { i x } ~ ~ = ~ ~ cos x + i sin x }
+d32 1
+a32 1
+size 20.736 { e sup { i pi } + 1 ~ ~ = ~ ~ 0 }
+@
+
+
+1.6
+log
+@-
+@
+text
+@d20 1
+a20 1
+Euler's Formula\|:
+d26 1
+a26 1
+Euler's Identity\|:
+@
+
+
+1.5
+log
+@-
+@
+text
+@d17 1
+a17 1
+size 20.736 { i ~ ~ = ~ ~ sqrt { ~ { -1 } } }
+@
+
+
+1.4
+log
+@-
+@
+text
+@d17 1
+a17 1
+size 20.736 { i ~ ~ = ~ ~ sqrt { ~ -1 } }
+@
+
+
+1.3
+log
+@-
+@
+text
+@d17 1
+a17 1
+size 20.736 { i ~ ~ = ~ ~ sqrt { -1 } }
+@
+
+
+1.2
+log
+@-
+@
+text
+@d11 1
+a11 1
+      ~ ~ = ~ ~ 4 ~ roman { atan } ~ 1
+@
+
+
+1.1
+log
+@-
+@
+text
+@a0 2
+.\".so Tmac.mm-etc
+.\".if t .Newcentury-fonts
+d7 1
+a7 1
+.sp 2v
+d9 5
+a13 1
+size 20 { pi = roman { acos } ~ ( -1 ) }
+d15 1
+a15 1
+.P
+d17 1
+a17 1
+size 20 { i = sqrt { -1 } }
+d19 1
+a19 1
+.SP 2v
+d21 1
+a21 1
+.P
+d23 1
+a23 1
+size 20 { e sup { i x } = cos x + i sin x }
+d25 1
+a25 1
+.SP 2v
+d27 1
+a27 1
+.P
+d29 1
+a29 1
+size 20 { e sup { i pi } + 1 = 0 }
+@

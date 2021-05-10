@@ -1,0 +1,167 @@
+head	1.4;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.4
+date	2016.08.02.22.32.49;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2016.08.02.22.32.28;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2016.08.02.22.32.06;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2016.08.02.22.26.44;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.4
+log
+@-
+@
+text
+@// $Id: stdarg-example.c,v 1.3 2016-08-02 15:32:28-07 - - $
+
+// eprintf using stdarg.
+
+#include <stdarg.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+void foo_printf (const char* format, ...) {
+   va_list args;
+   va_start (args, format);
+   while (*format) {
+      char item = *format++;
+      if (item != '%') putchar (item);
+      else if (*format) {
+         switch (*format++) {
+            case 's': {
+               const char *str = va_arg (args, const char*);
+               while (*str) putchar (*str++);
+               break;
+            }
+            case 'c': {
+               char chr = va_arg (args, int);
+               putchar (chr);
+               break;
+            }
+            case 'd': {
+               int num = va_arg (args, int);
+               bool neg = num < 0;
+               char buffer[16];
+               char* bufp = &buffer[sizeof buffer];
+               *--bufp = '\0';
+               do {
+                  *--bufp = abs (num % 10) + '0';
+                  num /= 10;
+               } while (num != 0);
+               if (neg) *--bufp = '-';
+               while (*bufp) putchar (*bufp++);
+               break;
+            }
+            default: {
+               putchar (*format++);
+            }
+         }
+      }
+   }
+   va_end (args);
+}
+
+
+void eprintf (const char* format, ...) {
+   va_list args;
+   va_start (args, format);
+   fflush (NULL);
+   vfprintf (stderr, format, args);
+   va_end (args);
+   fflush (NULL);
+}
+
+void print_ints (size_t count, ...) {
+   va_list args;
+   va_start (args, count);
+   for (size_t index = 0; index < count; ++index) {
+      int value = va_arg (args, int);
+      printf (" %d", value);
+   }
+   va_end (args);
+}
+
+int main (int argc, char** argv) {
+   eprintf ("%s: [%d] message\n", argv[0], argc);
+   print_ints (5, 1, 2, 3, 4, 5);
+   foo_printf ("\n%s/%d/%c\n", "hello", -45, 'x');
+   return 0;
+}
+
+//TEST// stdarg-example >stdarg-example.out 2>&1
+//TEST// mkpspdf stdarg-example.ps stdarg-example.c* stdarg-example.out
+
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: stdarg-example.c,v 1.2 2016-08-02 15:32:06-07 - - $
+a66 11
+   }
+   va_end (args);
+}
+
+void print_ptrs (...) {
+   va_list args;
+   va_start (args, NULL);
+   for (;;) {
+      int* p = va_arg (args, int*);
+      if (p == NULL) break;
+      printf (" %d\n", *p);
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: stdarg-example.c,v 1.1 2016-08-02 15:26:44-07 - - $
+d73 1
+a73 1
+   va_start (args);
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: stdarg-example.c,v 1.9 2016-08-02 14:59:41-07 - - $
+d67 11
+@

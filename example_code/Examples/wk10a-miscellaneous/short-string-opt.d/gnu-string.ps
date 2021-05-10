@@ -1,0 +1,1133 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 38 24 574 768
+%%Title: gnu-string.ps
+%%For: Wesley Mackey
+%%Creator: GNU Enscript 1.6.6
+%%CreationDate: Wed Aug  3 16:25:16 2016
+%%Orientation: Portrait
+%%Pages: (atend)
+%%DocumentMedia: Letter 612 792 0 () ()
+%%DocumentNeededResources: (atend)
+%%EndComments
+%%BeginProlog
+%%BeginResource: procset Enscript-Prolog 1.6 6
+%
+% Procedures.
+%
+
+/_S {	% save current state
+  /_s save def
+} def
+/_R {	% restore from saved state
+  _s restore
+} def
+
+/S {	% showpage protecting gstate
+  gsave
+  showpage
+  grestore
+} bind def
+
+/MF {	% fontname newfontname -> -	make a new encoded font
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  % insert only valid encoding vectors
+  encoding_vector length 256 eq {
+    newfont /Encoding encoding_vector put
+  } if
+
+  newfontname newfont definefont pop
+} def
+
+/MF_PS { % fontname newfontname -> -	make a new font preserving its enc
+  /newfontname exch def
+  /fontname exch def
+
+  /fontdict fontname findfont def
+  /newfont fontdict maxlength dict def
+
+  fontdict {
+    exch
+    dup /FID eq {
+      % skip FID pair
+      pop pop
+    } {
+      % copy to the new font dictionary
+      exch newfont 3 1 roll put
+    } ifelse
+  } forall
+
+  newfont /FontName newfontname put
+
+  newfontname newfont definefont pop
+} def
+
+/SF { % fontname width height -> -	set a new font
+  /height exch def
+  /width exch def
+
+  findfont
+  [width 0 0 height 0 0] makefont setfont
+} def
+
+/SUF { % fontname width height -> -	set a new user font
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF
+  /F-gs-user-font width height SF
+} def
+
+/SUF_PS { % fontname width height -> -	set a new user font preserving its enc
+  /height exch def
+  /width exch def
+
+  /F-gs-user-font MF_PS
+  /F-gs-user-font width height SF
+} def
+
+/M {moveto} bind def
+/s {show} bind def
+
+/Box {	% x y w h -> -			define box path
+  /d_h exch def /d_w exch def /d_y exch def /d_x exch def
+  d_x d_y  moveto
+  d_w 0 rlineto
+  0 d_h rlineto
+  d_w neg 0 rlineto
+  closepath
+} def
+
+/bgs {	% x y height blskip gray str -> -	show string with bg color
+  /str exch def
+  /gray exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    gray setgray
+    fill
+  grestore
+  x y M str s
+} def
+
+/bgcs { % x y height blskip red green blue str -> -  show string with bg color
+  /str exch def
+  /blue exch def
+  /green exch def
+  /red exch def
+  /blskip exch def
+  /height exch def
+  /y exch def
+  /x exch def
+
+  gsave
+    x y blskip sub str stringwidth pop height Box
+    red green blue setrgbcolor
+    fill
+  grestore
+  x y M str s
+} def
+
+% Highlight bars.
+/highlight_bars {	% nlines lineheight output_y_margin gray -> -
+  gsave
+    setgray
+    /ymarg exch def
+    /lineheight exch def
+    /nlines exch def
+
+    % This 2 is just a magic number to sync highlight lines to text.
+    0 d_header_y ymarg sub 2 sub translate
+
+    /cw d_output_w cols div def
+    /nrows d_output_h ymarg 2 mul sub lineheight div cvi def
+
+    % for each column
+    0 1 cols 1 sub {
+      cw mul /xp exch def
+
+      % for each rows
+      0 1 nrows 1 sub {
+        /rn exch def
+        rn lineheight mul neg /yp exch def
+        rn nlines idiv 2 mod 0 eq {
+	  % Draw highlight bar.  4 is just a magic indentation.
+	  xp 4 add yp cw 8 sub lineheight neg Box fill
+	} if
+      } for
+    } for
+
+  grestore
+} def
+
+% Line highlight bar.
+/line_highlight {	% x y width height gray -> -
+  gsave
+    /gray exch def
+    Box gray setgray fill
+  grestore
+} def
+
+% Column separator lines.
+/column_lines {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h translate
+    /cw d_output_w cols div def
+    1 1 cols 1 sub {
+      cw mul 0 moveto
+      0 d_output_h rlineto stroke
+    } for
+  grestore
+} def
+
+% Column borders.
+/column_borders {
+  gsave
+    .1 setlinewidth
+    0 d_footer_h moveto
+    0 d_output_h rlineto
+    d_output_w 0 rlineto
+    0 d_output_h neg rlineto
+    closepath stroke
+  grestore
+} def
+
+% Do the actual underlay drawing
+/draw_underlay {
+  ul_style 0 eq {
+    ul_str true charpath stroke
+  } {
+    ul_str show
+  } ifelse
+} def
+
+% Underlay
+/underlay {	% - -> -
+  gsave
+    0 d_page_h translate
+    d_page_h neg d_page_w atan rotate
+
+    ul_gray setgray
+    ul_font setfont
+    /dw d_page_h dup mul d_page_w dup mul add sqrt def
+    ul_str stringwidth pop dw exch sub 2 div ul_h_ptsize -2 div moveto
+    draw_underlay
+  grestore
+} def
+
+/user_underlay {	% - -> -
+  gsave
+    ul_x ul_y translate
+    ul_angle rotate
+    ul_gray setgray
+    ul_font setfont
+    0 0 ul_h_ptsize 2 div sub moveto
+    draw_underlay
+  grestore
+} def
+
+% Page prefeed
+/page_prefeed {		% bool -> -
+  statusdict /prefeed known {
+    statusdict exch /prefeed exch put
+  } {
+    pop
+  } ifelse
+} def
+
+% Wrapped line markers
+/wrapped_line_mark {	% x y charwith charheight type -> -
+  /type exch def
+  /h exch def
+  /w exch def
+  /y exch def
+  /x exch def
+
+  type 2 eq {
+    % Black boxes (like TeX does)
+    gsave
+      0 setlinewidth
+      x w 4 div add y M
+      0 h rlineto w 2 div 0 rlineto 0 h neg rlineto
+      closepath fill
+    grestore
+  } {
+    type 3 eq {
+      % Small arrows
+      gsave
+        .2 setlinewidth
+        x w 2 div add y h 2 div add M
+        w 4 div 0 rlineto
+        x w 4 div add y lineto stroke
+
+        x w 4 div add w 8 div add y h 4 div add M
+        x w 4 div add y lineto
+	w 4 div h 8 div rlineto stroke
+      grestore
+    } {
+      % do nothing
+    } ifelse
+  } ifelse
+} def
+
+% EPSF import.
+
+/BeginEPSF {
+  /b4_Inc_state save def    		% Save state for cleanup
+  /dict_count countdictstack def	% Count objects on dict stack
+  /op_count count 1 sub def		% Count objects on operand stack
+  userdict begin
+  /showpage { } def
+  0 setgray 0 setlinecap
+  1 setlinewidth 0 setlinejoin
+  10 setmiterlimit [ ] 0 setdash newpath
+  /languagelevel where {
+    pop languagelevel
+    1 ne {
+      false setstrokeadjust false setoverprint
+    } if
+  } if
+} bind def
+
+/EndEPSF {
+  count op_count sub { pos } repeat	% Clean up stacks
+  countdictstack dict_count sub { end } repeat
+  b4_Inc_state restore
+} bind def
+
+% Check PostScript language level.
+/languagelevel where {
+  pop /gs_languagelevel languagelevel def
+} {
+  /gs_languagelevel 1 def
+} ifelse
+%%EndResource
+%%BeginResource: procset Enscript-Encoding-88591 1.6 6
+/encoding_vector [
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclam       	/quotedbl     	/numbersign   	
+/dollar       	/percent      	/ampersand    	/quoteright   	
+/parenleft    	/parenright   	/asterisk     	/plus         	
+/comma        	/hyphen       	/period       	/slash        	
+/zero         	/one          	/two          	/three        	
+/four         	/five         	/six          	/seven        	
+/eight        	/nine         	/colon        	/semicolon    	
+/less         	/equal        	/greater      	/question     	
+/at           	/A            	/B            	/C            	
+/D            	/E            	/F            	/G            	
+/H            	/I            	/J            	/K            	
+/L            	/M            	/N            	/O            	
+/P            	/Q            	/R            	/S            	
+/T            	/U            	/V            	/W            	
+/X            	/Y            	/Z            	/bracketleft  	
+/backslash    	/bracketright 	/asciicircum  	/underscore   	
+/quoteleft    	/a            	/b            	/c            	
+/d            	/e            	/f            	/g            	
+/h            	/i            	/j            	/k            	
+/l            	/m            	/n            	/o            	
+/p            	/q            	/r            	/s            	
+/t            	/u            	/v            	/w            	
+/x            	/y            	/z            	/braceleft    	
+/bar          	/braceright   	/tilde        	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/.notdef      	/.notdef      	/.notdef      	/.notdef      	
+/space        	/exclamdown   	/cent         	/sterling     	
+/currency     	/yen          	/brokenbar    	/section      	
+/dieresis     	/copyright    	/ordfeminine  	/guillemotleft	
+/logicalnot   	/hyphen       	/registered   	/macron       	
+/degree       	/plusminus    	/twosuperior  	/threesuperior	
+/acute        	/mu           	/paragraph    	/bullet       	
+/cedilla      	/onesuperior  	/ordmasculine 	/guillemotright	
+/onequarter   	/onehalf      	/threequarters	/questiondown 	
+/Agrave       	/Aacute       	/Acircumflex  	/Atilde       	
+/Adieresis    	/Aring        	/AE           	/Ccedilla     	
+/Egrave       	/Eacute       	/Ecircumflex  	/Edieresis    	
+/Igrave       	/Iacute       	/Icircumflex  	/Idieresis    	
+/Eth          	/Ntilde       	/Ograve       	/Oacute       	
+/Ocircumflex  	/Otilde       	/Odieresis    	/multiply     	
+/Oslash       	/Ugrave       	/Uacute       	/Ucircumflex  	
+/Udieresis    	/Yacute       	/Thorn        	/germandbls   	
+/agrave       	/aacute       	/acircumflex  	/atilde       	
+/adieresis    	/aring        	/ae           	/ccedilla     	
+/egrave       	/eacute       	/ecircumflex  	/edieresis    	
+/igrave       	/iacute       	/icircumflex  	/idieresis    	
+/eth          	/ntilde       	/ograve       	/oacute       	
+/ocircumflex  	/otilde       	/odieresis    	/divide       	
+/oslash       	/ugrave       	/uacute       	/ucircumflex  	
+/udieresis    	/yacute       	/thorn        	/ydieresis    	
+] def
+%%EndResource
+%%EndProlog
+%%BeginSetup
+%%IncludeResource: font Courier-Bold
+/HFpt_w 10 def
+/HFpt_h 10 def
+/Courier-Bold /HF-gs-font MF
+/HF /HF-gs-font findfont [HFpt_w 0 0 HFpt_h 0 0] makefont def
+/Courier-Bold /F-gs-font MF
+/F-gs-font 11 11 SF
+/#copies 1 def
+% Pagedevice definitions:
+gs_languagelevel 1 gt {
+  <<
+    /PageSize [612 792] 
+  >> setpagedevice
+} if
+%%BeginResource: procset Enscript-Header-enscript-mycolor 1.6 6
+%%IncludeResource: font Times-Bold
+%%IncludeResource: font Times-Roman
+
+% Fonts.
+/Times-Bold /HeaderFont-Bold MF
+/HeaderDateF /HeaderFont-Bold findfont 12 scalefont def
+
+/Times-Roman /HeaderFont-Times MF
+/HeaderHDRF /HeaderFont-Times findfont 14 scalefont def
+
+/HeaderPageNumF /Helvetica-Bold findfont 28.8 scalefont def
+/HeaderPageCountF /Helvetica-Bold findfont 18 scalefont def
+
+/do_header {	% print enscript header
+  gsave
+    d_header_x d_header_y translate
+
+    /dhw d_header_w 4 sub def
+
+    /linecolor {0 0 0 setrgbcolor} bind def  % line color
+    /txcolor   {0 0 0 setrgbcolor} bind def  % text color
+    /fncolor   {0 0 0 setrgbcolor} bind def  % filename line color
+
+    .5 setlinewidth
+
+    % line across bottom of the header area
+    linecolor
+    0 0 moveto dhw 0 lineto
+
+    % side boxes
+    /sbw d_header_h 2 mul def	% side box width
+
+    % left side box
+    0 0 sbw d_header_h Box
+    linecolor
+    stroke
+
+    % date/time in left box
+    txcolor
+    HeaderDateF setfont
+    moddatestr dup stringwidth pop sbw exch sub 2 div
+    d_header_h 2 div 2 add moveto show
+    modtimestr dup stringwidth pop sbw exch sub 2 div
+    d_header_h 5 div moveto show
+
+    % right side box
+    dhw sbw sub 0 sbw d_header_h Box
+    linecolor
+    stroke
+
+    % get width of pagecount
+    HeaderPageCountF setfont
+    pagecountstr stringwidth pop
+
+    txcolor
+    HeaderPageNumF setfont
+    pagenumstr stringwidth pop add  % add to width of pagecount
+    sbw exch sub 2 div dhw sbw sub add
+    d_header_h .2 mul moveto
+
+    pagenumstr show
+
+    HeaderPageCountF setfont
+    pagecountstr show
+
+    % filename
+    fncolor
+    HeaderHDRF setfont
+    dhw fname stringwidth pop sub 2 div d_header_h 8 div moveto
+    fname show
+
+    % user supplied header string.
+    user_header_p {
+      /h d_header_h 8 div 5 mul def
+
+      % HACK around a bug in enscript 1.6.0:
+      % for some reason this is getting set to "(null)" and
+      %
+      user_header_center_str (\(null\)) eq {
+        /user_header_center_str () def
+      } if
+
+      % Implement strict enscript compatibility.
+      user_header_center_str () eq user_header_right_str () eq and {
+        dhw user_header_left_str stringwidth pop sub 2 div
+        h moveto user_header_left_str show
+      } {
+        sbw 5 add h moveto user_header_left_str show
+
+        dhw user_header_center_str stringwidth pop sub 2 div
+        h moveto user_header_center_str show
+
+	dhw sbw sub 5 sub user_header_right_str stringwidth pop
+	sub h moveto user_header_right_str show
+      } ifelse
+    } if
+
+  grestore
+} bind def
+%%EndResource
+/d_page_w 536 def
+/d_page_h 744 def
+/d_header_x 0 def
+/d_header_y 708 def
+/d_header_w 536 def
+/d_header_h 36 def
+/d_footer_x 0 def
+/d_footer_y 0 def
+/d_footer_w 536 def
+/d_footer_h 0 def
+/d_output_w 536 def
+/d_output_h 708 def
+/cols 1 def
+%%EndSetup
+%%Page: (1) 1
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (gnu-string.cpp) def
+/fdir (.) def
+/ftail (gnu-string.cpp) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (08/03/16) def
+/pagecountstr (/3) def
+/modtimestr (16:25:15) def
+/user_header_p true def
+/user_header_left_str ($cmps109-wm/Examples/wk10a-miscellaneous/short-string-opt/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+32.4 694 M (1:) s
+52.2 694 M
+(// $Id: gnu-string.cpp,v 1.21 2016-08-03 16:23:58-07 - - $) s
+32.4 682 M (2:) s
+32.4 670 M (3:) s
+52.2 670 M
+(// G++ basic_string for gcc 4.*.) s
+32.4 658 M (4:) s
+52.2 658 M
+(// Documentation taken from source code.) s
+32.4 646 M (5:) s
+52.2 646 M
+(// Code cleaned up a little.) s
+32.4 634 M (6:) s
+32.4 622 M (7:) s
+52.2 622 M
+(#include <cstring>) s
+32.4 610 M (8:) s
+52.2 610 M
+(#include <iostream>) s
+32.4 598 M (9:) s
+52.2 598 M
+(using namespace std;) s
+25.8 586 M (10:) s
+25.8 574 M (11:) s
+52.2 574 M
+(template <typename char_type>) s
+25.8 562 M (12:) s
+52.2 562 M
+(struct basic_gnustr {) s
+25.8 550 M (13:) s
+52.2 550 M
+(   struct repr_ {) s
+25.8 538 M (14:) s
+52.2 538 M
+(      size_t size_;) s
+25.8 526 M (15:) s
+52.2 526 M
+(      size_t capacity_;) s
+25.8 514 M (16:) s
+52.2 514 M
+(      size_t refcount_;) s
+25.8 502 M (17:) s
+52.2 502 M
+(   }; // NOTE:  not a field.) s
+25.8 490 M (18:) s
+52.2 490 M
+(   static constexpr size_t repr_size = sizeof \(repr_\);) s
+25.8 478 M (19:) s
+52.2 478 M
+(   static constexpr size_t char_size = sizeof \(char_type\);) s
+25.8 466 M (20:) s
+52.2 466 M
+(   static constexpr size_t repr_chars = repr_size / char_size;) s
+25.8 454 M (21:) s
+52.2 454 M
+(   char_type* pointer_;) s
+25.8 442 M (22:) s
+25.8 430 M (23:) s
+52.2 430 M
+(   repr_* repr\(\) {) s
+25.8 418 M (24:) s
+52.2 418 M
+(      repr_* repr_addr = reinterpret_cast<repr_*>\(pointer_\);) s
+25.8 406 M (25:) s
+52.2 406 M
+(      return &repr_addr[-1];) s
+25.8 394 M (26:) s
+52.2 394 M
+(   }) s
+25.8 382 M (27:) s
+25.8 370 M (28:) s
+52.2 370 M
+(   size_t size\(\) { return repr\(\)->size_; }) s
+25.8 358 M (29:) s
+52.2 358 M
+(   size_t capacity\(\) { return repr\(\)->capacity_; }) s
+25.8 346 M (30:) s
+52.2 346 M
+(   char_type& operator[] \(size_t index\) { return pointer_[index]; }) s
+25.8 334 M (31:) s
+52.2 334 M
+(   const char_type* c_str\(\) { return pointer_; }) s
+25.8 322 M (32:) s
+25.8 310 M (33:) s
+52.2 310 M
+(   basic_gnustr\(\): pointer_\(nullptr\) {}) s
+25.8 298 M (34:) s
+52.2 298 M
+(   ~basic_gnustr\(\) { if \(pointer_\) delete[] repr\(\); }) s
+25.8 286 M (35:) s
+25.8 274 M (36:) s
+52.2 274 M
+(   basic_gnustr \(size_t size\) {) s
+25.8 262 M (37:) s
+52.2 262 M
+(      pointer_ = new char_type[repr_chars + size + 1] + repr_chars;) s
+25.8 250 M (38:) s
+52.2 250 M
+(      repr\(\)->size_ = size;) s
+25.8 238 M (39:) s
+52.2 238 M
+(      repr\(\)->capacity_ = size + 1;) s
+25.8 226 M (40:) s
+52.2 226 M
+(      repr\(\)->refcount_ = 1;) s
+25.8 214 M (41:) s
+52.2 214 M
+(      pointer_[0] = 0;) s
+25.8 202 M (42:) s
+52.2 202 M
+(   }) s
+25.8 190 M (43:) s
+25.8 178 M (44:) s
+52.2 178 M
+(   basic_gnustr \(const char_type* str\): basic_gnustr \() s
+25.8 166 M (45:) s
+52.2 166 M
+(      []\(const char_type* begin\) {) s
+25.8 154 M (46:) s
+52.2 154 M
+(         const char_type* end = begin;) s
+25.8 142 M (47:) s
+52.2 142 M
+(         while\(*end++\) continue;) s
+25.8 130 M (48:) s
+52.2 130 M
+(         return end - begin;) s
+25.8 118 M (49:) s
+52.2 118 M
+(      }\(str\)) s
+25.8 106 M (50:) s
+52.2 106 M
+(   \) {) s
+25.8 94 M (51:) s
+52.2 94 M
+(      memcpy \(pointer_, str, sizeof \(char_type\) * size\(\)\);) s
+25.8 82 M (52:) s
+52.2 82 M
+(      pointer_[size\(\)] = 0;) s
+25.8 70 M (53:) s
+52.2 70 M
+(   }) s
+25.8 58 M (54:) s
+25.8 46 M (55:) s
+52.2 46 M
+(};) s
+25.8 34 M (56:) s
+_R
+S
+%%Page: (2) 2
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 2 def
+/fname (gnu-string.cpp) def
+/fdir (.) def
+/ftail (gnu-string.cpp) def
+% User defined strings:
+/pagenumstr (2) def
+/moddatestr (08/03/16) def
+/pagecountstr (/3) def
+/modtimestr (16:25:15) def
+/user_header_p true def
+/user_header_left_str ($cmps109-wm/Examples/wk10a-miscellaneous/short-string-opt/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+25.8 694 M (57:) s
+25.8 682 M (58:) s
+52.2 682 M
+(using gnu_string = basic_gnustr<char>;) s
+25.8 670 M (59:) s
+25.8 658 M (60:) s
+52.2 658 M
+(#define SHOW\(X\) cout << #X << " = " << X << endl;) s
+25.8 646 M (61:) s
+52.2 646 M
+(int main\(\) {) s
+25.8 634 M (62:) s
+52.2 634 M
+(   gnu_string s \("Hello"\);) s
+25.8 622 M (63:) s
+52.2 622 M
+(   SHOW \(s.repr\(\)\);) s
+25.8 610 M (64:) s
+52.2 610 M
+(   SHOW \(static_cast<void*>\(s.pointer_\)\);) s
+25.8 598 M (65:) s
+52.2 598 M
+(   SHOW \(s.repr\(\)->size_\);) s
+25.8 586 M (66:) s
+52.2 586 M
+(   SHOW \(s.repr\(\)->capacity_\);) s
+25.8 574 M (67:) s
+52.2 574 M
+(   SHOW \(s.repr\(\)->refcount_\);) s
+25.8 562 M (68:) s
+52.2 562 M
+(   SHOW \(s.pointer_\);) s
+25.8 550 M (69:) s
+52.2 550 M
+(   SHOW \(s.c_str\(\)\);) s
+25.8 538 M (70:) s
+52.2 538 M
+(}) s
+25.8 526 M (71:) s
+25.8 514 M (72:) s
+52.2 514 M
+(//TEST// valgrind gnu-string >gnu-string.out 2>gnu-string.err) s
+25.8 502 M (73:) s
+52.2 502 M
+(//TEST// more gnu-string.out gnu-string.err >gnu-string.lis </dev/null) s
+25.8 490 M (74:) s
+52.2 490 M
+(//TEST// rm gnu-string.out gnu-string.err) s
+25.8 478 M (75:) s
+52.2 478 M
+(//TEST// mkpspdf gnu-string.ps gnu-string.cpp* gnu-string.lis) s
+25.8 466 M (76:) s
+25.8 454 M (77:) s
+52.2 454 M
+(/**) s
+25.8 442 M (78:) s
+52.2 442 M
+(* @class basic_string basic_string.h <string>) s
+25.8 430 M (79:) s
+52.2 430 M
+(* @brief  Managing sequences of characters and character-like objects.) s
+25.8 418 M (80:) s
+52.2 418 M
+(*) s
+25.8 406 M (81:) s
+52.2 406 M
+(* @ingroup strings) s
+25.8 394 M (82:) s
+52.2 394 M
+(* @ingroup sequences) s
+25.8 382 M (83:) s
+52.2 382 M
+(*) s
+25.8 370 M (84:) s
+52.2 370 M
+(* @tparam _CharT  Type of character) s
+25.8 358 M (85:) s
+52.2 358 M
+(* @tparam _Traits  Traits for character type, defaults to) s
+25.8 346 M (86:) s
+52.2 346 M
+(*                  char_traits<_CharT>.) s
+25.8 334 M (87:) s
+52.2 334 M
+(* @tparam _Alloc  Allocator type, defaults to allocator<_CharT>.) s
+25.8 322 M (88:) s
+52.2 322 M
+(*) s
+25.8 310 M (89:) s
+52.2 310 M
+(* Meets the requirements of a <a href="tables.html#65">container</a>, a) s
+25.8 298 M (90:) s
+52.2 298 M
+(* <a href="tables.html#66">reversible container</a>, and a) s
+25.8 286 M (91:) s
+52.2 286 M
+(* <a href="tables.html#67">sequence</a>.  Of the) s
+25.8 274 M (92:) s
+52.2 274 M
+(* <a href="tables.html#68">optional sequence requirements</a>, only) s
+25.8 262 M (93:) s
+52.2 262 M
+(* @c push_back, @c at, and @c %array access are supported.) s
+25.8 250 M (94:) s
+52.2 250 M
+(*) s
+25.8 238 M (95:) s
+52.2 238 M
+(* @doctodo) s
+25.8 226 M (96:) s
+52.2 226 M
+(*) s
+25.8 214 M (97:) s
+52.2 214 M
+(*) s
+25.8 202 M (98:) s
+52.2 202 M
+(* Documentation?  What's that?) s
+25.8 190 M (99:) s
+52.2 190 M
+(* Nathan Myers <ncm@cantrip.org>.) s
+19.2 178 M (100:) s
+52.2 178 M
+(*) s
+_R
+S
+%%Page: (3) 3
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 3 def
+/fname (gnu-string.cpp) def
+/fdir (.) def
+/ftail (gnu-string.cpp) def
+% User defined strings:
+/pagenumstr (3) def
+/moddatestr (08/03/16) def
+/pagecountstr (/3) def
+/modtimestr (16:25:15) def
+/user_header_p true def
+/user_header_left_str ($cmps109-wm/Examples/wk10a-miscellaneous/short-string-opt/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+19.2 694 M (101:) s
+19.2 682 M (102:) s
+52.2 682 M
+(* A string looks like this:) s
+19.2 670 M (103:) s
+52.2 670 M
+(*) s
+19.2 658 M (104:) s
+52.2 658 M
+(* @code) s
+19.2 646 M (105:) s
+52.2 646 M
+(*                                       [_Rep]) s
+19.2 634 M (106:) s
+52.2 634 M
+(*                                       _M_length) s
+19.2 622 M (107:) s
+52.2 622 M
+(*  [basic_string<char_type>]            _M_capacity) s
+19.2 610 M (108:) s
+52.2 610 M
+(*  _M_dataplus                          _M_refcount) s
+19.2 598 M (109:) s
+52.2 598 M
+(*  _M_p ---------------->               unnamed array of char_type) s
+19.2 586 M (110:) s
+52.2 586 M
+(* @endcode) s
+19.2 574 M (111:) s
+52.2 574 M
+(*) s
+19.2 562 M (112:) s
+52.2 562 M
+(* Where the _M_p points to the first character in the string, and) s
+19.2 550 M (113:) s
+52.2 550 M
+(* you cast it to a pointer-to-_Rep and subtract 1 to get a) s
+19.2 538 M (114:) s
+52.2 538 M
+(* pointer to the header.) s
+19.2 526 M (115:) s
+52.2 526 M
+(*) s
+19.2 514 M (116:) s
+52.2 514 M
+(* This approach has the enormous advantage that a string object) s
+19.2 502 M (117:) s
+52.2 502 M
+(* requires only one allocation.  All the ugliness is confined) s
+19.2 490 M (118:) s
+52.2 490 M
+(* within a single %pair of inline functions, which each compile to) s
+19.2 478 M (119:) s
+52.2 478 M
+(* a single @a add instruction: _Rep::_M_data\(\), and) s
+19.2 466 M (120:) s
+52.2 466 M
+(* string::_M_rep\(\); and the allocation function which gets a) s
+19.2 454 M (121:) s
+52.2 454 M
+(* block of raw bytes and with room enough and constructs a _Rep) s
+19.2 442 M (122:) s
+52.2 442 M
+(* object at the front.) s
+19.2 430 M (123:) s
+52.2 430 M
+(*) s
+19.2 418 M (124:) s
+52.2 418 M
+(* The reason you want _M_data pointing to the character %array and) s
+19.2 406 M (125:) s
+52.2 406 M
+(* not the _Rep is so that the debugger can see the string) s
+19.2 394 M (126:) s
+52.2 394 M
+(* contents. \(Probably we should add a non-inline member to get) s
+19.2 382 M (127:) s
+52.2 382 M
+(* the _Rep for the debugger to use, so users can check the actual) s
+19.2 370 M (128:) s
+52.2 370 M
+(* string length.\)) s
+19.2 358 M (129:) s
+52.2 358 M
+(*) s
+19.2 346 M (130:) s
+52.2 346 M
+(* Note that the _Rep object is a POD so that you can have a) s
+19.2 334 M (131:) s
+52.2 334 M
+(* static <em>empty string</em> _Rep object already @a constructed before) s
+19.2 322 M (132:) s
+52.2 322 M
+(* static constructors have run.  The reference-count encoding is) s
+19.2 310 M (133:) s
+52.2 310 M
+(* chosen so that a 0 indicates one reference, so you never try to) s
+19.2 298 M (134:) s
+52.2 298 M
+(* destroy the empty-string _Rep object.) s
+19.2 286 M (135:) s
+52.2 286 M
+(*) s
+19.2 274 M (136:) s
+52.2 274 M
+(* All but the last paragraph is considered pretty conventional) s
+19.2 262 M (137:) s
+52.2 262 M
+(* for a C++ string implementation.) s
+19.2 250 M (138:) s
+52.2 250 M
+(*/) s
+_R
+S
+%%Page: (1) 4
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (gnu-string.cpp.log) def
+/fdir (.) def
+/ftail (gnu-string.cpp.log) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (08/03/16) def
+/pagecountstr (/1) def
+/modtimestr (16:25:15) def
+/user_header_p true def
+/user_header_left_str ($cmps109-wm/Examples/wk10a-miscellaneous/short-string-opt/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+32.4 694 M (1:) s
+52.2 694 M
+(@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting gnu-string.cpp) s
+32.4 682 M (2:) s
+52.2 682 M
+(gnu-string.cpp: $Id: gnu-string.cpp,v 1.21 2016-08-03 16:23:58-07 - - $) s
+32.4 670 M (3:) s
+52.2 670 M
+(g++ -g -O0 -std=gnu++14 -rdynamic -Wall -Wextra -Wold-style-cast gnu-str) s
+5 658 M
+(ing.cpp -o gnu-string -lglut -lGLU -lGL -lX11 -lrt -lm) s
+32.4 646 M (4:) s
+52.2 646 M
+(cpplint.py.perl gnu-string.cpp) s
+32.4 634 M (5:) s
+52.2 634 M
+(Done processing gnu-string.cpp) s
+32.4 622 M (6:) s
+52.2 622 M
+(@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished gnu-string.cpp) s
+_R
+S
+%%Page: (1) 5
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 1 def
+/fname (gnu-string.lis) def
+/fdir (.) def
+/ftail (gnu-string.lis) def
+% User defined strings:
+/pagenumstr (1) def
+/moddatestr (08/03/16) def
+/pagecountstr (/1) def
+/modtimestr (16:25:16) def
+/user_header_p true def
+/user_header_left_str ($cmps109-wm/Examples/wk10a-miscellaneous/short-string-opt/) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+32.4 694 M (1:) s
+52.2 694 M
+(::::::::::::::) s
+32.4 682 M (2:) s
+52.2 682 M
+(gnu-string.out) s
+32.4 670 M (3:) s
+52.2 670 M
+(::::::::::::::) s
+32.4 658 M (4:) s
+52.2 658 M
+(s.repr\(\) = 0x9c9b090) s
+32.4 646 M (5:) s
+52.2 646 M
+(static_cast<void*>\(s.pointer_\) = 0x9c9b0a8) s
+32.4 634 M (6:) s
+52.2 634 M
+(s.repr\(\)->size_ = 6) s
+32.4 622 M (7:) s
+52.2 622 M
+(s.repr\(\)->capacity_ = 7) s
+32.4 610 M (8:) s
+52.2 610 M
+(s.repr\(\)->refcount_ = 1) s
+32.4 598 M (9:) s
+52.2 598 M
+(s.pointer_ = Hello) s
+25.8 586 M (10:) s
+52.2 586 M
+(s.c_str\(\) = Hello) s
+25.8 574 M (11:) s
+52.2 574 M
+(::::::::::::::) s
+25.8 562 M (12:) s
+52.2 562 M
+(gnu-string.err) s
+25.8 550 M (13:) s
+52.2 550 M
+(::::::::::::::) s
+25.8 538 M (14:) s
+52.2 538 M
+(==15487== Memcheck, a memory error detector) s
+25.8 526 M (15:) s
+52.2 526 M
+(==15487== Copyright \(C\) 2002-2013, and GNU GPL'd, by Julian Seward et al) s
+5 514 M
+(.) s
+25.8 502 M (16:) s
+52.2 502 M
+(==15487== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright ) s
+5 490 M
+(info) s
+25.8 478 M (17:) s
+52.2 478 M
+(==15487== Command: gnu-string) s
+25.8 466 M (18:) s
+52.2 466 M
+(==15487== ) s
+25.8 454 M (19:) s
+52.2 454 M
+(==15487== ) s
+25.8 442 M (20:) s
+52.2 442 M
+(==15487== HEAP SUMMARY:) s
+25.8 430 M (21:) s
+52.2 430 M
+(==15487==     in use at exit: 0 bytes in 0 blocks) s
+25.8 418 M (22:) s
+52.2 418 M
+(==15487==   total heap usage: 2 allocs, 2 frees, 47 bytes allocated) s
+25.8 406 M (23:) s
+52.2 406 M
+(==15487== ) s
+25.8 394 M (24:) s
+52.2 394 M
+(==15487== All heap blocks were freed -- no leaks are possible) s
+25.8 382 M (25:) s
+52.2 382 M
+(==15487== ) s
+25.8 370 M (26:) s
+52.2 370 M
+(==15487== For counts of detected and suppressed errors, rerun with: -v) s
+25.8 358 M (27:) s
+52.2 358 M
+(==15487== ERROR SUMMARY: 0 errors from 0 contexts \(suppressed: 1 from 1\)) s
+_R
+S
+%%Trailer
+%%Pages: 5
+%%DocumentNeededResources: font Times-Roman Courier-Bold Times-Bold 
+%%EOF

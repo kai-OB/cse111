@@ -1,0 +1,21 @@
+::::::::::::::::::::::::::::::::
+isatty.cpp.log
+::::::::::::::::::::::::::::::::
+     1	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting isatty.cpp
+     2	$Id: isatty.cpp,v 1.18 2018-06-20 14:54:34-07 - - $
+     3	checksource isatty.cpp
+     4	isatty.cpp: $Id: isatty.cpp,v 1.18 2018-06-20 14:54:34-07 - - $
+     5	cpplint.py.perl isatty.cpp
+     6	Done processing isatty.cpp
+     7	g++ -Wall -Wextra -Wpedantic -Wshadow -fdiagnostics-color=never -std=gnu++2a -Wold-style-cast -g -O0 isatty.cpp -o isatty -lm
+     8	rm -f isatty.o
+     9	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished isatty.cpp
+::::::::::::::::::::::::::::::::
+isatty.out
+::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::
+isatty.err
+::::::::::::::::::::::::::::::::
+     1	isatty: cin: fd 0: Inappropriate ioctl for device
+     2	isatty: cout: fd 1: Invalid argument
+     3	isatty: cerr: fd 2: Invalid argument

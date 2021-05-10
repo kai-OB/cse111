@@ -1,0 +1,67 @@
+// $Id: dynamic_pointer_cast.cpp,v 1.10 2021-01-28 17:00:08-08 - - $
+
+// Example showing a dynamic cast.
+
+#include <iostream>
+#include <memory>
+#include <string>
+#include <vector>
+using namespace std;
+
+class base {
+   public:
+      virtual string name() const = 0;
+      virtual string type() const = 0;
+      virtual ~base() {}
+};
+using base_ptr = shared_ptr<base>;
+
+class plain: public base {
+   private:
+      string name_ = "plain anonymous";
+   public:
+      plain() = default;
+      plain (const string& name__): name_(name__) {}
+      string name() const override { return name_; }
+      string type() const override { return "plain"; }
+};
+
+class special: public base {
+   private:
+      string name_ = "special anonymous";
+      string rank_ = "special rank";
+   public:
+      special() = default;
+      special (const string& name__): name_(name__) {}
+      string name() const override { return name_ + ": " + rank_; }
+      string type() const override { return "special"; }
+      void set_rank (const string& rank__) { rank_ = rank__; }
+};
+using special_ptr = shared_ptr<special>;
+
+void display (base_ptr item) {
+   cout << item->type() << ": " << item->name() << endl;
+}
+
+int main() {
+   vector<base_ptr> data;
+   data.push_back (make_shared<plain> ("hello"));
+   {
+      special_ptr next = make_shared<special> ("world");
+      next->set_rank ("boss");
+      data.push_back (next);
+   }
+   cout << endl << "first loop:" << endl;
+   for (auto itor: data) display (itor);
+   for (auto itor: data) {
+      special_ptr item = dynamic_pointer_cast<special> (itor);
+      if (item == nullptr) {
+         cout << "ERROR: " << itor->name() << " is not special" << endl;
+      }else {
+         cout << itor->name() << " changing rank to foobar" << endl;
+         item->set_rank ("foobar");
+      }
+   }
+   cout << endl << "second loop:" << endl;
+   for (auto itor: data) display (itor);
+}

@@ -1,0 +1,45 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.1
+date	2021.05.04.18.48.47;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// $Id: asm-template-sum.cpp,v 1.1 2021-05-04 11:12:29-07 - - $
+
+#include <list>
+#include <vector>
+using namespace std;
+
+template <typename container>
+int sum_cont (const container& cont) {
+   int sum = 0;
+   for (int n: cont) sum += n;
+   return sum;
+}
+
+extern list<int> lis_int;
+extern vector<int> vec_int;
+
+int test() {
+   int ls = sum_cont (lis_int);
+   int vs = sum_cont (vec_int);
+   return ls + vs;
+}
+
+@

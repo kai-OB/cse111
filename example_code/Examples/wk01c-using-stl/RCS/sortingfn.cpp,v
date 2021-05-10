@@ -1,0 +1,203 @@
+head	1.7;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.7
+date	2018.06.20.22.44.45;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2018.02.09.23.39.36;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2018.02.09.23.37.51;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2018.02.09.23.36.25;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2018.02.09.23.36.10;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2018.02.09.23.35.52;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2018.02.09.23.34.19;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.7
+log
+@-
+@
+text
+@// $Id: sortingfn.cpp,v 1.6 2018-02-09 15:39:36-08 - - $
+
+#include <algorithm>
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+vector<string> vs {"foo", "bar", "baz", "qux", "hello", "world"};
+vector<int> vi {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5};
+
+template <typename item>
+void print (const string& label, const vector<item>& v) {
+   cout << label << ": ";
+   for (const auto& i: v) cout << " " << i;
+   cout << endl;
+}
+
+int main() {
+   print ("unsorted", vs);
+   sort (vs.begin(), vs.end(), less<string>());
+   print ("less    ", vs);
+   sort (vs.begin(), vs.end(), greater<string>());
+   print ("greater ", vs);
+   print ("unsorted", vi);
+   sort (vi.begin(), vi.end(), less<int>());
+   print ("less    ", vi);
+   sort (vi.begin(), vi.end(), greater<int>());
+   print ("greater ", vi);
+   return 0;
+}
+
+//TEST// ./sortingfn >sortingfn.lis 2>&1
+//TEST// mkpspdf sortingfn.ps sortingfn.cpp* sortingfn.lis
+
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: sortingfn.cpp,v 1.5 2018-02-09 15:37:51-08 - - $
+d33 2
+a34 3
+//TEST// ./sortingfn >sortingfn.out 2>&1
+//TEST// more sortingfn.cpp sortingfn.out >sortingfn.lis </dev/null
+//TEST// mkpspdf sortingfn.ps sortingfn.lis
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: sortingfn.cpp,v 1.4 2018-02-09 15:36:25-08 - - $
+d13 2
+a14 1
+void print (const vector<item>& v) {
+d20 1
+a20 1
+   print (vs);
+d22 1
+a22 1
+   print (vs);
+d24 2
+a25 2
+   print (vs);
+   print (vi);
+d27 1
+a27 1
+   print (vi);
+d29 1
+a29 1
+   print (vi);
+d33 1
+a33 1
+//TEST// valgrind sortingfn >sortingfn.out 2>&1
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: sortingfn.cpp,v 1.3 2018-02-09 15:36:10-08 - - $
+d33 1
+a33 1
+//TEST// more sortingfn.cpp sortingfn.out >sortingfn.lis
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: sortingfn.cpp,v 1.2 2018-02-09 15:35:52-08 - - $
+d3 1
+d5 1
+a6 1
+#include <string>
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: sortingfn.cpp,v 1.1 2018-02-09 15:34:19-08 - - $
+d19 1
+a19 1
+   sort (vs.begin(), vs.end(), less<string>);
+d21 1
+a21 1
+   sort (vs.begin(), vs.end(), greater<string>);
+d24 1
+a24 1
+   sort (vi.begin(), vi.end(), less<int>);
+d26 1
+a26 1
+   sort (vi.begin(), vi.end(), greater<int>);
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id$
+d31 4
+a34 1
+//TEST//
+@

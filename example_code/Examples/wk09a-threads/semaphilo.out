@@ -1,0 +1,87 @@
+ 0.000005 Symposium STARTING
+ 0.010456 (0) Pythagoras is STARTING
+ 0.010546 (0) Pythagoras is thinking 0 (1.303)
+ 0.010588 (2) Plato is STARTING
+ 0.010605 (2) Plato is thinking 0 (1.060)
+ 0.010633 (4) Zeno is STARTING
+ 0.010655 (4) Zeno is thinking 0 (1.048)
+ 0.011554 (1) Socrates is STARTING
+ 0.011590 (1) Socrates is thinking 0 (1.188)
+ 0.011620 (3) Aristotle is STARTING
+ 0.011636 (3) Aristotle is thinking 0 (1.072)
+ 1.059440 (4) Zeno is hungry 0
+ 1.059486 (4) Zeno is eating 0 (0.955)
+ 1.074812 (2) Plato is hungry 0
+ 1.074872 (2) Plato is eating 0 (1.032)
+ 1.084456 (3) Aristotle is hungry 0
+ 1.200389 (1) Socrates is hungry 0
+ 1.313803 (0) Pythagoras is hungry 0
+ 2.015405 (4) Zeno is thinking 1 (0.908)
+ 2.015494 (0) Pythagoras is eating 0 (0.927)
+ 2.106984 (2) Plato is thinking 1 (1.148)
+ 2.107389 (3) Aristotle is eating 0 (0.918)
+ 2.924414 (4) Zeno is hungry 1
+ 2.943400 (0) Pythagoras is thinking 1 (1.018)
+ 2.943466 (1) Socrates is eating 0 (1.145)
+ 3.026412 (3) Aristotle is thinking 1 (0.879)
+ 3.026623 (4) Zeno is eating 1 (1.212)
+ 3.255667 (2) Plato is hungry 1
+ 3.905557 (3) Aristotle is hungry 1
+ 3.962419 (0) Pythagoras is hungry 1
+ 4.088569 (1) Socrates is thinking 1 (1.088)
+ 4.088653 (2) Plato is eating 1 (1.067)
+ 4.238736 (4) Zeno is thinking 2 (1.174)
+ 4.238820 (0) Pythagoras is eating 1 (1.707)
+ 5.155756 (2) Plato is thinking 2 (1.065)
+ 5.155892 (3) Aristotle is eating 1 (0.875)
+ 5.179839 (1) Socrates is hungry 1
+ 5.413406 (4) Zeno is hungry 2
+ 5.945946 (0) Pythagoras is thinking 2 (0.935)
+ 5.946065 (1) Socrates is eating 1 (1.160)
+ 6.031008 (3) Aristotle is thinking 2 (1.687)
+ 6.031077 (4) Zeno is eating 2 (0.899)
+ 6.220903 (2) Plato is hungry 2
+ 6.881384 (0) Pythagoras is hungry 2
+ 6.930174 (4) Zeno is thinking 3 (1.234)
+ 7.106189 (1) Socrates is thinking 2 (1.100)
+ 7.106272 (0) Pythagoras is eating 2 (0.972)
+ 7.106294 (2) Plato is eating 2 (0.985)
+ 7.718149 (3) Aristotle is hungry 2
+ 8.078393 (0) Pythagoras is thinking 3 (0.918)
+ 8.091424 (2) Plato is thinking 3 (0.819)
+ 8.091465 (3) Aristotle is eating 2 (0.858)
+ 8.164319 (4) Zeno is hungry 3
+ 8.206352 (1) Socrates is hungry 2
+ 8.206413 (1) Socrates is eating 2 (1.090)
+ 8.910535 (2) Plato is hungry 3
+ 8.949569 (3) Aristotle is thinking 3 (1.299)
+ 8.949650 (4) Zeno is eating 3 (0.534)
+ 8.996530 (0) Pythagoras is hungry 3
+ 9.296513 (1) Socrates is thinking 3 (0.766)
+ 9.296594 (2) Plato is eating 3 (1.279)
+ 9.483770 (4) Zeno is thinking 4 (0.824)
+ 9.483851 (0) Pythagoras is eating 3 (1.199)
+10.062664 (1) Socrates is hungry 3
+10.248732 (3) Aristotle is hungry 3
+10.307919 (4) Zeno is hungry 4
+10.575718 (2) Plato is thinking 4 (0.807)
+10.575810 (3) Aristotle is eating 3 (0.476)
+10.683408 (0) Pythagoras is thinking 4 (0.909)
+10.683492 (1) Socrates is eating 3 (0.865)
+11.051932 (3) Aristotle is thinking 4 (1.134)
+11.052009 (4) Zeno is eating 4 (1.255)
+11.383385 (2) Plato is hungry 4
+11.549408 (1) Socrates is thinking 4 (0.829)
+11.549491 (2) Plato is eating 4 (1.094)
+11.593040 (0) Pythagoras is hungry 4
+12.186092 (3) Aristotle is hungry 4
+12.307116 (4) Zeno is FINISHED
+12.307257 (0) Pythagoras is eating 4 (1.201)
+12.379391 (1) Socrates is hungry 4
+12.643604 (2) Plato is FINISHED
+12.643678 (3) Aristotle is eating 4 (1.470)
+13.508386 (0) Pythagoras is FINISHED
+13.508504 (1) Socrates is eating 4 (1.064)
+14.114391 (3) Aristotle is FINISHED
+14.572593 (1) Socrates is FINISHED
+14.572777 Symposium FINISHED

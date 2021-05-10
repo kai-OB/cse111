@@ -1,0 +1,390 @@
+head	1.13;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.13
+date	2020.10.30.00.16.18;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2020.10.30.00.15.58;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2017.07.12.21.57.58;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2017.07.12.21.57.13;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2017.07.12.21.56.48;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2014.05.30.23.43.27;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2014.04.14.20.04.47;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2014.04.14.20.04.13;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2014.04.14.20.02.53;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2014.04.14.20.01.58;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2014.04.14.20.00.59;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2014.04.14.20.00.04;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2014.04.14.19.58.46;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.13
+log
+@-
+@
+text
+@// $Id: fixarray.cpp,v 1.12 2020-10-29 17:15:58-07 - - $
+
+//
+// fixarray - implementation of an int vector, using templates,
+// with the array inline in the struct, so size can not be changed.
+// also shows checked operator[] instead of get/put.
+//
+
+#include <iostream>
+#include <stdexcept>
+
+using namespace std;
+
+/////////////////////////////////////////////////////////////////
+// fixarray.h
+/////////////////////////////////////////////////////////////////
+
+template <typename item_t, size_t size_>
+class fixarray {
+   private:
+      item_t data_[size_] {};
+   public:
+      fixarray() = default;
+      fixarray (const fixarray &) = default;            // copy ctor
+      fixarray &operator= (const fixarray &) = default; // copy op=
+      ~fixarray() = default;
+      size_t size() const { return size_; }
+      const item_t& operator[] (size_t index) const{ // get: x = a[i];
+         return data_[index];
+      }
+      item_t& operator[] (size_t index){             // put: a[i] = x;
+         return data_[index];
+      }
+};
+
+/////////////////////////////////////////////////////////////////
+// main.cpp
+/////////////////////////////////////////////////////////////////
+
+using tenvec = fixarray<int,10>;
+int main () {
+   tenvec v1;
+   v1[3] = 99;
+   int x = v1[3];
+   cout << x << endl;
+   tenvec v2 = v1;
+   v2[3] = 1234;
+   cout << v1[3] << " " << v2[3] << endl;
+   v2 = v1;
+   cout << v1[3] << " " << v2[3] << endl;
+   for (size_t i = 0; i < v1.size(); ++i) cout << v1[i];
+   cout << endl;
+   return 0;
+}
+
+//TEST// alias grind='valgrind --leak-check=full --show-reachable=yes'
+//TEST// grind fixarray >fixarray.out 2>&1
+//TEST// mkpspdf fixarray.ps fixarray.cpp* fixarray.out*
+
+@
+
+
+1.12
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: fixarray.cpp,v 1.11 2017-07-12 14:57:58-07 - - $
+a45 5
+   try {
+      cout << "v1[999] = " << v1[999] << endl;
+   }catch (out_of_range error) {
+      cout << error.what() << endl;
+   }
+@
+
+
+1.11
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: fixarray.cpp,v 1.10 2017-07-12 14:57:13-07 - - $
+a21 1
+      void range_check (size_t index) const;
+d28 6
+a33 2
+      const item_t& operator[] (size_t index) const; // get: x = a[i];
+      item_t& operator[] (size_t index);             // put: a[i] = x;
+a35 22
+/////////////////////////////////////////////////////////////////
+// fixarray.tcc
+/////////////////////////////////////////////////////////////////
+
+template <typename item_t, size_t size_>
+void fixarray<item_t,size_>::range_check (size_t index) const {
+   if (index >= size_) throw out_of_range ("fixarray::range_check");
+}
+
+template <typename item_t, size_t size_>
+const item_t& fixarray<item_t,size_>::operator[] (size_t index) const {
+   range_check (index);
+   return data_[index];
+}
+
+template <typename item_t, size_t size_>
+item_t& fixarray<item_t,size_>::operator[] (size_t index) {
+   range_check (index);
+   return data_[index];
+}
+
+
+@
+
+
+1.10
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: fixarray.cpp,v 1.9 2017-07-12 14:56:48-07 - - $
+d43 1
+a43 1
+const item_t fixarray<item_t,size_>::operator[] (size_t index) const {
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: fixarray.cpp,v 1.8 2014-05-30 16:43:27-07 - - $
+d43 1
+a43 1
+item_t fixarray<item_t,size_>::operator[] (size_t index) const {
+@
+
+
+1.8
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: fixarray.cpp,v 1.7 2014-04-14 13:04:47-07 - - $
+d21 1
+a21 1
+      item_t data_[size_];
+d24 1
+a24 1
+      fixarray();
+d28 3
+a30 3
+      size_t size() const;
+      item_t operator[] (size_t index) const; // get: x = a[i];
+      item_t& operator[] (size_t index); // put: a[i] = x;
+a32 1
+
+d34 1
+a34 1
+// fixarray.cpp
+a37 5
+fixarray<item_t,size_>::fixarray() {
+   for (size_t index = 0; index < size_; ++index) data_[index] = int();
+}
+
+template <typename item_t, size_t size_>
+a39 5
+}
+
+template <typename item_t, size_t size_>
+size_t fixarray<item_t,size_>::size() const {
+   return size_;
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: fixarray.cpp,v 1.6 2014-04-14 13:04:13-07 - - $
+d70 1
+a70 1
+typedef fixarray<int,10> tenvec;
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: fixarray.cpp,v 1.5 2014-04-14 13:02:53-07 - - $
+a90 1
+/*
+a93 1
+*/
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: fixarray.cpp,v 1.4 2014-04-14 13:01:58-07 - - $
+d92 2
+a93 3
+//TEST// valgrind --leak-check=full --show-reachable=yes \
+//TEST//       --log-file=fixarray.out.grind \
+//TEST//       fixarray >fixarray.out 2>&1
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: fixarray.cpp,v 1.3 2014-04-14 13:00:59-07 - - $
+d30 1
+a30 1
+      item_t &operator[] (size_t index); // put: a[i] = x;
+d33 1
+d54 1
+a54 1
+int fixarray<item_t,size_>::operator[] (size_t index) const {
+d60 1
+a60 1
+int &fixarray<item_t,size_>::operator[] (size_t index) {
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: fixarray.cpp,v 1.2 2014-04-14 13:00:04-07 - - $
+d29 2
+a30 2
+      int operator[] (size_t index) const; // get: x = a[i];
+      int &operator[] (size_t index); // put: a[i] = x;
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: fixarray.cpp,v 1.1 2014-04-14 12:58:46-07 - - $
+d69 1
+a69 1
+typedef fixarray<10> tenvec;
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: fixarray.cpp,v 1.9 2013-07-08 17:02:55-07 - - $
+d27 1
+a27 1
+      ~fixarray(); = default;
+d38 1
+a38 1
+fixarray<size_>::fixarray() {
+d43 1
+a43 1
+void fixarray<size_>::range_check (size_t index) const {
+d48 1
+a48 1
+size_t fixarray<size_>::size() const {
+d53 1
+a53 1
+int fixarray<size_>::operator[] (size_t index) const {
+d59 1
+a59 1
+int &fixarray<size_>::operator[] (size_t index) {
+@

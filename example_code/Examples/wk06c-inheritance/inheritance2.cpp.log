@@ -1,0 +1,6 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting inheritance2.cpp
+inheritance2.cpp: $Id: inheritance2.cpp,v 1.19 2016-07-21 19:46:50-07 - - $
+g++ -g -O0 -std=gnu++14 -rdynamic -Wall -Wextra -Wold-style-cast inheritance2.cpp -o inheritance2 -lglut -lGLU -lGL -lX11 -lrt -lm
+cpplint.py.perl inheritance2.cpp
+Done processing inheritance2.cpp
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished inheritance2.cpp

@@ -1,0 +1,16 @@
+sizeof u = 24
+sizeof u.long_ = 24
+sizeof u.long_.capacity_ = 8
+sizeof u.long_.size_ = 8
+sizeof u.long_.data_ = 8
+sizeof u.short_ = 24
+sizeof u.short_.size_ = 1
+sizeof u.short_.data_ = 23
+offset (&u, &u) = 0
+offset (&u, &u.long_) = 0
+offset (&u, &u.long_.capacity_) = 8
+offset (&u, &u.long_.size_) = 0
+offset (&u, &u.long_.data_) = 16
+offset (&u, &u.short_) = 0
+offset (&u, &u.short_.size_) = 0
+offset (&u, &u.short_.data_) = 1

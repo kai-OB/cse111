@@ -1,0 +1,7 @@
+main starting
+mutex racer 1 looped 10,000,000 finished mutex_counter 38,138,984
+mutex racer 2 looped 10,000,000 finished mutex_counter 38,824,076
+mutex racer 0 looped 10,000,000 finished mutex_counter 39,055,849
+mutex racer 3 looped 10,000,000 finished mutex_counter 40,000,000
+main finished mutex_counter 40,000,000
+0:04.28 elapsed, 3.53 kernel, 4.60 user

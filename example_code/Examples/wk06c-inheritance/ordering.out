@@ -1,0 +1,14 @@
+int main(): start
+name::name(const string&): first
+name::name(const string&): second
+base::base()
+name::name(const string&): third
+name::name(const string&): fourth
+derived::derived()
+int main(): finish
+virtual derived::~derived()
+name::~name(): fourth
+name::~name(): third
+virtual base::~base()
+name::~name(): second
+name::~name(): first

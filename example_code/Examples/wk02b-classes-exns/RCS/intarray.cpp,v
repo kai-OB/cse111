@@ -1,0 +1,2274 @@
+head	1.88;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.88
+date	2021.04.27.22.53.01;	author -;	state -;
+branches;
+next	1.87;
+
+1.87
+date	2021.04.27.22.29.01;	author -;	state -;
+branches;
+next	1.86;
+
+1.86
+date	2021.04.27.22.27.40;	author -;	state -;
+branches;
+next	1.85;
+
+1.85
+date	2021.04.27.22.27.31;	author -;	state -;
+branches;
+next	1.84;
+
+1.84
+date	2021.04.27.22.27.13;	author -;	state -;
+branches;
+next	1.83;
+
+1.83
+date	2021.04.13.18.09.59;	author -;	state -;
+branches;
+next	1.82;
+
+1.82
+date	2021.04.13.18.09.16;	author -;	state -;
+branches;
+next	1.81;
+
+1.81
+date	2021.04.13.18.07.08;	author -;	state -;
+branches;
+next	1.80;
+
+1.80
+date	2021.04.13.18.05.34;	author -;	state -;
+branches;
+next	1.79;
+
+1.79
+date	2021.04.13.18.04.43;	author -;	state -;
+branches;
+next	1.78;
+
+1.78
+date	2021.04.13.18.04.27;	author -;	state -;
+branches;
+next	1.77;
+
+1.77
+date	2021.04.13.18.01.59;	author -;	state -;
+branches;
+next	1.76;
+
+1.76
+date	2021.04.13.18.01.29;	author -;	state -;
+branches;
+next	1.75;
+
+1.75
+date	2021.04.13.17.59.23;	author -;	state -;
+branches;
+next	1.74;
+
+1.74
+date	2021.04.13.17.59.10;	author -;	state -;
+branches;
+next	1.73;
+
+1.73
+date	2021.04.13.17.52.33;	author -;	state -;
+branches;
+next	1.72;
+
+1.72
+date	2021.04.13.17.34.47;	author -;	state -;
+branches;
+next	1.71;
+
+1.71
+date	2021.04.13.17.34.07;	author -;	state -;
+branches;
+next	1.70;
+
+1.70
+date	2021.04.13.17.21.57;	author -;	state -;
+branches;
+next	1.69;
+
+1.69
+date	2021.04.13.17.14.22;	author -;	state -;
+branches;
+next	1.68;
+
+1.68
+date	2021.04.13.17.13.53;	author -;	state -;
+branches;
+next	1.67;
+
+1.67
+date	2021.04.13.17.13.36;	author -;	state -;
+branches;
+next	1.66;
+
+1.66
+date	2021.04.13.17.10.17;	author -;	state -;
+branches;
+next	1.65;
+
+1.65
+date	2021.04.13.17.02.59;	author -;	state -;
+branches;
+next	1.64;
+
+1.64
+date	2021.04.13.17.02.43;	author -;	state -;
+branches;
+next	1.63;
+
+1.63
+date	2021.04.13.17.01.59;	author -;	state -;
+branches;
+next	1.62;
+
+1.62
+date	2021.04.13.16.57.54;	author -;	state -;
+branches;
+next	1.61;
+
+1.61
+date	2021.04.13.16.57.17;	author -;	state -;
+branches;
+next	1.60;
+
+1.60
+date	2021.04.13.16.50.58;	author -;	state -;
+branches;
+next	1.59;
+
+1.59
+date	2021.04.13.16.50.31;	author -;	state -;
+branches;
+next	1.58;
+
+1.58
+date	2021.04.13.16.46.48;	author -;	state -;
+branches;
+next	1.57;
+
+1.57
+date	2021.04.13.16.43.30;	author -;	state -;
+branches;
+next	1.56;
+
+1.56
+date	2021.04.13.16.43.12;	author -;	state -;
+branches;
+next	1.55;
+
+1.55
+date	2021.04.13.16.35.59;	author -;	state -;
+branches;
+next	1.54;
+
+1.54
+date	2021.04.13.16.00.16;	author -;	state -;
+branches;
+next	1.53;
+
+1.53
+date	2021.04.13.15.59.53;	author -;	state -;
+branches;
+next	1.52;
+
+1.52
+date	2021.04.13.15.59.34;	author -;	state -;
+branches;
+next	1.51;
+
+1.51
+date	2021.04.13.15.55.59;	author -;	state -;
+branches;
+next	1.50;
+
+1.50
+date	2021.04.13.06.32.07;	author -;	state -;
+branches;
+next	1.49;
+
+1.49
+date	2021.04.13.06.30.22;	author -;	state -;
+branches;
+next	1.48;
+
+1.48
+date	2021.04.13.06.29.11;	author -;	state -;
+branches;
+next	1.47;
+
+1.47
+date	2021.04.13.06.26.41;	author -;	state -;
+branches;
+next	1.46;
+
+1.46
+date	2021.04.13.06.26.15;	author -;	state -;
+branches;
+next	1.45;
+
+1.45
+date	2021.04.13.06.23.59;	author -;	state -;
+branches;
+next	1.44;
+
+1.44
+date	2021.04.13.06.23.07;	author -;	state -;
+branches;
+next	1.43;
+
+1.43
+date	2021.04.13.06.21.47;	author -;	state -;
+branches;
+next	1.42;
+
+1.42
+date	2021.04.13.06.21.21;	author -;	state -;
+branches;
+next	1.41;
+
+1.41
+date	2021.04.13.06.17.21;	author -;	state -;
+branches;
+next	1.40;
+
+1.40
+date	2021.04.13.06.15.42;	author -;	state -;
+branches;
+next	1.39;
+
+1.39
+date	2021.04.13.06.14.31;	author -;	state -;
+branches;
+next	1.38;
+
+1.38
+date	2021.04.13.06.14.14;	author -;	state -;
+branches;
+next	1.37;
+
+1.37
+date	2021.04.13.06.11.55;	author -;	state -;
+branches;
+next	1.36;
+
+1.36
+date	2021.04.13.06.08.04;	author -;	state -;
+branches;
+next	1.35;
+
+1.35
+date	2021.04.13.06.05.49;	author -;	state -;
+branches;
+next	1.34;
+
+1.34
+date	2021.04.13.06.02.25;	author -;	state -;
+branches;
+next	1.33;
+
+1.33
+date	2021.04.13.06.01.35;	author -;	state -;
+branches;
+next	1.32;
+
+1.32
+date	2021.04.13.06.00.22;	author -;	state -;
+branches;
+next	1.31;
+
+1.31
+date	2021.04.13.05.59.23;	author -;	state -;
+branches;
+next	1.30;
+
+1.30
+date	2021.04.13.05.58.18;	author -;	state -;
+branches;
+next	1.29;
+
+1.29
+date	2021.04.13.05.56.36;	author -;	state -;
+branches;
+next	1.28;
+
+1.28
+date	2021.04.13.05.55.39;	author -;	state -;
+branches;
+next	1.27;
+
+1.27
+date	2021.04.13.05.54.39;	author -;	state -;
+branches;
+next	1.26;
+
+1.26
+date	2021.04.13.05.54.14;	author -;	state -;
+branches;
+next	1.25;
+
+1.25
+date	2021.04.13.05.47.23;	author -;	state -;
+branches;
+next	1.24;
+
+1.24
+date	2021.04.13.05.47.03;	author -;	state -;
+branches;
+next	1.23;
+
+1.23
+date	2021.04.13.05.41.35;	author -;	state -;
+branches;
+next	1.22;
+
+1.22
+date	2021.04.13.05.41.02;	author -;	state -;
+branches;
+next	1.21;
+
+1.21
+date	2021.04.13.05.40.34;	author -;	state -;
+branches;
+next	1.20;
+
+1.20
+date	2021.04.13.05.35.56;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2021.04.13.05.34.57;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2021.04.13.05.34.34;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2021.04.13.05.30.28;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2021.04.13.05.29.51;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2021.04.13.05.27.10;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2021.04.13.05.24.13;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2021.04.13.05.23.58;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2021.04.13.05.23.38;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2021.04.13.05.22.25;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2021.04.13.05.15.54;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2021.04.13.05.14.29;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2021.04.13.05.14.01;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2021.04.13.05.12.56;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2021.04.13.05.12.39;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2021.04.13.05.11.33;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2021.04.13.05.11.10;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.04.13.05.09.10;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.04.13.05.08.52;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.13.05.08.06;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.88
+log
+@-
+@
+text
+@// $Id: intarray.cpp,v 1.87 2021-04-27 15:29:01-07 - - $
+
+//
+// Array of int class with iterator.
+//
+
+#include <algorithm>
+#include <cassert>
+#include <iomanip>
+#include <iostream>
+#include <string>
+using namespace std;
+
+#define FUNCTION \
+        cout << setw(4) << __LINE__ << ": " \
+             << __PRETTY_FUNCTION__ << endl;
+
+#define ENTER(addr) (addr)->display ("ENTER", #addr);
+#define LEAVE(addr) (addr)->display ("LEAVE", #addr);
+
+#define STMT(stmt) \
+        cout << setw(4) << __LINE__ << ": STMT (" << #stmt \
+             << ");" << endl; \
+        stmt; 
+
+class intarray {
+   private:
+      size_t size_ {};
+      int* data_ {};
+      void delete_data();
+      void display (const char*, const char*) const;
+   public:
+
+      class iterator {
+         friend class intarray;
+         private:
+            int* ptr;
+            iterator (int* ptr_): ptr(ptr_) {}
+         public:
+            bool operator!= (iterator that) { return ptr != that.ptr; }
+            int& operator*() { return *ptr; }
+            iterator& operator++() { ++ptr; return *this; }
+      };
+
+      intarray() = delete;                   // default ctor
+      intarray (const intarray&);            // copy ctor
+      intarray (intarray&&);                 // move ctor
+      intarray& operator= (const intarray&); // copy operator=
+      intarray& operator= (intarray&&);      // move operator=
+      ~intarray();                           // dtor
+      intarray (size_t size);                // other ctor
+
+      iterator begin() { return &data_[0]; }
+      iterator end() { return &data_[size_]; }
+      int& operator[] (size_t index) { return data_[index]; }
+      size_t size() const { return size_; }
+};
+
+void intarray::delete_data() {
+   if (data_ != nullptr) delete[] data_;
+   size_ = 0;
+   data_ = nullptr;
+}
+
+void intarray::display (const char* which, const char* label) const {
+   cout << "      " << which << ": " << label << ": "
+        << this << " -> {" << size_ << ", ";
+   if (data_ == nullptr) cout << "nullptr";
+                    else cout << data_;
+   cout << "}" << endl;
+}
+
+intarray::intarray (const intarray& that):
+          size_(that.size_), data_(new int[size_]) {
+   FUNCTION;
+   ENTER (&that);
+   std::copy (that.data_, that.data_ + that.size_, data_);
+   LEAVE (this);
+   LEAVE (&that);
+}
+
+intarray::intarray (intarray&& that):
+          size_(that.size_), data_(that.data_) {
+   FUNCTION;
+   ENTER (&that);
+   that.size_ = 0;
+   that.data_ = nullptr;
+   LEAVE (this);
+   LEAVE (&that);
+}
+
+intarray& intarray::operator= (const intarray& that) {
+   FUNCTION;
+   ENTER (this);
+   ENTER (&that);
+   if (this == &that) return *this;
+   assert (that.data_);
+   delete_data();
+   size_ = that.size_;
+   data_ = new int[size_];
+   std::copy (that.data_, that.data_ + that.size_, data_);
+   LEAVE (this);
+   LEAVE (&that);
+   return *this;
+}
+
+intarray& intarray::operator= (intarray&& that) {
+   FUNCTION;
+   ENTER (this);
+   ENTER (&that);
+   if (this != &that) {
+      delete_data();
+      size_ = that.size_;
+      data_ = that.data_;
+      that.size_ = 0;
+      that.data_ = nullptr;
+   }
+   LEAVE (this);
+   LEAVE (&that);
+   return *this;
+}
+
+intarray::~intarray() {
+   FUNCTION;
+   ENTER (this);
+   delete_data();
+   LEAVE (this);
+}
+
+intarray::intarray (size_t size):
+          size_(size), data_(new int[size]) {
+   FUNCTION;
+   std::fill (data_, data_ + size_, 0);
+   LEAVE (this);
+}
+
+void print (int line, intarray& arr) {
+   cout << setw(4) << line << ":";
+   for (auto& item: arr) cout << " " << item;
+   cout << endl;
+}
+
+int main() {
+   STMT (intarray first (5););
+   for (size_t i = 0; i < first.size(); ++i) first[i] = i * 111;
+   cout << setw(4) << __LINE__ << ":";
+   for (auto itor = first.begin(); itor != first.end(); ++itor) {
+      cout << " " << *itor;
+   }
+   cout << endl;
+   STMT (for (int& i: first) i *= 2;);
+   STMT (for (int i: first) cout << " " << i;);
+   cout << endl;
+   STMT (intarray second (first););
+   print (__LINE__, second);
+   STMT (intarray third (std::move (first)););
+   print (__LINE__, third);
+   STMT (first = second;);
+   print (__LINE__, first);
+   STMT (first = std::move (third););
+   print (__LINE__, first);
+   STMT (return 0;);
+}
+
+@
+
+
+1.87
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.86 2021-04-27 15:27:40-07 - - $
+d56 1
+a56 1
+      size_t size() { return size_; }
+d143 3
+a145 5
+int main (int argc, char** argv) {
+   STMT (intarray first (argc - 1););
+   for (int index = 1; index < argc; ++index) {
+      first[index - 1] = atoi (argv[index]);
+   }
+@
+
+
+1.86
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.85 2021-04-27 15:27:31-07 - - $
+d153 2
+a154 2
+   for (int& i: first) i *= 2;
+   for (int i: first) cout << " " << i;
+@
+
+
+1.85
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.84 2021-04-27 15:27:13-07 - - $
+d154 1
+a154 1
+   for (int i: first) cout << " " << *i;
+@
+
+
+1.84
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.83 2021-04-13 11:09:59-07 - - $
+d154 1
+a154 1
+   for (int i: first) cout << " " << *itor;
+@
+
+
+1.83
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.82 2021-04-13 11:09:16-07 - - $
+d152 3
+@
+
+
+1.82
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.81 2021-04-13 11:07:08-07 - - $
+a160 2
+   STMT (auto ptr = new intarray(0););
+   STMT (delete ptr);
+@
+
+
+1.81
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.80 2021-04-13 11:05:34-07 - - $
+d161 2
+@
+
+
+1.80
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.79 2021-04-13 11:04:43-07 - - $
+d67 4
+a70 2
+        << this << " -> {" << size_ << ", "
+        << (data_ ? data_ : "nullptr") << "}" << endl;
+@
+
+
+1.79
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.78 2021-04-13 11:04:27-07 - - $
+d67 2
+a68 1
+        << this << " -> {" << size_ << ", " << data_ << "}" << endl;
+@
+
+
+1.78
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.77 2021-04-13 11:01:59-07 - - $
+d59 1
+a59 1
+void delete_data() {
+@
+
+
+1.77
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.76 2021-04-13 11:01:29-07 - - $
+d30 1
+a30 1
+      void delete_data() { if (data_ != nullptr) delete[] data_; }
+d58 6
+@
+
+
+1.76
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.75 2021-04-13 10:59:23-07 - - $
+d152 1
+a152 1
+   return 0;
+@
+
+
+1.75
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.74 2021-04-13 10:59:10-07 - - $
+d59 2
+a60 2
+void intarray::display (const char* position, const char* label) const {
+   cout << "      " << position << ": " << label << ": "
+a66 1
+   ENTER (this);
+a75 1
+   ENTER (this);
+@
+
+
+1.74
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.72 2021-04-13 10:34:47-07 - - $
+d61 1
+a61 1
+        << this << " -> {" \ << size_ << ", " << data_ << "}" << endl;
+@
+
+
+1.73
+log
+@-
+@
+text
+@d18 2
+a19 1
+#define DISPLAY(addr) (addr)->display ("ENTER" ## #addr);
+d31 1
+a31 1
+      void display (const char*) const;
+d59 3
+a61 3
+void intarray::display (const char* label) const {
+   cout << "      " << label << ": " << this << " -> {" \
+        << size_ << ", " << data_ << "}" << endl;
+d67 2
+a68 1
+   DISPLAY (this);
+d70 2
+d77 3
+a79 2
+   DISPLAY (this);
+   DISPLAY (&that);
+d81 2
+d87 2
+a88 2
+   DISPLAY (this);
+   DISPLAY (&that);
+d95 2
+d102 2
+a103 2
+   DISPLAY (this);
+   DISPLAY (&that);
+d108 1
+d111 2
+d118 1
+a118 1
+   DISPLAY (this);
+d120 1
+a125 1
+   DISPLAY (this);
+d127 1
+@
+
+
+1.72
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.71 2021-04-13 10:34:07-07 - - $
+d18 1
+a18 1
+#define DISPLAY(addr) (addr)->display (#addr);
+d74 1
+@
+
+
+1.71
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.70 2021-04-13 10:21:57-07 - - $
+d30 1
+a30 1
+      void display (const char*);
+d58 1
+a58 1
+void intarray::display (const char* label) {
+@
+
+
+1.70
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.69 2021-04-13 10:14:22-07 - - $
+d18 1
+a18 3
+#define DISPLAY(addr) \
+        cout << "      " << #addr << ": " << addr << " -> {" \
+             << (addr)->size_ << ", " << (addr)->data_ << "}" << endl;
+d30 1
+d57 5
+@
+
+
+1.69
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.68 2021-04-13 10:13:53-07 - - $
+a117 10
+int scan (const char* arg) {
+   try {
+      return stoi (arg);
+   }catch (invalid_argument& what) {
+      cerr << arg << ": invalid argument: " << what.what()
+           << " (" << arg << ")" << endl;
+      exit (1);
+   }
+}
+
+d121 1
+a121 1
+      first[index - 1] = scan (argv[index]);
+@
+
+
+1.68
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.67 2021-04-13 10:13:36-07 - - $
+d124 1
+a124 1
+      return 1;
+@
+
+
+1.67
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.66 2021-04-13 10:10:17-07 - - $
+d122 1
+a122 1
+      cerr << argv[0] << ": invalid argument: " << what.what()
+@
+
+
+1.66
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.60 2021-04-13 09:50:58-07 - - $
+d118 10
+d131 1
+a131 1
+      first[index - 1] = stoi (argv[index]);
+@
+
+
+1.65
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.64 2021-04-13 10:02:43-07 - - $
+d120 2
+a121 8
+   try {
+      for (int index = 1; index < argc; ++index) {
+         first[index - 1] = stoi (argv[index]);
+      }
+   }catch (invalid_argument& what) {
+      cerr << argv[0] << ": invalid argument: " << what.what()
+           << " (" << argv[index] << ")" << endl;
+      return 1;
+@
+
+
+1.64
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.63 2021-04-13 10:01:59-07 - - $
+d126 1
+a126 1
+           " (" << argv[index] << ")" << endl;
+@
+
+
+1.63
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.62 2021-04-13 09:57:54-07 - - $
+d125 2
+a126 1
+      cerr << argv[0] << ": invalid argument: " << what.what() << endl;
+@
+
+
+1.62
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.61 2021-04-13 09:57:17-07 - - $
+d119 1
+a120 1
+      STMT (intarray first (argc - 1););
+a123 13
+      cout << setw(4) << __LINE__ << ":";
+      for (auto itor = first.begin(); itor != first.end(); ++itor) {
+         cout << " " << *itor;
+      }
+      cout << endl;
+      STMT (intarray second (first););
+      print (__LINE__, second);
+      STMT (intarray third (std::move (first)););
+      print (__LINE__, third);
+      STMT (first = second;);
+      print (__LINE__, first);
+      STMT (first = std::move (third););
+      print (__LINE__, first);
+d128 13
+@
+
+
+1.61
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.60 2021-04-13 09:50:58-07 - - $
+d138 1
+a138 1
+      cerr << argv[0] << what.what() << endl;
+@
+
+
+1.60
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.59 2021-04-13 09:50:31-07 - - $
+d119 21
+a139 3
+   STMT (intarray first (argc - 1););
+   for (int index = 1; index < argc; ++index) {
+      first[index - 1] = stoi (argv[index]);
+a140 13
+   cout << setw(4) << __LINE__ << ":";
+   for (auto itor = first.begin(); itor != first.end(); ++itor) {
+      cout << " " << *itor;
+   }
+   cout << endl;
+   STMT (intarray second (first););
+   print (__LINE__, second);
+   STMT (intarray third (std::move (first)););
+   print (__LINE__, third);
+   STMT (first = second;);
+   print (__LINE__, first);
+   STMT (first = std::move (third););
+   print (__LINE__, first);
+@
+
+
+1.59
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.58 2021-04-13 09:46:48-07 - - $
+a106 1
+cout << size << endl;
+a119 1
+cout << (argc - 1) << endl;
+@
+
+
+1.58
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.57 2021-04-13 09:43:30-07 - - $
+d107 1
+d121 1
+@
+
+
+1.57
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.56 2021-04-13 09:43:12-07 - - $
+d18 3
+a20 3
+#define DISPLAY(var,addr) \
+        cout << "      " << var << ": " << addr << " -> {" \
+             << size_ << ", " << data_ << "}" << endl;
+d62 1
+a62 1
+   DISPLAY ("this", this);
+d69 1
+a69 1
+   DISPLAY ("this", this);
+d75 2
+a76 2
+   DISPLAY ("this", this);
+   DISPLAY ("that", &that);
+d88 2
+a89 2
+   DISPLAY ("this", this);
+   DISPLAY ("that", &that);
+d101 1
+a101 1
+   DISPLAY ("this", this);
+d108 1
+a108 1
+   DISPLAY ("this", this);
+@
+
+
+1.56
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.55 2021-04-13 09:35:59-07 - - $
+a31 1
+      void display();
+a57 5
+
+void intarray::display (const char* var) {
+   cout << "      " << var << ": " << this << " -> {" \
+        << size_ << ", " << data_ << "}" << endl;
+}
+@
+
+
+1.55
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.54 2021-04-13 09:00:16-07 - - $
+d32 1
+d59 5
+@
+
+
+1.54
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.53 2021-04-13 08:59:53-07 - - $
+d14 1
+a14 1
+#define IDENT \
+d61 1
+a61 1
+   IDENT;
+d68 1
+a68 1
+   IDENT;
+d74 1
+a74 1
+   IDENT;
+d87 1
+a87 1
+   IDENT;
+d90 6
+a95 5
+   if (this == &that) return *this;
+   delete_data();
+   size_ = that.size_;
+   data_ = that.data_;
+   that.data_ = nullptr;
+d100 1
+a100 1
+   IDENT;
+d107 1
+a107 1
+   IDENT;
+@
+
+
+1.53
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.52 2021-04-13 08:59:34-07 - - $
+d61 1
+a61 1
+   IDENT();
+d68 1
+a68 1
+   IDENT();
+d74 1
+a74 1
+   IDENT();
+d87 1
+a87 1
+   IDENT();
+d99 1
+a99 1
+   IDENT();
+d106 1
+a106 1
+   IDENT();
+@
+
+
+1.52
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.51 2021-04-13 08:55:59-07 - - $
+d19 1
+a19 1
+             << "      " << var << ": " << addr << " -> {" \
+@
+
+
+1.51
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.50 2021-04-12 23:32:07-07 - - $
+d14 1
+a14 1
+#define TRACE(var,addr) \
+d16 3
+a18 1
+             << __PRETTY_FUNCTION__ << endl \
+d22 2
+a23 2
+#define SHOW(stmt) \
+        cout << setw(4) << __LINE__ << ": SHOW (" << #stmt \
+d61 2
+a62 1
+   TRACE ("this", this);
+d68 2
+a69 1
+   TRACE ("this", this);
+d74 3
+a76 2
+   TRACE ("this", this);
+   TRACE ("that", &that);
+d87 3
+a89 2
+   TRACE ("this", this);
+   TRACE ("that", &that);
+d99 2
+a100 1
+   TRACE ("this", this);
+d106 2
+a107 1
+   TRACE ("this", this);
+d118 1
+a118 1
+   SHOW (intarray first (argc - 1););
+d127 1
+a127 1
+   SHOW (intarray second (first););
+d129 1
+a129 1
+   SHOW (intarray third (std::move (first)););
+d131 1
+a131 1
+   SHOW (first = second;);
+d133 1
+a133 1
+   SHOW (first = std::move (third););
+@
+
+
+1.50
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.49 2021-04-12 23:30:22-07 - - $
+d15 4
+a18 2
+        cout << setw(4) << __LINE__ << ": " << var << ": " << addr \
+             << " " << __PRETTY_FUNCTION__ << endl;
+@
+
+
+1.49
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.48 2021-04-12 23:29:11-07 - - $
+d15 1
+a15 1
+        cout << setw(4) << __LINE__ << ": " << var << "=" << addr \
+d19 2
+a20 1
+        cout << setw(4) << __LINE__ << ": " << #stmt << endl; \
+@
+
+
+1.48
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.47 2021-04-12 23:26:41-07 - - $
+d101 1
+a101 1
+   cout << line << ":";
+d111 1
+a111 1
+   cout << __LINE__ << ":";
+@
+
+
+1.47
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.46 2021-04-12 23:26:15-07 - - $
+d14 3
+a16 3
+#define TRACE(addr) \
+        cout << setw(4) << __LINE__ << ": " << addr << " " \
+             << __PRETTY_FUNCTION__ << endl;
+d56 1
+a56 1
+   TRACE (this);
+d62 1
+a62 1
+   TRACE (this);
+d67 2
+a68 2
+   TRACE (this);
+   TRACE (&that);
+d79 2
+a80 2
+   TRACE (this);
+   TRACE (&that);
+d90 1
+a90 1
+   TRACE (this);
+d96 1
+a96 1
+   TRACE (this);
+@
+
+
+1.46
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.45 2021-04-12 23:23:59-07 - - $
+d9 1
+a11 1
+#indlude <iomanip>
+@
+
+
+1.45
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.44 2021-04-12 23:23:07-07 - - $
+d11 1
+d15 1
+a15 1
+        cout << __LINE__ << ": " << addr << " " \
+d19 1
+a19 1
+        cout << __LINE__ << ": " << #stmt << endl; \
+@
+
+
+1.44
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.43 2021-04-12 23:21:47-07 - - $
+d17 3
+a19 1
+#define SHOW(stmt) cout << __LINE__ << ": " << #stmt; stmt; 
+@
+
+
+1.43
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.42 2021-04-12 23:21:21-07 - - $
+d13 3
+a15 4
+#define TRACE(addr) { \
+           cout << __LINE__ << ": " << addr << " " \
+                << __PRETTY_FUNCTION__ << endl; \
+        }
+d17 1
+a17 4
+#define SHOW(stmt) { \
+           cout << __LINE__ << ": " << #stmt; \
+           stmt; \
+        }
+@
+
+
+1.42
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.41 2021-04-12 23:17:21-07 - - $
+d19 2
+a20 2
+           cout << __LINE__ << ": " << #stmt;
+           stmt;
+@
+
+
+1.41
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.40 2021-04-12 23:15:42-07 - - $
+d13 9
+a21 4
+#define TRACE(addr) trace (__LINE__, __PRETTY_FUNCTION__, addr)
+void trace (int line, const char* pfn, const void* addr) {
+   cout << line << ": " << addr << " " << pfn << endl;
+}
+d108 1
+a108 1
+   intarray first (argc - 1);
+d117 1
+a117 1
+   intarray second (first);            // copy ctor
+d119 1
+a119 1
+   intarray third (std::move (first)); // move ctor
+d121 1
+a121 1
+   first = second;                     // copy operator=
+d123 1
+a123 1
+   first = std::move (third);          // move operator=
+@
+
+
+1.40
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.39 2021-04-12 23:14:31-07 - - $
+d13 1
+a13 1
+#define TRACE trace (__LINE__, __PRETTY_FUNCTION__, this)
+d52 1
+a52 1
+   TRACE;
+d58 1
+a58 1
+   TRACE;
+d63 2
+a64 1
+   TRACE;
+d75 2
+a76 1
+   TRACE;
+d86 1
+a86 1
+   TRACE;
+d92 1
+a92 1
+   TRACE;
+@
+
+
+1.39
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.38 2021-04-12 23:14:14-07 - - $
+d15 1
+a15 1
+   cout << line << ": " << pfn << " this=" << addr << endl;
+d85 1
+@
+
+
+1.38
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.37 2021-04-12 23:11:55-07 - - $
+a48 1
+}
+@
+
+
+1.37
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.36 2021-04-12 23:08:04-07 - - $
+d41 1
+a41 1
+      ~intarray() { delete_data(); }         // dtor
+a48 5
+
+intarray::intarray (size_t size):
+          size_(size), data_(new int[size]) {
+   TRACE;
+   std::fill (data_, data_ + size_, 0);
+d82 10
+@
+
+
+1.36
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.35 2021-04-12 23:05:49-07 - - $
+d13 5
+d52 1
+d58 1
+d64 1
+d69 1
+d80 1
+@
+
+
+1.35
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.34 2021-04-12 23:02:25-07 - - $
+d63 3
+a65 5
+   if (size_ != that.size_ or data_ == nullptr) {
+      delete_data();
+      size_ = that.size_;
+      data_ = new int[size_];
+   }
+@
+
+
+1.34
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.33 2021-04-12 23:01:35-07 - - $
+d31 7
+a37 7
+      intarray() = delete;
+      intarray (size_t size);
+      intarray (const intarray&);
+      intarray (intarray&&);
+      intarray& operator= (const intarray&);
+      intarray& operator= (intarray&&);
+      ~intarray() { delete_data(); }
+d97 1
+a97 1
+   intarray second (first);
+d99 1
+a99 1
+   intarray third (std::move (first));
+d101 1
+a101 1
+   first = second;
+d103 1
+a103 1
+   first = std::move (third);
+@
+
+
+1.33
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.32 2021-04-12 23:00:22-07 - - $
+d92 1
+@
+
+
+1.32
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.30 2021-04-12 22:58:18-07 - - $
+d81 2
+a82 1
+void print (intarray& arr) {
+d97 1
+a97 1
+   print (second);
+d99 1
+a99 1
+   print (third);
+d101 1
+a101 1
+   print (first);
+d103 1
+a103 1
+   print (first);
+@
+
+
+1.31
+log
+@-
+@
+text
+@d81 1
+a81 2
+void print (int line, intarray& arr) {
+   cout << line << ":";
+d96 1
+a96 1
+   print (__LINE__, second);
+d98 1
+a98 1
+   print (__LINE__, third);
+d100 1
+a100 1
+   print (__LINE__, first);
+d102 1
+a102 1
+   print (__LINE__, first);
+@
+
+
+1.30
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.25 2021-04-12 22:47:23-07 - - $
+d81 2
+a82 1
+void print (intarray& arr) {
+d97 1
+a97 1
+   print (second);
+d99 1
+a99 1
+   print (third);
+d101 1
+a101 1
+   print (first);
+d103 1
+a103 1
+   print (first);
+@
+
+
+1.29
+log
+@-
+@
+text
+@a67 1
+   cout << that.data_ << " " << (that.data_ + that.size_) << " " << data_ << endl;
+@
+
+
+1.28
+log
+@-
+@
+text
+@d63 1
+a63 1
+   if (size_ != that.size_) {
+@
+
+
+1.27
+log
+@-
+@
+text
+@d68 1
+a68 1
+   cout << that.data_ << (that.data_ + that.size_) << data_ << endl;
+@
+
+
+1.26
+log
+@-
+@
+text
+@d68 1
+a68 1
+   cout << (that.data_ << that.data_ + that.size_) << data_ << endl;
+@
+
+
+1.25
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.24 2021-04-12 22:47:03-07 - - $
+d68 1
+@
+
+
+1.24
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.23 2021-04-12 22:41:35-07 - - $
+d8 1
+@
+
+
+1.23
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.22 2021-04-12 22:41:02-07 - - $
+d61 1
+d63 1
+d99 2
+@
+
+
+1.22
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.21 2021-04-12 22:40:34-07 - - $
+d78 1
+a78 1
+void print (const intarray& arr) {
+@
+
+
+1.21
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.20 2021-04-12 22:35:56-07 - - $
+d78 1
+a78 1
+void print (const initarray& arr) {
+@
+
+
+1.20
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.19 2021-04-12 22:34:57-07 - - $
+d78 5
+d84 1
+a84 1
+   intarray arrstr (argc - 1);
+d86 1
+a86 1
+      arrstr[index - 1] = stoi (argv[index]);
+d88 1
+a88 1
+   for (auto itor = arrstr.begin(); itor != arrstr.end(); ++itor) {
+d92 6
+a97 2
+   for (auto& item: arrstr) cout << " " << item;
+   cout << endl;
+@
+
+
+1.19
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.18 2021-04-12 22:34:34-07 - - $
+d84 1
+a84 1
+      cout << *itor << endl;
+d86 3
+a88 1
+   for (auto& item: arrstr) cout << item << endl;
+@
+
+
+1.18
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.17 2021-04-12 22:30:28-07 - - $
+d16 1
+a16 1
+      void erase_data() { if (data_ != nullptr) delete[] data_; }
+@
+
+
+1.17
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.16 2021-04-12 22:29:51-07 - - $
+d16 1
+d22 2
+a23 2
+            int* curr;
+            iterator (int* item): curr(item) {}
+d25 3
+a27 3
+            bool operator!= (iterator that) { return curr != that.curr; }
+            int& operator*() { return *curr; }
+            iterator& operator++() { ++curr; return *this; }
+d36 1
+a36 1
+      ~intarray();
+a61 1
+      if (data_ != nullptr) delete[] data_;
+d71 1
+a71 1
+   if (data_ != nullptr) delete[] data_;
+a75 7
+}
+
+intarray::~intarray() {
+   if (data_ != nullptr) {
+      delete[] data_;
+      data_ = nullptr;
+   }
+@
+
+
+1.16
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.15 2021-04-12 22:27:10-07 - - $
+d18 1
+a18 1
+      class intarray::iterator {
+@
+
+
+1.15
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.13 2021-04-12 22:23:58-07 - - $
+a11 13
+class intarray;
+
+class intarray::iterator {
+   friend class intarray;
+   private:
+      int* curr;
+      iterator (int* item): curr(item) {}
+   public:
+      bool operator!= (iterator that) { return curr != that.curr; }
+      int& operator*() { return *curr; }
+      iterator& operator++() { ++curr; return *this; }
+};
+
+d17 11
+a27 1
+      class iterator;
+d37 2
+a38 2
+      iterator begin();
+      iterator end();
+a42 8
+inline intarray::iterator intarray::begin() {
+   return iterator (&data_[0]);
+}
+
+inline intarray::iterator intarray::end() {
+   return iterator (&data_[size_]);
+}
+
+a76 1
+
+@
+
+
+1.14
+log
+@-
+@
+text
+@d13 1
+@
+
+
+1.13
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.12 2021-04-12 22:23:38-07 - - $
+d12 1
+@
+
+
+1.12
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.11 2021-04-12 22:22:25-07 - - $
+d12 11
+a41 11
+};
+
+class intarray::iterator {
+   friend class intarray;
+   private:
+      int* curr;
+      iterator (int* item): curr(item) {}
+   public:
+      bool operator!= (iterator that) { return curr != that.curr; }
+      int& operator*() { return *curr; }
+      iterator& operator++() { ++curr; return *this; }
+@
+
+
+1.11
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.10 2021-04-12 22:15:54-07 - - $
+d44 7
+a50 2
+inline intarray::iterator intarray::begin() { return iterator (&data_[0]); }
+inline intarray::iterator intarray::end() { return iterator (&data_[size_]); }
+@
+
+
+1.10
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.9 2021-04-12 22:14:29-07 - - $
+d20 1
+d25 1
+a26 2
+      intarray (size_t size);
+      ~intarray();
+d43 3
+a45 2
+inline intarray::iterator begin() { return iterator (&data_[0]); }
+inline intarray::iterator end() { return iterator (&data_[size_]); }
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.8 2021-04-12 22:14:01-07 - - $
+d27 2
+a28 2
+      iterator begin() { return iterator (&data_[0]); }
+      iterator end() { return iterator (&data_[size_]); }
+d43 2
+@
+
+
+1.8
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.7 2021-04-12 22:12:56-07 - - $
+d27 2
+a28 2
+      iterator begin() { return &data_[0]; }
+      iterator end() { return &data_[size_]; }
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.6 2021-04-12 22:12:39-07 - - $
+d17 1
+a17 11
+
+      class iterator {
+         friend class intarray;
+         private:
+            int* curr;
+            iterator (int* item): curr(item) {}
+         public:
+            bool operator!= (iterator that) { return curr != that.curr; }
+            int& operator*() { return *curr; }
+            iterator& operator++() { ++curr; return *this; }
+      };
+d31 11
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.5 2021-04-12 22:11:33-07 - - $
+d71 1
+a71 1
+   if (data_ != nullptr) delete{} data_;
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.4 2021-04-12 22:11:10-07 - - $
+d53 1
+a53 1
+intarray::intarrray (intarray&& that):
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.3 2021-04-12 22:09:10-07 - - $
+d48 1
+a48 1
+intarray::intarray (const intarray& that): {
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.2 2021-04-12 22:08:52-07 - - $
+d48 1
+a48 1
+intarray::intarray (const intarray& that) {
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intarray.cpp,v 1.1 2021-04-12 22:08:06-07 - - $
+d49 1
+a49 1
+          size_(that.size), data_(new int[size_]) {
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: array-string.cpp,v 1.6 2021-04-12 19:57:38-07 - - $
+d4 1
+a4 1
+// Array of string class with iterator.
+d22 1
+a22 1
+            iterator (string* item): curr(item) {}
+d25 1
+a25 1
+            string& operator*() { return *curr; }
+d39 1
+a39 1
+      string& operator[] (size_t index) { return data_[index]; }
+@

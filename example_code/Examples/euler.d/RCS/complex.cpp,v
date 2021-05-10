@@ -1,0 +1,376 @@
+head	1.17;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.17
+date	2021.01.30.05.51.48;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2021.01.30.05.51.28;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2021.01.30.05.49.32;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2021.01.30.05.49.22;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2021.01.30.05.48.46;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2021.01.30.05.48.05;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2021.01.30.05.47.34;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2021.01.30.05.45.41;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2021.01.30.05.44.54;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2021.01.30.05.42.49;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2021.01.30.05.41.48;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2021.01.30.05.40.58;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2021.01.30.01.57.45;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2021.01.30.01.57.29;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.01.30.01.55.29;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.01.30.01.53.20;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.01.30.01.53.03;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.17
+log
+@-
+@
+text
+@// $Id: complex.cpp,v 1.16 2021-01-29 21:51:28-08 - - $
+
+#include <climits>
+#include <complex>
+#include <iomanip>
+#include <iostream>
+#include <vector>
+using namespace std;
+
+using dcomplex = complex<double>;
+using ldouble = long double;
+using ulonglong = unsigned long long;
+
+constexpr auto DPRECISION = numeric_limits<double>::digits10;
+
+dcomplex operator"" _i (ldouble x) { return dcomplex (0, x); }
+dcomplex operator"" _i (ulonglong x) { return dcomplex (0, x); }
+dcomplex operator"" _r (ldouble x) { return dcomplex (x, 0); }
+dcomplex operator"" _r (ulonglong x) { return dcomplex (x, 0); }
+
+ostream& operator<< (ostream& out, dcomplex c) {
+   cout << c.real();
+   if (c.imag()) cout << "+" << c.imag() << "i";
+   return out;
+}
+
+int main(){
+   cout << setprecision (DPRECISION);
+   cerr << setprecision (DPRECISION);
+   dcomplex d = 1;
+   cout << d << endl;
+   cout << sqrt (-1_r) << endl;
+   cout << 10.0_i << endl;
+   cout << -12_i << endl;
+   cout << 0.0 - 12_i << endl;
+}
+@
+
+
+1.16
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: complex.cpp,v 1.15 2021-01-29 21:49:32-08 - - $
+d23 1
+a23 1
+   if (c.imag()) cout << "+" << c.imag();
+@
+
+
+1.15
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: complex.cpp,v 1.14 2021-01-29 21:49:22-08 - - $
+d18 2
+a19 2
+dcomplex operator"" _r (ldouble x) { return dcomplex (x); }
+dcomplex operator"" _r (ulonglong x) { return dcomplex (x); }
+d22 2
+a23 4
+   auto re = c.real();
+   auto im = c.imag();
+   if (im == 0) cout << (re == 0 ? 0 : re);
+           else cout << "(" << re << "," << im << ")";
+@
+
+
+1.14
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: complex.cpp,v 1.13 2021-01-29 21:48:46-08 - - $
+d24 1
+a24 1
+   if (im == 0) cout << (re == 0 ? 0 : re);;
+@
+
+
+1.13
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: complex.cpp,v 1.12 2021-01-29 21:48:05-08 - - $
+d24 1
+a24 1
+   if (im == 0) cout << re == 0 ? 0 : re;;
+@
+
+
+1.12
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: complex.cpp,v 1.11 2021-01-29 21:47:34-08 - - $
+a20 1
+/*
+d24 1
+a24 1
+   if (im == 0) cout << re;
+a27 1
+*/
+@
+
+
+1.11
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: complex.cpp,v 1.10 2021-01-29 21:45:41-08 - - $
+d21 1
+d29 1
+@
+
+
+1.10
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: complex.cpp,v 1.9 2021-01-29 21:44:54-08 - - $
+d22 2
+a23 1
+   auto [re, im] = c;
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: complex.cpp,v 1.8 2021-01-29 21:42:49-08 - - $
+d22 1
+a22 1
+   double [re, im] = c;
+@
+
+
+1.8
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: complex.cpp,v 1.7 2021-01-29 21:41:48-08 - - $
+d22 3
+a24 3
+   out << c.real();
+   auto im = c.imag();
+   if (im != 0) cout << (im < 0 ? "" : "+") << im << 'i';
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: complex.cpp,v 1.6 2021-01-29 21:40:58-08 - - $
+d36 1
+a36 1
+   cout << 0_r - 12_i << endl;
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: complex.cpp,v 1.5 2021-01-29 17:57:45-08 - - $
+d36 1
+a36 1
+   cout << 0-12_i << endl;
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: complex.cpp,v 1.4 2021-01-29 17:57:29-08 - - $
+d36 1
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: complex.cpp,v 1.3 2021-01-29 17:55:29-08 - - $
+d35 1
+a35 1
+   cout << 12_i << endl;
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: complex.cpp,v 1.2 2021-01-29 17:53:20-08 - - $
+d23 2
+a24 1
+   if (c.imag() != 0) cout << '+' << c.imag() << 'i';
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: complex.cpp,v 1.1 2021-01-29 17:53:03-08 - - $
+d18 2
+a19 2
+dcomplex operator"" _c (ldouble x) { return dcomplex (x); }
+dcomplex operator"" _c (ulonglong x) { return dcomplex (x); }
+d32 1
+a32 2
+   auto s = sqrt (dcomplex(-1));
+   cout << s << endl;
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: x.cpp,v 1.43 2021-01-29 17:18:08-08 - - $
+d5 1
+@

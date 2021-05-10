@@ -1,0 +1,1563 @@
+head	1.61;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.61
+date	2021.01.20.00.54.38;	author -;	state -;
+branches;
+next	1.60;
+
+1.60
+date	2021.01.20.00.53.57;	author -;	state -;
+branches;
+next	1.59;
+
+1.59
+date	2021.01.20.00.53.34;	author -;	state -;
+branches;
+next	1.58;
+
+1.58
+date	2021.01.20.00.51.07;	author -;	state -;
+branches;
+next	1.57;
+
+1.57
+date	2021.01.20.00.49.18;	author -;	state -;
+branches;
+next	1.56;
+
+1.56
+date	2021.01.20.00.47.46;	author -;	state -;
+branches;
+next	1.55;
+
+1.55
+date	2021.01.20.00.47.26;	author -;	state -;
+branches;
+next	1.54;
+
+1.54
+date	2021.01.20.00.46.08;	author -;	state -;
+branches;
+next	1.53;
+
+1.53
+date	2021.01.20.00.44.25;	author -;	state -;
+branches;
+next	1.52;
+
+1.52
+date	2021.01.20.00.42.36;	author -;	state -;
+branches;
+next	1.51;
+
+1.51
+date	2021.01.20.00.41.35;	author -;	state -;
+branches;
+next	1.50;
+
+1.50
+date	2021.01.20.00.40.55;	author -;	state -;
+branches;
+next	1.49;
+
+1.49
+date	2021.01.20.00.40.14;	author -;	state -;
+branches;
+next	1.48;
+
+1.48
+date	2021.01.20.00.39.42;	author -;	state -;
+branches;
+next	1.47;
+
+1.47
+date	2021.01.20.00.38.23;	author -;	state -;
+branches;
+next	1.46;
+
+1.46
+date	2021.01.20.00.37.55;	author -;	state -;
+branches;
+next	1.45;
+
+1.45
+date	2021.01.20.00.37.18;	author -;	state -;
+branches;
+next	1.44;
+
+1.44
+date	2021.01.20.00.37.05;	author -;	state -;
+branches;
+next	1.43;
+
+1.43
+date	2021.01.20.00.36.31;	author -;	state -;
+branches;
+next	1.42;
+
+1.42
+date	2020.10.29.00.50.21;	author -;	state -;
+branches;
+next	1.41;
+
+1.41
+date	2020.10.29.00.49.58;	author -;	state -;
+branches;
+next	1.40;
+
+1.40
+date	2019.02.07.21.21.42;	author -;	state -;
+branches;
+next	1.39;
+
+1.39
+date	2018.07.18.21.40.13;	author -;	state -;
+branches;
+next	1.38;
+
+1.38
+date	2018.07.18.21.38.09;	author -;	state -;
+branches;
+next	1.37;
+
+1.37
+date	2018.07.18.21.37.26;	author -;	state -;
+branches;
+next	1.36;
+
+1.36
+date	2018.07.18.21.36.57;	author -;	state -;
+branches;
+next	1.35;
+
+1.35
+date	2018.07.18.21.36.39;	author -;	state -;
+branches;
+next	1.34;
+
+1.34
+date	2018.07.18.21.34.10;	author -;	state -;
+branches;
+next	1.33;
+
+1.33
+date	2018.07.18.21.31.28;	author -;	state -;
+branches;
+next	1.32;
+
+1.32
+date	2018.07.18.21.30.10;	author -;	state -;
+branches;
+next	1.31;
+
+1.31
+date	2018.07.18.21.29.55;	author -;	state -;
+branches;
+next	1.30;
+
+1.30
+date	2018.07.18.21.26.39;	author -;	state -;
+branches;
+next	1.29;
+
+1.29
+date	2018.07.18.21.26.01;	author -;	state -;
+branches;
+next	1.28;
+
+1.28
+date	2018.07.18.21.24.45;	author -;	state -;
+branches;
+next	1.27;
+
+1.27
+date	2018.07.18.21.24.36;	author -;	state -;
+branches;
+next	1.26;
+
+1.26
+date	2018.07.18.21.24.22;	author -;	state -;
+branches;
+next	1.25;
+
+1.25
+date	2018.07.18.21.24.06;	author -;	state -;
+branches;
+next	1.24;
+
+1.24
+date	2014.04.14.20.16.36;	author -;	state -;
+branches;
+next	1.23;
+
+1.23
+date	2014.04.14.20.11.11;	author -;	state -;
+branches;
+next	1.22;
+
+1.22
+date	2014.04.11.02.33.38;	author -;	state -;
+branches;
+next	1.21;
+
+1.21
+date	2014.01.28.21.38.15;	author -;	state -;
+branches;
+next	1.20;
+
+1.20
+date	2013.07.06.02.32.37;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2013.07.06.02.31.07;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2013.07.06.02.24.44;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2013.07.06.02.24.10;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2013.02.16.01.13.01;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2013.02.16.01.12.31;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2012.04.16.20.16.30;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2012.04.16.20.16.00;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2012.04.16.20.15.40;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2012.04.16.20.14.45;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2012.04.16.20.11.36;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2012.04.16.20.10.32;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2012.04.16.20.10.15;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2012.04.16.20.10.07;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2012.04.16.20.09.45;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2012.04.16.20.09.29;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2012.04.16.20.09.19;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2012.04.16.20.07.53;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2012.04.16.20.07.26;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2012.04.16.19.52.01;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.61
+log
+@-
+@
+text
+@// $Id: intvec.cpp,v 1.60 2021-01-19 16:53:57-08 - - $
+
+//
+// intvec - implementation of an int vector, similar to 
+// Stroustrup, ch.17 example.
+//
+
+#include <iostream>
+#include <stdexcept>
+
+using namespace std;
+
+#define DEBUG(X) { \
+        cout << "[" << __LINE__ << "]" << __PRETTY_FUNCTION__ \
+             << ": " << endl << "     " << *X << endl; \
+        }
+
+/////////////////////////////////////////////////////////////////
+// intvec.h
+/////////////////////////////////////////////////////////////////
+
+class intvec {
+   friend ostream& operator<< (ostream&, const intvec&);
+   private:
+      size_t size_;
+      int *data_;
+   public:
+      static bool want_debug;
+      intvec();                          // default ctor
+      intvec (const intvec&);            // copy ctor
+      intvec (intvec&&);                 // move ctor
+      intvec& operator= (const intvec&); // copy operator=
+      intvec& operator= (intvec&&);      // move operator=
+      ~intvec();                         // dtor
+      // Other members.
+      explicit intvec (size_t size);
+      size_t size() const { return size_; }
+      const int& operator[] (size_t index) const {  // x = v[i];
+         return data_[index];
+      }
+      int& operator[] (size_t index) {              // v[i] = x;
+         return data_[index];
+      }
+};
+
+bool intvec::want_debug = false;
+
+
+/////////////////////////////////////////////////////////////////
+// intvec.cpp
+/////////////////////////////////////////////////////////////////
+
+// operator<< intvec
+ostream& operator<< (ostream& out, const intvec& vec) {
+   out << &vec << "->intvec(" << vec.size_;
+   if (vec.data_ == nullptr) out << ",nullptr";
+   else {
+      cout << ',' << vec.data_ << "->";
+      for (size_t index = 0; index != vec.size_; ++index) {
+         cout << (index == 0 ? "[" : ",") << vec.data_[index];
+      }
+      cout << "]";
+   }
+   out << ")";
+   return out;
+}
+
+// Default constructor.
+intvec::intvec(): size_(0), data_(nullptr) {
+   if (want_debug) DEBUG(this);
+}
+
+// Copy constructor.
+intvec::intvec (const intvec& that):
+            size_(that.size_), data_ (new int[that.size_]) {
+   std::copy (&that.data_[0], &that.data_[that.size_], this->data_);
+   if (want_debug) DEBUG(this);
+}
+
+// Move constructor.
+intvec::intvec (intvec&& that): size_(that.size_), data_ (that.data_) {
+   that.size_ = 0;
+   that.data_ = nullptr;
+   if (want_debug) DEBUG(this);
+}
+
+// Copy operator=
+intvec& intvec::operator= (const intvec& that){
+   if (this == &that) return *this;
+   if (data_ != nullptr) delete[] data_;
+   size_ = that.size_;
+   data_ = new int[that.size_];
+   std::copy (&that.data_[0], &that.data_[that.size_], this->data_);
+   if (want_debug) DEBUG(this);
+   return *this;
+}
+
+// Move operator=
+intvec& intvec::operator= (intvec&& that){
+   if (this == &that) return *this;
+   if (data_ != nullptr) delete[] data_;
+   size_ = that.size_;
+   data_ = that.data_;
+   that.size_ = 0;
+   that.data_ = nullptr;
+   if (want_debug) DEBUG(this);
+   return *this;
+}
+
+
+// Destructor.
+intvec::~intvec() {
+   if (data_ != nullptr) delete[] data_;
+   size_ = 0;
+   data_ = nullptr;
+   if (want_debug) DEBUG(this);
+}
+
+// Fixed-size allocator.
+intvec::intvec (size_t size): size_(size), data_ (new int[size_]) {
+   std::fill (&data_[0], &data_[size_], 0);
+   if (want_debug) DEBUG(this);
+}
+
+
+/////////////////////////////////////////////////////////////////
+// main.cpp
+/////////////////////////////////////////////////////////////////
+
+int main (int argc, char**) {
+   intvec::want_debug = argc > 1;
+   intvec v1(10);
+   v1[3] = 33;
+   v1[5] = 55;
+   intvec v2(v1);
+   intvec v3;
+   v3 = v2;
+   cout << "v1 = " << v1 << endl;
+   cout << "v2 = " << v2 << endl;
+   v2 = std::move(v1);
+   cout << "v1 = " << v1 << endl;
+   cout << "v2 = " << v2 << endl;
+   intvec* pv = new intvec(5);
+   delete pv;
+   return 0;
+}
+
+//TEST// alias grind='valgrind --leak-check=full --show-reachable=yes'
+//TEST// grind intvec >intvec.out 2>&1
+//TEST// mkpspdf intvec.ps intvec.cpp* intvec.out*
+
+@
+
+
+1.60
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.59 2021-01-19 16:53:34-08 - - $
+d15 1
+a15 1
+             << ": " << *X << endl; \
+@
+
+
+1.59
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.58 2021-01-19 16:51:07-08 - - $
+d15 1
+a15 1
+             << ": " << X << "->" << *X << endl; \
+@
+
+
+1.58
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.57 2021-01-19 16:49:18-08 - - $
+d15 1
+a15 1
+             << ": " << X << endl; \
+@
+
+
+1.57
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.56 2021-01-19 16:47:46-08 - - $
+d29 6
+a34 6
+      intvec(): size_(0), data_(nullptr) {} // default ctor
+      intvec (const intvec&);               // copy ctor
+      intvec (intvec&&);                    // move ctor
+      intvec& operator= (const intvec&);    // copy operator=
+      intvec& operator= (intvec&&);         // move operator=
+      ~intvec();                            // dtor
+d66 5
+@
+
+
+1.56
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.55 2021-01-19 16:47:26-08 - - $
+d131 2
+d138 2
+@
+
+
+1.55
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.54 2021-01-19 16:46:08-08 - - $
+d14 1
+a14 1
+        cout << "[" << __LINE__ < "]" << __PRETTY_FUNCTION__ \
+@
+
+
+1.54
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.52 2021-01-19 16:42:36-08 - - $
+d13 4
+a16 1
+#define DEBUG(X) { cout << __PRETTY_FUNCTION__ << ": " << X << endl; }
+@
+
+
+1.53
+log
+@-
+@
+text
+@d86 1
+a87 1
+   if (want_debug) DEBUG(this);
+d98 1
+a99 1
+   if (want_debug) DEBUG(this);
+a123 1
+cout << intvec::want_debug;
+@
+
+
+1.52
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.51 2021-01-19 16:41:35-08 - - $
+d124 1
+@
+
+
+1.51
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.50 2021-01-19 16:40:55-08 - - $
+d129 1
+a129 1
+   cout << "v2 = " << v1 << endl;
+d132 1
+a132 1
+   cout << "v2 = " << v1 << endl;
+@
+
+
+1.50
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.49 2021-01-19 16:40:14-08 - - $
+d55 1
+a55 1
+      cout << ',' << vec.data_ << "->[";
+d57 1
+a57 1
+         cout << "," << vec.data_[index];
+@
+
+
+1.49
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.48 2021-01-19 16:39:42-08 - - $
+d55 1
+a55 1
+      cout << vec.data_ << "->[";
+@
+
+
+1.48
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.47 2021-01-19 16:38:23-08 - - $
+d52 1
+a52 1
+   out << this << "->intvec(" << vec.size_;
+@
+
+
+1.47
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.46 2021-01-19 16:37:55-08 - - $
+d52 1
+a52 1
+   out << "intvec(" << vec.size_;
+d55 1
+d59 1
+@
+
+
+1.46
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.45 2021-01-19 16:37:18-08 - - $
+d59 1
+a59 1
+   out << ")" << endl;
+@
+
+
+1.45
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.44 2021-01-19 16:37:05-08 - - $
+d53 1
+a53 1
+   if (data_ == nullptr) out << ",nullptr";
+d120 1
+a120 1
+int main (int argc) {
+@
+
+
+1.44
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.43 2021-01-19 16:36:31-08 - - $
+d56 1
+a56 1
+         cout << "," << vev.data_[index];
+@
+
+
+1.43
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.42 2020-10-28 17:50:21-07 - - $
+d59 1
+a59 1
+   cut << ")" << endl;
+d121 1
+a121 1
+   intvec.want_debug = argc > 1;
+@
+
+
+1.42
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.41 2020-10-28 17:49:58-07 - - $
+d13 2
+d20 1
+d25 1
+d43 2
+d50 13
+d67 1
+d74 1
+d85 1
+d97 1
+d104 3
+d112 1
+d120 2
+a121 1
+int main() {
+d123 8
+a130 8
+   v1[3] = 99;
+   int x = v1[3];
+   cout << x << endl;
+   intvec v2 = v1;
+   v2[3] = 1234;
+   cout << v1[3] << " " << v2[3] << endl;
+   v2 = v1;
+   cout << v1[3] << " " << v2[3] << endl;
+@
+
+
+1.41
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.40 2019-02-07 13:21:42-08 - - $
+a97 5
+   try {
+      v1[999];
+   }catch (out_of_range error) {
+      cerr << "out_of_range error: " << error.what() << endl;
+   }
+@
+
+
+1.40
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.39 2018-07-18 14:40:13-07 - - $
+a20 1
+      void rangecheck_ (size_t index) const;
+d31 6
+a36 2
+      int operator[] (size_t index) const;  // x = v[i];
+      int& operator[] (size_t index);       // v[i] = x;
+a43 5
+// Private.
+inline void intvec::rangecheck_ (size_t index) const {
+   if (index >= size_) throw out_of_range (__PRETTY_FUNCTION__);
+}
+
+a85 10
+}
+
+int intvec::operator[] (size_t index) const {
+   rangecheck_ (index);
+   return data_[index];
+}
+
+int& intvec::operator[] (size_t index) {
+   rangecheck_ (index);
+   return data_[index];
+@
+
+
+1.39
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.38 2018-07-18 14:38:09-07 - - $
+d21 1
+a21 1
+      void rangecheck_ (size_t index, const char* function) const;
+d42 2
+a43 2
+void intvec::rangecheck_ (size_t index, const char* function) const {
+   if (index >= size_) throw out_of_range (function);
+d91 1
+a91 1
+   rangecheck_ (index, __PRETTY_FUNCTION__);
+d96 1
+a96 1
+   rangecheck_ (index, __PRETTY_FUNCTION__);
+@
+
+
+1.38
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.37 2018-07-18 14:37:26-07 - - $
+d60 5
+a64 6
+   if (this != &that) {
+      if (data_ != nullptr) delete[] data_;
+      size_ = that.size_;
+      data_ = new int[that.size_];
+      std::copy (&that.data_[0], &that.data_[that.size_], this->data_);
+   }
+d70 6
+a75 7
+   if (this != &that) {
+      if (data_ != nullptr) delete[] data_;
+      size_ = that.size_;
+      data_ = that.data_;
+      that.size_ = 0;
+      that.data_ = nullptr;
+   }
+@
+
+
+1.37
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.36 2018-07-18 14:36:57-07 - - $
+d43 1
+a43 3
+   if (index >= size_) {
+      throw out_of_range ("out of range: "s + function);
+   }
+@
+
+
+1.36
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.35 2018-07-18 14:36:39-07 - - $
+d42 1
+a42 1
+void intvec::rangecheck_ (size_t index, const char* function) {
+@
+
+
+1.35
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.34 2018-07-18 14:34:10-07 - - $
+d21 1
+a21 1
+      void rangecheck_ (size_t index) const;
+@
+
+
+1.34
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.33 2018-07-18 14:31:28-07 - - $
+d42 4
+a45 2
+void intvec::rangecheck_ (size_t index) const {
+   if (index >= size_) throw out_of_range (__PRETTY_FUNCTION__);
+d95 1
+a95 1
+   rangecheck_ (index);
+d100 1
+a100 1
+   rangecheck_ (index);
+@
+
+
+1.33
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.32 2018-07-18 14:30:10-07 - - $
+d89 1
+a89 3
+   for (size_t index = 0; index < size_; ++index) {
+      data_[index] = 0;
+   }
+d115 1
+a115 1
+      cerr << error.what() << endl;
+@
+
+
+1.32
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.31 2018-07-18 14:29:55-07 - - $
+d43 1
+a43 1
+   if (index >= size_) throw out_of_range ("intvec::rangecheck_");
+@
+
+
+1.31
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.30 2018-07-18 14:26:39-07 - - $
+d49 1
+a49 1
+   std::copy (&that.data_[0], &that.data[that.size_], this->data_);
+d64 1
+a64 1
+      std::copy (&that.data_[0], &that.data[that.size_], this->data_);
+@
+
+
+1.30
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.29 2018-07-18 14:26:01-07 - - $
+a20 1
+      void copydata_ (int *data);
+a41 7
+void intvec::copydata_ (int *data) {
+   for (size_t index = 0; index < size_; ++index) {
+      data_[index] = data[index];
+   }
+}
+
+// Private.
+d49 1
+a49 1
+   copydata_ (that.data_);
+d64 1
+a64 1
+      copydata_ (that.data_);
+@
+
+
+1.29
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.28 2018-07-18 14:24:45-07 - - $
+d33 2
+a34 2
+      int operator[] (size_t index) const; // x = v[i];
+      int& operator[] (size_t index);      // v[i] = x;
+@
+
+
+1.28
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.27 2018-07-18 14:24:36-07 - - $
+d103 5
+@
+
+
+1.27
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.26 2018-07-18 14:24:22-07 - - $
+d124 1
+a124 1
+   cout << v1[3] << " " << v2.get (3) << endl;
+@
+
+
+1.26
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.25 2018-07-18 14:24:06-07 - - $
+d118 1
+a118 1
+      v1.get (999);
+@
+
+
+1.25
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.24 2014-04-14 13:16:36-07 - - $
+a51 4
+}
+
+// Default ctor.
+intvec::intvec(): size_(0), data_(nullptr) {
+@
+
+
+1.24
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.23 2014-04-14 13:11:11-07 - - $
+d19 4
+a22 4
+      size_t _size;
+      int *_data;
+      void copy_data (int *data);
+      void range_check (size_t index) const;
+d24 6
+a29 6
+      intvec ();                         // default ctor
+      intvec (const intvec&);            // copy ctor
+      intvec (intvec&&);                 // move ctor
+      intvec& operator= (const intvec&); // copy operator=
+      intvec& operator= (intvec&&);      // move operator=
+      ~intvec();                         // dtor
+d32 3
+a34 3
+      size_t size() const;
+      int get (size_t index) const;
+      void put (size_t index, int value);
+d43 3
+a45 3
+void intvec::copy_data (int *data) {
+   for (size_t index = 0; index < _size; ++index) {
+      _data[index] = data[index];
+d50 2
+a51 2
+void intvec::range_check (size_t index) const {
+   if (index >= _size) throw out_of_range ("intvec::range_check");
+d55 1
+a55 1
+intvec::intvec(): _size(0), _data(nullptr) {
+d60 2
+a61 2
+            _size(that._size), _data (new int[that._size]) {
+   copy_data (that._data);
+d65 3
+a67 4
+intvec::intvec (intvec&& that):
+            _size(that._size), _data (that._data) {
+   that._size = 0;
+   that._data = nullptr;
+d73 4
+a76 4
+      if (_data != nullptr) delete[] _data;
+      _size = that._size;
+      _data = new int[that._size];
+      copy_data (that._data);
+d84 5
+a88 5
+      if (_data != nullptr) delete[] _data;
+      _size = that._size;
+      _data = that._data;
+      that._size = 0;
+      that._data = nullptr;
+d96 1
+a96 1
+   if (_data != nullptr) delete[] _data;
+d100 3
+a102 3
+intvec::intvec (size_t size): _size(size), _data (new int[_size]) {
+   for (size_t index = 0; index < _size; ++index) {
+      _data[index] = 0;
+d106 3
+a108 12
+size_t intvec::size() const {
+   return _size;
+}
+
+int intvec::get (size_t index) const {
+   range_check (index);
+   return _data[index];
+}
+
+void intvec::put (size_t index, int value) {
+   range_check (index);
+   _data[index] = value;
+d116 1
+a116 1
+int main () {
+d118 2
+a119 2
+   v1.put (3, 99);
+   int x = v1.get (3);
+d127 2
+a128 2
+   v2.put (3, 1234);
+   cout << v1.get (3) << " " << v2.get (3) << endl;
+d130 1
+a130 1
+   cout << v1.get (3) << " " << v2.get (3) << endl;
+@
+
+
+1.23
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.22 2014-04-10 19:33:38-07 - - $
+d24 6
+a29 6
+      intvec ();                          // default ctor
+      intvec (const intvec &);            // copy ctor
+      intvec (intvec &&);                 // move ctor
+      intvec &operator= (const intvec &); // copy operator=
+      intvec &operator= (intvec &&);      // move operator=
+      ~intvec();                          // dtor
+d59 1
+a59 1
+intvec::intvec (const intvec &that):
+d65 1
+a65 1
+intvec::intvec (intvec &&that):
+d72 1
+a72 1
+intvec &intvec::operator= (const intvec &that){
+d83 1
+a83 1
+intvec &intvec::operator= (intvec &&that){
+@
+
+
+1.22
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.21 2014-01-28 13:38:15-08 - - $
+d144 2
+a145 4
+/*
+//TEST// valgrind --leak-check=full --show-reachable=yes \
+//TEST//       --log-file=intvec.out.grind \
+//TEST//       intvec >intvec.out 2>&1
+a146 1
+*/
+@
+
+
+1.21
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.20 2013-07-05 19:32:37-07 - - $
+d24 1
+a24 1
+      intvec () = delete;                 // default ctor
+d54 4
+@
+
+
+1.20
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.19 2013-07-05 19:31:07-07 - - $
+d64 1
+a64 1
+   that._data = NULL;
+d70 1
+a70 1
+      delete[] _data;
+d81 1
+d85 1
+a85 1
+      that._data = NULL;
+d93 1
+a93 1
+   if (_data != NULL) delete[] _data;
+@
+
+
+1.19
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.18 2013-07-05 19:24:44-07 - - $
+d42 1
+d49 1
+d89 1
+@
+
+
+1.18
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.17 2013-07-05 19:24:10-07 - - $
+d58 8
+a65 1
+// Operator=
+d76 11
+d89 1
+a89 1
+   delete[] _data;
+@
+
+
+1.17
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.16 2013-02-15 17:13:01-08 - - $
+a20 1
+      intvec() = delete;
+d24 1
+a24 1
+      intvec () = delete;
+@
+
+
+1.16
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.15 2013-02-15 17:12:31-08 - - $
+d25 6
+a30 3
+      intvec (const intvec &); // copy ctor
+      intvec &operator= (const intvec &); // operator=
+      ~intvec(); // dtor
+@
+
+
+1.15
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.14 2012-04-16 13:16:30-07 - - $
+a49 2
+// Default constructor is disabled.
+
+@
+
+
+1.14
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.13 2012-04-16 13:16:00-07 - - $
+d21 1
+a21 1
+      intvec(); // DISABLE: default ctor
+@
+
+
+1.13
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.12 2012-04-16 13:15:40-07 - - $
+d108 1
+a108 1
+      cout << error.what() << endl;
+@
+
+
+1.12
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.11 2012-04-16 13:14:45-07 - - $
+d95 1
+@
+
+
+1.11
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.10 2012-04-16 13:11:36-07 - - $
+d35 1
+d117 7
+@
+
+
+1.10
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.9 2012-04-16 13:10:32-07 - - $
+d75 3
+d94 22
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.8 2012-04-16 13:10:15-07 - - $
+d23 1
+a23 1
+      void range_check (size_t index);
+d45 1
+a45 1
+void intvec::range_check (size_t index) {
+@
+
+
+1.8
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.7 2012-04-16 13:10:07-07 - - $
+d77 1
+a77 1
+size_t size() const {
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.6 2012-04-16 13:09:45-07 - - $
+d58 1
+a58 1
+intvec &intvec::operator= (const intvec &){
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.5 2012-04-16 13:09:29-07 - - $
+d53 1
+a53 1
+            _size(that.size), _data (new int[that._size]) {
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.4 2012-04-16 13:09:19-07 - - $
+d41 1
+a41 1
+      _data[index] = that._data[index];
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.3 2012-04-16 13:07:53-07 - - $
+d39 1
+a39 1
+void intvec::copy_data (int *data) ){
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.2 2012-04-16 13:07:26-07 - - $
+d22 1
+a22 1
+      void copy_data (const intvec &);
+d39 1
+a39 1
+void intvec::copy_data (const intvec &that) {
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intvec.cpp,v 1.1 2012-04-16 12:52:01-07 - - $
+d9 1
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id$
+d18 14
+a31 1
+      ssize_t _size;
+d33 57
+a89 1
+    
+@

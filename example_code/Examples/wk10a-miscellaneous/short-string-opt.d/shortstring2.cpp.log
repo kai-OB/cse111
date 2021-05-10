@@ -1,0 +1,6 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting shortstring2.cpp
+shortstring2.cpp: $Id: shortstring2.cpp,v 1.7 2016-08-03 13:16:57-07 - - $
+g++ -g -O0 -std=gnu++14 -rdynamic -Wall -Wextra -Wold-style-cast shortstring2.cpp -o shortstring2 -lglut -lGLU -lGL -lX11 -lrt -lm
+cpplint.py.perl shortstring2.cpp
+Done processing shortstring2.cpp
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished shortstring2.cpp

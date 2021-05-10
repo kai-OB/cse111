@@ -1,0 +1,100 @@
+head	1.3;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.3
+date	2020.01.30.01.06.19;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2020.01.30.01.05.59;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.01.30.01.05.05;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.3
+log
+@-
+@
+text
+@// $Id: map-insert.cpp,v 1.2 2020-01-29 17:05:59-08 - - $
+
+#include <string>
+#include <iostream>
+#include <map>
+using namespace std;
+
+template <typename map_type>
+void dump_map (const string& fname, const map_type& map) {
+   cout << fname << ":" << endl;
+   for (const auto& item: map) {
+      cout << item.first << " -> " << item.second << endl;
+   }
+}
+
+void use_emplace (int argc, const char* const* argv) {
+   map<string,int> msi;
+   for (int i = 1; i < argc; ++i) {
+      msi.emplace (argv[i], i);
+   }
+   dump_map (__PRETTY_FUNCTION__, msi);
+}
+
+void use_insert (int argc, const char* const* argv) {
+   map<string,int> msi;
+   for (int i = 1; i < argc; ++i) {
+      msi.insert ({argv[i], i});
+   }
+   dump_map (__PRETTY_FUNCTION__, msi);
+}
+
+int main (int argc, char** argv) {
+   use_emplace (argc, argv);
+   use_insert (argc, argv);
+}
+
+//TEST// map-insert foo bar baz qux hello world >map-insert.out 2>&1
+//TEST// mkpspdf map-insert.ps map-insert.cpp* map-insert.out
+
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: map-insert.cpp,v 1.1 2020-01-29 17:05:05-08 - - $
+d38 1
+a38 1
+//TEST// pksppdf map-insert.ps map-insert.cpp* map-insert.out
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: maps.cpp,v 1.4 2020-01-29 16:16:26-08 - - $
+d37 3
+a39 1
+//TEST// ./
+@

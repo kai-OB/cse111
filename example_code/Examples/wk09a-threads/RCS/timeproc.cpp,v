@@ -1,0 +1,109 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.1
+date	2020.12.07.02.58.52;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// $Id: timeproc.cpp,v 1.27 2020-12-06 18:57:43-08 - - $
+
+//
+// NAME
+//    proctime - print time used by process
+//
+// SYNOPSIS
+//    proctime prog [args...]
+//
+// DESCRIPTION
+//    Runs the program as a child process and when finished
+//    prints the elapsed, kernel, and user times used.
+//
+
+#include <iomanip>
+#include <cstring>
+#include <iostream>
+using namespace std;
+
+#include <sys/resource.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+string execname;
+
+void sysfail (const string& object) {
+   cerr << execname << ": " << object << ": " << strerror (errno)
+        << endl;
+   exit (errno | 0x80);
+}
+
+void usage() {
+   cerr << "Usage: " << execname << " prog [args...]" << endl;
+   exit (1);
+}
+
+double seconds (const struct timeval& time) {
+   return double (time.tv_sec) + double (time.tv_usec) / 1.0e6;
+}
+
+void printstatus (const char* prog, int status) {
+   cout << execname << ": " << prog << ": ";
+   if (status & 0xFF) {
+      cout << strsignal (status & 0x7F);
+      if (status & 0x8F) cout << " (core dumped)";
+   }else {
+      cout << "exit " << ((status >> 8) & 0xFF);
+   }
+   cout << endl;
+}
+
+void runprog (char** argv) {
+   if (argv[0] == nullptr) usage();
+   int pid = fork();
+   if (pid < 0) sysfail ("fork()");
+   if (pid == 0) {
+      int exec = execvp (argv[0], argv);
+      if (exec < 0) sysfail (string ("execvp(") + argv[0] + ")");
+   }
+   int status;
+   waitpid (pid, &status, 0);
+   printstatus (argv[0], status);
+}
+
+void printusage (double elapsed, double kernel, double user) {
+  cout << execname << ": seconds: " << std::fixed
+       << setprecision(6) << elapsed << " elapsed, "
+       << setprecision(6) << kernel << " kernel, "
+       << setprecision(6) << user << " user." << endl;
+}
+
+int main (int, char** argv) {
+   execname = basename (argv[0]);
+   struct timeval start, finish;
+   struct rusage usage;
+   gettimeofday (&start, nullptr);
+   runprog (&argv[1]);
+   getrusage (RUSAGE_CHILDREN, &usage);
+   gettimeofday (&finish, nullptr);
+   printusage (seconds (finish) - seconds (start),
+               seconds (usage.ru_stime),
+               seconds (usage.ru_utime));
+}
+
+@

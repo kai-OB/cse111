@@ -1,0 +1,18 @@
+ristring 1
+first: 0x1ffefff8b8->irstring {repr=0x5c41040-> {
+   ref_count=1, isize=13, buffer=0x5c410a0->"Hello, world!"
+}}
+
+Hello, world!
+|H|e|l|l|o|,| |w|o|r|l|d|!|
+second: 0x1ffefff8b0->irstring {repr=0x5c41150-> {
+   ref_count=1, isize=6, buffer=0x5c411b0->"foobar"
+}}
+
+Hello, world!
+Hello, world!
+Hello, world!
+fourth: 0x1ffefff8b0->irstring {repr=0x5c41040-> {
+   ref_count=4, isize=13, buffer=0x5c410a0->"Hello, world!"
+}}
+

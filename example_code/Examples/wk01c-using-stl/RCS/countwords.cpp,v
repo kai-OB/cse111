@@ -1,0 +1,61 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.2
+date	2021.01.15.02.47.51;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.01.03.23.59.23;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@// $Id: countwords.cpp,v 1.1 2020-01-03 15:59:23-08 - - $
+
+// Count the occurrences of words in cin.
+// A word is any whitespace delimited sequence of characters.
+
+#include <iostream>
+#include <map>
+#include <string>
+using namespace std;
+
+int main() {
+   map<string,size_t> words;
+   string word;
+   while (cin >> word) ++words[word];
+   for (const auto& item: words) {
+      cout << item.first << " " << item.second << endl;
+   }
+   return 0;
+}
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id$
+d15 1
+a15 1
+   for (const auto item: words) {
+@

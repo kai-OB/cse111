@@ -1,0 +1,7 @@
+main starting
+clicker 1 looped 10,000,000 finished atomic_counter 36,250,101
+clicker 3 looped 10,000,000 finished atomic_counter 38,441,735
+clicker 2 looped 10,000,000 finished atomic_counter 39,823,184
+clicker 0 looped 10,000,000 finished atomic_counter 40,000,000
+main finished atomic_counter 40,000,000
+0:00.98 elapsed, 0.00 kernel, 1.88 user

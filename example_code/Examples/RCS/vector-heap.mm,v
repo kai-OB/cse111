@@ -1,0 +1,48 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@.\" @;
+
+
+1.1
+date	2021.04.29.20.59.41;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@.so Tmac.mm-etc
+.if t .Newcentury-fonts
+.INITR* \n[.F]
+.TITLE CSE-111 "Program 3" "Listmap Diagram"
+.RCS "$Id: listmap-diagram.mm,v 1.54 2021-04-28 11:50:16-07 - - $"
+.PWD
+.URL
+.DS CB
+.PS 5.75i
+boxht=1
+boxwid=1.3
+arrowwid=.1
+arrowht=.2
+linethick=1
+boxdelta=boxwid/2
+boxsep=boxwid+boxdelta
+Begin: box
+End: box at Begin+(0,boxht)
+Limit: box at End+(9,boxht)
+H0: box at Begin+(bixwid*3,0)
+H1: box at H0+(0,boxht)
+H2: box at H1+(0,boxht)
+Dots: box ht 4*boxht at H2+(0,boxht)
+.PE
+.DE
+@

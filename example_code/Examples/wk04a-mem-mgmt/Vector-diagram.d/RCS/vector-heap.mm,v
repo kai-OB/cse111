@@ -1,0 +1,2505 @@
+head	1.116;
+access;
+symbols;
+locks;
+comment	@.\" @;
+
+
+1.116
+date	2021.04.30.14.28.04;	author -;	state -;
+branches;
+next	1.115;
+
+1.115
+date	2021.04.30.14.26.31;	author -;	state -;
+branches;
+next	1.114;
+
+1.114
+date	2021.04.30.14.26.09;	author -;	state -;
+branches;
+next	1.113;
+
+1.113
+date	2021.04.30.14.25.48;	author -;	state -;
+branches;
+next	1.112;
+
+1.112
+date	2021.04.30.14.24.51;	author -;	state -;
+branches;
+next	1.111;
+
+1.111
+date	2021.04.30.14.24.23;	author -;	state -;
+branches;
+next	1.110;
+
+1.110
+date	2021.04.30.14.22.37;	author -;	state -;
+branches;
+next	1.109;
+
+1.109
+date	2021.04.30.05.11.57;	author -;	state -;
+branches;
+next	1.108;
+
+1.108
+date	2021.04.30.05.11.18;	author -;	state -;
+branches;
+next	1.107;
+
+1.107
+date	2021.04.30.04.32.07;	author -;	state -;
+branches;
+next	1.106;
+
+1.106
+date	2021.04.30.04.31.40;	author -;	state -;
+branches;
+next	1.105;
+
+1.105
+date	2021.04.30.04.31.12;	author -;	state -;
+branches;
+next	1.104;
+
+1.104
+date	2021.04.30.04.29.49;	author -;	state -;
+branches;
+next	1.103;
+
+1.103
+date	2021.04.30.04.29.28;	author -;	state -;
+branches;
+next	1.102;
+
+1.102
+date	2021.04.30.04.29.07;	author -;	state -;
+branches;
+next	1.101;
+
+1.101
+date	2021.04.30.04.28.46;	author -;	state -;
+branches;
+next	1.100;
+
+1.100
+date	2021.04.30.04.28.21;	author -;	state -;
+branches;
+next	1.99;
+
+1.99
+date	2021.04.30.04.27.38;	author -;	state -;
+branches;
+next	1.98;
+
+1.98
+date	2021.04.30.04.06.58;	author -;	state -;
+branches;
+next	1.97;
+
+1.97
+date	2021.04.30.04.05.04;	author -;	state -;
+branches;
+next	1.96;
+
+1.96
+date	2021.04.30.04.04.40;	author -;	state -;
+branches;
+next	1.95;
+
+1.95
+date	2021.04.30.04.00.09;	author -;	state -;
+branches;
+next	1.94;
+
+1.94
+date	2021.04.30.03.59.17;	author -;	state -;
+branches;
+next	1.93;
+
+1.93
+date	2021.04.30.03.58.34;	author -;	state -;
+branches;
+next	1.92;
+
+1.92
+date	2021.04.29.23.31.04;	author -;	state -;
+branches;
+next	1.91;
+
+1.91
+date	2021.04.29.23.29.18;	author -;	state -;
+branches;
+next	1.90;
+
+1.90
+date	2021.04.29.23.28.52;	author -;	state -;
+branches;
+next	1.89;
+
+1.89
+date	2021.04.29.23.27.01;	author -;	state -;
+branches;
+next	1.88;
+
+1.88
+date	2021.04.29.23.25.27;	author -;	state -;
+branches;
+next	1.87;
+
+1.87
+date	2021.04.29.23.24.51;	author -;	state -;
+branches;
+next	1.86;
+
+1.86
+date	2021.04.29.23.23.45;	author -;	state -;
+branches;
+next	1.85;
+
+1.85
+date	2021.04.29.23.23.17;	author -;	state -;
+branches;
+next	1.84;
+
+1.84
+date	2021.04.29.23.22.01;	author -;	state -;
+branches;
+next	1.83;
+
+1.83
+date	2021.04.29.23.20.38;	author -;	state -;
+branches;
+next	1.82;
+
+1.82
+date	2021.04.29.23.19.45;	author -;	state -;
+branches;
+next	1.81;
+
+1.81
+date	2021.04.29.23.19.10;	author -;	state -;
+branches;
+next	1.80;
+
+1.80
+date	2021.04.29.23.19.00;	author -;	state -;
+branches;
+next	1.79;
+
+1.79
+date	2021.04.29.23.18.46;	author -;	state -;
+branches;
+next	1.78;
+
+1.78
+date	2021.04.29.23.18.34;	author -;	state -;
+branches;
+next	1.77;
+
+1.77
+date	2021.04.29.23.15.31;	author -;	state -;
+branches;
+next	1.76;
+
+1.76
+date	2021.04.29.23.15.08;	author -;	state -;
+branches;
+next	1.75;
+
+1.75
+date	2021.04.29.23.14.46;	author -;	state -;
+branches;
+next	1.74;
+
+1.74
+date	2021.04.29.23.14.23;	author -;	state -;
+branches;
+next	1.73;
+
+1.73
+date	2021.04.29.23.13.58;	author -;	state -;
+branches;
+next	1.72;
+
+1.72
+date	2021.04.29.23.12.46;	author -;	state -;
+branches;
+next	1.71;
+
+1.71
+date	2021.04.29.23.09.19;	author -;	state -;
+branches;
+next	1.70;
+
+1.70
+date	2021.04.29.23.08.54;	author -;	state -;
+branches;
+next	1.69;
+
+1.69
+date	2021.04.29.23.08.02;	author -;	state -;
+branches;
+next	1.68;
+
+1.68
+date	2021.04.29.23.07.40;	author -;	state -;
+branches;
+next	1.67;
+
+1.67
+date	2021.04.29.23.06.41;	author -;	state -;
+branches;
+next	1.66;
+
+1.66
+date	2021.04.29.23.06.24;	author -;	state -;
+branches;
+next	1.65;
+
+1.65
+date	2021.04.29.23.06.11;	author -;	state -;
+branches;
+next	1.64;
+
+1.64
+date	2021.04.29.23.05.50;	author -;	state -;
+branches;
+next	1.63;
+
+1.63
+date	2021.04.29.22.49.12;	author -;	state -;
+branches;
+next	1.62;
+
+1.62
+date	2021.04.29.22.48.09;	author -;	state -;
+branches;
+next	1.61;
+
+1.61
+date	2021.04.29.22.47.51;	author -;	state -;
+branches;
+next	1.60;
+
+1.60
+date	2021.04.29.22.47.31;	author -;	state -;
+branches;
+next	1.59;
+
+1.59
+date	2021.04.29.22.46.55;	author -;	state -;
+branches;
+next	1.58;
+
+1.58
+date	2021.04.29.22.45.58;	author -;	state -;
+branches;
+next	1.57;
+
+1.57
+date	2021.04.29.22.45.44;	author -;	state -;
+branches;
+next	1.56;
+
+1.56
+date	2021.04.29.22.45.18;	author -;	state -;
+branches;
+next	1.55;
+
+1.55
+date	2021.04.29.22.45.02;	author -;	state -;
+branches;
+next	1.54;
+
+1.54
+date	2021.04.29.22.43.53;	author -;	state -;
+branches;
+next	1.53;
+
+1.53
+date	2021.04.29.22.43.39;	author -;	state -;
+branches;
+next	1.52;
+
+1.52
+date	2021.04.29.22.43.03;	author -;	state -;
+branches;
+next	1.51;
+
+1.51
+date	2021.04.29.22.42.36;	author -;	state -;
+branches;
+next	1.50;
+
+1.50
+date	2021.04.29.22.41.40;	author -;	state -;
+branches;
+next	1.49;
+
+1.49
+date	2021.04.29.22.39.54;	author -;	state -;
+branches;
+next	1.48;
+
+1.48
+date	2021.04.29.22.39.45;	author -;	state -;
+branches;
+next	1.47;
+
+1.47
+date	2021.04.29.22.39.29;	author -;	state -;
+branches;
+next	1.46;
+
+1.46
+date	2021.04.29.22.39.15;	author -;	state -;
+branches;
+next	1.45;
+
+1.45
+date	2021.04.29.22.38.33;	author -;	state -;
+branches;
+next	1.44;
+
+1.44
+date	2021.04.29.22.38.08;	author -;	state -;
+branches;
+next	1.43;
+
+1.43
+date	2021.04.29.22.36.56;	author -;	state -;
+branches;
+next	1.42;
+
+1.42
+date	2021.04.29.21.58.50;	author -;	state -;
+branches;
+next	1.41;
+
+1.41
+date	2021.04.29.21.58.34;	author -;	state -;
+branches;
+next	1.40;
+
+1.40
+date	2021.04.29.21.57.52;	author -;	state -;
+branches;
+next	1.39;
+
+1.39
+date	2021.04.29.21.57.28;	author -;	state -;
+branches;
+next	1.38;
+
+1.38
+date	2021.04.29.21.57.18;	author -;	state -;
+branches;
+next	1.37;
+
+1.37
+date	2021.04.29.21.55.23;	author -;	state -;
+branches;
+next	1.36;
+
+1.36
+date	2021.04.29.21.51.07;	author -;	state -;
+branches;
+next	1.35;
+
+1.35
+date	2021.04.29.21.50.44;	author -;	state -;
+branches;
+next	1.34;
+
+1.34
+date	2021.04.29.21.50.25;	author -;	state -;
+branches;
+next	1.33;
+
+1.33
+date	2021.04.29.21.49.31;	author -;	state -;
+branches;
+next	1.32;
+
+1.32
+date	2021.04.29.21.48.44;	author -;	state -;
+branches;
+next	1.31;
+
+1.31
+date	2021.04.29.21.48.06;	author -;	state -;
+branches;
+next	1.30;
+
+1.30
+date	2021.04.29.21.47.48;	author -;	state -;
+branches;
+next	1.29;
+
+1.29
+date	2021.04.29.21.47.20;	author -;	state -;
+branches;
+next	1.28;
+
+1.28
+date	2021.04.29.21.46.51;	author -;	state -;
+branches;
+next	1.27;
+
+1.27
+date	2021.04.29.21.45.28;	author -;	state -;
+branches;
+next	1.26;
+
+1.26
+date	2021.04.29.21.45.06;	author -;	state -;
+branches;
+next	1.25;
+
+1.25
+date	2021.04.29.21.44.36;	author -;	state -;
+branches;
+next	1.24;
+
+1.24
+date	2021.04.29.21.43.46;	author -;	state -;
+branches;
+next	1.23;
+
+1.23
+date	2021.04.29.21.42.27;	author -;	state -;
+branches;
+next	1.22;
+
+1.22
+date	2021.04.29.21.41.50;	author -;	state -;
+branches;
+next	1.21;
+
+1.21
+date	2021.04.29.21.41.15;	author -;	state -;
+branches;
+next	1.20;
+
+1.20
+date	2021.04.29.21.40.49;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2021.04.29.21.36.45;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2021.04.29.21.35.51;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2021.04.29.21.34.09;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2021.04.29.21.33.12;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2021.04.29.21.30.39;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2021.04.29.21.29.35;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2021.04.29.21.28.07;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2021.04.29.21.26.12;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2021.04.29.21.25.30;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2021.04.29.21.24.06;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2021.04.29.21.23.41;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2021.04.29.21.23.18;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2021.04.29.21.22.41;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2021.04.29.21.13.58;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2021.04.29.21.09.32;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2021.04.29.21.07.02;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.04.29.21.04.45;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.04.29.21.02.57;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.29.21.02.47;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.116
+log
+@-
+@
+text
+@.so Tmac.mm-etc
+.if t .Newcentury-fonts
+.INITR* \n[.F]
+.TITLE CSE-111 "Usage of contiguous heap storage by vector"
+.RCS "$Id: vector-heap.mm,v 1.115 2021-04-30 07:26:31-07 - - $"
+.PWD
+.URL
+.DS
+.PS 5i
+boxht=.9
+boxwid=3
+arrowwid=.3
+arrowht=.6
+dotdiam=arrowwid*.5
+linethick=1
+boxdelta=boxwid/2
+boxsep=boxwid+boxdelta
+texthadj=boxwid*.15
+textvadj=boxwid*.1
+arrowadj=boxwid*.3
+sizeadj=boxwid*.4
+Anchor: box invis
+Begin: box with .nw at Anchor.nw+(boxwid,0)
+End: box with .nw at Begin.nw-(0,boxht)
+Limit: box with .nw at End.nw-(0,boxht)
+H0: box "item[0]" with .nw at Begin.nw+(boxwid*2.5,0)
+H1: box "item[1]" with .nw at H0.nw-(0,boxht)
+H2: box "item[2]" with .nw at H1.nw-(0,boxht)
+Dots: box ht boxht*4 with .nw at H2.nw-(0,boxht)
+Hlast: box "item[n\-1]" \
+       with .nw at Dots.nw-(0,boxht*4)
+Uninit: box "allocated" "uninitialized" "memory" \
+        fill 0.2 ht boxht*8 with .nw at Hlast.nw-(0,boxht)
+circle fill 1 diam dotdiam at Dots
+circle fill 1 diam dotdiam at Dots+(0,boxht/3)
+circle fill 1 diam dotdiam at Dots-(0,boxht/3)
+Begindot: circle fill 1 diam dotdiam at Begin.e-(arrowadj,0)
+Enddot: circle fill 1 diam dotdiam at End.e-(arrowadj,0)
+Limitdot: circle fill 1 diam dotdiam at Limit.e-(arrowadj,0)
+arrow from Begindot to H0.nw
+arrow from Enddot to Uninit.nw
+arrow from Limitdot to Uninit.sw
+"begin" ljust at Begin.w+(texthadj,0)
+"end" ljust at End.w+(texthadj,0)
+"limit" ljust at Limit.w+(texthadj,0)
+Size: "size" at 1/2 between H0.ne+(sizeadj,0) \
+                and Hlast.se+(sizeadj,0)
+arrow from Size+(0,textvadj) to H0.ne+(sizeadj,0)
+arrow from Size-(0,textvadj) to Hlast.se+(sizeadj,0)
+Capacity: "capacity" at 1/2 between H0.ne+(2*sizeadj,0) \
+                and Uninit.se+(2*sizeadj,0)
+arrow from Capacity+(0,textvadj) to H0.ne+(2*sizeadj,0)
+arrow from Capacity-(0,textvadj) to Uninit.se+(2*sizeadj,0)
+.PE
+.DE
+@
+
+
+1.115
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.114 2021-04-30 07:26:09-07 - - $"
+d11 1
+a11 1
+boxwid=3.1
+d26 3
+a28 3
+H0: box "item [0]" with .nw at Begin.nw+(boxwid*2.5,0)
+H1: box "item [1]" with .nw at H0.nw-(0,boxht)
+H2: box "item [2]" with .nw at H1.nw-(0,boxht)
+d30 1
+a30 1
+Hlast: box "item [n \- 1]" \
+@
+
+
+1.114
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.113 2021-04-30 07:25:48-07 - - $"
+d11 1
+a11 1
+boxwid=3
+@
+
+
+1.113
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.112 2021-04-30 07:24:51-07 - - $"
+d9 2
+a10 2
+.PS 5.25i
+boxht=1
+@
+
+
+1.112
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.111 2021-04-30 07:24:23-07 - - $"
+d9 2
+a10 2
+.PS 5i
+boxht=.9
+@
+
+
+1.111
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.110 2021-04-30 07:22:37-07 - - $"
+d26 3
+a28 3
+H0: box "item [0] $" with .nw at Begin.nw+(boxwid*2.5,0)
+H1: box "item [1] $" with .nw at H0.nw-(0,boxht)
+H2: box "item [2] $" with .nw at H1.nw-(0,boxht)
+d30 1
+a30 1
+Hlast: box "item [n \- 1] $" \
+@
+
+
+1.110
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.109 2021-04-29 22:11:57-07 - - $"
+a7 3
+.EQ
+delim $$
+.EN
+d26 3
+a28 3
+H0: box "$ roman datum ~ [ 0 ] $" with .nw at Begin.nw+(boxwid*2.5,0)
+H1: box "$ roman datum ~ [ 1 ] $" with .nw at H0.nw-(0,boxht)
+H2: box "$ roman datum ~ [ 2 ] $" with .nw at H1.nw-(0,boxht)
+d30 1
+a30 1
+Hlast: box "$ roman datum ~ [ n - 1 ] $" \
+@
+
+
+1.109
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.107 2021-04-29 21:32:07-07 - - $"
+d29 3
+a31 3
+H0: box "$ roman data ~ [ 0 ] $" with .nw at Begin.nw+(boxwid*2.5,0)
+H1: box "$ roman data ~ [ 1 ] $" with .nw at H0.nw-(0,boxht)
+H2: box "$ roman data ~ [ 2 ] $" with .nw at H1.nw-(0,boxht)
+d33 1
+a33 1
+Hlast: box "$ roman data ~ [ n - 1 ] $" \
+@
+
+
+1.108
+log
+@-
+@
+text
+@d24 1
+a24 1
+sizeadj=boxwid*.3
+d49 1
+a49 1
+Size: "size" ljust at 1/2 between H0.ne+(sizeadj,0) \
+d53 1
+a53 1
+Capacity: "capacity" ljust at 1/2 between H0.ne+(2*sizeadj,0) \
+@
+
+
+1.107
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.106 2021-04-29 21:31:40-07 - - $"
+d24 1
+a24 1
+sizeadj=boxwid*.4
+d49 1
+a49 1
+Size: "size" at 1/2 between H0.ne+(sizeadj,0) \
+d53 1
+a53 1
+Capacity: "capacity" at 1/2 between H0.ne+(2*sizeadj,0) \
+@
+
+
+1.106
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.105 2021-04-29 21:31:12-07 - - $"
+d17 1
+a17 1
+dotdiam=arrowwid*.6
+@
+
+
+1.105
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.104 2021-04-29 21:29:49-07 - - $"
+d38 2
+a39 2
+circle fill 1 diam dotdiam at Dots+(0,boxht/2)
+circle fill 1 diam dotdiam at Dots-(0,boxht/2)
+@
+
+
+1.104
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.103 2021-04-29 21:29:28-07 - - $"
+d17 1
+a17 1
+dotdiam=arrowwid*.666
+@
+
+
+1.103
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.102 2021-04-29 21:29:07-07 - - $"
+d22 1
+a22 1
+textvadj=boxwid*.075
+@
+
+
+1.102
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.101 2021-04-29 21:28:46-07 - - $"
+d22 1
+a22 1
+textvadj=boxwid*.05
+@
+
+
+1.101
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.100 2021-04-29 21:28:21-07 - - $"
+d22 1
+a22 1
+textvadj=boxwid*.15
+@
+
+
+1.100
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.99 2021-04-29 21:27:38-07 - - $"
+d22 1
+a22 1
+textvadj=boxwid*.75
+@
+
+
+1.99
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.98 2021-04-29 21:06:58-07 - - $"
+d22 1
+a22 1
+textvadj=boxwid*.1
+@
+
+
+1.98
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.97 2021-04-29 21:05:04-07 - - $"
+d36 1
+a36 1
+        fill 0.25 ht boxht*8 with .nw at Hlast.nw-(0,boxht)
+@
+
+
+1.97
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.96 2021-04-29 21:04:40-07 - - $"
+d21 2
+a22 1
+textadj=boxwid*.15
+d46 3
+a48 3
+"begin" ljust at Begin.w+(textadj,0)
+"end" ljust at End.w+(textadj,0)
+"limit" ljust at Limit.w+(textadj,0)
+d51 2
+a52 2
+arrow from Size+(0,textadj) to H0.ne+(sizeadj,0)
+arrow from Size-(0,textadj) to Hlast.se+(sizeadj,0)
+d55 2
+a56 2
+arrow from Capacity+(0,textadj) to H0.ne+(2*sizeadj,0)
+arrow from Capacity-(0,textadj) to Uninit.se+(2*sizeadj,0)
+@
+
+
+1.96
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.95 2021-04-29 21:00:09-07 - - $"
+d21 1
+a21 1
+textadj=boxwid*.2
+@
+
+
+1.95
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.94 2021-04-29 20:59:17-07 - - $"
+d21 1
+a21 1
+textadj=boxwid*.1
+@
+
+
+1.94
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.93 2021-04-29 20:58:34-07 - - $"
+d23 1
+a23 1
+sizeadj=boxwid*.3
+@
+
+
+1.93
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.92 2021-04-29 16:31:04-07 - - $"
+d23 1
+a23 1
+sizeadj=boxwid*.4
+@
+
+
+1.92
+log
+@-
+@
+text
+@d4 2
+a5 2
+.TITLE CSE-111 "Program 3" "Listmap Diagram"
+.RCS "$Id: vector-heap.mm,v 1.91 2021-04-29 16:29:18-07 - - $"
+@
+
+
+1.91
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.90 2021-04-29 16:28:52-07 - - $"
+d12 1
+a12 1
+.PS 4.5i
+@
+
+
+1.90
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.89 2021-04-29 16:27:01-07 - - $"
+d48 1
+a48 1
+Size: "size" ljust at 1/2 between H0.ne+(sizeadj,0) \
+d52 1
+a52 1
+Capacity: "capacity" ljust at 1/2 between H0.ne+(2*sizeadj,0) \
+@
+
+
+1.89
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.88 2021-04-29 16:25:27-07 - - $"
+d48 1
+a48 1
+Size: "size" at 1/2 between H0.ne+(sizeadj,0) \
+d52 1
+a52 1
+Capacity: "capacity" at 1/2 between H0.ne+(2*sizeadj,0) \
+@
+
+
+1.88
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.87 2021-04-29 16:24:51-07 - - $"
+d12 1
+a12 1
+.PS 5i
+@
+
+
+1.87
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.86 2021-04-29 16:23:45-07 - - $"
+d12 1
+a12 1
+.PS 4i
+@
+
+
+1.86
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.85 2021-04-29 16:23:17-07 - - $"
+d23 1
+d48 8
+a55 8
+Size: "size" at 1/2 between H0.ne+(arrowadj,0) \
+                and Hlast.se+(arrowadj,0)
+arrow from Size+(0,textadj) to H0.ne+(arrowadj,0)
+arrow from Size-(0,textadj) to Hlast.se+(arrowadj,0)
+Capacity: "capacity" at 1/2 between H0.ne+(2*arrowadj,0) \
+                and Uninit.se+(2*arrowadj,0)
+arrow from Capacity+(0,textadj) to H0.ne+(2*arrowadj,0)
+arrow from Capacity-(0,textadj) to Uninit.se+(2*arrowadj,0)
+@
+
+
+1.85
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.84 2021-04-29 16:22:01-07 - - $"
+d52 1
+a52 1
+                and Hlast.se+(2*arrowadj,0)
+d54 1
+a54 1
+arrow from Capacity-(0,textadj) to Hlast.se+(2*arrowadj,0)
+@
+
+
+1.84
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.83 2021-04-29 16:20:38-07 - - $"
+d51 4
+@
+
+
+1.83
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.82 2021-04-29 16:19:45-07 - - $"
+d47 1
+a47 1
+"size" at 1/2 between H0.ne+(arrowadj,0) \
+d49 2
+@
+
+
+1.82
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.81 2021-04-29 16:19:10-07 - - $"
+d47 2
+a48 2
+"size" ljust at 1/2 between H0.ne+(arrowadj,0) \
+                         and Hlast.se+(arrowadj,0)
+@
+
+
+1.81
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.80 2021-04-29 16:19:00-07 - - $"
+d47 2
+a48 2
+"size" ljust at 1/2 between H0.nw+(arrowadj,0) \
+                         and Hlast.sw+(arrowadj,0)
+@
+
+
+1.80
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.79 2021-04-29 16:18:46-07 - - $"
+d47 1
+a47 1
+"size" ljust between H0.nw+(arrowadj,0) \
+@
+
+
+1.79
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.78 2021-04-29 16:18:34-07 - - $"
+d47 1
+a47 1
+"size" ljust half between H0.nw+(arrowadj,0) \
+@
+
+
+1.78
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.77 2021-04-29 16:15:31-07 - - $"
+d47 1
+a47 1
+"size" ljust at half between H0.nw+(arrowadj,0) \
+@
+
+
+1.77
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.76 2021-04-29 16:15:08-07 - - $"
+d47 2
+@
+
+
+1.76
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.75 2021-04-29 16:14:46-07 - - $"
+d31 1
+a31 1
+Hlast: box "$ roman data ~ [ { roman size } - 1 ] $" \
+@
+
+
+1.75
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.74 2021-04-29 16:14:23-07 - - $"
+d31 1
+a31 1
+Hlast: box "$ roman data ~ [ roman size - 1 ] $" \
+@
+
+
+1.74
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.73 2021-04-29 16:13:58-07 - - $"
+d31 1
+a31 1
+Hlast: box "$ roman data ~ [ roman n - 1 ] $" \
+@
+
+
+1.73
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.72 2021-04-29 16:12:46-07 - - $"
+d31 1
+a31 1
+Hlast: box "$ roman data ~ [ n - 1 ] $" \
+@
+
+
+1.72
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.71 2021-04-29 16:09:19-07 - - $"
+d31 1
+a31 1
+Hlast: box "$ roman data ~ [ roman size - 1 ] $" \
+@
+
+
+1.71
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.70 2021-04-29 16:08:54-07 - - $"
+d31 2
+a32 1
+Hlast: box "$ roman data ~ [ n - 1 ] $" with .nw at Dots.nw-(0,boxht*4)
+@
+
+
+1.70
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.69 2021-04-29 16:08:02-07 - - $"
+d22 1
+a22 1
+arrowadj=boxwid*.3333
+@
+
+
+1.69
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.68 2021-04-29 16:07:40-07 - - $"
+d13 2
+a14 2
+boxht=1
+boxwid=boxht*3
+@
+
+
+1.68
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.67 2021-04-29 16:06:41-07 - - $"
+d33 1
+a33 1
+        fill 0.25 ht boxht*6 with .nw at Hlast.nw-(0,boxht)
+@
+
+
+1.67
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.66 2021-04-29 16:06:24-07 - - $"
+d22 1
+d37 3
+a39 3
+Begindot: circle fill 1 diam dotdiam at Begin
+Enddot: circle fill 1 diam dotdiam at End
+Limitdot: circle fill 1 diam dotdiam at Limit
+@
+
+
+1.66
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.65 2021-04-29 16:06:11-07 - - $"
+d21 1
+a21 1
+textadj=boxwid*.25
+@
+
+
+1.65
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.64 2021-04-29 16:05:50-07 - - $"
+d42 3
+a44 3
+"begin" ljust at Begin.e+(textadj,0)
+"end" ljust at End.e+(textadj,0)
+"limit" ljust at Limit.e+(textadj,0)
+@
+
+
+1.64
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.63 2021-04-29 15:49:12-07 - - $"
+d42 3
+a44 3
+"begin" ljust at Begin+(textadj,0)
+"end" ljust at End+(textadj,0)
+"limit" ljust at Limit+(textadj,0)
+@
+
+
+1.63
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.62 2021-04-29 15:48:09-07 - - $"
+d21 1
+d42 3
+@
+
+
+1.62
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.61 2021-04-29 15:47:51-07 - - $"
+d35 6
+a40 6
+circle fill 1 diam dotdiam at Begin
+circle fill 1 diam dotdiam at End
+circle fill 1 diam dotdiam at Limit
+arrow from Begin to H0.nw
+arrow from End to Uninit.nw
+arrow from Limit to Uninit.sw
+@
+
+
+1.61
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.60 2021-04-29 15:47:31-07 - - $"
+d12 1
+a12 1
+.PS 5i
+@
+
+
+1.60
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.59 2021-04-29 15:46:55-07 - - $"
+d25 1
+a25 1
+H0: box "$ roman data ~ [ 0 ] $" with .nw at Begin.nw+(boxwid*3,0)
+@
+
+
+1.59
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.58 2021-04-29 15:45:58-07 - - $"
+d12 1
+a12 1
+.PS 4i
+@
+
+
+1.58
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.57 2021-04-29 15:45:44-07 - - $"
+d21 2
+a22 1
+Begin: box
+@
+
+
+1.57
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.56 2021-04-29 15:45:18-07 - - $"
+d12 1
+a12 1
+.PS 3i
+@
+
+
+1.56
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.55 2021-04-29 15:45:02-07 - - $"
+d24 1
+a24 1
+H0: box "$ roman data ~ [ 0 ] $" with .nw at Begin.nw+(boxwid*2,0)
+@
+
+
+1.55
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.42 2021-04-29 14:58:50-07 - - $"
+d12 1
+a12 1
+.PS 4i
+@
+
+
+1.54
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.53 2021-04-29 15:43:39-07 - - $"
+d14 1
+a14 1
+boxwid=boxht*4
+d24 1
+a24 1
+H0: box "$ roman data ~ [ 0 ] $" with .nw at Begin.nw+(boxwid*3,0)
+@
+
+
+1.53
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.52 2021-04-29 15:43:03-07 - - $"
+d11 1
+a11 1
+.DS C
+@
+
+
+1.52
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.51 2021-04-29 15:42:36-07 - - $"
+d11 1
+a11 1
+.DS CB
+@
+
+
+1.51
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.50 2021-04-29 15:41:40-07 - - $"
+d11 1
+a11 1
+.DS 
+@
+
+
+1.50
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.49 2021-04-29 15:39:54-07 - - $"
+d11 1
+a11 1
+.DS CB
+@
+
+
+1.49
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.39 2021-04-29 14:57:28-07 - - $"
+d12 1
+a12 1
+.PS 3i
+@
+
+
+1.48
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.40 2021-04-29 14:57:52-07 - - $"
+d12 1
+a12 1
+.PS 4i
+@
+
+
+1.47
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.41 2021-04-29 14:58:34-07 - - $"
+d24 1
+a24 1
+H0: box "$ roman data ~ [ 0 ] $" with .nw at Begin.nw+(boxwid*2,0)
+@
+
+
+1.46
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.42 2021-04-29 14:58:50-07 - - $"
+d14 1
+a14 1
+boxwid=boxht*3
+@
+
+
+1.45
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.43 2021-04-29 15:36:56-07 - - $"
+d8 3
+d12 1
+a12 1
+.PS 3i
+d15 3
+a17 2
+arrowwid=.1
+arrowht=.2
+d24 16
+a39 5
+H0: box with .nw at Begin.nw+(boxwid*3,0)
+H1: box with .nw at H0.nw-(0,boxht)
+H2: box with .nw at H1.nw-(0,boxht)
+Dots: box with .nw at H2.nw-(0,boxht)
+Hn: box with .nw at H2.nw-(0,boxht*4)
+@
+
+
+1.44
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.42 2021-04-29 14:58:50-07 - - $"
+a7 3
+.EQ
+delim $$
+.EN
+d9 1
+a9 1
+.PS 4i
+d12 2
+a13 3
+arrowwid=.3
+arrowht=.6
+dotdiam=arrowwid*.666
+d20 5
+a24 16
+H0: box "$ roman data ~ [ 0 ] $" with .nw at Begin.nw+(boxwid*2,0)
+H1: box "$ roman data ~ [ 1 ] $" with .nw at H0.nw-(0,boxht)
+H2: box "$ roman data ~ [ 2 ] $" with .nw at H1.nw-(0,boxht)
+Dots: box ht boxht*4 with .nw at H2.nw-(0,boxht)
+Hlast: box "$ roman data ~ [ n - 1 ] $" with .nw at Dots.nw-(0,boxht*4)
+Uninit: box "allocated" "uninitialized" "memory" \
+        fill 0.25 ht boxht*6 with .nw at Hlast.nw-(0,boxht)
+circle fill 1 diam dotdiam at Dots
+circle fill 1 diam dotdiam at Dots+(0,boxht/2)
+circle fill 1 diam dotdiam at Dots-(0,boxht/2)
+circle fill 1 diam dotdiam at Begin
+circle fill 1 diam dotdiam at End
+circle fill 1 diam dotdiam at Limit
+arrow from Begin to H0.nw
+arrow from End to Uninit.nw
+arrow from Limit to Uninit.sw
+@
+
+
+1.43
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.12 2021-04-29 14:26:12-07 - - $"
+d8 3
+d12 1
+a12 1
+.PS 3i
+d15 3
+a17 2
+arrowwid=.1
+arrowht=.2
+d24 16
+a39 5
+H0: box with .nw at Begin.nw+(boxwid*3,0)
+H1: box with .nw at H0.nw-(0,boxht)
+H2: box with .nw at H1.nw-(0,boxht)
+Dots: box with .nw at H2.nw-(0,boxht)
+Hn: box with .nw at H2.nw-(0,boxht*4)
+@
+
+
+1.42
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.41 2021-04-29 14:58:34-07 - - $"
+a7 3
+.EQ
+delim $$
+.EN
+d9 1
+a9 1
+.PS 4i
+d12 2
+a13 3
+arrowwid=.3
+arrowht=.6
+dotdiam=arrowwid*.666
+d20 5
+a24 16
+H0: box "$ roman data ~ [ 0 ] $" with .nw at Begin.nw+(boxwid*2,0)
+H1: box "$ roman data ~ [ 1 ] $" with .nw at H0.nw-(0,boxht)
+H2: box "$ roman data ~ [ 2 ] $" with .nw at H1.nw-(0,boxht)
+Dots: box ht boxht*4 with .nw at H2.nw-(0,boxht)
+Hlast: box "$ roman data ~ [ n - 1 ] $" with .nw at Dots.nw-(0,boxht*4)
+Uninit: box "allocated" "uninitialized" "memory" \
+        fill 0.25 ht boxht*6 with .nw at Hlast.nw-(0,boxht)
+circle fill 1 diam dotdiam at Dots
+circle fill 1 diam dotdiam at Dots+(0,boxht/2)
+circle fill 1 diam dotdiam at Dots-(0,boxht/2)
+circle fill 1 diam dotdiam at Begin
+circle fill 1 diam dotdiam at End
+circle fill 1 diam dotdiam at Limit
+arrow from Begin to H0.nw
+arrow from End to Uninit.nw
+arrow from Limit to Uninit.sw
+@
+
+
+1.41
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.40 2021-04-29 14:57:52-07 - - $"
+d14 1
+a14 1
+boxwid=boxht*4
+@
+
+
+1.40
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.39 2021-04-29 14:57:28-07 - - $"
+d24 1
+a24 1
+H0: box "$ roman data ~ [ 0 ] $" with .nw at Begin.nw+(boxwid*3,0)
+@
+
+
+1.39
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.38 2021-04-29 14:57:18-07 - - $"
+d12 1
+a12 1
+.PS 3i
+@
+
+
+1.38
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.37 2021-04-29 14:55:23-07 - - $"
+d14 1
+a14 1
+boxwid=boxht*r
+@
+
+
+1.37
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.36 2021-04-29 14:51:07-07 - - $"
+d14 1
+a14 1
+boxwid=boxht*3
+d25 2
+a26 2
+H1: box "$ roman data [ 1 ] $" with .nw at H0.nw-(0,boxht)
+H2: box "$ roman data [ 2 ] $" with .nw at H1.nw-(0,boxht)
+d28 1
+a28 1
+Hlast: box "$ roman data [ n - 1 ] $" with .nw at Dots.nw-(0,boxht*4)
+@
+
+
+1.36
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.35 2021-04-29 14:50:44-07 - - $"
+d24 1
+a24 1
+H0: box "$ roman data [ 0 ] $" with .nw at Begin.nw+(boxwid*3,0)
+@
+
+
+1.35
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.34 2021-04-29 14:50:25-07 - - $"
+d24 3
+a26 3
+H0: box "$ roman data ~ [ 0 ] $" with .nw at Begin.nw+(boxwid*3,0)
+H1: box "$ roman data ~ [ 1 ] $" with .nw at H0.nw-(0,boxht)
+H2: box "$ roman data ~ [ 2 ] $" with .nw at H1.nw-(0,boxht)
+d28 1
+a28 1
+Hlast: box "$ roman data ~ [ n - 1 ] $" with .nw at Dots.nw-(0,boxht*4)
+@
+
+
+1.34
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.33 2021-04-29 14:49:31-07 - - $"
+d24 3
+a26 3
+H0: box "$ roman data [ 0 ] $" with .nw at Begin.nw+(boxwid*3,0)
+H1: box "$ roman data [ 1 ] $" with .nw at H0.nw-(0,boxht)
+H2: box "$ roman data [ 2 ] $" with .nw at H1.nw-(0,boxht)
+d28 1
+a28 1
+Hlast: box "$ roman data [ n - 1 ] $" with .nw at Dots.nw-(0,boxht*4)
+@
+
+
+1.33
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.32 2021-04-29 14:48:44-07 - - $"
+d24 3
+a26 3
+H0: box "$ v [ 0 ] $" with .nw at Begin.nw+(boxwid*3,0)
+H1: box "$ v [ 1 ] $" with .nw at H0.nw-(0,boxht)
+H2: box "$ v [ 2 ] $" with .nw at H1.nw-(0,boxht)
+d28 1
+a28 1
+Hlast: box "$ v [ n - 1 ] $" with .nw at Dots.nw-(0,boxht*4)
+@
+
+
+1.32
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.31 2021-04-29 14:48:06-07 - - $"
+d29 2
+a30 2
+Uninit: box "uninit" "data" \
+fill 0.25 ht boxht*6 with .nw at Hlast.nw-(0,boxht)
+@
+
+
+1.31
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.30 2021-04-29 14:47:48-07 - - $"
+d29 2
+a30 1
+Uninit: box fill 0.25 ht boxht*6 with .nw at Hlast.nw-(0,boxht)
+@
+
+
+1.30
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.29 2021-04-29 14:47:20-07 - - $"
+d31 2
+a32 2
+circle fill 1 diam dotdiam at Dots+(0,boxht/3)
+circle fill 1 diam dotdiam at Dots-(0,boxht/3)
+@
+
+
+1.29
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.28 2021-04-29 14:46:51-07 - - $"
+d31 2
+a32 2
+circle fill 1 diam dotdiam at Dots+(0,boxht/2)
+circle fill 1 diam dotdiam at Dots-(0,boxht/2)
+@
+
+
+1.28
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.27 2021-04-29 14:45:28-07 - - $"
+d17 1
+a17 1
+dotdiam=arrowwid/2
+@
+
+
+1.27
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.26 2021-04-29 14:45:06-07 - - $"
+d15 3
+a17 2
+arrowwid=.25
+arrowht=.5
+d30 6
+a35 6
+circle fill 1 diam arrowwid at Dots
+circle fill 1 diam arrowwid at Dots+(0,boxht/2)
+circle fill 1 diam arrowwid at Dots-(0,boxht/2)
+circle fill 1 diam arrowwid at Begin
+circle fill 1 diam arrowwid at End
+circle fill 1 diam arrowwid at Limit
+@
+
+
+1.26
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.25 2021-04-29 14:44:36-07 - - $"
+d15 2
+a16 2
+arrowwid=.3
+arrowht=.6
+@
+
+
+1.25
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.24 2021-04-29 14:43:46-07 - - $"
+d15 2
+a16 2
+arrowwid=.2
+arrowht=.4
+d30 2
+a31 2
+circle fill 1 diam arrowwid at Dots+(0,boxht/4)
+circle fill 1 diam arrowwid at Dots-(0,boxht/4)
+@
+
+
+1.24
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.23 2021-04-29 14:42:27-07 - - $"
+d27 1
+a27 1
+Hlast: box "$ v [ n - 1 ] $" with .nw at Dots.nw-(0,boxht*3)
+@
+
+
+1.23
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.22 2021-04-29 14:41:50-07 - - $"
+d27 1
+a27 1
+Hlast: box "$ v [ n - 1 ] $" with .nw at Dots.nw-(0,boxht*4)
+d30 2
+a31 2
+circle fill 1 diam arrowwid at Dots+(0,boxht/2)
+circle fill 1 diam arrowwid at Dots-(0,boxht/2)
+@
+
+
+1.22
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.21 2021-04-29 14:41:15-07 - - $"
+d15 2
+a16 2
+arrowwid=.5
+arrowht=1
+@
+
+
+1.21
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.20 2021-04-29 14:40:49-07 - - $"
+d15 2
+a16 2
+arrowwid=.1
+arrowht=.2
+@
+
+
+1.20
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.19 2021-04-29 14:36:45-07 - - $"
+d30 2
+a31 2
+circle fill 1 diam arrowwid at Dots+boxht/2
+circle fill 1 diam arrowwid at Dots-boxht/2
+@
+
+
+1.19
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.18 2021-04-29 14:35:51-07 - - $"
+d29 9
+@
+
+
+1.18
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.17 2021-04-29 14:34:09-07 - - $"
+d28 1
+a28 1
+Uninit: box fill 0.5 ht boxht*6 with .nw at Hlast.nw-(0,boxht)
+@
+
+
+1.17
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.16 2021-04-29 14:33:12-07 - - $"
+d23 3
+a25 3
+H0: box "$v[0]$" with .nw at Begin.nw+(boxwid*3,0)
+H1: box "$v[1]$" with .nw at H0.nw-(0,boxht)
+H2: box "$v[2]$" with .nw at H1.nw-(0,boxht)
+d27 2
+a28 2
+Hlast: box "$v[n-1]$" with .nw at Dots.nw-(0,boxht*4)
+Uninit: box ht boxht*6 with .nw at Hlast.nw-(0,boxht)
+@
+
+
+1.16
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.15 2021-04-29 14:30:39-07 - - $"
+d8 3
+d23 3
+a25 3
+H0: box "v[0]" with .nw at Begin.nw+(boxwid*3,0)
+H1: box "v[1]" with .nw at H0.nw-(0,boxht)
+H2: box "v[2]" with .nw at H1.nw-(0,boxht)
+d27 1
+a27 1
+Hlast: box "v[n-1]" with .nw at Dots.nw-(0,boxht*4)
+@
+
+
+1.15
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.14 2021-04-29 14:29:35-07 - - $"
+d20 3
+a22 3
+H0: box with .nw at Begin.nw+(boxwid*3,0)
+H1: box with .nw at H0.nw-(0,boxht)
+H2: box with .nw at H1.nw-(0,boxht)
+d24 1
+a24 1
+Hlast: box with .nw at Dots.nw-(0,boxht*4)
+@
+
+
+1.14
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.13 2021-04-29 14:28:07-07 - - $"
+d25 1
+a25 1
+Uninit: box ht boxht*5 with .nw at Hlast.nw-(0,boxht)
+@
+
+
+1.13
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.12 2021-04-29 14:26:12-07 - - $"
+d24 2
+a25 1
+Hn: box with .nw at Dots.nw-(0,boxht*4)
+@
+
+
+1.12
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.11 2021-04-29 14:25:30-07 - - $"
+d23 2
+a24 2
+Dots: box with .nw at H2.nw-(0,boxht)
+Hn: box with .nw at H2.nw-(0,boxht*4)
+@
+
+
+1.11
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.10 2021-04-29 14:24:06-07 - - $"
+d19 6
+a24 6
+Limit: box with .nw at End-(0,boxht)
+H0: box with .nw at Begin+(boxwid*3,0)
+H1: box with .nw at H0-(0,boxht)
+H2: box with .nw at H1-(0,boxht)
+Dots: box with .nw at H2-(0,boxht)
+Hn: box with .nw at H2-(0,boxht*4)
+@
+
+
+1.10
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.9 2021-04-29 14:23:41-07 - - $"
+d20 5
+a24 4
+H0: box at Begin+(boxwid*3,0)
+H1: box at H0-(0,boxht)
+H2: box at H1-(0,boxht)
+Hn: box at H2-(0,boxht*4)
+@
+
+
+1.9
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.8 2021-04-29 14:23:18-07 - - $"
+d23 1
+a23 1
+Hn: box at H2=(0,boxht*4)
+@
+
+
+1.8
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.7 2021-04-29 14:22:41-07 - - $"
+d18 2
+a19 2
+End: box with nw at Begin.nw-(0,boxht)
+Limit: box at End-(0,boxht)
+@
+
+
+1.7
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.6 2021-04-29 14:13:58-07 - - $"
+a23 1
+.\"Dots: box ht 4*boxht at H2-(0,boxht)
+@
+
+
+1.6
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.5 2021-04-29 14:09:32-07 - - $"
+d18 1
+a18 1
+End: box at Begin-(0,boxht)
+d23 1
+@
+
+
+1.5
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.4 2021-04-29 14:07:02-07 - - $"
+d9 1
+a9 1
+.PS 5i
+d23 1
+a23 1
+Dots: box ht 4*boxht at H2-(0,boxht)
+@
+
+
+1.4
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.3 2021-04-29 14:04:45-07 - - $"
+d9 1
+a9 1
+.PS 5.75i
+d11 1
+a11 1
+boxwid=1.3
+@
+
+
+1.3
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.2 2021-04-29 14:02:57-07 - - $"
+d20 1
+a20 1
+H0: box at Begin-(boxwid*3,0)
+@
+
+
+1.2
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.1 2021-04-29 14:02:47-07 - - $"
+d18 6
+a23 6
+End: box at Begin+(0,boxht)
+Limit: box at End+(9,boxht)
+H0: box at Begin+(boxwid*3,0)
+H1: box at H0+(0,boxht)
+H2: box at H1+(0,boxht)
+Dots: box ht 4*boxht at H2+(0,boxht)
+@
+
+
+1.1
+log
+@-
+@
+text
+@d5 1
+a5 1
+.RCS "$Id: vector-heap.mm,v 1.1 2021-04-29 13:59:41-07 - - $"
+d20 1
+a20 1
+H0: box at Begin+(bixwid*3,0)
+@

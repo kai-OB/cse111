@@ -1,0 +1,14 @@
+void use_emplace(int, const char* const*):
+bar -> 2
+baz -> 3
+foo -> 1
+hello -> 5
+qux -> 4
+world -> 6
+void use_insert(int, const char* const*):
+bar -> 2
+baz -> 3
+foo -> 1
+hello -> 5
+qux -> 4
+world -> 6

@@ -1,0 +1,6 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting raceclick.cpp
+raceclick.cpp: $Id: raceclick.cpp,v 1.9 2016-08-09 15:22:27-07 - - $
+g++ -g -O0 -std=gnu++14 -rdynamic -Wall -Wextra -Wold-style-cast raceclick.cpp -o raceclick -lglut -lGLU -lGL -lX11 -lrt -lm
+cpplint.py.perl raceclick.cpp
+Done processing raceclick.cpp
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished raceclick.cpp

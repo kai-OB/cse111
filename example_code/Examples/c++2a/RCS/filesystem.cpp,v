@@ -1,0 +1,128 @@
+head	1.4;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.4
+date	2018.11.17.00.31.27;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2018.11.17.00.21.02;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2018.11.16.23.21.08;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2018.11.16.23.14.18;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.4
+log
+@-
+@
+text
+@// $Id: filesystem.cpp,v 1.2 2018-11-16 15:21:08-08 - - $
+
+// Experimental filesystem::path classes.
+// Apparently this won't work until gcc version 8.
+
+#include <experimental/filesystem>
+#include <iostream>
+#include <string>
+#include <vector>
+namespace fs = std::experimental::filesystem::v1;
+using namespace std;
+
+int main (int argc, char** argv) {
+   vector<string> args (argv[1], argv[argc]);
+   for (char** arg = &argv[1]; arg != &argv[argc]; ++arg) {
+      string s = *arg;
+      fs::path argpath (*arg);
+      cout << "argpath = " << argpath << endl;
+      cout << "root_name = " << argpath.root_name() << endl;
+      cout << "root_directory = " << argpath.root_directory() << endl;
+      cout << "root_path = " << argpath.root_path() << endl;
+      cout << "relative_path = " << argpath.relative_path() << endl;
+      cout << "parent_path = " << argpath.parent_path() << endl;
+      cout << "filename = " << argpath.filename() << endl;
+      cout << "stem = " << argpath.stem() << endl;
+      cout << "extension = " << argpath.extension() << endl;
+   }
+   return 0;
+}
+
+@
+
+
+1.3
+log
+@-
+@
+text
+@d4 1
+d10 1
+a10 1
+namespace fs = std::experimental::filesystem;
+d17 10
+a26 10
+      fs::path argpath (s);
+//    cout << "argpath = " << argpath << endl;
+//    cout << "root_name = " << argpath.root_name() << endl;
+//    cout << "root_directory = " << argpath.root_directory() << endl;
+//    cout << "root_path = " << argpath.root_path() << endl;
+//    cout << "relative_path = " << argpath.relative_path() << endl;
+//    cout << "parent_path = " << argpath.parent_path() << endl;
+//    cout << "filename = " << argpath.filename() << endl;
+//    cout << "stem = " << argpath.stem() << endl;
+//    cout << "extension = " << argpath.extension() << endl;
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: filesystem.cpp,v 1.1 2018-11-16 15:14:18-08 - - $
+d16 1
+a16 1
+      fs::path argpath (s.begin(), s.end());
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: filesystem.cpp,v 1.13 2018-11-15 16:59:02-08 - - $
+d17 9
+a25 9
+      cout << "argpath = " << argpath << endl;
+      cout << "root_name = " << argpath.root_name() << endl;
+      cout << "root_directory = " << argpath.root_directory() << endl;
+      cout << "root_path = " << argpath.root_path() << endl;
+      cout << "relative_path = " << argpath.relative_path() << endl;
+      cout << "parent_path = " << argpath.parent_path() << endl;
+      cout << "filename = " << argpath.filename() << endl;
+      cout << "stem = " << argpath.stem() << endl;
+      cout << "extension = " << argpath.extension() << endl;
+@

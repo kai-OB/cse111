@@ -1,0 +1,1 @@
+../wk04a-mem-mgmt/Vector-diagram.d/

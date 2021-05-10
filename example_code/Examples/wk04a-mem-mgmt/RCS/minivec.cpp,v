@@ -1,0 +1,547 @@
+head	1.18;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.18
+date	2020.11.04.02.11.42;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2020.11.03.22.56.08;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2020.11.03.15.25.30;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2020.11.03.15.20.12;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2020.11.03.15.19.56;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2020.11.03.15.19.21;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2020.11.03.15.18.43;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2020.11.03.10.02.20;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2020.11.03.10.01.34;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2020.11.03.09.58.09;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2020.11.03.09.47.18;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2020.11.03.09.46.57;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2020.11.03.09.44.58;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2020.11.03.09.44.09;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2020.11.03.09.38.50;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2020.11.03.07.45.40;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2020.11.03.07.11.48;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.11.03.07.06.17;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.18
+log
+@-
+@
+text
+@// $Id: minivec.cpp,v 1.17 2020-11-03 14:56:08-08 - - $
+
+//
+// Simple minimal implementation of a vector.
+// Uses raw pointers and storage.
+//
+
+#include <iostream>
+using namespace std;
+
+// begin points at the vector
+// end points at the first free slot
+// limit points off the end of the allocation
+// end - begin is the number of elements used
+// limit - end is the number of free slots
+// limit - begin is the total number of slots allocated
+
+/////////////////////////////////////////////////////////////////
+// minivec.h
+/////////////////////////////////////////////////////////////////
+
+template <typename item>
+class minivec {
+   private:
+      constexpr static size_t MIN_SIZE = 4;
+      item* begin_ = nullptr;
+      item* end_ = nullptr;
+      item* limit_ = nullptr;
+   public:
+      minivec() = default;
+      ~minivec() { if (begin_) delete[] begin_; }
+      minivec (const minivec&);
+      minivec& operator= (const minivec&);
+      minivec (minivec&&);
+      minivec& operator= (minivec&&);
+      explicit minivec (size_t);
+      void reserve (size_t);
+      size_t size() { return end_ - begin_; }
+      size_t capacity() { return limit_ - begin_; }
+      class iterator;
+      iterator begin() { return iterator (begin_); }
+      iterator end() { return iterator (end_); }
+      item& operator[] (size_t pos) { return begin_[pos]; }
+      const item& operator[] (size_t pos) const { return begin_[pos]; }
+      void push_back (const item&);
+      void pop_back();
+      item& back();
+      const item& back() const;
+};
+
+template <typename item>
+class minivec<item>::iterator {
+   friend class minivec<item>;
+   private:
+      item* pos_ = nullptr;
+      iterator (item* pos): pos_(pos) {}
+   public:
+      iterator() = default;
+      // copiers, movers, dtor all OK.
+      item& operator*() { return *pos_; }
+      item* operator->() { return pos_; }
+      iterator& operator++() { ++pos_; return *this; }
+      iterator& operator--() { --pos_; return *this; }
+      iterator operator++(int) {auto tmp = *this; ++*this; return tmp; }
+      iterator operator--(int) {auto tmp = *this; --*this; return tmp; }
+      bool operator!= (const iterator& that) const {
+         return pos_ != that.pos_;
+      }
+      bool operator== (const iterator& that) const {
+         return pos_ == that.pos_;
+      }
+};
+
+/////////////////////////////////////////////////////////////////
+// minivec.tcc
+/////////////////////////////////////////////////////////////////
+
+template <typename item>
+minivec<item>::minivec (size_t size) {
+   end_ = begin_ = new item[size];
+   limit_ = &begin[size];
+}
+
+template <typename item>
+void minivec<item>::reserve (size_t new_size) {
+   if (new_size < size()) return;
+   item* new_begin = new item[new_size];
+   size_t old_size = size();
+   limit_ = new_begin + new_size;
+   std::move (begin_, end_, new_begin);
+   if (begin_) delete[] begin_;
+   begin_ = new_begin;
+   end_ = begin_ + old_size;
+}
+
+template <typename item>
+void minivec<item>::push_back (const item& it) {
+   if (end_ == limit_) reserve (max (MIN_SIZE, size() * 2));
+   *end_++ = it;
+}
+
+/////////////////////////////////////////////////////////////////
+// main.cpp
+/////////////////////////////////////////////////////////////////
+
+#include <string>
+using namespace std;
+
+int main (int argc, char** argv) {
+   minivec<string> vec;
+   for (char** argp = &argv[1]; argp != &argv[argc]; ++argp) {
+      vec.push_back (*argp);
+   }
+   cout << endl << "Colon for loop:" << endl;
+   for (const auto& item: vec) {
+      cout << " " << item;
+   }
+   cout << endl;
+   cout << endl << "Explicit for loop:" << endl;
+   for (auto itor = vec.begin(); itor != vec.end(); ++itor) {
+      cout << " " << *itor;
+   }
+   cout << endl << endl;
+}
+@
+
+
+1.17
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: minivec.cpp,v 1.16 2020-11-03 07:25:30-08 - - $
+d61 1
+a61 1
+      item operator->() { return pos_; }
+@
+
+
+1.16
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: minivec.cpp,v 1.15 2020-11-03 07:20:12-08 - - $
+d85 3
+a87 3
+void minivec<item>::reserve (size_t siz) {
+   if (siz < size()) return;
+   item* new_begin = new item[siz];
+d89 1
+a89 1
+   limit_ = new_begin + siz;
+@
+
+
+1.15
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: minivec.cpp,v 1.14 2020-11-03 07:19:56-08 - - $
+d39 1
+d59 1
+a59 1
+      // movers, copiers, dtor all OK.
+d80 2
+a81 2
+   end_ = begin_ = new item[MIN_SIZE];
+   limit_ = &begin[MIN_SIZE];
+@
+
+
+1.14
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: minivec.cpp,v 1.13 2020-11-03 07:19:21-08 - - $
+d32 4
+a35 4
+      minivec (const minimvec&);
+      minivec& operator= (const minimvec&);
+      minivec (minimvec&&);
+      minivec& operator= (minimvec&&);
+d78 1
+a78 1
+minivec<item>::minimvec (size_t size) {
+@
+
+
+1.13
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: minivec.cpp,v 1.12 2020-11-03 07:18:43-08 - - $
+d11 6
+a16 6
+begin points at the vector
+end points at the first free slot
+limit points off the end of the allocation
+end - begin is the number of elements used
+limit - end is the number of free slots
+limit - begin is the total number of slots allocated
+@
+
+
+1.12
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: minivec.cpp,v 1.11 2020-11-03 02:02:20-08 - - $
+d19 1
+a19 1
+// minimvec.h
+d23 1
+a23 1
+class minimvec {
+d30 7
+a36 7
+      minimvec() = default;
+      ~minimvec() { if (begin_) delete[] begin_; }
+      minimvec (const minimvec&);
+      minimvec& operator= (const minimvec&);
+      minimvec (minimvec&&);
+      minimvec& operator= (minimvec&&);
+      explicit minimvec (size_t);
+d51 2
+a52 2
+class minimvec<item>::iterator {
+   friend class minimvec<item>;
+d74 1
+a74 1
+// minimvec.tcc
+d78 1
+a78 1
+minimvec<item>::minimvec (size_t size) {
+d84 1
+a84 1
+void minimvec<item>::reserve (size_t siz) {
+d96 1
+a96 1
+void minimvec<item>::push_back (const item& it) {
+d109 1
+a109 1
+   minimvec<string> vec;
+@
+
+
+1.11
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: minimvec.cpp,v 1.10 2020-11-03 02:01:34-08 - - $
+d11 7
+d97 1
+a97 2
+   if (end_ == limit_) reserve (size() * 2);
+   if (size() == 0) reserve (MIN_SIZE);
+@
+
+
+1.10
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: minimvec.cpp,v 1.9 2020-11-03 01:58:09-08 - - $
+d116 1
+a116 1
+   cout << endl;
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: minimvec.cpp,v 1.8 2020-11-03 01:47:18-08 - - $
+d107 1
+d112 1
+@
+
+
+1.8
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: minimvec.cpp,v 1.7 2020-11-03 01:46:57-08 - - $
+d83 1
+a83 1
+   delete[] begin_;
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: minimvec.cpp,v 1.6 2020-11-03 01:44:58-08 - - $
+d107 1
+a107 1
+   for (const auto item&: vec) {
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: minimvec.cpp,v 1.5 2020-11-03 01:44:09-08 - - $
+d107 7
+a113 1
+   for (const auto item: vec) cout << " " << item;
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: minimvec.cpp,v 1.4 2020-11-03 01:38:50-08 - - $
+d83 1
+a83 1
+   free begin_;
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: minimvec.cpp,v 1.3 2020-11-02 23:45:40-08 - - $
+d79 7
+a85 6
+   item* new_ = new item[siz];
+   size_t newsize = size();
+   limit_ = new_ + siz;
+   std::move (begin_, end_, new_);
+   begin_ = new_;
+   end_ = new_ + newsize;
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: minimvec.cpp,v 1.1 2020-11-02 23:06:17-08 - - $
+d90 1
+@
+
+
+1.2
+log
+@-
+@
+text
+@d18 1
+d29 3
+a31 1
+      explicit minimvec (size_t size);
+d44 2
+a45 2
+class minivec::iterator {
+   friend class minivec<item>;
+d54 11
+a64 5
+      item& operator++() { ++pos_; return *this; }
+      item& operator--() { --pos_; return *this; }
+      item operator++() { auto tmp = *this; ++*this; return tmp; }
+      item operator--() { auto tmp = *this; --*this; return tmp; }
+}
+d70 5
+a74 2
+template <typenme item>
+minimvec:: minimvec (size_t size);
+d76 16
+d105 1
+a105 1
+   for (const auto item: vec) cout << " " item;
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id$
+d9 1
+a9 1
+using namespae std;
+d32 2
+a33 2
+      item& operator[] (size pos) { return begin_[pos]; }
+      const item& operator[] (size pos) const { return begin_[pos]; }
+@

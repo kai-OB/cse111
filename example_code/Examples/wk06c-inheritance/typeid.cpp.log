@@ -1,0 +1,7 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting typeid.cpp
+typeid.cpp:
+     $Id: typeid.cpp,v 1.18 2016-07-20 16:27:47-07 - - $
+g++ -g -O0 -Wall -Wextra -rdynamic -std=gnu++14 typeid.cpp
+	-o typeid -lglut -lGLU -lGL -lX11 -lrt -lm
+rm -f typeid.o
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished typeid.cpp

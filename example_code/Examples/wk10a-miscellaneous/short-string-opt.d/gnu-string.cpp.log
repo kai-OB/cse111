@@ -1,0 +1,6 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting gnu-string.cpp
+gnu-string.cpp: $Id: gnu-string.cpp,v 1.21 2016-08-03 16:23:58-07 - - $
+g++ -g -O0 -std=gnu++14 -rdynamic -Wall -Wextra -Wold-style-cast gnu-string.cpp -o gnu-string -lglut -lGLU -lGL -lX11 -lrt -lm
+cpplint.py.perl gnu-string.cpp
+Done processing gnu-string.cpp
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished gnu-string.cpp

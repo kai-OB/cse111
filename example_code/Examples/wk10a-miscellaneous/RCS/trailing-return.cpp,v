@@ -1,0 +1,61 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.2
+date	2019.08.14.19.59.09;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2019.08.14.19.58.27;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@// $Id: trailing-return.cpp,v 1.1 2019-08-14 12:58:27-07 - - $
+
+#include <iostream>
+#include <sstream>
+#include <string>
+using namespace std;
+
+template <typename Type>
+Type from_string (const string& that) {
+   Type result;
+   stringstream stream (that);
+   if (stream >> result and stream.eof()) return result;
+   throw domain_error ("from_string ("s + that + ")");
+}
+
+int main() {
+   int i = from_string<int> ("34");
+   double d = from_string<double> ("3.1415926535");
+   cout << i << " " << d << endl;
+}
+
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id$
+d5 2
+@

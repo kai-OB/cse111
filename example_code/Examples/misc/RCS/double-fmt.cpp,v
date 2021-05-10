@@ -1,0 +1,1299 @@
+head	1.60;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.60
+date	2021.04.27.03.12.34;	author -;	state -;
+branches;
+next	1.59;
+
+1.59
+date	2021.04.27.03.12.02;	author -;	state -;
+branches;
+next	1.58;
+
+1.58
+date	2021.04.27.02.52.43;	author -;	state -;
+branches;
+next	1.57;
+
+1.57
+date	2021.04.27.02.50.10;	author -;	state -;
+branches;
+next	1.56;
+
+1.56
+date	2021.04.27.02.49.10;	author -;	state -;
+branches;
+next	1.55;
+
+1.55
+date	2021.04.27.02.34.02;	author -;	state -;
+branches;
+next	1.54;
+
+1.54
+date	2021.04.27.02.33.43;	author -;	state -;
+branches;
+next	1.53;
+
+1.53
+date	2021.04.27.02.30.45;	author -;	state -;
+branches;
+next	1.52;
+
+1.52
+date	2021.04.27.02.30.25;	author -;	state -;
+branches;
+next	1.51;
+
+1.51
+date	2021.04.27.02.28.47;	author -;	state -;
+branches;
+next	1.50;
+
+1.50
+date	2021.04.27.02.24.10;	author -;	state -;
+branches;
+next	1.49;
+
+1.49
+date	2021.04.27.02.21.54;	author -;	state -;
+branches;
+next	1.48;
+
+1.48
+date	2021.04.27.02.20.19;	author -;	state -;
+branches;
+next	1.47;
+
+1.47
+date	2021.04.27.02.12.51;	author -;	state -;
+branches;
+next	1.46;
+
+1.46
+date	2021.04.27.02.07.13;	author -;	state -;
+branches;
+next	1.45;
+
+1.45
+date	2021.04.27.02.06.21;	author -;	state -;
+branches;
+next	1.44;
+
+1.44
+date	2021.04.27.02.05.40;	author -;	state -;
+branches;
+next	1.43;
+
+1.43
+date	2021.04.27.02.05.21;	author -;	state -;
+branches;
+next	1.42;
+
+1.42
+date	2021.04.27.02.00.15;	author -;	state -;
+branches;
+next	1.41;
+
+1.41
+date	2021.04.27.01.59.52;	author -;	state -;
+branches;
+next	1.40;
+
+1.40
+date	2021.04.27.01.58.41;	author -;	state -;
+branches;
+next	1.39;
+
+1.39
+date	2021.04.27.01.56.36;	author -;	state -;
+branches;
+next	1.38;
+
+1.38
+date	2021.04.27.01.56.07;	author -;	state -;
+branches;
+next	1.37;
+
+1.37
+date	2021.04.27.01.22.24;	author -;	state -;
+branches;
+next	1.36;
+
+1.36
+date	2021.04.27.01.21.40;	author -;	state -;
+branches;
+next	1.35;
+
+1.35
+date	2021.04.27.01.21.11;	author -;	state -;
+branches;
+next	1.34;
+
+1.34
+date	2021.04.27.01.21.01;	author -;	state -;
+branches;
+next	1.33;
+
+1.33
+date	2021.04.27.01.19.01;	author -;	state -;
+branches;
+next	1.32;
+
+1.32
+date	2021.04.27.01.18.24;	author -;	state -;
+branches;
+next	1.31;
+
+1.31
+date	2021.04.27.01.15.32;	author -;	state -;
+branches;
+next	1.30;
+
+1.30
+date	2021.04.27.01.14.27;	author -;	state -;
+branches;
+next	1.29;
+
+1.29
+date	2021.04.27.01.13.07;	author -;	state -;
+branches;
+next	1.28;
+
+1.28
+date	2021.04.27.01.11.23;	author -;	state -;
+branches;
+next	1.27;
+
+1.27
+date	2021.04.27.01.10.56;	author -;	state -;
+branches;
+next	1.26;
+
+1.26
+date	2021.04.27.01.10.17;	author -;	state -;
+branches;
+next	1.25;
+
+1.25
+date	2021.04.27.01.07.30;	author -;	state -;
+branches;
+next	1.24;
+
+1.24
+date	2021.04.27.01.06.13;	author -;	state -;
+branches;
+next	1.23;
+
+1.23
+date	2021.04.27.01.06.05;	author -;	state -;
+branches;
+next	1.22;
+
+1.22
+date	2021.04.27.01.05.29;	author -;	state -;
+branches;
+next	1.21;
+
+1.21
+date	2021.04.27.00.17.18;	author -;	state -;
+branches;
+next	1.20;
+
+1.20
+date	2021.04.27.00.16.58;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2021.04.27.00.10.28;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2021.04.27.00.05.06;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2021.04.27.00.04.46;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2021.04.27.00.03.34;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2021.04.27.00.02.13;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2021.04.27.00.00.21;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2021.04.26.23.55.32;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2021.04.26.23.55.19;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2021.04.26.23.49.38;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2021.04.26.23.48.39;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2021.04.26.23.48.09;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2021.04.26.23.47.25;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2021.04.26.23.46.16;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2021.04.26.23.44.34;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2021.04.26.23.42.38;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2021.04.26.23.42.20;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.04.26.23.42.05;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.04.26.23.40.50;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.26.23.39.12;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.60
+log
+@-
+@
+text
+@// $Id: double-fmt.cpp,v 1.59 2021-04-26 20:12:02-07 - - $
+
+#include <cmath>
+#include <iomanip>
+#include <iostream>
+using namespace std;
+
+constexpr size_t double_digits = numeric_limits<double>::digits10;
+constexpr size_t bits52 = 1LU << 52;
+
+struct double_bits {
+   long unsigned significand: 52;
+   unsigned exponent: 11;
+   unsigned sign: 1;
+};
+
+union double_union {
+   double fvalue;
+   uint64_t bits;
+   double_bits fields;
+};
+
+void print (const char* label, double_union number) {
+   for (int count = 0; count <= 1; ++count) {
+      int exp;
+      double fraction = frexp (number.fvalue, &exp);
+      cout << (number.fields.sign ? '-' : '+')
+           << " " << label << " == ";
+      cout << setprecision (double_digits) << number.fvalue << " == "
+           << dec << fraction << " * (2 ** " << exp << ")" << endl;
+      cout << "        == " << "0x" << setfill('0') << hex
+           << setw(16) << number.bits;
+      cout << " == {" << number.fields.sign 
+           << ", 0x" << hex << setw(3) << number.fields.exponent
+           << ", 0x" << hex << setw(13) << number.fields.significand
+           << "}" << endl;
+      number.fields.sign = ~ number.fields.sign;
+   }
+}
+
+#define PRINT(X) print (#X, {X});
+
+int main() {
+   PRINT (0.0);
+   PRINT (0.0 / 0.0);
+   PRINT (1.0);
+   PRINT (1.0 / 0.0);
+   PRINT (acos (M_PI));
+   PRINT (1.0 / 3.0);
+   PRINT (511.0);
+   PRINT (512.0);
+}
+
+@
+
+
+1.59
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.58 2021-04-26 19:52:43-07 - - $
+d50 2
+a51 2
+   PRINT (255.0);
+   PRINT (256.0);
+@
+
+
+1.58
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.57 2021-04-26 19:50:10-07 - - $
+d50 2
+@
+
+
+1.57
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.56 2021-04-26 19:49:10-07 - - $
+d31 1
+a31 1
+      cout << "        == " << "0x" << setfill('0') << hex << uppercase
+@
+
+
+1.56
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.55 2021-04-26 19:34:02-07 - - $
+a26 2
+//    double significand = double (number.fields.significand)
+//                       / double (bits52) + 1.0;
+d31 1
+a31 1
+      cout << "     == " << "0x" << setfill('0') << hex << uppercase
+@
+
+
+1.55
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.54 2021-04-26 19:33:43-07 - - $
+d35 4
+a38 3
+      cout << "  == {" << number.fields.sign
+           << ", " << dec << number.fields.exponent
+           << ", 0x" << hex << number.fields.significand << "}" << endl;
+@
+
+
+1.54
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.53 2021-04-26 19:30:45-07 - - $
+d27 2
+a28 2
+      double significand = double (number.fields.significand)
+                         / double (bits52) + 1.0;
+@
+
+
+1.53
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.52 2021-04-26 19:30:25-07 - - $
+d37 1
+a37 1
+           << ", " << significand << "}" << endl;
+@
+
+
+1.52
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.51 2021-04-26 19:28:47-07 - - $
+d37 1
+a37 1
+           << ", 0x" << significand << "}" << endl;
+@
+
+
+1.51
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.50 2021-04-26 19:24:10-07 - - $
+d37 1
+a37 2
+           << ", 0x" << hex << number.fields.significand << "}" << endl;
+cout << significand << endl;
+@
+
+
+1.50
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.49 2021-04-26 19:21:54-07 - - $
+d9 1
+d27 2
+d38 1
+@
+
+
+1.49
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.48 2021-04-26 19:20:19-07 - - $
+d32 3
+a34 3
+      cout << "  == {" << hex << number.fields.sign
+           << ", 0x" << number.fields.exponent
+           << ", 0x" << number.fields.significand << "}" << endl;
+@
+
+
+1.48
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.47 2021-04-26 19:12:51-07 - - $
+d32 3
+a34 3
+      cout << "  == {" << dec << number.fields.sign
+           << ", " << number.fields.exponent
+           << ", " << hex << number.fields.significand << "}" << endl;
+@
+
+
+1.47
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.46 2021-04-26 19:07:13-07 - - $
+d31 1
+a31 1
+           << setw(16) << number.bits << endl;
+@
+
+
+1.46
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.45 2021-04-26 19:06:21-07 - - $
+d12 1
+a12 1
+   signed exponent: 11;
+d30 1
+a30 1
+      cout << "   == " << "0x" << setfill('0') << hex << uppercase
+d32 3
+a34 3
+      cout << "   fields: " << dec << number.fields.sign
+           << " " << (number.fields.exponent - 1023)
+           << " " << hex << number.fields.significand << endl;
+@
+
+
+1.45
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.44 2021-04-26 19:05:40-07 - - $
+d29 1
+a29 1
+           <<  fraction << " * (2 ** " << exp << ")" << endl;
+@
+
+
+1.44
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.43 2021-04-26 19:05:21-07 - - $
+d30 1
+a30 1
+      cout << "   hex:    " << "0x" << setfill('0') << hex << uppercase
+@
+
+
+1.43
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.42 2021-04-26 19:00:15-07 - - $
+d28 1
+a28 2
+      cout << << setprecision (double_digits)
+           << number.fvalue << " == "
+@
+
+
+1.42
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.41 2021-04-26 18:59:52-07 - - $
+d27 3
+a29 3
+           << " " << label << ":" << endl;
+      cout << "   double: " << dec << setprecision (double_digits)
+           << number.fvalue << "   ==   "
+@
+
+
+1.41
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.40 2021-04-26 18:58:41-07 - - $
+d29 1
+a29 1
+           << number.fvalue << " == "
+@
+
+
+1.40
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.39 2021-04-26 18:56:36-07 - - $
+d28 1
+a28 1
+      cout << "   double: " << setprecision (double_digits)
+@
+
+
+1.39
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.38 2021-04-26 18:56:07-07 - - $
+d24 2
+d29 2
+a30 1
+           << number.fvalue << endl;
+a35 4
+      int exp;
+      double fraction = frexp (number.fvalue, &exp);
+      cout << "   frexp:  " << dec << fraction << " * (2 ** "
+           << exp << ")" << endl;
+@
+
+
+1.38
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.37 2021-04-26 18:22:24-07 - - $
+d35 2
+a36 2
+      cout << "   frexp:  " << dec << fraction << " * 2 ** "
+           << exp << endl;
+@
+
+
+1.37
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.36 2021-04-26 18:21:40-07 - - $
+d35 2
+a36 1
+      cout << "   frexp:  " << dec << exp << " " << fraction << endl;
+@
+
+
+1.36
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.35 2021-04-26 18:21:11-07 - - $
+d27 1
+a27 1
+           << setw (double_digits) << number.fvalue;
+d32 1
+a32 1
+           << " " << hex << number.fields.significand;
+@
+
+
+1.35
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.34 2021-04-26 18:21:01-07 - - $
+d29 1
+a29 1
+           << setw(16) << number.bits;
+d32 1
+a32 1
+           << " " << hex << number.fields.significand << endl;
+@
+
+
+1.34
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.33 2021-04-26 18:19:01-07 - - $
+d27 1
+a27 1
+           << setw (double_digits) number.fvalue;
+@
+
+
+1.33
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.32 2021-04-26 18:18:24-07 - - $
+d27 1
+a27 1
+           << number.fvalue << endl;
+d29 1
+a29 1
+           << setw(16) << number.bits << endl;
+@
+
+
+1.32
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.31 2021-04-26 18:15:32-07 - - $
+d35 1
+a35 2
+      cout << "   frexp:  " << " " << dec << exp
+           << " " << fraction << endl;
+@
+
+
+1.31
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.30 2021-04-26 18:14:27-07 - - $
+d35 2
+a36 2
+      cout << "   frexp:  " << number.fields.sign
+           << " " << dec << exp << " " << fraction << endl;
+@
+
+
+1.30
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.29 2021-04-26 18:13:07-07 - - $
+d36 1
+a36 1
+           << " " << exp << " " << fraction << endl;
+@
+
+
+1.29
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.25 2021-04-26 18:07:30-07 - - $
+d49 1
+@
+
+
+1.28
+log
+@-
+@
+text
+@d41 1
+d44 5
+a48 3
+   print ("zero", {0.0});
+   print ("0.0 / 0.0", {0.0 / 0.0});
+   print ("acos (M_PI)", {acos(M_PI)});
+@
+
+
+1.27
+log
+@-
+@
+text
+@a43 1
+   du.fvalue = 0.0 / 0.0;
+d45 1
+a45 2
+   du.fvalue = acos (M_PI);
+   print ("acos (M_PI)", du);
+@
+
+
+1.26
+log
+@-
+@
+text
+@a42 2
+   double_union du ;
+   du.fvalue = 0;
+d45 1
+a45 1
+   print ("0.0 / 0.0", du);
+@
+
+
+1.25
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.24 2021-04-26 18:06:13-07 - - $
+d45 1
+a45 1
+   print ("zero", du);
+@
+
+
+1.24
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.23 2021-04-26 18:06:05-07 - - $
+d24 2
+a25 1
+      cout << label << ":" << endl;
+@
+
+
+1.23
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.22 2021-04-26 18:05:29-07 - - $
+d36 1
+a36 1
+      number.fields.sign = ~ number.fields.sign
+@
+
+
+1.22
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.21 2021-04-26 17:17:18-07 - - $
+d22 1
+a22 1
+void print (const char* label, const double_union& number) {
+@
+
+
+1.21
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.20 2021-04-26 17:16:58-07 - - $
+d12 1
+a12 1
+   unsigned exponent: 11;
+d23 15
+a37 12
+   cout << label << ":" << endl;
+   cout << "   double: " << setprecision (double_digits)
+        << number.fvalue << endl;
+   cout << "   hex:    " << "0x" << setfill('0') << hex << uppercase
+        << setw(16) << number.bits << endl;
+   cout << "   fields: " << dec << number.fields.sign
+        << " " << number.fields.exponent
+        << " " << hex << number.fields.significand << endl;
+   int exp;
+   double fraction = frexp (number.fvalue, &exp);
+   cout << "   frexp:  " << (number.fields.sign == 1 ? '-' : '+')
+        << " " << exp << " " << fraction << endl;
+a44 2
+   du.fields.sign = ~ du.fields.sign;
+   print ("- zero", du);
+a46 2
+   du.fields.sign = ~ du.fields.sign;
+   print ("- 0.0 / 0.0", du);
+a48 2
+   du.fields.sign = ~ du.fields.sign;
+   print ("- acos (M_PI)", du);
+@
+
+
+1.20
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.19 2021-04-26 17:10:28-07 - - $
+d31 1
+a31 1
+   int* exp;
+@
+
+
+1.19
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.18 2021-04-26 17:05:06-07 - - $
+d17 1
+a17 1
+   double floating_pt;
+d22 1
+a22 1
+void print (const char* label, const double_union& value) {
+d25 1
+a25 1
+        << value.floating_pt << endl;
+d27 8
+a34 4
+        << setw(16) << value.bits << endl;
+   cout << "   fields: " << dec << value.fields.sign
+        << " " << value.fields.exponent
+        << " " << hex << value.fields.significand << endl;
+d40 1
+a40 1
+   du.floating_pt = 0;
+d44 1
+a44 1
+   du.floating_pt = 0.0 / 0.0;
+d48 1
+a48 1
+   du.floating_pt = acos (M_PI);
+@
+
+
+1.18
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.17 2021-04-26 17:04:46-07 - - $
+d39 1
+a39 1
+   print ("-zero", du);
+d41 1
+a41 1
+   print ("nan", du);
+d43 1
+a43 1
+   print ("-nan", du);
+d45 1
+a45 1
+   print ("acos(pi)", du);
+d47 1
+a47 1
+   print ("-acos(pi)", du);
+@
+
+
+1.17
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.16 2021-04-26 17:03:34-07 - - $
+a34 5
+   cout <<  (sizeof (double)) << endl;
+   cout <<  (sizeof (uint64_t)) << endl;
+   cout <<  (sizeof (double_bits)) << endl;
+   cout <<  (sizeof (double_union)) << endl;
+
+@
+
+
+1.16
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.15 2021-04-26 17:02:13-07 - - $
+d11 1
+a11 1
+   long unsigned significand: 53;
+@
+
+
+1.15
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.14 2021-04-26 17:00:21-07 - - $
+a21 4
+static_assert (sizeof (double) == 64L);
+static_assert (sizeof (uint64_t) == 64);
+static_assert (sizeof (double_bits) == 64);
+
+d35 5
+@
+
+
+1.14
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.13 2021-04-26 16:55:32-07 - - $
+d22 1
+a22 1
+static_assert (sizeof (double) == 64);
+@
+
+
+1.13
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.12 2021-04-26 16:55:19-07 - - $
+d21 4
+@
+
+
+1.12
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.11 2021-04-26 16:49:38-07 - - $
+d3 1
+@
+
+
+1.11
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.10 2021-04-26 16:48:39-07 - - $
+d37 1
+a37 1
+   du.fields.sign = 1;
+d41 1
+a41 1
+   du.fields.sign = 0;
+d43 4
+@
+
+
+1.10
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.9 2021-04-26 16:48:09-07 - - $
+d41 1
+a41 1
+   du.fields.sign = 1;
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.8 2021-04-26 16:47:25-07 - - $
+d10 2
+a12 2
+   unsigned exponent: 11;
+   long unsigned significand: 53;
+@
+
+
+1.8
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.7 2021-04-26 16:46:16-07 - - $
+d37 1
+a37 1
+   du.bits.sign = 1;
+d41 1
+a41 1
+   du.bits.sign = 1;
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.6 2021-04-26 16:44:34-07 - - $
+d37 2
+d41 2
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.5 2021-04-26 16:42:38-07 - - $
+d22 7
+a28 5
+   cout << label << endl;
+   cout << setprecision (double_digits) << value.floating_pt << endl;
+   cout << "0x" << setfill('0') << hex << uppercase
+        << setw(8) << value.bits << endl;
+   cout << dec << value.fields.sign << " " << value.fields.exponent
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.4 2021-04-26 16:42:20-07 - - $
+d24 2
+a25 2
+   cout << hex << setfill('0') << showbase << uppercase
+        << value.bits << endl;
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: double-fmt.cpp,v 1.1 2021-04-26 16:39:12-07 - - $
+d28 1
+a28 1
+};
+@
+
+
+1.3
+log
+@-
+@
+text
+@d33 1
+a33 1
+   du.floating_pt = 0.
+@
+
+
+1.2
+log
+@-
+@
+text
+@d17 2
+a18 2
+   uint64_t fields;
+   double_bits bits;
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id$
+d12 1
+a12 1
+   unsigned significand: 53;
+@

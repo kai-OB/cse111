@@ -1,0 +1,32 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.1
+date	2021.05.04.22.27.00;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// $Id: asm-template-sum.cpp,v 1.1 2021-05-04 11:48:47-07 - - $
+
+template <typename container>
+int sum_cont (const container& cont) {
+   int sum = 0;
+   for (int n: cont) sum += n;
+   return sum;
+}
+
+@

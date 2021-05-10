@@ -1,0 +1,130 @@
+head	1.5;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.5
+date	2021.04.01.10.20.53;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2021.04.01.10.19.29;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.04.01.09.48.10;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.04.01.09.47.00;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.01.02.57.30;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.5
+log
+@-
+@
+text
+@// $Id: debug.h,v 1.4 2021-04-01 03:19:29-07 - - $
+
+#ifndef __DEBUG__
+#define __DEBUG__
+
+#include <iostream>
+using namespace std;
+
+struct debug {
+   static bool want;
+   static void where (const char*, int, const char*);
+};
+
+#define DEBUG(CODE) { \
+           if (debug::want) { \
+              debug::where (__FILE__, __LINE__, __PRETTY_FUNCTION__); \
+              cerr << CODE << endl; \
+           } \
+        }
+
+#endif
+
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: debug.h,v 1.3 2021-04-01 02:48:10-07 - - $
+d11 1
+a11 1
+   void where (const char*, int, const char*);
+d15 2
+a16 2
+           if (want_debug) { \
+              debug (__FILE__, __LINE__, __PRETTY_FUNCTION__); \
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: debug.h,v 1.2 2021-04-01 02:47:00-07 - - $
+d9 4
+a12 2
+extern bool want_debug;
+void debug (const char*, int, const char*);
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: debug.h,v 1.1 2021-03-31 19:57:30-07 - - $
+d13 4
+a16 2
+           debug (__FILE__, __LINE__, __PRETTY_FUNCTION__); \
+           cerr << CODE << endl; \
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id$
+d6 6
+d13 2
+a14 3
+           cerr << "DEBUG: " << __FILE__ << "[" << __LINE__ << "] " \
+                << __PRETTY_FUNCTION__ << endl; \
+           cerr << "       " << CODE << endl; \
+@

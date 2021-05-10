@@ -1,9 +1,14 @@
-head	1.12;
+head	1.13;
 access;
 symbols;
 locks;
 comment	@// @;
 
+
+1.13
+date	2021.05.04.08.20.26;	author -;	state -;
+branches;
+next	1.12;
 
 1.12
 date	2021.05.01.05.15.28;	author -;	state -;
@@ -70,13 +75,13 @@ desc
 @@
 
 
-1.12
+1.13
 log
 @-
 @
 text
-@// $Id: main.cpp,v 1.11 2020-10-28 11:37:57-07 - - $
-
+@// $Id: main.cpp,v 1.12 2021-05-03 17:36:57-07 - - $
+//Kai O'Brien (kimobrie@@ucsc.edu)
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -145,13 +150,13 @@ int main (int argc, char** argv) {
             // function.  Complain or call it.
             wordvec words = split (line, " \t");
             DEBUGF ('y', "words = " << words);
-            //if(words.size()>1){
+            
                string word0 = words.at(0);
                if(!(word0.at(0)=='#')){
                   command_fn fn = find_command_fn (words.at(0));
                   fn (state, words);
                }
-           // }
+           
          }catch (file_error& error) {
             complain() << error.what() << endl;
          }catch (command_error& error) {
@@ -160,11 +165,31 @@ int main (int argc, char** argv) {
       }
    } catch (ysh_exit&) {
       // This catch intentionally left blank.
+     
    }
 
    return exit_status_message();
 }
 
+@
+
+
+1.12
+log
+@-
+@
+text
+@d1 2
+a2 2
+// $Id: main.cpp,v 1.11 2020-10-28 11:37:57-07 - - $
+
+d71 1
+a71 1
+            //if(words.size()>1){
+d77 1
+a77 1
+           // }
+d86 1
 @
 
 

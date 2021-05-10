@@ -1,0 +1,55 @@
+.so Tmac.mm-etc
+.if t .Newcentury-fonts
+.INITR* \n[.F]
+.TITLE CSE-111 "Usage of contiguous heap storage by vector"
+.RCS "$Id: vector-heap.mm,v 1.116 2021-04-30 07:28:04-07 - - $"
+.PWD
+.URL
+.DS
+.PS 5i
+boxht=.9
+boxwid=3
+arrowwid=.3
+arrowht=.6
+dotdiam=arrowwid*.5
+linethick=1
+boxdelta=boxwid/2
+boxsep=boxwid+boxdelta
+texthadj=boxwid*.15
+textvadj=boxwid*.1
+arrowadj=boxwid*.3
+sizeadj=boxwid*.4
+Anchor: box invis
+Begin: box with .nw at Anchor.nw+(boxwid,0)
+End: box with .nw at Begin.nw-(0,boxht)
+Limit: box with .nw at End.nw-(0,boxht)
+H0: box "item[0]" with .nw at Begin.nw+(boxwid*2.5,0)
+H1: box "item[1]" with .nw at H0.nw-(0,boxht)
+H2: box "item[2]" with .nw at H1.nw-(0,boxht)
+Dots: box ht boxht*4 with .nw at H2.nw-(0,boxht)
+Hlast: box "item[n\-1]" \
+       with .nw at Dots.nw-(0,boxht*4)
+Uninit: box "allocated" "uninitialized" "memory" \
+        fill 0.2 ht boxht*8 with .nw at Hlast.nw-(0,boxht)
+circle fill 1 diam dotdiam at Dots
+circle fill 1 diam dotdiam at Dots+(0,boxht/3)
+circle fill 1 diam dotdiam at Dots-(0,boxht/3)
+Begindot: circle fill 1 diam dotdiam at Begin.e-(arrowadj,0)
+Enddot: circle fill 1 diam dotdiam at End.e-(arrowadj,0)
+Limitdot: circle fill 1 diam dotdiam at Limit.e-(arrowadj,0)
+arrow from Begindot to H0.nw
+arrow from Enddot to Uninit.nw
+arrow from Limitdot to Uninit.sw
+"begin" ljust at Begin.w+(texthadj,0)
+"end" ljust at End.w+(texthadj,0)
+"limit" ljust at Limit.w+(texthadj,0)
+Size: "size" at 1/2 between H0.ne+(sizeadj,0) \
+                and Hlast.se+(sizeadj,0)
+arrow from Size+(0,textvadj) to H0.ne+(sizeadj,0)
+arrow from Size-(0,textvadj) to Hlast.se+(sizeadj,0)
+Capacity: "capacity" at 1/2 between H0.ne+(2*sizeadj,0) \
+                and Uninit.se+(2*sizeadj,0)
+arrow from Capacity+(0,textvadj) to H0.ne+(2*sizeadj,0)
+arrow from Capacity-(0,textvadj) to Uninit.se+(2*sizeadj,0)
+.PE
+.DE

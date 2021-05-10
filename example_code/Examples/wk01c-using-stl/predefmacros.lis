@@ -1,0 +1,23 @@
+Wed Dec 11 17:28:01 PST 2019
+uname --kernel-name: Linux
+uname --nodename: unix2.lt.ucsc.edu
+uname --kernel-release: 3.10.0-1062.1.1.el7.x86_64
+uname --kernel-version: #1 SMP Fri Sep 13 22:55:44 UTC 2019
+uname --machine: x86_64
+uname --processor: x86_64
+uname --hardware-platform: x86_64
+uname --operating-system: GNU/Linux
+__FILE__ = "predefmacros.cpp"
+__LINE__ = "62"
+__func__ = "main"
+__PRETTY_FUNCTION__ = "int main()"
+__DATE__ = "Dec 11 2019"
+__TIME__ = "17:28:00"
+__STDC__ = "1"
+__cplusplus = "201709"
+__unix__ = "1"
+__linux__ = "1"
+__x86_64__ = "1"
+__GNUC__ = "8"
+__GNUC_MINOR__ = "3"
+__GNUC_PATCHLEVEL__ = "1"

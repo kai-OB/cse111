@@ -1,0 +1,4 @@
+# Makefile.dep created Thu Apr  1 03:21:01 PDT 2021
+hello.o: hello.cpp hello.h debug.h
+debug.o: debug.cpp debug.h
+main.o: main.cpp debug.h hello.h

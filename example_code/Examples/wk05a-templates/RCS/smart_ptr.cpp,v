@@ -1,0 +1,350 @@
+head	1.7;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.7
+date	2019.04.30.00.03.27;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2019.04.30.00.01.41;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2019.04.30.00.00.29;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2019.04.29.23.57.55;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2019.04.29.23.57.00;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2019.04.29.23.56.31;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2019.04.29.23.54.08;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.7
+log
+@-
+@
+text
+@// $Id: smart_ptr.cpp,v 1.6 2019-04-29 17:01:41-07 - - $
+
+//
+// Smart pointer class encapsulating a pointer, like shared_ptr.
+//
+
+#include <iostream>
+using namespace std;
+
+/////////////////////////////////////////////////////////////////
+// pointer.h
+/////////////////////////////////////////////////////////////////
+
+template <typename Type>
+class pointer {
+      template <typename U>
+      friend ostream& operator<< (ostream& , const pointer<U>& );
+      template <typename U, typename... Args>
+      friend pointer<U> make_pointer (Args&&...);
+
+   private:
+
+      // Invariant: ref_count == obj_ptr == nullptr
+      //            ref_count->count on heap, obj_ptr->object itself
+
+      size_t* ref_count {};
+      Type* obj_ptr {};
+
+      // Auxiliary functions.
+
+      void increment() {
+         if (ref_count != nullptr) ++*ref_count;
+      }
+
+      void decrement() {
+         if (ref_count != nullptr and --*ref_count == 0) {
+            delete ref_count;
+            delete obj_ptr;
+            ref_count = nullptr;
+            obj_ptr = nullptr;
+         }
+      }
+
+      void copy_that (const pointer& that) {
+         decrement();
+         ref_count = that.ref_count;
+         obj_ptr = that.obj_ptr;
+      }
+
+
+   public:
+      // Replace implicitly generated functions.
+
+      pointer(): ref_count (0), obj_ptr (nullptr) {
+      }
+
+      pointer (const pointer& that): ref_count (that.ref_count),
+                                     obj_ptr (that.obj_ptr) {
+         increment();
+      }
+
+      pointer (pointer&& that): ref_count (that.ref_count),
+                                obj_ptr (that.obj_ptr) {
+         that.decrement();
+      }
+
+      pointer& operator= (const pointer& that) {
+         if (this == &that) return *this;
+         copy_that (that);
+         increment();
+         return *this;
+      }
+
+      pointer& operator= (pointer&& that) {
+         if (this == &that) return *this;
+         copy_that (that);
+         that.decrement();
+         return *this;
+      }
+
+      ~pointer() {
+         decrement();
+      }
+
+      // Other constructors.
+
+      pointer (nullptr_t) {
+      }
+
+      pointer (const Type& obj): ref_count (new size_t (1)),
+                                 obj_ptr (new Type (obj)) {
+      }
+
+      // Mutators (non-const functions).
+
+      Type& operator*() { return *obj_ptr; }
+
+      Type* operator->() { return obj_ptr; }
+
+      pointer& operator= (nullptr_t) {
+         decrement();
+      }
+
+      // Accessors (const functions).
+
+      const Type& operator*() const { return *obj_ptr; }
+
+      const Type* operator->() const { return obj_ptr; }
+
+      operator bool() const { return obj_ptr; }
+
+      bool operator== (const pointer& that) const {
+         return obj_ptr == that.obj_ptr;
+      }
+
+      bool operator== (nullptr_t) const { return obj_ptr == nullptr; }
+      bool operator!= (nullptr_t) const { return obj_ptr != nullptr; }
+
+      template <typename U>
+      friend bool operator== (nullptr_t, const pointer<U>& that) {
+         return nullptr == that.obj_ptr;
+      }
+
+      template <typename U>
+      friend bool operator!= (nullptr_t, const pointer<U>& that) {
+         return nullptr != that.obj_ptr;
+      }
+
+      bool operator!= (const pointer& that) const {
+         return not (*this == that);
+      }
+
+      size_t users() const { return ref_count ? *ref_count : 0; }
+
+      size_t unique() const { return users() == 1; }
+
+      size_t empty() const { return users() == 0; }
+};
+
+template <typename Type>
+ostream& operator<< (ostream& out, const pointer<Type>& that) {
+   if (that == nullptr) {
+      out << "nullptr";
+   }else{
+      out << that.obj_ptr << "[" << *that.ref_count << "]";
+   }
+   return out;
+}
+
+template <typename Type, typename... Args>
+inline pointer<Type> make_pointer (Args&&... args) {
+   pointer<Type> result;
+   result.ref_count = new size_t (1);
+   result.obj_ptr = new Type (std::forward<Args> (args)...);
+   return result;
+}
+
+
+/////////////////////////////////////////////////////////////////
+// Main program.
+/////////////////////////////////////////////////////////////////
+
+struct node {
+   string str;
+   pointer<node> link;
+   node (const char* s, pointer<node> p = nullptr): str (s), link (p) {
+   }
+};
+
+int main (int argc, char** argv) {
+   pointer<node> head;
+   pointer<node> tail;
+   for (int i = 0; i < argc; ++i) {
+      pointer<node> tmp = make_pointer<node> (argv[i]);
+      if (head == nullptr) head = tmp;
+                      else tail->link = tmp;
+      tail = tmp;
+   }
+   for (pointer<node> p = head; p != nullptr; p = p->link) {
+      cout << p << "-> {\"" << p->str << "\", " << p->link
+           << "}" << endl;
+   }
+   return 0;
+}
+
+//TEST// alias grind='valgrind --leak-check=full --show-reachable=yes'
+//TEST// grind smart_ptr hello world foo bar baz >smart_ptr.out 2>&1
+//TEST// mkpspdf smart_ptr.ps smart_ptr.cpp* smart_ptr.out
+
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: smart_ptr.cpp,v 1.5 2019-04-29 17:00:29-07 - - $
+d142 5
+a146 1
+   out << that.obj_ptr << "[" << *that.ref_count << "]";
+d180 1
+a180 1
+      cout << p << "-> {\"" << p->str << "\", " /*<< p->link*/
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: smart_ptr.cpp,v 1.4 2019-04-29 16:57:55-07 - - $
+d176 1
+a176 1
+      cout << p << "-> {\"" << p->str << "\", " << p->link
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: smart_ptr.cpp,v 1.3 2019-04-29 16:57:00-07 - - $
+d176 2
+a177 1
+      cout << p << "->\"" << p->str << "\"" << endl;
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: smart_ptr.cpp,v 1.2 2019-04-29 16:56:31-07 - - $
+d182 2
+a183 2
+//TEST// grind smart_ptr_2 hello world foo bar baz >smart_ptr_2.out 2>&1
+//TEST// mkpspdf smart_ptr_2.ps smart_ptr_2.cpp* smart_ptr_2.out
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: smart_ptr.cpp,v 1.1 2019-04-29 16:54:08-07 - - $
+d121 1
+a121 1
+         nullptr == that.obj_ptr;
+d126 1
+a126 1
+         nullptr != that.obj_ptr;
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: smart_ptr_2.cpp,v 1.2 2017-09-28 12:45:42-07 - - $
+d19 1
+a19 1
+      pointer<U> friend make_pointer (Args&&...);
+d118 1
+d120 4
+a123 1
+      friend bool operator== (nullptr_t, const pointer<U>&);
+d125 3
+a127 1
+      friend bool operator!= (nullptr_t, const pointer<U>&);
+a151 9
+}
+
+template <typename Type>
+bool operator== (nullptr_t, const pointer<Type>& that) {
+   return nullptr == that.objptr;
+}
+template <typename Type>
+bool operator!= (nullptr_t, const pointer<Type>& that) {
+   return nullptr == that.objptr;
+@

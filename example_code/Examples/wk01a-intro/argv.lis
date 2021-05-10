@@ -1,0 +1,8 @@
+argc = 6
+argv = 0x7fffa875f0c8
+argv[0] = 0x7fffa875fdc3->"./argv"
+argv[1] = 0x7fffa875fdca->"foo"
+argv[2] = 0x7fffa875fdce->"bar"
+argv[3] = 0x7fffa875fdd2->"baz"
+argv[4] = 0x7fffa875fdd6->"qux"
+argv[5] = 0x7fffa875fdda->"quux"

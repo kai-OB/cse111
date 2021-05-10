@@ -1,0 +1,144 @@
+head	1.6;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.6
+date	2021.01.05.09.01.36;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2021.01.05.08.49.46;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2021.01.05.08.49.07;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.01.05.08.47.30;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.01.05.08.47.05;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.01.05.08.45.45;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.6
+log
+@-
+@
+text
+@// $Id: complex.cpp,v 1.5 2021-01-05 00:49:46-08 - - $
+
+#include <iostream>
+using namespace std;
+
+struct complex {
+   double re;
+   double im;
+};
+
+complex operator+ (complex a, complex b) {
+   return {a.re + b.re, a.im + b.im};
+}
+
+ostream& operator<< (ostream& out, const complex x) {
+   return out << "{" << x.re << "," << x.im << "}";
+}
+
+int main() {
+   complex a {1,2};
+   complex b {3,4};
+   complex c = a + b;
+   cout << a << " + " << b << " = " << c << endl;
+   return 0;
+}
+
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: complex.cpp,v 1.4 2021-01-05 00:49:07-08 - - $
+d12 1
+a12 1
+   return complex {a.re + b.re, a.im + b.im};
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: complex.cpp,v 1.3 2021-01-05 00:47:30-08 - - $
+d16 1
+a16 1
+   return out << "(" << x.re << "," << x.im << ")";
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: complex.cpp,v 1.1 2021-01-05 00:45:45-08 - - $
+d23 1
+a23 3
+   cout << a << endl;
+   cout << b << endl;
+   cout << c << endl;
+@
+
+
+1.2
+log
+@-
+@
+text
+@d20 2
+a21 2
+   complex a (1,2);
+   complex b (3,4);
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id$
+d12 1
+a12 1
+   return complex (a.re + b.re, a.im + b.im);
+@

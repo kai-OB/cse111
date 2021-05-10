@@ -1,0 +1,44 @@
+Script started on Tue 02 Aug 2016 05:25:57 PM PDT
+bash-1$ short_prompt
+bash-2$ sigactionintr
+sigactionintr: signal (SIGINT) = 0
+Just before calling shell.
+Entering shell.
+[15173]sigactionintr: Shell count 0, action_count 0
+[15173]sigactionintr: Shell count 1, action_count 0
+[15173]sigactionintr: Shell count 2, action_count 0
+[15173]sigactionintr: Shell count 3, action_count 0
+^C[15173]sigactionintr: Caught signal 2, action_count 1
+[15173]sigactionintr: Shell count 4, action_count 1
+[15173]sigactionintr: Shell count 5, action_count 1
+[15173]sigactionintr: Shell count 6, action_count 1
+[15173]sigactionintr: Shell count 7, action_count 1
+^C[15173]sigactionintr: Caught signal 2, action_count 2
+[15173]sigactionintr: Shell count 8, action_count 2
+[15173]sigactionintr: Shell count 9, action_count 2
+^C[15173]sigactionintr: Caught signal 2, action_count 3
+[15173]sigactionintr: Shell count 10, action_count 3
+[15173]sigactionintr: Shell count 11, action_count 3
+^C[15173]sigactionintr: Caught signal 2, action_count 4
+[15173]sigactionintr: Shell count 12, action_count 4
+^C[15173]sigactionintr: Caught signal 2, action_count 5
+[15173]sigactionintr: Shell count 13, action_count 5
+[15173]sigactionintr: Shell count 14, action_count 5
+[15173]sigactionintr: Shell count 15, action_count 5
+^C[15173]sigactionintr: Caught signal 2, action_count 6
+[15173]sigactionintr: Shell count 16, action_count 6
+^C[15173]sigactionintr: Caught signal 2, action_count 7
+[15173]sigactionintr: Shell count 17, action_count 7
+^C[15173]sigactionintr: Caught signal 2, action_count 8
+[15173]sigactionintr: Shell count 18, action_count 8
+[15173]sigactionintr: Shell count 19, action_count 8
+[15173]sigactionintr: Shell count 20, action_count 8
+^C[15173]sigactionintr: Caught signal 2, action_count 9
+[15173]sigactionintr: Shell count 21, action_count 9
+^C[15173]sigactionintr: Caught signal 2, action_count 10
+[15173]sigactionintr: Shell count 22, action_count 10
+sigactionintr: action_count > 9
+bash-3$ exit
+exit
+
+Script done on Tue 02 Aug 2016 05:26:26 PM PDT

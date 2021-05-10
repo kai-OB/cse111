@@ -1,0 +1,275 @@
+head	1.8;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.8
+date	2021.03.05.00.17.05;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2021.03.05.00.14.30;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2021.03.04.23.40.40;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2021.03.04.22.28.02;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2021.03.04.22.21.49;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.03.04.22.13.43;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.03.04.22.12.06;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.03.04.21.53.29;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.8
+log
+@-
+@
+text
+@// $Id: ptime.cpp,v 1.7 2021-03-04 16:14:30-08 - - $
+
+//
+// NAME
+//    proctime - print time used by process
+//
+// SYNOPSIS
+//    proctime prog [args...]
+//
+// DESCRIPTION
+//    Runs the program as a child process and when finished
+//    prints the real_time, sys_time, and user_time used.
+//
+
+#include <cstdlib>
+#include <cstring>
+#include <iomanip>
+#include <iostream>
+using namespace std;
+
+#include <sys/resource.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+string execname;
+
+void sysfail (const string& object) {
+   cerr << execname << ": " << object << ": " << strerror (errno)
+        << endl;
+   exit (errno | 0x80);
+}
+
+void usage() {
+   cerr << "Usage: " << execname << " prog [args...]" << endl;
+   exit (1);
+}
+
+double seconds (const struct timeval& time) {
+   return double (time.tv_sec) + double (time.tv_usec) / 1.0e6;
+}
+
+int runprog (char** argv) {
+   int pid = fork();
+   if (pid < 0) sysfail ("fork()");
+   if (pid == 0) {
+      int exec = execvp (argv[0], argv);
+      if (exec < 0) sysfail (argv[0]);
+   }
+   int status;
+   waitpid (pid, &status, 0);
+   return status;
+}
+
+void print_usage (double real_time, double sys_time, double user_time) {
+  cout << std::fixed
+       << setprecision(6) << real_time << " real, "
+       << setprecision(6) << sys_time << " sys, "
+       << setprecision(6) << user_time << " user.";
+}
+
+int main (int argc, char** argv) {
+   execname = basename (argv[0]);
+   if (argc < 2) usage();
+   struct rusage cnild_usage;
+   struct timeval start, finish;
+   gettimeofday (&start, nullptr);
+   int status = runprog (&argv[1]);
+   getrusage (RUSAGE_CHILDREN, &cnild_usage);
+   gettimeofday (&finish, nullptr);
+   print_usage (seconds (finish) - seconds (start),
+                seconds (cnild_usage.ru_stime),
+                seconds (cnild_usage.ru_utime));
+   status = status & 0x7F ? (status & 0x7F) | 0x80
+                          : (status >> 8) & 0xFF;
+   if (status) cout << " $?=" << status;
+   cout << endl;
+   return status;
+}
+
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: ptime.cpp,v 1.6 2021-03-04 15:40:40-08 - - $
+d66 1
+a67 1
+   struct rusage cnild_usage;
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: ptime.cpp,v 1.5 2021-03-04 14:28:02-08 - - $
+d65 1
+a68 1
+   if (argc < 2) usage();
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: ptime.cpp,v 1.3 2021-03-04 14:13:43-08 - - $
+d75 2
+a76 1
+   if (status & 0x7F) status = (status & 0x7F) | 0x80;
+@
+
+
+1.4
+log
+@-
+@
+text
+@a43 9
+void print_status (int status) {
+   if (status & 0xFF) {
+      cout << " " << strsignal (status & 0x7F);
+      if (status & 0x8F) cout << "(core dumped)";
+   }else {
+      cout << " exit " << ((status >> 8) & 0xFF);
+   }
+}
+
+d49 1
+a49 1
+      if (exec < 0) sysfail ("execvp(" + argv[0] + ")");
+d75 2
+a76 1
+   if (status) print_status (status);
+d78 1
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: ptime.cpp,v 1.2 2021-03-04 14:12:06-08 - - $
+d58 1
+a58 1
+      if (exec < 0) sysfail (argv[0]);
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: proctime.cpp,v 1.3 2021-02-08 23:24:25-08 - - $
+d58 1
+a58 1
+      if (exec < 0) sysfail (string ("execvp(") + argv[0] + ")");
+@
+
+
+1.1
+log
+@-
+@
+text
+@a27 1
+char** prog_argv = nullptr;
+d44 1
+a44 1
+string stringify_status (int status) {
+d46 2
+a47 2
+      return strsignal (status & 0x7F)
+           + (status & 0x8F ? " (cored dumped)" : "");
+d49 1
+a49 1
+      return "exit " + to_string ((status >> 8) & 0xFF);
+d53 1
+a53 2
+status runprog (char** argv) {
+   if (argv[0] == nullptr) usage();
+d69 1
+a69 3
+       << setprecision(6) << user_time << " user."
+  if (status != 0) cout << stringify_status (status);
+  cout << endl;
+d75 1
+a75 1
+   struct rusage usage;
+d77 3
+a79 2
+   int status = runprog (opts.prog_argv);
+   getrusage (RUSAGE_CHILDREN, &usage);
+d82 3
+a84 3
+                seconds (usage.ru_stime),
+                seconds (usage.ru_utime));
+   if (status) cout << " " << stringify_status (status);
+@

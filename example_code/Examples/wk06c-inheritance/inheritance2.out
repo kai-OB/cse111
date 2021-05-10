@@ -1,0 +1,45 @@
+==28710== Memcheck, a memory error detector
+==28710== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.
+==28710== Using Valgrind-3.10.1 and LibVEX; rerun with -h for copyright info
+==28710== Command: inheritance2
+==28710== 
+[130]int main(): sizeof (object) = 16
+[131]int main(): sizeof (square) = 24
+[132]int main(): sizeof (circle) = 24
+[58]object::object(): [0x9c9b0a0->object] id=1: 
+[111]circle::circle(size_t): [0x9c9b0a0->circle] id=1: diam=0
+[58]object::object(): [0x9c9b2c0->object] id=2: 
+[111]circle::circle(size_t): [0x9c9b2c0->circle] id=2: diam=10
+[58]object::object(): [0x9c9b4f0->object] id=3: 
+[85]square::square(size_t): [0x9c9b4f0->square] id=3: width=0
+[58]object::object(): [0x9c9b740->object] id=4: 
+[85]square::square(size_t): [0x9c9b740->square] id=4: width=5
+[58]object::object(): [0x9c9b910->object] id=5: 
+[85]square::square(size_t): [0x9c9b910->square] id=5: width=8
+
+[145]int main(): Object: [0x9c9b0a0->circle] id=1: diam=0
+[145]int main(): Object: [0x9c9b2c0->circle] id=2: diam=10
+[145]int main(): Object: [0x9c9b4f0->square] id=3: width=0
+[145]int main(): Object: [0x9c9b740->square] id=4: width=5
+[145]int main(): Object: [0x9c9b910->square] id=5: width=8
+
+[149]int main(): return 0
+[115]virtual circle::~circle(): [0x9c9b0a0->circle] id=1: diam=0
+[62]virtual object::~object(): [0x9c9b0a0->object] id=1: 
+[115]virtual circle::~circle(): [0x9c9b2c0->circle] id=2: diam=10
+[62]virtual object::~object(): [0x9c9b2c0->object] id=2: 
+[89]virtual square::~square(): [0x9c9b4f0->square] id=3: width=0
+[62]virtual object::~object(): [0x9c9b4f0->object] id=3: 
+[89]virtual square::~square(): [0x9c9b740->square] id=4: width=5
+[62]virtual object::~object(): [0x9c9b740->object] id=4: 
+[89]virtual square::~square(): [0x9c9b910->square] id=5: width=8
+[62]virtual object::~object(): [0x9c9b910->object] id=5: 
+==28710== 
+==28710== HEAP SUMMARY:
+==28710==     in use at exit: 0 bytes in 0 blocks
+==28710==   total heap usage: 60 allocs, 60 frees, 1,431 bytes allocated
+==28710== 
+==28710== All heap blocks were freed -- no leaks are possible
+==28710== 
+==28710== For counts of detected and suppressed errors, rerun with: -v
+==28710== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 1 from 1)

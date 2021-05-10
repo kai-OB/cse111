@@ -1,0 +1,1907 @@
+head	1.69;
+access;
+symbols;
+locks;
+comment	@.\" @;
+
+
+1.69
+date	2021.05.04.18.55.59;	author -;	state -;
+branches;
+next	1.68;
+
+1.68
+date	2019.06.18.22.08.29;	author -;	state -;
+branches;
+next	1.67;
+
+1.67
+date	2019.06.18.22.07.56;	author -;	state -;
+branches;
+next	1.66;
+
+1.66
+date	2019.06.18.22.07.21;	author -;	state -;
+branches;
+next	1.65;
+
+1.65
+date	2019.06.18.22.05.50;	author -;	state -;
+branches;
+next	1.64;
+
+1.64
+date	2019.06.18.22.05.30;	author -;	state -;
+branches;
+next	1.63;
+
+1.63
+date	2019.06.18.22.05.14;	author -;	state -;
+branches;
+next	1.62;
+
+1.62
+date	2019.06.18.22.04.55;	author -;	state -;
+branches;
+next	1.61;
+
+1.61
+date	2019.06.18.22.03.48;	author -;	state -;
+branches;
+next	1.60;
+
+1.60
+date	2019.06.18.22.03.36;	author -;	state -;
+branches;
+next	1.59;
+
+1.59
+date	2019.06.18.22.00.51;	author -;	state -;
+branches;
+next	1.58;
+
+1.58
+date	2019.06.18.22.00.07;	author -;	state -;
+branches;
+next	1.57;
+
+1.57
+date	2019.06.18.21.59.04;	author -;	state -;
+branches;
+next	1.56;
+
+1.56
+date	2019.06.12.20.07.33;	author -;	state -;
+branches;
+next	1.55;
+
+1.55
+date	2019.06.12.20.06.45;	author -;	state -;
+branches;
+next	1.54;
+
+1.54
+date	2019.06.12.20.06.08;	author -;	state -;
+branches;
+next	1.53;
+
+1.53
+date	2019.06.12.20.04.17;	author -;	state -;
+branches;
+next	1.52;
+
+1.52
+date	2019.06.12.20.03.56;	author -;	state -;
+branches;
+next	1.51;
+
+1.51
+date	2019.06.12.20.01.56;	author -;	state -;
+branches;
+next	1.50;
+
+1.50
+date	2019.06.12.20.01.03;	author -;	state -;
+branches;
+next	1.49;
+
+1.49
+date	2019.06.12.19.57.58;	author -;	state -;
+branches;
+next	1.48;
+
+1.48
+date	2019.06.12.19.50.41;	author -;	state -;
+branches;
+next	1.47;
+
+1.47
+date	2019.06.12.19.47.45;	author -;	state -;
+branches;
+next	1.46;
+
+1.46
+date	2019.06.12.19.46.05;	author -;	state -;
+branches;
+next	1.45;
+
+1.45
+date	2019.06.12.19.41.38;	author -;	state -;
+branches;
+next	1.44;
+
+1.44
+date	2019.06.10.23.18.02;	author -;	state -;
+branches;
+next	1.43;
+
+1.43
+date	2019.06.10.23.14.37;	author -;	state -;
+branches;
+next	1.42;
+
+1.42
+date	2019.05.15.20.30.41;	author -;	state -;
+branches;
+next	1.41;
+
+1.41
+date	2019.05.15.20.29.56;	author -;	state -;
+branches;
+next	1.40;
+
+1.40
+date	2019.05.15.20.29.40;	author -;	state -;
+branches;
+next	1.39;
+
+1.39
+date	2019.05.15.20.29.04;	author -;	state -;
+branches;
+next	1.38;
+
+1.38
+date	2019.05.15.20.28.26;	author -;	state -;
+branches;
+next	1.37;
+
+1.37
+date	2019.05.15.20.26.13;	author -;	state -;
+branches;
+next	1.36;
+
+1.36
+date	2019.05.15.20.25.40;	author -;	state -;
+branches;
+next	1.35;
+
+1.35
+date	2019.05.15.20.25.03;	author -;	state -;
+branches;
+next	1.34;
+
+1.34
+date	2019.05.15.20.24.40;	author -;	state -;
+branches;
+next	1.33;
+
+1.33
+date	2019.05.15.20.22.06;	author -;	state -;
+branches;
+next	1.32;
+
+1.32
+date	2019.05.15.20.21.47;	author -;	state -;
+branches;
+next	1.31;
+
+1.31
+date	2019.05.15.20.20.08;	author -;	state -;
+branches;
+next	1.30;
+
+1.30
+date	2019.05.15.20.19.44;	author -;	state -;
+branches;
+next	1.29;
+
+1.29
+date	2019.05.15.20.19.26;	author -;	state -;
+branches;
+next	1.28;
+
+1.28
+date	2019.05.15.20.19.16;	author -;	state -;
+branches;
+next	1.27;
+
+1.27
+date	2019.05.15.20.19.03;	author -;	state -;
+branches;
+next	1.26;
+
+1.26
+date	2019.05.15.20.18.36;	author -;	state -;
+branches;
+next	1.25;
+
+1.25
+date	2019.05.15.20.18.23;	author -;	state -;
+branches;
+next	1.24;
+
+1.24
+date	2019.05.15.20.15.16;	author -;	state -;
+branches;
+next	1.23;
+
+1.23
+date	2019.05.15.20.14.43;	author -;	state -;
+branches;
+next	1.22;
+
+1.22
+date	2019.05.15.20.13.52;	author -;	state -;
+branches;
+next	1.21;
+
+1.21
+date	2019.05.15.20.13.21;	author -;	state -;
+branches;
+next	1.20;
+
+1.20
+date	2019.05.15.20.12.55;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2019.05.15.20.12.36;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2019.05.15.20.12.19;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2019.05.15.20.12.02;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2019.05.15.20.11.44;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2019.05.15.20.11.13;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2019.05.15.20.10.41;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2019.05.15.20.09.37;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2019.05.15.20.07.13;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2019.05.15.20.06.49;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2019.05.15.20.03.51;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2019.05.15.20.03.27;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2019.05.15.20.02.29;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2019.05.15.20.02.15;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2019.05.15.19.52.24;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2019.05.15.19.50.58;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2019.05.15.19.50.38;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2019.05.15.19.50.13;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2019.05.15.19.49.21;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2019.05.07.02.25.00;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.69
+log
+@-
+@
+text
+@.so Tmac.mm-etc
+.if t .Newcentury-fonts
+.INITR* \n[.F]
+.SIZE 12 14
+.TITLE "X86-64 ABI Register Usage"
+.RCS $Id: registers.mm,v 1.68 2019-06-18 15:08:29-07 - - $
+.SP
+.DS
+.TS
+center tab(|);
+|l  s     s     s     s     |l |l |,
+|r  l     l     l     l     |l |l |,
+|r1 l1fCB l1fCB l1fCB l1fCB |l |lw(236p) |.
+_
+Register|Callee|Usage
+|quad|long|word|byte|Saved
+_
+0|%rax|%eax|%ax|%al||T{
+.fi
+.na
+1st return register
+.br
+used in \f[CB]idiv\f[P] and \f[CB]imul\f[P] instructions
+.br
+\f[CB]<cstdarg>\f[P]
+vector register argument count
+T}
+_
+1|%rcx|%ecx|%cx|%cl||4th argument register
+_
+2|%rdx|%edx|%dx|%dl||T{
+3rd argument register
+2nd return register
+used in \f[CB]idiv\f[P] and \f[CB]imul\f[P] instructions
+T}
+_
+3|%rbx|%ebx|%bx|%dl|Yes|
+_
+4|%rsp|%esp|%sp|%spl|Yes|stack pointer
+_
+5|%rbp|%ebp|%bp|%bpl|Yes|T{
+.na
+.fi
+frame pointer (optional)
+T}
+_
+6|%rsi|%esi|%si|%sil||2nd argument register
+_
+7|%rdi|%edi|%di|%dil||1st argument register
+_
+8|%r8|%r8d|%r8w|%r8b||5th argument register
+_
+9|%r9|%r9d|%r9w|%r9b||6th argument register
+_
+10|%r10|%r10d|%r10w|%r10b||T{
+.fi
+.na
+static chain pointer (optional)
+T}
+_
+11|%r11|%r11d|%r11w|%r11b||
+_
+12|%r12|%r12d|%r12w|%r12b |Yes|
+_
+13|%r13|%r13d|%r13w|%r13b |Yes|
+_
+14|%r14|%r14d|%r14w|%r14b |Yes|
+_
+15|%r15|%r15d|%r15w|%r15b |Yes|T{
+.fi
+.na
+global offset table (GOT) pointer (optional)
+T}
+_
+.TE
+.DE
+.SP
+Second byte of arithmetic registers (8086 compatibility)\(::
+.V= %ah ,
+.V= %bh ,
+.V= %ch ,
+.V= %dh .
+.SP
+.DS
+.TS
+tab(|); |l lfCB lfCB |.
+_
+Function prolog|pushq|%rpb
+|movq|%rsp, %rbp
+|subq|$N, %rsp
+_
+Function epilog|movq|%rpb, %rsp
+|popq|%rbp
+|ret
+_
+.TE
+.DE
+@
+
+
+1.68
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.67 2019-06-18 15:07:56-07 - - $
+d72 1
+a72 1
+GOT pointer (optional)
+@
+
+
+1.67
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.66 2019-06-18 15:07:21-07 - - $
+d25 1
+a25 1
+\f[CB]<stdarg.h>\f[P]
+@
+
+
+1.66
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.65 2019-06-18 15:05:50-07 - - $
+d25 2
+a26 1
+vector register argument count (\f[CB]stdarg\f[P])
+@
+
+
+1.65
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.64 2019-06-18 15:05:30-07 - - $
+d25 1
+a25 1
+number of vector register arguments (\f[CB]stdarg\f[P])
+@
+
+
+1.64
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.63 2019-06-18 15:05:14-07 - - $
+d16 1
+a16 1
+n\[Om]|quad|long|word|byte|Saved
+@
+
+
+1.63
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.62 2019-06-18 15:04:55-07 - - $
+d16 1
+a16 1
+N\[Om]|quad|long|word|byte|Saved
+@
+
+
+1.62
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.56 2019-06-12 13:07:33-07 - - $
+d16 1
+a16 1
+|quad|long|word|byte|Saved
+@
+
+
+1.61
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.60 2019-06-18 15:03:36-07 - - $
+d11 3
+a13 3
+|l  s     s     s     l     l     |l |l |,
+|r  l     l     l     l     l     |l |l |,
+|r1 l1fCB l1fCB l1fCB l1fCB l1fCB |l |lw(205p) |.
+d15 2
+a16 2
+Register\(::|high|low|Callee|Usage
+N\[Om]|quad|long|word|byte|byte|Saved
+d18 1
+a18 1
+0|%rax|%eax|%ax|%ah|%al||T{
+d28 1
+a28 1
+1|%rcx|%ecx|%cx|%ch|%cl||4th argument register
+d30 1
+a30 1
+2|%rdx|%edx|%dx|%dh|%dl||T{
+d36 1
+a36 1
+3|%rbx|%ebx|%bx|%bh|%dl|Yes|
+d38 1
+a38 1
+4|%rsp|%esp|%sp||%spl|Yes|stack pointer
+d40 1
+a40 1
+5|%rbp|%ebp|%bp||%bpl|Yes|T{
+d46 1
+a46 1
+6|%rsi|%esi|%si||%sil||2nd argument register
+d48 1
+a48 1
+7|%rdi|%edi|%di||%dil||1st argument register
+d50 1
+a50 1
+8|%r8|%r8d|%r8w||%r8b||5th argument register
+d52 1
+a52 1
+9|%r9|%r9d|%r9w||%r9b||6th argument register
+d54 1
+a54 1
+10|%r10|%r10d|%r10w||%r10b||T{
+d60 1
+a60 1
+11|%r11|%r11d|%r11w||%r11b||
+d62 1
+a62 1
+12|%r12|%r12d|%r12w||%r12b |Yes|
+d64 1
+a64 1
+13|%r13|%r13d|%r13w||%r13b |Yes|
+d66 1
+a66 1
+14|%r14|%r14d|%r14w||%r14b |Yes|
+d68 1
+a68 1
+15|%r15|%r15d|%r15w||%r15b |Yes|T{
+@
+
+
+1.60
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.59 2019-06-18 15:00:51-07 - - $
+d16 1
+a16 1
+n\[Om]|quad|long|word|byte|byte|Saved
+@
+
+
+1.59
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.58 2019-06-18 15:00:07-07 - - $
+d15 2
+a16 2
+Register|high|low|Callee|Usage
+|quad|long|word|byte|byte|Saved
+@
+
+
+1.58
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.57 2019-06-18 14:59:04-07 - - $
+d13 1
+a13 1
+|r1 l1fCB l1fCB l1fCB l1fCB l1fCB |l |lw(236p) |.
+@
+
+
+1.57
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.56 2019-06-12 13:07:33-07 - - $
+d11 1
+a11 1
+|l  s     s     s     s     s     |l |l |,
+d15 2
+a16 2
+Register||Callee|Usage
+|quad|long|word||byte|Saved
+@
+
+
+1.56
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.55 2019-06-12 13:06:45-07 - - $
+d11 3
+a13 3
+|l  s     s     s     s     |l |l |,
+|r  l     l     l     l     |l |l |,
+|r1 l1fCB l1fCB l1fCB l1fCB |l |lw(236p) |.
+d15 2
+a16 2
+Register|Callee|Usage
+|quad|long|word|byte|Saved
+d18 1
+a18 1
+0|%rax|%eax|%ax|%al||T{
+d28 1
+a28 1
+1|%rcx|%ecx|%cx|%cl||4th argument register
+d30 1
+a30 1
+2|%rdx|%edx|%dx|%dl||T{
+d36 1
+a36 1
+3|%rbx|%ebx|%bx|%dl|Yes|
+d38 1
+a38 1
+4|%rsp|%esp|%sp|%spl|Yes|stack pointer
+d40 1
+a40 1
+5|%rbp|%ebp|%bp|%bpl|Yes|T{
+d46 1
+a46 1
+6|%rsi|%esi|%si|%sil||2nd argument register
+d48 1
+a48 1
+7|%rdi|%edi|%di|%dil||1st argument register
+d50 1
+a50 1
+8|%r8|%r8d|%r8w|%r8b||5th argument register
+d52 1
+a52 1
+9|%r9|%r9d|%r9w|%r9b||6th argument register
+d54 1
+a54 1
+10|%r10|%r10d|%r10w|%r10b||T{
+d60 1
+a60 1
+11|%r11|%r11d|%r11w|%r11b||
+d62 1
+a62 1
+12|%r12|%r12d|%r12w|%r12b |Yes|
+d64 1
+a64 1
+13|%r13|%r13d|%r13w|%r13b |Yes|
+d66 1
+a66 1
+14|%r14|%r14d|%r14w|%r14b |Yes|
+d68 1
+a68 1
+15|%r15|%r15d|%r15w|%r15b |Yes|T{
+@
+
+
+1.55
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.54 2019-06-12 13:06:08-07 - - $
+d43 1
+a43 2
+optional\(::
+frame pointer
+d57 1
+a57 2
+optional\(::
+static chain pointer
+d71 1
+a71 2
+optional\(::
+GOT pointer
+@
+
+
+1.54
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.53 2019-06-12 13:04:17-07 - - $
+d25 1
+a25 1
+number of vector registers in argument vector (\f[CB]stdarg\f[P])
+@
+
+
+1.53
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.52 2019-06-12 13:03:56-07 - - $
+d25 1
+a25 2
+.V= <stdarg.h> \(::
+number of vector registers in argument vector
+@
+
+
+1.52
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.51 2019-06-12 13:01:56-07 - - $
+d13 1
+a13 1
+|r1 l1fCB l1fCB l1fCB l1fCB |l |lw(234p) |.
+@
+
+
+1.51
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.50 2019-06-12 13:01:03-07 - - $
+d13 1
+a13 1
+|r1 l1fCB l1fCB l1fCB l1fCB |l |lw(232p) |.
+@
+
+
+1.50
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.48 2019-06-12 12:50:41-07 - - $
+d29 2
+a36 2
+1|%rcx|%ecx|%cx|%cl||4th argument register
+_
+d39 1
+a39 3
+6|%rsi|%esi|%si|%sil||2nd argument register
+_
+7|%rdi|%edi|%di|%dil||1st argument register
+d48 3
+a50 1
+4|%rsp|%esp|%sp|%spl|Yes|stack pointer
+@
+
+
+1.49
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.44 2019-06-10 16:18:02-07 - - $
+d11 3
+a13 3
+|l     s     s     s     |l |l |,
+|l     l     l     l     |l |l |,
+|l2fCB l2fCB l2fCB l2fCB |l |lw(232p) |.
+d16 1
+a16 1
+quad|long|word|byte|Saved
+d18 1
+a18 1
+%rax|%eax|%ax|%al||T{
+d29 1
+a29 5
+%rbx|%ebx|%bx|%dl|Yes|
+_
+%rcx|%ecx|%cx|%cl||4th argument register
+_
+%rdx|%edx|%dx|%dl||T{
+d35 3
+a37 1
+%rsp|%esp|%sp|%spl|Yes|stack pointer
+d39 5
+a43 1
+%rbp|%ebp|%bp|%bpl|Yes|T{
+d50 1
+a50 3
+%rsi|%esi|%si|%sil||2nd argument register
+_
+%rdi|%edi|%di|%dil||1st argument register
+d52 1
+a52 1
+%r8|%r8d|%r8w|%r8b||5th argument register
+d54 1
+a54 1
+%r9|%r9d|%r9w|%r9b||6th argument register
+d56 1
+a56 1
+%r10|%r10d|%r10w|%r10b||T{
+d63 1
+a63 1
+%r11|%r11d|%r11w|%r11b||
+d65 1
+a65 1
+%r12|%r12d|%r12w|%r12b |Yes|
+d67 1
+a67 1
+%r13|%r13d|%r13w|%r13b |Yes|
+d69 1
+a69 1
+%r14|%r14d|%r14w|%r14b |Yes|
+d71 1
+a71 1
+%r15|%r15d|%r15w|%r15b |Yes|T{
+d91 1
+a91 1
+Procendure entry|pushq|%rpb
+d95 1
+a95 1
+Procedure exit|movq|%rpb, %rsp
+@
+
+
+1.48
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.47 2019-06-12 12:47:45-07 - - $
+d11 3
+a13 3
+|l  s     s     s     s     |l |l |,
+|r  l     l     l     l     |l |l |,
+|r1 l1fCB l1fCB l1fCB l1fCB |l |lw(232p) |.
+d16 1
+a16 1
+|quad|long|word|byte|Saved
+d18 1
+a18 1
+0|%rax|%eax|%ax|%al||T{
+d29 5
+a33 1
+1|%rdx|%edx|%dx|%dl||T{
+d39 1
+a39 3
+2|%rcx|%ecx|%cx|%cl||4th argument register
+_
+3|%rbx|%ebx|%bx|%dl|Yes|
+d41 1
+a41 5
+4|%rsi|%esi|%si|%sil||2nd argument register
+_
+5|%rdi|%edi|%di|%dil||1st argument register
+_
+6|%rbp|%ebp|%bp|%bpl|Yes|T{
+d48 3
+a50 1
+7|%rsp|%esp|%sp|%spl|Yes|stack pointer
+d52 1
+a52 1
+8|%r8|%r8d|%r8w|%r8b||5th argument register
+d54 1
+a54 1
+9|%r9|%r9d|%r9w|%r9b||6th argument register
+d56 1
+a56 1
+10|%r10|%r10d|%r10w|%r10b||T{
+d63 1
+a63 1
+11|%r11|%r11d|%r11w|%r11b||
+d65 1
+a65 1
+12|%r12|%r12d|%r12w|%r12b |Yes|
+d67 1
+a67 1
+13|%r13|%r13d|%r13w|%r13b |Yes|
+d69 1
+a69 1
+14|%r14|%r14d|%r14w|%r14b |Yes|
+d71 1
+a71 1
+15|%r15|%r15d|%r15w|%r15b |Yes|T{
+d91 1
+a91 1
+Function prolog|pushq|%rpb
+d95 1
+a95 1
+Function epilog|movq|%rpb, %rsp
+@
+
+
+1.47
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.46 2019-06-12 12:46:05-07 - - $
+d13 1
+a13 1
+|r1 l2fCB l2fCB l2fCB l2fCB |l |lw(232p) |.
+@
+
+
+1.46
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.45 2019-06-12 12:41:38-07 - - $
+d11 3
+a13 3
+|l s     s     s     s     |l |l |,
+|r l     l     l     l     |l |l |,
+|r l2fCB l2fCB l2fCB l2fCB |l |lw(232p) |.
+a28 4
+3|%rbx|%ebx|%bx|%dl|Yes|
+_
+2|%rcx|%ecx|%cx|%cl||4th argument register
+_
+d35 7
+a41 1
+7|%rsp|%esp|%sp|%spl|Yes|stack pointer
+d50 1
+a50 3
+4|%rsi|%esi|%si|%sil||2nd argument register
+_
+5|%rdi|%edi|%di|%dil||1st argument register
+@
+
+
+1.45
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.44 2019-06-10 16:18:02-07 - - $
+d11 3
+a13 3
+|l     s     s     s     |l |l |,
+|l     l     l     l     |l |l |,
+|l2fCB l2fCB l2fCB l2fCB |l |lw(232p) |.
+d16 1
+a16 1
+quad|long|word|byte|Saved
+d18 1
+a18 1
+%rax|%eax|%ax|%al||T{
+d29 1
+a29 1
+%rbx|%ebx|%bx|%dl|Yes|
+d31 1
+a31 1
+%rcx|%ecx|%cx|%cl||4th argument register
+d33 1
+a33 1
+%rdx|%edx|%dx|%dl||T{
+d39 1
+a39 1
+%rsp|%esp|%sp|%spl|Yes|stack pointer
+d41 1
+a41 1
+%rbp|%ebp|%bp|%bpl|Yes|T{
+d48 1
+a48 1
+%rsi|%esi|%si|%sil||2nd argument register
+d50 1
+a50 1
+%rdi|%edi|%di|%dil||1st argument register
+d52 1
+a52 1
+%r8|%r8d|%r8w|%r8b||5th argument register
+d54 1
+a54 1
+%r9|%r9d|%r9w|%r9b||6th argument register
+d56 1
+a56 1
+%r10|%r10d|%r10w|%r10b||T{
+d63 1
+a63 1
+%r11|%r11d|%r11w|%r11b||
+d65 1
+a65 1
+%r12|%r12d|%r12w|%r12b |Yes|
+d67 1
+a67 1
+%r13|%r13d|%r13w|%r13b |Yes|
+d69 1
+a69 1
+%r14|%r14d|%r14w|%r14b |Yes|
+d71 1
+a71 1
+%r15|%r15d|%r15w|%r15b |Yes|T{
+@
+
+
+1.44
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.43 2019-06-10 16:14:37-07 - - $
+d91 1
+a91 1
+Procendure entry|pushq|%rpb
+d95 1
+a95 1
+Procedure exit|movq|%rpb, %rsp
+@
+
+
+1.43
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.42 2019-05-15 13:30:41-07 - - $
+d11 3
+a13 3
+|l     s     s     s    |l |l |,
+|l     l     l     l    |l |l |,
+|l1fCB l1fCB l1fCB l1fCB |l |lw(232p) |.
+@
+
+
+1.42
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.41 2019-05-15 13:29:56-07 - - $
+d13 1
+a13 1
+|l2fCB l2fCB l2fCB l2fCB |l |lw(232p) |.
+@
+
+
+1.41
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.40 2019-05-15 13:29:40-07 - - $
+d26 1
+a26 1
+number of vector registers used
+@
+
+
+1.40
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.39 2019-05-15 13:29:04-07 - - $
+a24 1
+with
+@
+
+
+1.39
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.38 2019-05-15 13:28:26-07 - - $
+d23 1
+a23 1
+also used in \f[CB]idiv\f[P] and \f[CB]imul\f[P] instructions
+d37 1
+a37 1
+also used in \f[CB]idiv\f[P] and \f[CB]imul\f[P] instructions
+@
+
+
+1.38
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.37 2019-05-15 13:26:13-07 - - $
+d82 1
+a82 1
+Second byte of register (8086 compatibility)\(::
+@
+
+
+1.37
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.36 2019-05-15 13:25:40-07 - - $
+d90 1
+a90 1
+center tab(|); |l lfCB lfCB |.
+@
+
+
+1.36
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.35 2019-05-15 13:25:03-07 - - $
+d76 1
+a76 1
+global offset table (GOT) pointer
+@
+
+
+1.35
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.34 2019-05-15 13:24:40-07 - - $
+d61 1
+a61 1
+function's static chain pointer
+d76 1
+a76 1
+GOT base pointer
+@
+
+
+1.34
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.33 2019-05-15 13:22:06-07 - - $
+d43 2
+d46 1
+a46 1
+used as frame pointer
+@
+
+
+1.33
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.32 2019-05-15 13:21:47-07 - - $
+d25 3
+a27 1
+with \f[CB]<stdarg.h>\f[P], the number of vector registers used
+d42 4
+a45 1
+%rbp|%ebp|%bp|%bpl|Yes|optionally used as frame pointer
+d58 2
+a59 1
+optionally used as function's static chain pointer
+d71 4
+a74 1
+optionally used as GOT base pointer
+@
+
+
+1.32
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.31 2019-05-15 13:20:08-07 - - $
+d71 1
+a71 1
+Second byte of register (8086)\(::
+@
+
+
+1.31
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.30 2019-05-15 13:19:44-07 - - $
+d70 6
+@
+
+
+1.30
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.29 2019-05-15 13:19:26-07 - - $
+d13 1
+a13 1
+|l2fCB l2fCB l2fCB l2fCB |l |lw(247p) |.
+@
+
+
+1.29
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.28 2019-05-15 13:19:16-07 - - $
+d13 1
+a13 1
+|l2fCB l2fCB l2fCB lfCB |l |lw(247p) |.
+@
+
+
+1.28
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.27 2019-05-15 13:19:03-07 - - $
+d13 1
+a13 1
+|lfCB lfCB lfCB lfCB |l |lw(247p) |.
+@
+
+
+1.27
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.26 2019-05-15 13:18:36-07 - - $
+d13 1
+a13 1
+|l2fCB l2fCB l2fCB lfCB |l |lw(247p) |.
+@
+
+
+1.26
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.25 2019-05-15 13:18:23-07 - - $
+d13 1
+a13 1
+|l1fCB l1fCB l1fCB lfCB |l |lw(247p) |.
+@
+
+
+1.25
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.24 2019-05-15 13:15:16-07 - - $
+d16 1
+a16 1
+quad|long|word+|byte|Saved
+@
+
+
+1.24
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.23 2019-05-15 13:14:43-07 - - $
+d12 1
+a12 1
+|l     s     s     s    |l |l |,
+d16 1
+a16 1
+|Saved
+@
+
+
+1.23
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.22 2019-05-15 13:13:52-07 - - $
+d53 1
+a53 1
+optionally used for passing a function's static chain pointer
+@
+
+
+1.22
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.21 2019-05-15 13:13:21-07 - - $
+d20 1
+d23 2
+a25 2
+.br
+also used in \f[CB]idiv\f[P] and \f[CB]imul\f[P] instructions
+d52 1
+@
+
+
+1.21
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.20 2019-05-15 13:12:55-07 - - $
+d13 1
+a13 1
+|l1fCB l1fCB l1fCB lfCB |l |lw(246p) |.
+@
+
+
+1.20
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.19 2019-05-15 13:12:36-07 - - $
+d13 1
+a13 1
+|l1fCB l1fCB l1fCB lfCB |l |lw(244p) |.
+@
+
+
+1.19
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.18 2019-05-15 13:12:19-07 - - $
+d13 1
+a13 1
+|l1fCB l1fCB l1fCB lfCB |l |lw(240p) |.
+@
+
+
+1.18
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.17 2019-05-15 13:12:02-07 - - $
+d13 1
+a13 1
+|l1fCB l1fCB l1fCB lfCB |l |lw(238p) |.
+@
+
+
+1.17
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.16 2019-05-15 13:11:44-07 - - $
+d13 1
+a13 1
+|l1fCB l1fCB l1fCB lfCB |l |lw(230p) |.
+@
+
+
+1.16
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.15 2019-05-15 13:11:13-07 - - $
+d13 1
+a13 1
+|l1fCB l1fCB l1fCB lfCB |l |lw(217p) |.
+@
+
+
+1.15
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.14 2019-05-15 13:10:41-07 - - $
+d13 1
+a13 1
+|l1fCB l1fCB l1fCB lfCB |l |lw(200p) |.
+@
+
+
+1.14
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.13 2019-05-15 13:09:37-07 - - $
+d13 1
+a13 1
+|l1fCB l1fCB l1fCB lfCB |l |l |.
+d21 1
+d23 1
+@
+
+
+1.13
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.12 2019-05-15 13:07:13-07 - - $
+d19 1
+d48 1
+@
+
+
+1.12
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.11 2019-05-15 13:06:49-07 - - $
+d67 1
+a67 1
+center tab(|); |l s s |l s s |, |lfCB lfCB lfCB |lfCB lfCB lfCB |.
+d69 7
+a75 5
+Procendure entry |Procedure exit
+_
+|pushq|%rpb      ||movq|%rpb, %rsp
+|movq|%rsp, %rbp ||popq|%rbp
+|subq|$N, %rsp   ||ret
+@
+
+
+1.11
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.10 2019-05-15 13:03:51-07 - - $
+d11 3
+a13 3
+|l     s     s     s     |l |l |,
+|l     s     s     s     |l |l |,
+|l1fCB l1fCB l1fCB l1fCB |l |l |.
+@
+
+
+1.10
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.9 2019-05-15 13:03:27-07 - - $
+d11 3
+a13 3
+|l s    s    s    s    |l |l |,
+|l s    s    s    s    |l |l |,
+|r1 l1fCB l1fCB l1fCB l1fCB |l |l |.
+d18 1
+a18 1
+0|%rax|%eax|%ax|%al||T{
+d24 1
+a24 1
+3|%rbx|%ebx|%bx|%dl|Yes|
+d26 1
+a26 1
+1|%rcx|%ecx|%cx|%cl||4th argument register
+d28 1
+a28 1
+2|%rdx|%edx|%dx|%dl||T{
+d34 1
+a34 1
+4|%rsp|%esp|%sp|%spl|Yes|stack pointer
+d36 1
+a36 1
+5|%rbp|%ebp|%bp|%bpl|Yes|optionally used as frame pointer
+d38 1
+a38 1
+6|%rsi|%esi|%si|%sil||2nd argument register
+d40 1
+a40 1
+7|%rdi|%edi|%di|%dil||1st argument register
+d42 1
+a42 1
+8|%r8|%r8d|%r8w|%r8b||5th argument register
+d44 1
+a44 1
+9|%r9|%r9d|%r9w|%r9b||6th argument register
+d46 1
+a46 1
+10|%r10|%r10d|%r10w|%r10b||T{
+d50 1
+a50 1
+11|%r11|%r11d|%r11w|%r11b||
+d52 1
+a52 1
+12|%r12|%r12d|%r12w|%r12b |Yes|
+d54 1
+a54 1
+13|%r13|%r13d|%r13w|%r13b |Yes|
+d56 1
+a56 1
+14|%r14|%r14d|%r14w|%r14b |Yes|
+d58 1
+a58 1
+15|%r15|%r15d|%r15w|%r15b |Yes|T{
+a74 21
+.TE
+.DE
+.SP
+.DS
+.TS
+center tab(|);
+|l |l |l |l |l |c |l |l |l |l  |l |,
+|l |l |l |l |l |c |l |l |l |l  |l |,
+|r |lfCB |lfCB |lfCB |lfCB |c |r |lfCB |lfCB |lfCB  |lfCB |.
+_|_|_|_|_||_|_|_|_|_
+code|quad|long|word|byte||code|quad|long|word|byte
+_|_|_|_|_||_|_|_|_|_
+0|%rax|%eax|%ax|%al||8|%r8|%r8d|%r8w|%r8b
+1|%rcx|%ecx|%cx|%cl||9|%r9|%r9d|%r9w|%r9b
+2|%rdx|%edx|%dx|%dl||10|%r10|%r10d|%r10w|%r10b
+3|%rbx|%ebx|%bx|%dl||11|%r11|%r11d|%r11w|%r11b
+4|%rsp|%esp|%sp|%spl||12|%r12|%r12d|%r12w|%r12b
+5|%rbp|%ebp|%bp|%bpl||13|%r13|%r13d|%r13w|%r13b
+6|%rsi|%esi|%si|%sil||14|%r14|%r14d|%r14w|%r14b
+7|%rdi|%edi|%di|%dil||15|%r15|%r15d|%r15w|%r15b
+_|_|_|_|_||_|_|_|_|_
+@
+
+
+1.9
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.8 2019-05-15 13:02:29-07 - - $
+d13 1
+a13 1
+|r lfCB lfCB lfCB lfCB |l |l |.
+@
+
+
+1.8
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.7 2019-05-15 13:02:15-07 - - $
+d11 3
+a13 3
+|l s    s    s    s    s    |l |l |,
+|l s    s    s    s    s    |l |l |,
+|r lfCB lfCB lfCB lfCB lfCB |l |l |.
+@
+
+
+1.7
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.6 2019-05-15 12:52:24-07 - - $
+d11 1
+@
+
+
+1.6
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.1 2019-05-06 19:25:00-07 - - $
+d10 3
+a12 1
+center tab(|); |l |l |l |, |lfCB |l |l |.
+d17 1
+a17 1
+%rax||T{
+d23 1
+a23 1
+%rbx|Yes|
+d25 1
+a25 1
+%rcx||4th argument register
+d27 1
+a27 1
+%rdx||T{
+d33 1
+a33 1
+%rsp|Yes|stack pointer
+d35 1
+a35 1
+%rbp|Yes|optionally used as frame pointer
+d37 1
+a37 1
+%rsi||2nd argument register
+d39 1
+a39 1
+%rdi||1st argument register
+d41 1
+a41 1
+%r8||5th argument register
+d43 1
+a43 1
+%r9||6th argument register
+d45 1
+a45 1
+%r10||T{
+d49 1
+a49 1
+%r11||
+d51 1
+a51 1
+%r12|Yes|
+d53 1
+a53 1
+%r13|Yes|
+d55 1
+a55 1
+%r14|Yes|
+d57 1
+a57 1
+%r15|Yes|T{
+@
+
+
+1.5
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.4 2019-05-15 12:50:38-07 - - $
+d78 15
+a92 15
+|l |l |l |l |l |l |c |l |l |l |l |l |l |,
+|l |l |l |l |l |l |c |l |l |l |l |l |l |,
+|r |lfCB |lfCB |lfCB |lfCB |lfCB |c |r |lfCB |lfCB |lfCB |lfCB |lfCB |.
+_|_|_|_|_|_||_|_|_|_|_|_
+code|quad|long|word||byte||code|quad|long|word||byte
+_|_|_|_|_|_||_|_|_|_|_|_
+0|%rax|%eax|%ax|%ah|%al||8|%r8|%r8d|%r8w||%r8b
+1|%rcx|%ecx|%cx|%ch|%cl||9|%r9|%r9d|%r9w||%r9b
+2|%rdx|%edx|%dx|%dh|%dl||10|%r10|%r10d|%r10w||%r10b
+3|%rbx|%ebx|%bx|%bh|%dl||11|%r11|%r11d|%r11w||%r11b
+4|%rsp|%esp|%sp||%spl||12|%r12|%r12d|%r12w||%r12b
+5|%rbp|%ebp|%bp||%bpl||13|%r13|%r13d|%r13w||%r13b
+6|%rsi|%esi|%si||%sil||14|%r14|%r14d|%r14w||%r14b
+7|%rdi|%edi|%di||%dil||15|%r15|%r15d|%r15w||%r15b
+_|_|_|_|_|_||_|_|_|_|_|_
+@
+
+
+1.4
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.3 2019-05-15 12:50:13-07 - - $
+d92 1
+a92 1
+_|_|_|_|_||_|_|_|_|_
+@
+
+
+1.3
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.2 2019-05-15 12:49:21-07 - - $
+d81 1
+a81 1
+_|_|_|_|_||_|_|_|_|_
+d83 1
+a83 1
+_|_|_|_|_||_|_|_|_|_
+@
+
+
+1.2
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.1 2019-05-06 19:25:00-07 - - $
+d78 3
+a80 3
+|l |l |l |l |l |c |l |l |l |l  |l |,
+|l |l |l |l |l |c |l |l |l |l  |l |,
+|r |lfCB |lfCB |lfCB |lfCB |c |r |lfCB |lfCB |lfCB  |lfCB |.
+@
+
+
+1.1
+log
+@-
+@
+text
+@d6 1
+a6 1
+.RCS $Id: registers.mm,v 1.73 2019-05-06 19:24:34-07 - - $
+d82 1
+a82 1
+code|quad|long|word|byte||code|quad|long|word|byte
+d84 8
+a91 8
+0|%rax|%eax|%ax|%al||8|%r8|%r8d|%r8w|%r8b
+1|%rcx|%ecx|%cx|%cl||9|%r9|%r9d|%r9w|%r9b
+2|%rdx|%edx|%dx|%dl||10|%r10|%r10d|%r10w|%r10b
+3|%rbx|%ebx|%bx|%dl||11|%r11|%r11d|%r11w|%r11b
+4|%rsp|%esp|%sp|%spl||12|%r12|%r12d|%r12w|%r12b
+5|%rbp|%ebp|%bp|%bpl||13|%r13|%r13d|%r13w|%r13b
+6|%rsi|%esi|%si|%sil||14|%r14|%r14d|%r14w|%r14b
+7|%rdi|%edi|%di|%dil||15|%r15|%r15d|%r15w|%r15b
+@

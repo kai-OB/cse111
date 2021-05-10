@@ -1,0 +1,10 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting ordering.cpp
+checksource ordering.cpp
+ident ordering.cpp
+ordering.cpp:
+     $Id: ordering.cpp,v 1.7 2020-03-03 15:52:07-08 - - $
+cpplint.py.perl ordering.cpp
+Done processing ordering.cpp
+g++ -Wall -Wextra -Wpedantic -Wshadow -fdiagnostics-color=never -std=gnu++2a -Wold-style-cast -g -O0 ordering.cpp -o ordering -lm
+rm -f ordering.o
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished ordering.cpp

@@ -1,0 +1,590 @@
+head	1.25;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.25
+date	2018.07.24.19.41.51;	author -;	state -;
+branches;
+next	1.24;
+
+1.24
+date	2018.07.24.19.40.34;	author -;	state -;
+branches;
+next	1.23;
+
+1.23
+date	2018.07.24.19.40.12;	author -;	state -;
+branches;
+next	1.22;
+
+1.22
+date	2018.07.24.19.39.58;	author -;	state -;
+branches;
+next	1.21;
+
+1.21
+date	2018.07.24.19.39.41;	author -;	state -;
+branches;
+next	1.20;
+
+1.20
+date	2018.07.24.19.37.49;	author -;	state -;
+branches;
+next	1.19;
+
+1.19
+date	2018.07.24.19.37.11;	author -;	state -;
+branches;
+next	1.18;
+
+1.18
+date	2018.07.24.19.36.45;	author -;	state -;
+branches;
+next	1.17;
+
+1.17
+date	2018.07.24.19.36.23;	author -;	state -;
+branches;
+next	1.16;
+
+1.16
+date	2018.07.24.19.35.43;	author -;	state -;
+branches;
+next	1.15;
+
+1.15
+date	2018.07.24.19.35.14;	author -;	state -;
+branches;
+next	1.14;
+
+1.14
+date	2018.07.24.19.34.29;	author -;	state -;
+branches;
+next	1.13;
+
+1.13
+date	2018.07.24.19.34.15;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2018.07.24.19.33.51;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2018.07.24.19.31.17;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2018.07.24.19.31.03;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2018.07.24.19.29.51;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2018.07.24.19.29.43;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2018.07.24.19.28.59;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2018.07.24.19.28.00;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2018.07.24.19.27.25;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2018.07.24.19.27.04;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2018.07.24.19.26.18;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2018.07.24.19.20.58;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2018.07.24.19.19.36;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.25
+log
+@-
+@
+text
+@// $Id: thingitor.cpp,v 1.24 2018-07-24 12:40:34-07 - - $
+
+// Illustrate usage of iteration over a container.
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+template <typename value>
+class thing {
+   private:
+      vector<value> vi {1, 2, 3, 4, 5};
+   public:
+      class iterator;
+      iterator begin();
+      iterator end();
+};
+
+template <typename value>
+class thing<value>::iterator {
+   private:
+      value* p;
+   public:
+      iterator (value* i): p(i) {}
+      iterator& operator++() { ++p; return *this; }
+      value& operator*() { return *p; }
+      bool operator!= (iterator x) { return p != x.p; }
+};
+
+template <typename value>
+typename thing<value>::iterator thing<value>::begin() {
+   return &vi[0];
+}
+
+template <typename value>
+typename thing<value>::iterator thing<value>::end() {
+   return &vi[vi.size()];
+}
+
+int main() {
+   thing<int> x;
+   for (const auto& i: x) cout << i << endl;
+   return 0;
+}
+@
+
+
+1.24
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: thingitor.cpp,v 1.23 2018-07-24 12:40:12-07 - - $
+d31 3
+a33 1
+typename thing<value>::iterator thing<value>::begin() { return vi.begin(); }
+d36 3
+a38 1
+typename thing<value>::iterator thing<value>::end() { return vi.end(); }
+@
+
+
+1.23
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: thingitor.cpp,v 1.22 2018-07-24 12:39:58-07 - - $
+d31 1
+a31 1
+typename thing<value>::iterator thing::begin() { return vi.begin(); }
+d34 1
+a34 1
+typename thing<value>::iterator thing::end() { return vi.end(); }
+@
+
+
+1.22
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: thingitor.cpp,v 1.20 2018-07-24 12:37:49-07 - - $
+d31 1
+a31 1
+thing<value>::iterator thing::begin() { return vi.begin(); }
+d34 1
+a34 1
+thing<value>::iterator thing::end() { return vi.end(); }
+@
+
+
+1.21
+log
+@-
+@
+text
+@d31 1
+a31 1
+iterator thing::begin() { return vi.begin(); }
+d34 1
+a34 1
+iterator thing::end() { return vi.end(); }
+@
+
+
+1.20
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: thingitor.cpp,v 1.19 2018-07-24 12:37:11-07 - - $
+d31 1
+a31 1
+thing::begin() { return vi.begin(); }
+d34 1
+a34 1
+thing::end() { return vi.end(); }
+@
+
+
+1.19
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: thingitor.cpp,v 1.18 2018-07-24 12:36:45-07 - - $
+d24 1
+a24 1
+      iterator (int *pi): p(pi) {}
+@
+
+
+1.18
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: thingitor.cpp,v 1.17 2018-07-24 12:36:23-07 - - $
+d31 1
+a31 1
+thing<value>::begin() { return vi.begin(); }
+d34 1
+a34 1
+thing<value>::end() { return vi.end(); }
+@
+
+
+1.17
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: thingitor.cpp,v 1.16 2018-07-24 12:35:43-07 - - $
+d31 1
+a31 1
+thing<value::begin() { return vi.begin(); }
+d34 1
+a34 1
+thing<value::end() { return vi.end(); }
+@
+
+
+1.16
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: thingitor.cpp,v 1.15 2018-07-24 12:35:14-07 - - $
+d31 1
+a31 1
+typename thing<value>::iterator begin() { return vi.begin(); }
+d34 1
+a34 1
+typename thing<value>::iterator end() { return vi.end(); }
+@
+
+
+1.15
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: thingitor.cpp,v 1.14 2018-07-24 12:34:29-07 - - $
+d31 1
+a31 1
+thing<value>::iterator begin() { return vi.begin(); }
+d34 1
+a34 1
+thing<value>::iterator end() { return vi.end(); }
+@
+
+
+1.14
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: thingitor.cpp,v 1.13 2018-07-24 12:34:15-07 - - $
+d20 1
+a20 1
+class iterator {
+d30 2
+a31 2
+template <typename T>
+thing<T>::iterator begin() { return vi.begin(); }
+d33 2
+a34 2
+template <typename T>
+thing<T>::iterator end() { return vi.end(); }
+@
+
+
+1.13
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: thingitor.cpp,v 1.12 2018-07-24 12:33:51-07 - - $
+d14 1
+@
+
+
+1.12
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: thingitor.cpp,v 1.11 2018-07-24 12:31:17-07 - - $
+d30 1
+a30 1
+interator begin() { return vi.begin(); }
+d33 1
+a33 1
+interator end() { return vi.end(); }
+@
+
+
+1.11
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: thingitor.cpp,v 1.10 2018-07-24 12:31:03-07 - - $
+a12 9
+      class iterator {
+         private:
+            value* p;
+         public:
+            iterator (int *pi): p(pi) {}
+            iterator& operator++() { ++p; return *this; }
+            value& operator*() { return *p; }
+            bool operator!= (iterator x) { return p != x.p; }
+      };
+d14 2
+a15 2
+      iterator begin() { return iterator (&vi[0]); }
+      iterator end() { return iterator (&vi[vi.size()]); }
+d17 17
+@
+
+
+1.10
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: thingitor.cpp,v 1.9 2018-07-24 12:29:51-07 - - $
+d28 1
+a28 1
+   thing x;
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: thingitor.cpp,v 1.8 2018-07-24 12:29:43-07 - - $
+a12 1
+      size_t ais = sizeof ai / sizeof *ai;
+d15 1
+a15 1
+            int* p;
+d19 1
+a19 1
+            int& operator*() { return *p; }
+d23 2
+a24 2
+      iterator begin() { return iterator (&ai[0]); }
+      iterator end() { return iterator (&ai[ais]); }
+@
+
+
+1.8
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: thingitor.cpp,v 1.7 2018-07-24 12:28:59-07 - - $
+d6 1
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: thingitor.cpp,v 1.4 2018-07-24 12:27:04-07 - - $
+d8 1
+d11 1
+a11 1
+      int ai[5] {1, 2, 3, 4, 5};
+@
+
+
+1.6
+log
+@-
+@
+text
+@a8 14
+   class iterator;
+};
+
+class thing::iterator {
+   private:
+      int* p;
+   public:
+      iterator (int *pi): p(pi) {}
+      iterator& operator++() { ++p; return *this; }
+      int& operator*() { return *p; }
+      bool operator!= (iterator x) { return p != x.p; }
+}
+
+class thing {
+d12 9
+@
+
+
+1.5
+log
+@-
+@
+text
+@d8 4
+a11 1
+class thing;
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: thingitor.cpp,v 1.2 2018-07-24 12:20:58-07 - - $
+a22 1
+      class iterator;
+@
+
+
+1.3
+log
+@-
+@
+text
+@d8 11
+a27 10
+
+class thing::iterator {
+   private:
+      int* p;
+   public:
+      iterator (int *pi): p(pi) {}
+      iterator& operator++() { ++p; return *this; }
+      int& operator*() { return *p; }
+      bool operator!= (iterator x) { return p != x.p; }
+}
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: thingitor.cpp,v 1.1 2018-07-24 12:19:36-07 - - $
+d14 2
+a15 2
+      iterator begin() { return &ai[0]; }
+      iterator end() { return &ai[ais]; }
+d22 1
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id$
+d10 1
+a10 1
+      int ai[] {1, 2, 3, 4, 5};
+@

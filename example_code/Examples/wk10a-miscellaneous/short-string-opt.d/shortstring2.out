@@ -1,0 +1,9 @@
+sizeof u = 32
+sizeof u.pointer_ = 8
+sizeof u.size_ = 8
+sizeof u.data_ = 16
+sizeof u.capacity_ = 8
+offset (&u, &u.pointer_) = 0
+offset (&u, &u.size_) = 8
+offset (&u, &u.data_) = 16
+offset (&u, &u.capacity_) = 16

@@ -1,0 +1,239 @@
+head	1.11;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.11
+date	2019.08.02.20.34.04;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2019.08.02.20.28.29;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2019.08.02.20.27.31;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2019.08.02.20.18.42;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2019.08.02.20.17.46;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2019.08.02.20.16.56;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2019.08.02.20.15.53;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2019.08.02.20.14.45;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2019.08.02.20.14.25;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2019.08.02.20.13.41;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2019.08.02.20.12.10;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.11
+log
+@-
+@
+text
+@// $Id: vector-append.cpp,v 1.9 2019-08-02 13:27:31-07 - - $
+
+//
+// Use read to copy an entire file from cin into a buffer and print
+// the buffer at EOF using write to cout.
+
+#include <fstream>
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   constexpr size_t READ_SIZE = 256;
+   vector<char> buffer;
+   while (not cin.eof()) {
+      size_t old_size = buffer.size();
+      buffer.resize (old_size + READ_SIZE);
+      cin.read (&buffer[old_size], READ_SIZE);
+      size_t size_read = cin.gcount();
+      if (size_read < READ_SIZE) buffer.resize (old_size + size_read);
+   }
+   cout.write (&buffer[0], buffer.size());
+   return 0;
+}
+
+@
+
+
+1.10
+log
+@-
+@
+text
+@d16 5
+a20 5
+      buffer.reserve (buffer.size() + READ_SIZE);
+      cin.read (&buffer[buffer.size()], READ_SIZE);
+      buffer.resize (buffer.size() + cin.gcount());
+      cout << cin.gcount() << ", " << buffer.size() << endl;
+      cout << cin.gcount() << ", " << buffer.size() << endl;
+d22 1
+a22 2
+   cout << buffer.size() << endl;
+   cout.write (reinterpret_cast<char*> (&buffer[0]), buffer.size());
+@
+
+
+1.9
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: vector-append.cpp,v 1.7 2019-08-02 13:17:46-07 - - $
+d17 1
+a18 1
+      cin.read (&buffer[buffer.size()], READ_SIZE);
+@
+
+
+1.8
+log
+@-
+@
+text
+@d17 2
+a18 2
+      char* inbuf = reinterpret_cast<char*> (&buffer[buffer.size()]);
+      cin.read (inbuf, READ_SIZE);
+a19 1
+      buffer.resize (buffer.size() + cin.gcount());
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: vector-append.cpp,v 1.6 2019-08-02 13:16:56-07 - - $
+d19 1
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: vector-append.cpp,v 1.5 2019-08-02 13:15:53-07 - - $
+a19 1
+      cout << &buffer[0] << endl;
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: vector-append.cpp,v 1.4 2019-08-02 13:14:45-07 - - $
+a18 1
+      cout << inbuf << endl;
+d20 1
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: vector-append.cpp,v 1.3 2019-08-02 13:14:25-07 - - $
+d17 3
+a19 2
+      char* input = reinterpret_cast<char*> (&buffer[buffer.size()]);
+      cin.read (input, READ_SIZE);
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: vector-append.cpp,v 1.2 2019-08-02 13:13:41-07 - - $
+d22 1
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: vector-append.cpp,v 1.1 2019-08-02 13:12:10-07 - - $
+a18 1
+      cout << cin.gcount() << endl;
+d20 1
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id$
+d19 1
+d23 1
+d25 1
+@

@@ -1,0 +1,6 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: starting insert_forward_list.cpp
+insert_forward_list.cpp: $Id: insert_forward_list.cpp,v 1.18 2016-08-12 15:27:12-07 - - $
+g++ -g -O0 -std=gnu++14 -rdynamic -Wall -Wextra -Wold-style-cast insert_forward_list.cpp -o insert_forward_list -lglut -lGLU -lGL -lX11 -lrt -lm
+cpplint.py.perl insert_forward_list.cpp
+Done processing insert_forward_list.cpp
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ mkc: finished insert_forward_list.cpp

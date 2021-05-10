@@ -1,0 +1,26 @@
+
+Unsorted data:
+hello
+world
+foo
+bar
+baz
+qux
+This
+is
+some
+test
+data.
+
+Sorted data:
+This
+bar
+baz
+data.
+foo
+hello
+is
+qux
+some
+test
+world

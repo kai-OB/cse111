@@ -1,0 +1,7 @@
+main starting
+racer 2 looped 10,000,000 finished *counter 14,879,029
+racer 1 looped 10,000,000 finished *counter 19,779,439
+racer 0 looped 10,000,000 finished *counter 19,915,604
+racer 3 looped 10,000,000 finished *counter 21,826,429
+main finished counter 21,826,429
+0:00.13 elapsed, 0.00 kernel, 0.23 user

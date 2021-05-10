@@ -1,0 +1,106 @@
+head	1.4;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.4
+date	2021.04.01.02.56.58;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.04.01.02.32.41;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.03.23.00.48.49;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.10.01.22.41.24;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.4
+log
+@-
+@
+text
+@// $Id: hello.h,v 1.3 2021-03-31 19:32:41-07 - - $
+
+#ifndef __HELLO_H__
+#define __HELLO_H__
+
+#include <iostream>
+#include <string>
+
+class hello {
+   private:
+      std::string message {"Hello, World!"};
+   public:
+      hello();                         // default constructor
+      hello (const std::string&);      // alternate ctor
+      ~hello();                        // destructor
+      void say (std::ostream&) const;  // member function
+};
+
+#endif
+
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: hello.h,v 1.2 2021-03-22 17:48:49-07 - - $
+a11 1
+      void debug (int line, const string& function) const;
+d14 1
+a14 1
+      hello (const string&);           // alternate ctor
+d16 1
+a16 1
+      void say (ostream&) const;       // member function
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: hello.h,v 1.1 2020-10-01 15:41:24-07 - - $
+d12 1
+a12 1
+      void debug (const string& function) const;
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: hello.h,v 1.1 2018-01-05 14:33:39-08 - - $
+d12 1
+d17 1
+a17 1
+      void say (ostream&);             // member function
+@

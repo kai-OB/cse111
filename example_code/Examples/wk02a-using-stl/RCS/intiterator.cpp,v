@@ -1,0 +1,173 @@
+head	1.7;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.7
+date	2021.04.14.14.24.22;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2021.04.14.14.23.29;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2021.04.14.14.22.34;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2021.04.14.14.22.19;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2021.04.14.14.21.16;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2021.04.14.14.20.55;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2021.04.14.14.20.19;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.7
+log
+@-
+@
+text
+@// $Id: intiterator.cpp,v 1.6 2021-04-14 07:23:29-07 - - $
+
+// Illustrate usage of iteration over a container.
+// Show minimal operations needed to implement an iterator.
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+struct intarray {
+   int array[5] {1, 2, 3, 4, 5};
+   size_t size = sizeof array / sizeof *array;
+
+   struct iterator {
+         int* itor = nullptr;
+         iterator (int* i): itor(i) {}
+         iterator& operator++() { ++itor; return *this; }
+         int& operator*() { return *itor; }
+         bool operator!= (iterator i) { return itor != i.itor; }
+   };
+
+   iterator begin() { return &array[0]; }
+   iterator end() { return &array[size]; }
+};
+
+int main() {
+   intarray a;
+   for (const auto& i: a) cout << i << endl;
+}
+
+@
+
+
+1.6
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intiterator.cpp,v 1.5 2021-04-14 07:22:34-07 - - $
+d4 1
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intiterator.cpp,v 1.4 2021-04-14 07:22:19-07 - - $
+d10 2
+a11 1
+   int array[] {1, 2, 3, 4, 5};
+d22 1
+a22 1
+   iterator end() { return &array[sizeof array / sizeof *array]; }
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intiterator.cpp,v 1.3 2021-04-14 07:21:16-07 - - $
+d25 1
+a25 1
+   thing<int> a;
+@
+
+
+1.3
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intiterator.cpp,v 1.2 2021-04-14 07:20:55-07 - - $
+a10 1
+   int size = sizeof array / sizeof *array;
+d21 1
+a21 1
+   iterator end() { return &array[size]; }
+@
+
+
+1.2
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: intiterator.cpp,v 1.1 2021-04-14 07:20:19-07 - - $
+d17 1
+a17 1
+         value& operator*() { return *itor; }
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: thingitor.cpp,v 1.25 2018-07-24 12:41:51-07 - - $
+d14 2
+a15 4
+      private:
+         int* itor;
+      public:
+         iterator (value* i): itor(i) {}
+@
