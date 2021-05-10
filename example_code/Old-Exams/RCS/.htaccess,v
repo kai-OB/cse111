@@ -1,0 +1,27 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.1
+date	2020.07.23.23.10.22;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@
+IndexIgnore *.gif
+
+# $Id: .htaccess,v 1.1 2020-07-23 16:09:28-07 - - $
+@
