@@ -1,0 +1,36 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.1
+date	2017.10.11.21.05.24;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// $Id: ext.cpp,v 1.6 2017-10-11 14:04:27-07 - - $
+// This is an example of a module exporting an external variable.
+
+#include <stdio.h>
+
+#include "ext.h"
+
+int ext_var = 44;
+
+void print_ext_var() {
+   printf ("ext_var = %d\n", ext_var);
+}
+
+@

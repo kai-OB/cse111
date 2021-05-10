@@ -1,0 +1,44 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2018.10.16.21.38.27;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2017.10.11.21.05.24;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@#!/bin/sh
+cid + *.h *.cpp $0
+GPPOPT="-g -O0 -std=gnu++17 -Wall -Wextra -Wold-style-cast"
+g++ -c $GPPOPT *.cpp
+g++ *.o
+@
+
+
+1.1
+log
+@-
+@
+text
+@d3 1
+a3 1
+GPPOPT="-g -O0 -Wall -Wextra -std=gnu++14 -fno-diagnostics-color"
+@

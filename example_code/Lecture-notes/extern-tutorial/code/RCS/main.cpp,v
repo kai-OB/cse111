@@ -1,0 +1,37 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@// @;
+
+
+1.1
+date	2017.10.11.21.05.24;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// $Id: main.cpp,v 1.6 2017-10-11 14:04:27-07 - - $
+// This is an example of a module accessing an external variable.
+
+#include <stdlib.h>
+
+#include "ext.h"
+
+int main() {
+   print_ext_var();
+   ext_var = 56;
+   print_ext_var();
+   return EXIT_SUCCESS;
+}
+
+@

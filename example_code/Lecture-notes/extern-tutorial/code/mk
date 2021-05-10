@@ -1,0 +1,5 @@
+#!/bin/sh
+cid -is *.h *.cpp $0
+GPPOPT="-g -O0 -std=gnu++17 -Wall -Wextra -Wold-style-cast"
+g++ -c $GPPOPT *.cpp
+g++ *.o
