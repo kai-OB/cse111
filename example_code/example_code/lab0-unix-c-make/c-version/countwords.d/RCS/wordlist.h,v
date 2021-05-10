@@ -1,0 +1,45 @@
+head	1.1;
+access;
+symbols;
+locks;
+comment	@ * @;
+
+
+1.1
+date	2019.12.17.22.53.52;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@-
+@
+text
+@// $Id: wordlist.h,v 1.1 2019-12-13 12:08:09-08 - - $
+
+//
+// Sorted list of word and frequency counts.
+//
+// wordlist_new - allocate a new list
+// wordlist_delete - free the list
+// wordlist_incr - increment the word count, insert if not there
+// 
+
+#ifndef __WORDLIST_H__
+#define __WORDLIST_H__
+
+typedef struct wordlist wordlist;
+
+wordlist* wordlist_new (void);
+void wordlist_delete (wordlist*);
+void wordlist_incr (wordlist*, const char*);
+void wordlist_print (wordlist* list);
+
+#endif
+
+@

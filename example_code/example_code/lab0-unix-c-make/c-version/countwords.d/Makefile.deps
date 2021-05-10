@@ -1,0 +1,3 @@
+vstring.o: vstring.c vstring.h
+wordlist.o: wordlist.c wordlist.h
+main.o: main.c vstring.h wordlist.h

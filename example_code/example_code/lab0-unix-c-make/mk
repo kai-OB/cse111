@@ -1,0 +1,15 @@
+#!/bin/bash
+# $Id: mk,v 1.13 2020-06-27 19:53:10-07 - - $
+pkill gv
+cid $0 lab0-intro-unix.mm countwords.perl
+make
+
+for dir in */countwords.d
+do
+   pushd $dir
+   make
+   make tar
+   make lis
+   popd
+done
+

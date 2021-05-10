@@ -1,0 +1,3 @@
+for i =0.....
+   v[i] /=2
+   if(v[i+1] is odd) v[i]+=5

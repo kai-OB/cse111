@@ -1,0 +1,265 @@
+head	1.13;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.13
+date	2020.06.28.02.53.10;	author -;	state -;
+branches;
+next	1.12;
+
+1.12
+date	2020.06.28.02.51.37;	author -;	state -;
+branches;
+next	1.11;
+
+1.11
+date	2020.06.28.02.42.15;	author -;	state -;
+branches;
+next	1.10;
+
+1.10
+date	2020.01.03.00.53.29;	author -;	state -;
+branches;
+next	1.9;
+
+1.9
+date	2020.01.03.00.50.49;	author -;	state -;
+branches;
+next	1.8;
+
+1.8
+date	2020.01.03.00.50.17;	author -;	state -;
+branches;
+next	1.7;
+
+1.7
+date	2020.01.03.00.41.23;	author -;	state -;
+branches;
+next	1.6;
+
+1.6
+date	2020.01.03.00.40.14;	author -;	state -;
+branches;
+next	1.5;
+
+1.5
+date	2020.01.03.00.39.28;	author -;	state -;
+branches;
+next	1.4;
+
+1.4
+date	2020.01.03.00.38.15;	author -;	state -;
+branches;
+next	1.3;
+
+1.3
+date	2020.01.03.00.37.35;	author -;	state -;
+branches;
+next	1.2;
+
+1.2
+date	2020.01.02.22.46.19;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2020.01.02.22.32.14;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.13
+log
+@-
+@
+text
+@#!/bin/bash
+# $Id: mk,v 1.12 2020-06-27 19:51:37-07 - - $
+pkill gv
+cid $0 lab0-intro-unix.mm countwords.perl
+make
+
+for dir in */countwords.d
+do
+   pushd $dir
+   make
+   make tar
+   make lis
+   popd
+done
+
+@
+
+
+1.12
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk,v 1.11 2020-06-27 19:42:15-07 - - $
+d9 1
+a9 2
+   pushd
+   cd $dir
+@
+
+
+1.11
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk,v 1.10 2020-01-02 16:53:29-08 - - $
+d6 11
+@
+
+
+1.10
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk,v 1.9 2020-01-02 16:50:49-08 - - $
+d4 1
+a4 1
+cid $0 lab0-intro-unix.mm countwords.perl countwords.cpp
+a5 2
+mkc countwords.cpp
+mkpspdf countwords.cpp.ps countwords.cpp
+@
+
+
+1.9
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk,v 1.8 2020-01-02 16:50:17-08 - - $
+d7 1
+a7 1
+mkpspdf countwords.cpp.ps countwords.cpp mk
+@
+
+
+1.8
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk,v 1.7 2020-01-02 16:41:23-08 - - $
+a7 2
+countwords.perl mk countwords.perl countwords.cpp  \
+| mkpspdf -N -c3 output.ps
+@
+
+
+1.7
+log
+@-
+@
+text
+@d1 2
+a2 2
+
+# $Id: mk,v 1.6 2020-01-02 16:40:14-08 - - $
+@
+
+
+1.6
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk,v 1.5 2020-01-02 16:39:28-08 - - $
+d8 1
+a8 1
+countwords.perl mk countwords.perl countwords.cpp HEADER.html \
+@
+
+
+1.5
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk,v 1.4 2020-01-02 16:38:15-08 - - $
+d8 1
+a8 1
+countwords.perl mk countwords.perl countwords.cpp lab0-unix-c-make.tt \
+@
+
+
+1.4
+log
+@-
+@
+text
+@d1 2
+a2 2
+#!/bin/sh
+# $Id: mk,v 1.3 2020-01-02 16:37:35-08 - - $
+d8 1
+a8 1
+countwords.perl mk countwords.perl countwords.cpp \
+@
+
+
+1.3
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk,v 1.2 2020-01-02 14:46:19-08 - - $
+d8 2
+a9 1
+countwords.perl mk countwords.perl countwords.cpp | mkpspdf -N -c3
+@
+
+
+1.2
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk,v 1.1 2020-01-02 14:32:14-08 - - $
+d8 1
+@
+
+
+1.1
+log
+@-
+@
+text
+@d2 1
+a2 1
+# $Id: mk,v 1.1 2019-12-12 13:39:28-08 - - $
+d7 1
+a7 1
+mkpspdf countwords.cpp.ps countwords.cpp
+@
