@@ -1,0 +1,5 @@
+false
+Before insert: {-,1}
+Before insert: {test1.in,2}
+true
+EXIT_SUCCESS

@@ -1,0 +1,5 @@
+false
+Before insert: {/no/such,1}
+Before insert: {no//file/either,2}
+true
+EXIT_SUCCESS
