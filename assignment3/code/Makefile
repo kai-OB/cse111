@@ -58,6 +58,8 @@ ${DEPFILE} :
 
 again :
 	${GMAKE} spotless dep ci all lis
+submit:
+	submit cse111-wm.s21 ko3 *.cpp *.tcc *.h Makefile README
 
 ifeq (${NEEDINCL}, )
 include ${DEPFILE}
