@@ -9,6 +9,7 @@
 // Operations on listmap.
 /////////////////////////////////////////////////////////////////
 //
+//do ~ insert find and erase + main
 
 //
 // listmap::~listmap()
@@ -16,6 +17,17 @@
 template <typename key_t, typename mapped_t, class less_t>
 listmap<key_t,mapped_t,less_t>::~listmap() {
    DEBUGF ('l', reinterpret_cast<const void*> (this));
+   //typical double linked list deconstructor
+   //begin() is the "head"
+   //DONT DELETE ANCHOR!
+   node* temp1 = begin();
+   node* temp2;
+   while(temp1!=anchor()){
+      temp2 = temp1;
+      temp1 = temp->next;
+      //or delete temp2;
+      erase(temp2);
+   }
 }
 
 //
@@ -45,7 +57,14 @@ template <typename key_t, typename mapped_t, class less_t>
 typename listmap<key_t,mapped_t,less_t>::iterator
 listmap<key_t,mapped_t,less_t>::erase (iterator position) {
    DEBUGF ('l', &*position);
-   return iterator();
+   //dont need to iterate because have .where
+
+   node* temp = position.where;
+   iterator rtrn = temp->next;
+   temp->prev->next = temp->next;
+   temp->next->prev = temp->prev;
+   delete temp;
+   return rtrn;//should return temp->next's position
 }
 
 
