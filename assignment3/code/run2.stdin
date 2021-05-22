@@ -1,3 +1,1 @@
-false
-true
-EXIT_SUCCESS
+./mk.tests: line 4: ./keyvalue: No such file or directory

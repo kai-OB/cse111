@@ -1,4 +1,1 @@
-false
-Before insert: {test2.in,1}
-true
-EXIT_SUCCESS
+./mk.tests: line 6: ./keyvalue: No such file or directory
