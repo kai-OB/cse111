@@ -74,6 +74,7 @@ void catfile_helper (istream& infile, const string& filename) {
    regex comment_regex {R"(^\s*(#.*)?$)"};
    regex key_value_regex {R"(^\s*(.*?)\s*=\s*(.*?)\s*$)"};
    regex trimmed_regex {R"(^\s*([^=]+?)\s*$)"};
+   int i = 1;
    for(;;) {
       string line;
       getline (infile, line);
@@ -81,7 +82,8 @@ void catfile_helper (istream& infile, const string& filename) {
        cout << "input: \"" << line << "\"" << endl;
       smatch result;
       if (regex_search (line, result, comment_regex)) {
-         cout << "Comment or empty line." << endl;
+         cout<<filename<<": "<<i<<": # "<<line<<endl;
+         //cout << "comment." << endl;
       }else if (regex_search (line, result, key_value_regex)) {
          cout << "key  : \"" << result[1] << "\"" << endl;
          cout << "value: \"" << result[2] << "\"" << endl;
@@ -92,7 +94,8 @@ void catfile_helper (istream& infile, const string& filename) {
       }
       //-----
       if (infile.eof()) break;
-      cout << line << endl;
+     // cout << line << endl;
+      i++;
    }
 }
 // node* temp = new node(anchor(), anchor(), pair);
