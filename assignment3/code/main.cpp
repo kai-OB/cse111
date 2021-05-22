@@ -95,7 +95,7 @@ void whitespace(string *line){
    }
 }
 
-void catfile_helper (istream& infile, const string& filename) {
+void catfile_helper (istream& infile, const string& filename, str_str_map test) {
    static string colons (32, ':');
    cout << colons << endl << filename << endl << colons << endl;
    regex comment_regex {R"(^\s*(#.*)?$)"};
@@ -120,7 +120,17 @@ void catfile_helper (istream& infile, const string& filename) {
             //cout << "value: \"" << result[2] << "\"" << endl;
          }else if (regex_search (line, result, trimmed_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
-            cout<< result[1]<< endl;
+           // cout<< result[1]<< endl;
+            //if its the key print the value
+             auto it = test.find(result[1]);
+            if(it!=test.end()){
+              
+               cout<< it->first<< " = " <<it->second<<endl;
+            }
+            else{
+               cout<< result[1]<< ": " <<"key not found"<<endl;
+
+            }
 
             //cout << "query: \"" << result[1] << "\"" << endl;
          }else {
@@ -147,7 +157,7 @@ int status = 0;
    vector<string> filenames (&argv[1], &argv[argc]);
    if (filenames.size() == 0) filenames.push_back (cin_name);
    for (const auto& filename: filenames) {
-      if (filename == cin_name) catfile_helper (cin, filename);
+      if (filename == cin_name) catfile_helper (cin, filename,test);
       else {
          ifstream infile (filename);
          if (infile.fail()) {
@@ -156,7 +166,7 @@ int status = 0;
                  << strerror (errno) << endl;
          }else {
            
-             catfile_helper (infile, filename);
+             catfile_helper (infile, filename,test);
          
             infile.close();
          }
