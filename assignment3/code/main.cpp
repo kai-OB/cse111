@@ -99,10 +99,11 @@ void catfile_helper (istream& infile, const string& filename) {
             assert (false and "This can not happen.");
          }
          //-----
-         if (infile.eof()) break;
+         
       // cout << line << endl;
          i++;
       }
+      if (infile.eof()) break;
    }
 }
 // node* temp = new node(anchor(), anchor(), pair);
