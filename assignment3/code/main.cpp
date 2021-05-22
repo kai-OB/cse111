@@ -42,28 +42,68 @@ void scan_options (int argc, char** argv) {
    }
 }
 
+xpair <string, str_str_pair> regex_helper( string &line){
+
+   regex comment_regex {R"(^\s*(#.*)?$)"};
+   regex key_value_regex {R"(^\s*(.*?)\s*=\s*(.*?)\s*$)"};
+   regex trimmed_regex {R"(^\s*([^=]+?)\s*$)"};
+   for (;;) {
+      //string line;
+      getline (cin, line);
+      if (cin.eof()) break;
+      cout << "input: \"" << line << "\"" << endl;
+      smatch result;
+      if (regex_search (line, result, comment_regex)) {
+         cout << "Comment or empty line." << endl;
+      }else if (regex_search (line, result, key_value_regex)) {
+         cout << "key  : \"" << result[1] << "\"" << endl;
+         cout << "value: \"" << result[2] << "\"" << endl;
+      }else if (regex_search (line, result, trimmed_regex)) {
+         cout << "query: \"" << result[1] << "\"" << endl;
+      }else {
+         assert (false and "This can not happen.");
+      }
+   }
+}
+
+void catfile_helper (istream& infile, const string& filename) {
+   static string colons (32, ':');
+   cout << colons << endl << filename << endl << colons << endl;
+   for(;;) {
+      string line;
+      getline (infile, line);
+      if (infile.eof()) break;
+      cout << line << endl;
+   }
+}
+// node* temp = new node(anchor(), anchor(), pair);
+
 int main (int argc, char** argv) {
    sys_info::execname (argv[0]);
    scan_options (argc, argv);
-
-   str_str_map test;
-   cout << test << endl;
-   for (char** argp = &argv[optind]; argp != &argv[argc]; ++argp) {
-      str_str_pair pair (*argp, to_string<int> (argp - argv));
-      cout << "Before insert: " << pair << endl;
-      test.insert (pair);
+   str_str_map test;//listmap
+//-------------------------matchlines
+const string cin_name = "-";
+int status = 0;
+   vector<string> filenames (&argv[1], &argv[argc]);
+   if (filenames.size() == 0) filenames.push_back (cin_name);
+   for ( auto& filename: filenames) {
+      if (filename == cin_name) regex_helper (filename);
+      else {
+         ifstream infile (filename);
+         if (infile.fail()) {
+            status = 1;
+            cerr << argv[0] << ": " << filename << ": "
+                 << strerror (errno) << endl;
+         }else {
+            regex_helper (filename);
+            infile.close();
+         }
+      }
    }
-
-   cout << test.empty() << endl;
-   for (str_str_map::iterator itor = test.begin();
-        itor != test.end(); ++itor) {
-      cout << "During iteration: " << *itor << endl;
-   }
-
-   str_str_map::iterator itor = test.begin();
-   test.erase (itor);
-
-   cout << "EXIT_SUCCESS" << endl;
-   return EXIT_SUCCESS;
+   return status;
+   
+  // cout << "EXIT_SUCCESS" << endl;
+  // return EXIT_SUCCESS;
 }
 
