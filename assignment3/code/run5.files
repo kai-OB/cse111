@@ -8,12 +8,12 @@ test3.in: 2:
 input: ""
 test3.in: 3: 
 input: "also ignore blank lines"
-query: "also ignore blank lines"
-input: "this file contains nonexistent keys"
-query: "this file contains nonexistent keys"
-input: "all output should be error messages"
-query: "all output should be error messages"
-input: "# $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $"
+test3.in: 4: also ignore blank lines
+also ignore blank linesinput: "this file contains nonexistent keys"
+test3.in: 5: this file contains nonexistent keys
+this file contains nonexistent keysinput: "all output should be error messages"
+test3.in: 6: all output should be error messages
+all output should be error messagesinput: "# $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $"
 test3.in: 7: # $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $
 input: ""
 test3.in: 8: 

@@ -2,41 +2,41 @@
 -
 ::::::::::::::::::::::::::::::::
 input: "key=value"
-key  : "key"
-value: "value"
+-: 1: key=value
+key = value
 input: "second=third"
-key  : "second"
-value: "third"
+-: 2: second=third
+second = third
 input: "foo=bar"
-key  : "foo"
-value: "bar"
+-: 3: foo=bar
+foo = bar
 input: "f1=51"
-key  : "f1"
-value: "51"
+-: 4: f1=51
+f1 = 51
 input: "f2=52"
-key  : "f2"
-value: "52"
+-: 5: f2=52
+f2 = 52
 input: "foobar=baz"
-key  : "foobar"
-value: "baz"
+-: 6: foobar=baz
+foobar = baz
 input: "baz=quux"
-key  : "baz"
-value: "quux"
+-: 7: baz=quux
+baz = quux
 input: "this=is=a=test"
-key  : "this"
-value: "is=a=test"
+-: 8: this=is=a=test
+this = is=a=test
 input: "="
-key  : ""
-value: ""
+-: 9: =
+ = 
 input: "a=value"
-key  : "a"
-value: "value"
+-: 10: a=value
+a = value
 input: "b=value"
-key  : "b"
-value: "value"
+-: 11: b=value
+b = value
 input: "=value"
-key  : ""
-value: "value"
+-: 12: =value
+ = value
 input: "# $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $"
 -: 13: # $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $
 input: ""

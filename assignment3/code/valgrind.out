@@ -1,29 +1,29 @@
-==16691== Memcheck, a memory error detector
-==16691== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==16691== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
-==16691== Command: keyvalue test1.in test2.in test3.in
-==16691== 
+==23581== Memcheck, a memory error detector
+==23581== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==23581== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==23581== Command: keyvalue test1.in test2.in test3.in
+==23581== 
 ::::::::::::::::::::::::::::::::
 test1.in
 ::::::::::::::::::::::::::::::::
 input: "a=b"
-key  : "a"
-value: "b"
+test1.in: 1: a=b
+a = b
 input: "key=value"
-key  : "key"
-value: "value"
+test1.in: 2: key=value
+key = value
 input: "this=is a test"
-key  : "this"
-value: "is a test"
+test1.in: 3: this=is a test
+this = is a test
 input: "this"
-query: "this"
-input: "key"
-query: "key"
-input: "a"
-query: "a"
-input: "="
-key  : ""
-value: ""
+test1.in: 4: this
+thisinput: "key"
+test1.in: 5: key
+keyinput: "a"
+test1.in: 6: a
+ainput: "="
+test1.in: 7: =
+ = 
 input: "# $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $"
 test1.in: 8: # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
 input: ""
@@ -32,41 +32,41 @@ test1.in: 9:
 test2.in
 ::::::::::::::::::::::::::::::::
 input: "key=value"
-key  : "key"
-value: "value"
+test2.in: 1: key=value
+key = value
 input: "second=third"
-key  : "second"
-value: "third"
+test2.in: 2: second=third
+second = third
 input: "foo=bar"
-key  : "foo"
-value: "bar"
+test2.in: 3: foo=bar
+foo = bar
 input: "f1=51"
-key  : "f1"
-value: "51"
+test2.in: 4: f1=51
+f1 = 51
 input: "f2=52"
-key  : "f2"
-value: "52"
+test2.in: 5: f2=52
+f2 = 52
 input: "foobar=baz"
-key  : "foobar"
-value: "baz"
+test2.in: 6: foobar=baz
+foobar = baz
 input: "baz=quux"
-key  : "baz"
-value: "quux"
+test2.in: 7: baz=quux
+baz = quux
 input: "this=is=a=test"
-key  : "this"
-value: "is=a=test"
+test2.in: 8: this=is=a=test
+this = is=a=test
 input: "="
-key  : ""
-value: ""
+test2.in: 9: =
+ = 
 input: "a=value"
-key  : "a"
-value: "value"
+test2.in: 10: a=value
+a = value
 input: "b=value"
-key  : "b"
-value: "value"
+test2.in: 11: b=value
+b = value
 input: "=value"
-key  : ""
-value: "value"
+test2.in: 12: =value
+ = value
 input: "# $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $"
 test2.in: 13: # $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $
 input: ""
@@ -81,21 +81,21 @@ test3.in: 2:
 input: ""
 test3.in: 3: 
 input: "also ignore blank lines"
-query: "also ignore blank lines"
-input: "this file contains nonexistent keys"
-query: "this file contains nonexistent keys"
-input: "all output should be error messages"
-query: "all output should be error messages"
-input: "# $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $"
+test3.in: 4: also ignore blank lines
+also ignore blank linesinput: "this file contains nonexistent keys"
+test3.in: 5: this file contains nonexistent keys
+this file contains nonexistent keysinput: "all output should be error messages"
+test3.in: 6: all output should be error messages
+all output should be error messagesinput: "# $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $"
 test3.in: 7: # $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $
 input: ""
 test3.in: 8: 
-==16691== 
-==16691== HEAP SUMMARY:
-==16691==     in use at exit: 0 bytes in 0 blocks
-==16691==   total heap usage: 30,551 allocs, 30,551 frees, 583,053 bytes allocated
-==16691== 
-==16691== All heap blocks were freed -- no leaks are possible
-==16691== 
-==16691== For counts of detected and suppressed errors, rerun with: -v
-==16691== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==23581== 
+==23581== HEAP SUMMARY:
+==23581==     in use at exit: 0 bytes in 0 blocks
+==23581==   total heap usage: 30,551 allocs, 30,551 frees, 583,053 bytes allocated
+==23581== 
+==23581== All heap blocks were freed -- no leaks are possible
+==23581== 
+==23581== For counts of detected and suppressed errors, rerun with: -v
+==23581== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
