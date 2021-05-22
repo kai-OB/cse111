@@ -25,6 +25,7 @@ using namespace std;
 
 using str_str_map = listmap<string,string>;
 using str_str_pair = str_str_map::value_type;
+str_str_map test;//listmap
 
 void scan_options (int argc, char** argv) {
    opterr = 0;
@@ -42,43 +43,23 @@ void scan_options (int argc, char** argv) {
       }
    }
 }
-/*
-xpair <string, str_str_pair> regex_helper( string &line){
-   regex comment_regex {R"(^\s*(#.*)?$)"};
-   regex key_value_regex {R"(^\s*(.*?)\s*=\s*(.*?)\s*$)"};
-   regex trimmed_regex {R"(^\s*([^=]+?)\s*$)"};
-   for (;;) {
-      string line;
-      getline (cin, line);
-      if (cin.eof()) break;
-      cout << "input: \"" << line << "\"" << endl;
-      smatch result;
-      if (regex_search (line, result, comment_regex)) {
-         cout << "Comment or empty line." << endl;
-      }else if (regex_search (line, result, key_value_regex)) {
-         cout << "key  : \"" << result[1] << "\"" << endl;
-         cout << "value: \"" << result[2] << "\"" << endl;
-      }else if (regex_search (line, result, trimmed_regex)) {
-         cout << "query: \"" << result[1] << "\"" << endl;
-      }else {
-         assert (false and "This can not happen.");
-      }
-   }
-   //return 0;
-  
-}*/
 
-//do a trimfile helper function
-void whitespace(string *line){
-   //trim leading whitespace
-  
+unsigned long whitespace(string *line){
+   //trim leading whitespace and returns position of =sign or -1
+   unsigned long eq_sign = 1234;
    unsigned long first = 0;//0 or 1?
    while(first<line->size() &&line->at(first) == ' '){
       line->erase(first,1);//at first position
+      if(line->at(first)=='='){
+         eq_sign = 0;
+      }
       ++first;
    }
    int mid = 1;
    while(first<line->size()){
+      if(line->at(first)=='='){
+         eq_sign = mid;
+      }
       if(line->at(first)=='\n'){
          line->erase(first,mid);//at first position
       }
@@ -88,14 +69,20 @@ void whitespace(string *line){
       ++first;
    }
    //trims trailing whitespace
-    ssize_t last = 0;//0 or 1?
+    ssize_t last = line->size()-1;//0 or 1?
    while(last>0 &&line->at(last) == ' '){
+      if(line->at(last)=='='){
+         eq_sign = last;
+      }
+      
       line->erase(last,line->size()-1);//at first position
       --last;
    }
+   return eq_sign;
 }
-
-void catfile_helper (istream& infile, const string& filename, str_str_map test) {
+//insert stuff to map when key = value not found
+//just do insert because already wrote code for that
+void catfile_helper (istream& infile, const string& filename) {
    static string colons (32, ':');
    cout << colons << endl << filename << endl << colons << endl;
    regex comment_regex {R"(^\s*(#.*)?$)"};
@@ -105,7 +92,7 @@ void catfile_helper (istream& infile, const string& filename, str_str_map test) 
    for(;;) {
       string line;
       getline (infile, line);
-      whitespace(&line);//trim whitespace
+     unsigned long eq_pos = whitespace(&line);//trim whitespace
       //-----regex code
       // cout << "input: \"" << line << "\"" << endl;
       if(line.length()>0){
@@ -121,17 +108,23 @@ void catfile_helper (istream& infile, const string& filename, str_str_map test) 
          }else if (regex_search (line, result, trimmed_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
            // cout<< result[1]<< endl;
-            //if its the key print the value
-            cout<<"key";
-             auto it = test.find(line);
-            if(it!=test.end()){
-              
-               cout<< it->first<< " = " <<it->second<<endl;
-            }
-            else{
-               cout<< result[1]<< ": " <<"key not found"<<endl;
+            //if its the key(can be more than 1 word key
+            //) and nothing else, print the value
 
+            //if no eq sign
+            if(eq_pos==1234){
+               //cout<<"key";
+               auto it = test.find(line);
+               if(it!=test.end()){
+               
+                  cout<< it->first<< " = " <<it->second<<endl;
+               }
+               else{
+                  cout<< result[1]<< ": " <<"key not found"<<endl;
+
+               }
             }
+            
 
             //cout << "query: \"" << result[1] << "\"" << endl;
          }else {
@@ -150,8 +143,6 @@ void catfile_helper (istream& infile, const string& filename, str_str_map test) 
 int main (int argc, char** argv) {
    sys_info::execname (argv[0]);
    scan_options (argc, argv);
-   str_str_map test;//listmap
-
 //-------------------------matchlines
 const string cin_name = "-";
 int status = 0;
@@ -159,7 +150,7 @@ int status = 0;
    vector<string> filenames (&argv[1], &argv[argc]);
    if (filenames.size() == 0) filenames.push_back (cin_name);
    for (const auto& filename: filenames) {
-      if (filename == cin_name) catfile_helper (cin, filename,test);
+      if (filename == cin_name) catfile_helper (cin, filename);
       else {
          ifstream infile (filename);
          if (infile.fail()) {
@@ -167,9 +158,7 @@ int status = 0;
             cerr << progname << ": " << filename << ": "
                  << strerror (errno) << endl;
          }else {
-           
-             catfile_helper (infile, filename,test);
-         
+            catfile_helper (infile, filename);
             infile.close();
          }
       }
