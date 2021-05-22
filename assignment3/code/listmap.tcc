@@ -20,11 +20,11 @@ listmap<key_t,mapped_t,less_t>::~listmap() {
    //typical double linked list deconstructor
    //begin() is the "head"
    //DONT DELETE ANCHOR!
-   node* temp1 = begin();
+   node* temp1 = begin().where;//or just do anchor().next
    node* temp2;
    while(temp1!=anchor()){
       temp2 = temp1;
-      temp1 = temp->next;
+      temp1 = temp1->next;
       //or delete temp2;
       erase(temp2);
    }
@@ -37,17 +37,45 @@ template <typename key_t, typename mapped_t, class less_t>
 typename listmap<key_t,mapped_t,less_t>::iterator
 listmap<key_t,mapped_t,less_t>::insert (const value_type& pair) {
    DEBUGF ('l', &pair << "->" << pair);
-   return iterator();
+   //if key is already there, the value is replaced
+    node *new_node = new node(nullptr,nullptr,pair);
+   for (auto itor = begin(); itor != end(); ++itor) {
+         //if the itr is == key, update value
+      if(!less(itor->first,pair.first) && !less(pair.first,itor->first)) {
+         itor->second = pair.second;//?? maybe
+         return itor;
+      }
+         //if  pair.first is >= itor, not less than itor
+      else if(!less(pair.first,itor->first)){
+           //at the end of the list, pair.first is greater than the end, what to do
+         new_node->next = itor.where->next;
+         new_node->prev = itor.where;
+         if(itor.where->next!=nullptr){
+            itor.where->next->prev = new_node;
+         }
+         itor.where->next = new_node;
+         break;
+      }
+   }
+ 
+   return iterator(new_node);
+
 }
 
 //
 // listmap::find(const key_type&)
-//
+// cant use ==, must use less()
+//if not is less and not is greater
 template <typename key_t, typename mapped_t, class less_t>
 typename listmap<key_t,mapped_t,less_t>::iterator
 listmap<key_t,mapped_t,less_t>::find (const key_type& that) {
    DEBUGF ('l', that);
-   return iterator();
+   for (auto itor = begin(); itor != end(); ++itor) {
+      if(!less(itor->first,that) && !less(that,itor->first)){
+         return itor;
+      }
+   }
+   return end();
 }
 
 //
