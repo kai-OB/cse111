@@ -20,9 +20,9 @@ input: "="
 key  : ""
 value: ""
 input: "# $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $"
-test1.in: 8: # # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
+test1.in: 8: # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
 input: ""
-test1.in: 9: # 
+test1.in: 9: 
 ::::::::::::::::::::::::::::::::
 test2.in
 ::::::::::::::::::::::::::::::::
@@ -63,18 +63,18 @@ input: "=value"
 key  : ""
 value: "value"
 input: "# $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $"
-test2.in: 13: # # $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $
+test2.in: 13: # $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $
 input: ""
-test2.in: 14: # 
+test2.in: 14: 
 ::::::::::::::::::::::::::::::::
 test3.in
 ::::::::::::::::::::::::::::::::
 input: "# Comments should be ignored"
-test3.in: 1: # # Comments should be ignored
+test3.in: 1: # Comments should be ignored
 input: ""
-test3.in: 2: # 
+test3.in: 2: 
 input: ""
-test3.in: 3: # 
+test3.in: 3: 
 input: "also ignore blank lines"
 query: "also ignore blank lines"
 input: "this file contains nonexistent keys"
@@ -82,6 +82,6 @@ query: "this file contains nonexistent keys"
 input: "all output should be error messages"
 query: "all output should be error messages"
 input: "# $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $"
-test3.in: 7: # # $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $
+test3.in: 7: # $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $
 input: ""
-test3.in: 8: # 
+test3.in: 8: 

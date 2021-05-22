@@ -5,7 +5,7 @@ input: "stdin=value"
 key  : "stdin"
 value: "value"
 input: ""
--: 2: # 
+-: 2: 
 ::::::::::::::::::::::::::::::::
 test1.in
 ::::::::::::::::::::::::::::::::
@@ -28,6 +28,6 @@ input: "="
 key  : ""
 value: ""
 input: "# $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $"
-test1.in: 8: # # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
+test1.in: 8: # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
 input: ""
-test1.in: 9: # 
+test1.in: 9: 

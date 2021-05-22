@@ -1,8 +1,8 @@
-==694== Memcheck, a memory error detector
-==694== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==694== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
-==694== Command: keyvalue test1.in test2.in test3.in
-==694== 
+==16691== Memcheck, a memory error detector
+==16691== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==16691== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==16691== Command: keyvalue test1.in test2.in test3.in
+==16691== 
 ::::::::::::::::::::::::::::::::
 test1.in
 ::::::::::::::::::::::::::::::::
@@ -25,9 +25,9 @@ input: "="
 key  : ""
 value: ""
 input: "# $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $"
-test1.in: 8: # # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
+test1.in: 8: # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
 input: ""
-test1.in: 9: # 
+test1.in: 9: 
 ::::::::::::::::::::::::::::::::
 test2.in
 ::::::::::::::::::::::::::::::::
@@ -68,18 +68,18 @@ input: "=value"
 key  : ""
 value: "value"
 input: "# $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $"
-test2.in: 13: # # $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $
+test2.in: 13: # $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $
 input: ""
-test2.in: 14: # 
+test2.in: 14: 
 ::::::::::::::::::::::::::::::::
 test3.in
 ::::::::::::::::::::::::::::::::
 input: "# Comments should be ignored"
-test3.in: 1: # # Comments should be ignored
+test3.in: 1: # Comments should be ignored
 input: ""
-test3.in: 2: # 
+test3.in: 2: 
 input: ""
-test3.in: 3: # 
+test3.in: 3: 
 input: "also ignore blank lines"
 query: "also ignore blank lines"
 input: "this file contains nonexistent keys"
@@ -87,15 +87,15 @@ query: "this file contains nonexistent keys"
 input: "all output should be error messages"
 query: "all output should be error messages"
 input: "# $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $"
-test3.in: 7: # # $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $
+test3.in: 7: # $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $
 input: ""
-test3.in: 8: # 
-==694== 
-==694== HEAP SUMMARY:
-==694==     in use at exit: 0 bytes in 0 blocks
-==694==   total heap usage: 30,551 allocs, 30,551 frees, 583,053 bytes allocated
-==694== 
-==694== All heap blocks were freed -- no leaks are possible
-==694== 
-==694== For counts of detected and suppressed errors, rerun with: -v
-==694== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+test3.in: 8: 
+==16691== 
+==16691== HEAP SUMMARY:
+==16691==     in use at exit: 0 bytes in 0 blocks
+==16691==   total heap usage: 30,551 allocs, 30,551 frees, 583,053 bytes allocated
+==16691== 
+==16691== All heap blocks were freed -- no leaks are possible
+==16691== 
+==16691== For counts of detected and suppressed errors, rerun with: -v
+==16691== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
