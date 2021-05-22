@@ -68,6 +68,33 @@ xpair <string, str_str_pair> regex_helper( string &line){
   
 }*/
 
+//do a trimfile helper function
+void whitespace(string *line){
+   //trim leading whitespace
+  
+   unsigned long first = 0;//0 or 1?
+   while(first<line->size() &&line->at(first) == ' '){
+      line->erase(first,1);//at first position
+      ++first;
+   }
+   int mid = 1;
+   while(first<line->size()){
+      if(line->at(first)=='\n'){
+         line->erase(first,mid);//at first position
+      }
+      else{
+         ++mid;
+      }
+      ++first;
+   }
+   //trims trailing whitespace
+    ssize_t last = 0;//0 or 1?
+   while(last>0 &&line->at(last) == ' '){
+      line->erase(last,line->size()-1);//at first position
+      --last;
+   }
+}
+
 void catfile_helper (istream& infile, const string& filename) {
    static string colons (32, ':');
    cout << colons << endl << filename << endl << colons << endl;
@@ -78,6 +105,7 @@ void catfile_helper (istream& infile, const string& filename) {
    for(;;) {
       string line;
       getline (infile, line);
+      whitespace(&line);//trim whitespace
       //-----regex code
       // cout << "input: \"" << line << "\"" << endl;
       if(line.length()>0){
