@@ -1,9 +1,14 @@
-head	1.28;
+head	1.29;
 access;
 symbols;
 locks;
 comment	@ * @;
 
+
+1.29
+date	2021.05.22.09.29.26;	author -;	state -;
+branches;
+next	1.28;
 
 1.28
 date	2021.02.22.20.17.11;	author -;	state -;
@@ -150,12 +155,13 @@ desc
 @@
 
 
-1.28
+1.29
 log
 @-
 @
 text
-@// $Id: listmap.h,v 1.27 2021-02-11 18:06:18-08 - - $
+@// $Id: listmap.h,v 1.28 2021-02-22 12:17:11-08 - - $
+//Kai O'Brien (kimobrie@@ucsc.edu)
 
 #ifndef __LISTMAP_H__
 #define __LISTMAP_H__
@@ -234,6 +240,17 @@ class listmap<key_t,mapped_t,less_t>::iterator {
 #include "listmap.tcc"
 #endif
 
+@
+
+
+1.28
+log
+@-
+@
+text
+@d1 2
+a2 1
+// $Id: listmap.h,v 1.27 2021-02-11 18:06:18-08 - - $
 @
 
 

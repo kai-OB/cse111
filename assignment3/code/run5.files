@@ -1,11 +1,1 @@
-::::::::::::::::::::::::::::::::
-test3.in
-::::::::::::::::::::::::::::::::
-test3.in: 1: # Comments should be ignored
-test3.in: 2: also ignore blank lines
-also ignore blank lines
-test3.in: 3: this file contains nonexistent keys
-this file contains nonexistent keys
-test3.in: 4: all output should be error messages
-all output should be error messages
-test3.in: 5: # $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $
+./mk.tests: line 7: ./keyvalue: No such file or directory
