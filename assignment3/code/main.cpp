@@ -151,6 +151,7 @@ int main (int argc, char** argv) {
    sys_info::execname (argv[0]);
    scan_options (argc, argv);
    str_str_map test;//listmap
+
 //-------------------------matchlines
 const string cin_name = "-";
 int status = 0;
