@@ -1,1 +1,26 @@
-./mk.tests: line 7: ./keyvalue: No such file or directory
+::::::::::::::::::::::::::::::::
+test3.in
+::::::::::::::::::::::::::::::::
+input: "# Comments should be ignored"
+Comment or empty line.
+# Comments should be ignored
+input: ""
+Comment or empty line.
+
+input: ""
+Comment or empty line.
+
+input: "also ignore blank lines"
+query: "also ignore blank lines"
+also ignore blank lines
+input: "this file contains nonexistent keys"
+query: "this file contains nonexistent keys"
+this file contains nonexistent keys
+input: "all output should be error messages"
+query: "all output should be error messages"
+all output should be error messages
+input: "# $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $"
+Comment or empty line.
+# $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $
+input: ""
+Comment or empty line.

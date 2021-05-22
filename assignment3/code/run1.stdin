@@ -1,1 +1,33 @@
-./mk.tests: line 3: ./keyvalue: No such file or directory
+::::::::::::::::::::::::::::::::
+-
+::::::::::::::::::::::::::::::::
+input: "a=b"
+key  : "a"
+value: "b"
+a=b
+input: "key=value"
+key  : "key"
+value: "value"
+key=value
+input: "this=is a test"
+key  : "this"
+value: "is a test"
+this=is a test
+input: "this"
+query: "this"
+this
+input: "key"
+query: "key"
+key
+input: "a"
+query: "a"
+a
+input: "="
+key  : ""
+value: ""
+=
+input: "# $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $"
+Comment or empty line.
+# $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
+input: ""
+Comment or empty line.

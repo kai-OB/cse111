@@ -1,1 +1,115 @@
-./mk.tests: line 8: ./keyvalue: No such file or directory
+::::::::::::::::::::::::::::::::
+test1.in
+::::::::::::::::::::::::::::::::
+input: "a=b"
+key  : "a"
+value: "b"
+a=b
+input: "key=value"
+key  : "key"
+value: "value"
+key=value
+input: "this=is a test"
+key  : "this"
+value: "is a test"
+this=is a test
+input: "this"
+query: "this"
+this
+input: "key"
+query: "key"
+key
+input: "a"
+query: "a"
+a
+input: "="
+key  : ""
+value: ""
+=
+input: "# $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $"
+Comment or empty line.
+# $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
+input: ""
+Comment or empty line.
+::::::::::::::::::::::::::::::::
+test2.in
+::::::::::::::::::::::::::::::::
+input: "key=value"
+key  : "key"
+value: "value"
+key=value
+input: "second=third"
+key  : "second"
+value: "third"
+second=third
+input: "foo=bar"
+key  : "foo"
+value: "bar"
+foo=bar
+input: "f1=51"
+key  : "f1"
+value: "51"
+f1=51
+input: "f2=52"
+key  : "f2"
+value: "52"
+f2=52
+input: "foobar=baz"
+key  : "foobar"
+value: "baz"
+foobar=baz
+input: "baz=quux"
+key  : "baz"
+value: "quux"
+baz=quux
+input: "this=is=a=test"
+key  : "this"
+value: "is=a=test"
+this=is=a=test
+input: "="
+key  : ""
+value: ""
+=
+input: "a=value"
+key  : "a"
+value: "value"
+a=value
+input: "b=value"
+key  : "b"
+value: "value"
+b=value
+input: "=value"
+key  : ""
+value: "value"
+=value
+input: "# $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $"
+Comment or empty line.
+# $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $
+input: ""
+Comment or empty line.
+::::::::::::::::::::::::::::::::
+test3.in
+::::::::::::::::::::::::::::::::
+input: "# Comments should be ignored"
+Comment or empty line.
+# Comments should be ignored
+input: ""
+Comment or empty line.
+
+input: ""
+Comment or empty line.
+
+input: "also ignore blank lines"
+query: "also ignore blank lines"
+also ignore blank lines
+input: "this file contains nonexistent keys"
+query: "this file contains nonexistent keys"
+this file contains nonexistent keys
+input: "all output should be error messages"
+query: "all output should be error messages"
+all output should be error messages
+input: "# $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $"
+Comment or empty line.
+# $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $
+input: ""
+Comment or empty line.
