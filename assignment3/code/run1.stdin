@@ -1,25 +1,18 @@
 ::::::::::::::::::::::::::::::::
 -
 ::::::::::::::::::::::::::::::::
-input: "a=b"
 -: 1: a=b
 a = b
-input: "key=value"
 -: 2: key=value
 key = value
-input: "this=is a test"
 -: 3: this=is a test
 this = is a test
-input: "this"
 -: 4: this
-thisinput: "key"
+this
 -: 5: key
-keyinput: "a"
+key
 -: 6: a
-ainput: "="
+a
 -: 7: =
  = 
-input: "# $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $"
 -: 8: # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
-input: ""
--: 9: 
