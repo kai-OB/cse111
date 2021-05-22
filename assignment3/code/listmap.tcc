@@ -41,13 +41,15 @@ listmap<key_t,mapped_t,less_t>::insert (const value_type& pair) {
     node *new_node = new node(nullptr,nullptr,pair);
    for (auto itor = begin(); itor != end(); ++itor) {
          //if the itr is == key, update value
-      if(!less(itor->first,pair.first) && !less(pair.first,itor->first)) {
+      if(!less(itor->first,pair.first) && 
+         !less(pair.first,itor->first)) {
          itor->second = pair.second;//?? maybe
          return itor;
       }
          //if  pair.first is >= itor, not less than itor
       else if(!less(pair.first,itor->first)){
-           //at the end of the list, pair.first is greater than the end, what to do
+           //at the end of the list, pair.first is greater 
+          // than the end, what to do
          new_node->next = itor.where->next;
          new_node->prev = itor.where;
          if(itor.where->next!=nullptr){
