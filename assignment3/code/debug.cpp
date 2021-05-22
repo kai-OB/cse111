@@ -1,4 +1,5 @@
 // $Id: debug.cpp,v 1.3 2019-10-22 12:41:48-07 - - $
+//Kai O'Brien (kimobrie@ucsc.edu)
 
 #include <climits>
 #include <iostream>

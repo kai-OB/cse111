@@ -1,4 +1,5 @@
 // $Id: debug.h,v 1.5 2020-11-12 18:37:41-08 - - $
+//Kai O'Brien (kimobrie@ucsc.edu)
 
 #ifndef __DEBUG_H__
 #define __DEBUG_H__

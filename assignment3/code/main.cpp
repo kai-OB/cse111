@@ -1,16 +1,26 @@
 // $Id: main.cpp,v 1.13 2021-02-01 18:58:18-08 - - $
+//Kai O'Brien (kimobrie@ucsc.edu)
 
 #include <cstdlib>
 #include <exception>
 #include <iostream>
 #include <string>
 #include <unistd.h>
+//--------
+#include <cassert>
+#include <cerrno>
+#include <fstream>
+#include <iomanip>
+#include <regex>
+#include <stdexcept>
+#include <typeinfo>
 
 using namespace std;
 
 #include "listmap.h"
 #include "xpair.h"
 #include "util.h"
+
 
 using str_str_map = listmap<string,string>;
 using str_str_pair = str_str_map::value_type;

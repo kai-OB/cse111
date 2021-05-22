@@ -1,4 +1,5 @@
 // $Id: listmap.h,v 1.28 2021-02-22 12:17:11-08 - - $
+//Kai O'Brien (kimobrie@ucsc.edu)
 
 #ifndef __LISTMAP_H__
 #define __LISTMAP_H__
