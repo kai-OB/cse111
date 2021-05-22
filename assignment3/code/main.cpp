@@ -79,28 +79,30 @@ void catfile_helper (istream& infile, const string& filename) {
       string line;
       getline (infile, line);
       //-----regex code
-       cout << "input: \"" << line << "\"" << endl;
-      smatch result;
-      if (regex_search (line, result, comment_regex)) {//prints twice maybe idk
-         cout<<filename<<": "<<i<<": "<<line<<endl;
-         //cout << "comment." << endl;
-      }else if (regex_search (line, result, key_value_regex)) {
-          cout<<filename<<": "<<i<<": "<<line<<endl;
-         cout<< result[1]<< " = " <<result[2]<<endl;
-        // cout << "key  : \"" << result[1] << "\"" << endl;
-         //cout << "value: \"" << result[2] << "\"" << endl;
-      }else if (regex_search (line, result, trimmed_regex)) {
-         cout<<filename<<": "<<i<<": "<<line<<endl;
-         cout<< result[1];
+      // cout << "input: \"" << line << "\"" << endl;
+      if(line.length()>0){
+         smatch result;
+         if (regex_search (line, result, comment_regex)) {//prints twice maybe idk
+            cout<<filename<<": "<<i<<": "<<line<<endl;
+            //cout << "comment." << endl;
+         }else if (regex_search (line, result, key_value_regex)) {
+            cout<<filename<<": "<<i<<": "<<line<<endl;
+            cout<< result[1]<< " = " <<result[2]<<endl;
+         // cout << "key  : \"" << result[1] << "\"" << endl;
+            //cout << "value: \"" << result[2] << "\"" << endl;
+         }else if (regex_search (line, result, trimmed_regex)) {
+            cout<<filename<<": "<<i<<": "<<line<<endl;
+            cout<< result[1]<< endl;
 
-         //cout << "query: \"" << result[1] << "\"" << endl;
-      }else {
-         assert (false and "This can not happen.");
+            //cout << "query: \"" << result[1] << "\"" << endl;
+         }else {
+            assert (false and "This can not happen.");
+         }
+         //-----
+         if (infile.eof()) break;
+      // cout << line << endl;
+         i++;
       }
-      //-----
-      if (infile.eof()) break;
-     // cout << line << endl;
-      i++;
    }
 }
 // node* temp = new node(anchor(), anchor(), pair);
@@ -124,7 +126,9 @@ int status = 0;
             cerr << progname << ": " << filename << ": "
                  << strerror (errno) << endl;
          }else {
-            catfile_helper (infile, filename);
+           
+             catfile_helper (infile, filename);
+         
             infile.close();
          }
       }
