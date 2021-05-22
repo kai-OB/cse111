@@ -81,14 +81,19 @@ void catfile_helper (istream& infile, const string& filename) {
       //-----regex code
        cout << "input: \"" << line << "\"" << endl;
       smatch result;
-      if (regex_search (line, result, comment_regex)) {
+      if (regex_search (line, result, comment_regex)) {//prints twice maybe idk
          cout<<filename<<": "<<i<<": "<<line<<endl;
          //cout << "comment." << endl;
       }else if (regex_search (line, result, key_value_regex)) {
-         cout << "key  : \"" << result[1] << "\"" << endl;
-         cout << "value: \"" << result[2] << "\"" << endl;
+          cout<<filename<<": "<<i<<": "<<line<<endl;
+         cout<< result[1]<< " = " <<result[2]<<endl;
+        // cout << "key  : \"" << result[1] << "\"" << endl;
+         //cout << "value: \"" << result[2] << "\"" << endl;
       }else if (regex_search (line, result, trimmed_regex)) {
-         cout << "query: \"" << result[1] << "\"" << endl;
+         cout<<filename<<": "<<i<<": "<<line<<endl;
+         cout<< result[1];
+
+         //cout << "query: \"" << result[1] << "\"" << endl;
       }else {
          assert (false and "This can not happen.");
       }
