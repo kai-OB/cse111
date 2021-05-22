@@ -122,7 +122,8 @@ void catfile_helper (istream& infile, const string& filename, str_str_map test) 
             cout<<filename<<": "<<i<<": "<<line<<endl;
            // cout<< result[1]<< endl;
             //if its the key print the value
-             auto it = test.find(result[1]);
+            cout<<"key";
+             auto it = test.find(line);
             if(it!=test.end()){
               
                cout<< it->first<< " = " <<it->second<<endl;
