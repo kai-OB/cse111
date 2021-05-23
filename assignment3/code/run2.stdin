@@ -1,11 +1,20 @@
+input: "key=value"
 -: 1: key=value
+input: "second=third"
 -: 2: second=third
+input: "foo=bar"
 -: 3: foo=bar
+input: "f1=51"
 -: 4: f1=51
+input: "f2=52"
 -: 5: f2=52
+input: "foobar=baz"
 -: 6: foobar=baz
+input: "baz=quux"
 -: 7: baz=quux
+input: "this=is=a=test"
 -: 8: this=is=a=test
+input: "="
 -: 9: =
 baz = quux
 f1 = 51
@@ -15,10 +24,15 @@ foobar = baz
 key = value
 second = third
 this = is=a=test
+input: "a=value"
 -: 10: a=value
+input: "b=value"
 -: 11: b=value
+input: "=value"
 -: 12: =value
 a = value
 b = value
 key = value
+input: "# $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $"
 -: 13: # $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $
+input: ""

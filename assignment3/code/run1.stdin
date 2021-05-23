@@ -1,14 +1,23 @@
+input: "a=b"
 -: 1: a=b
+input: "key=value"
 -: 2: key=value
+input: "this=is a test"
 -: 3: this=is a test
+input: "this"
 -: 4: this
 this = is a test
+input: "key"
 -: 5: key
 key = value
+input: "a"
 -: 6: a
 a = b
+input: "="
 -: 7: =
 a = b
 key = value
 this = is a test
+input: "# $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $"
 -: 8: # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
+input: ""
