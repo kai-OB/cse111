@@ -1,9 +1,14 @@
-head	1.18;
+head	1.19;
 access;
 symbols;
 locks;
 comment	@// @;
 
+
+1.19
+date	2021.05.23.03.58.22;	author -;	state -;
+branches;
+next	1.18;
 
 1.18
 date	2021.05.23.03.51.17;	author -;	state -;
@@ -100,12 +105,12 @@ desc
 @@
 
 
-1.18
+1.19
 log
 @-
 @
 text
-@// $Id: main.cpp,v 1.16 2021-05-22 19:49:45-07 - - $
+@// $Id: main.cpp,v 1.18 2021-05-22 20:51:17-07 - - $
 //Kai O'Brien (kimobrie@@ucsc.edu)
 
 #include <cstdlib>
@@ -222,7 +227,7 @@ void catfile_helper (istream& infile, const string& filename) {
          //key = value, if found, replace val, if not, insert
          else if (regex_search (line, result, key_value_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
-            if(line.at(line.size()-1)=='='&&test.find(result[1])!=test.end()){
+            if(line.at(line.size()-1)=='='&&test.find(result[1])!=test.end() ){
                test.erase(test.find(result[1]));//valgrind
             }
             else{
@@ -307,6 +312,20 @@ int status = 0;
   // return EXIT_SUCCESS;
 }
 
+@
+
+
+1.18
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: main.cpp,v 1.16 2021-05-22 19:49:45-07 - - $
+d118 1
+a118 1
+            if(line.at(line.size()-1)=='='&&test.find(result[1])!=test.end()){
 @
 
 
