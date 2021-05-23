@@ -1,44 +1,26 @@
-input: "a=b"
-test1.in: 1: a=b
-input: "key=value"
-test1.in: 2: key=value
-input: "this=is a test"
-test1.in: 3: this=is a test
-input: "this"
-test1.in: 4: this
+a=btest1.in: 1: a=b
+key=valuetest1.in: 2: key=value
+this=is a testtest1.in: 3: this=is a test
+thistest1.in: 4: this
 this = is a test
-input: "key"
-test1.in: 5: key
+keytest1.in: 5: key
 key = value
-input: "a"
-test1.in: 6: a
+atest1.in: 6: a
 a = b
-input: "="
-test1.in: 7: =
+=test1.in: 7: =
 a = b
 key = value
 this = is a test
-input: "# $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $"
-test1.in: 8: # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
-input: ""
-input: "key=value"
-test2.in: 1: key=value
-input: "second=third"
-test2.in: 2: second=third
-input: "foo=bar"
-test2.in: 3: foo=bar
-input: "f1=51"
-test2.in: 4: f1=51
-input: "f2=52"
-test2.in: 5: f2=52
-input: "foobar=baz"
-test2.in: 6: foobar=baz
-input: "baz=quux"
-test2.in: 7: baz=quux
-input: "this=is=a=test"
-test2.in: 8: this=is=a=test
-input: "="
-test2.in: 9: =
+# $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $test1.in: 8: # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
+key=valuetest2.in: 1: key=value
+second=thirdtest2.in: 2: second=third
+foo=bartest2.in: 3: foo=bar
+f1=51test2.in: 4: f1=51
+f2=52test2.in: 5: f2=52
+foobar=baztest2.in: 6: foobar=baz
+baz=quuxtest2.in: 7: baz=quux
+this=is=a=testtest2.in: 8: this=is=a=test
+=test2.in: 9: =
 a = b
 baz = quux
 f1 = 51
@@ -48,31 +30,18 @@ foobar = baz
 key = value
 second = third
 this = is=a=test
-input: "a=value"
-test2.in: 10: a=value
-input: "b=value"
-test2.in: 11: b=value
-input: "=value"
-test2.in: 12: =value
+a=valuetest2.in: 10: a=value
+b=valuetest2.in: 11: b=value
+=valuetest2.in: 12: =value
 a = value
 b = value
 key = value
-input: "# $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $"
-test2.in: 13: # $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $
-input: ""
-input: "# Comments should be ignored"
-test3.in: 1: # Comments should be ignored
-input: ""
-input: ""
-input: "also ignore blank lines"
-test3.in: 2: also ignore blank lines
+# $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $test2.in: 13: # $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $
+# Comments should be ignoredtest3.in: 1: # Comments should be ignored
+also ignore blank linestest3.in: 2: also ignore blank lines
 also ignore blank lines: key not found
-input: "this file contains nonexistent keys"
-test3.in: 3: this file contains nonexistent keys
+this file contains nonexistent keystest3.in: 3: this file contains nonexistent keys
 this file contains nonexistent keys: key not found
-input: "all output should be error messages"
-test3.in: 4: all output should be error messages
+all output should be error messagestest3.in: 4: all output should be error messages
 all output should be error messages: key not found
-input: "# $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $"
-test3.in: 5: # $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $
-input: ""
+# $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $test3.in: 5: # $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $

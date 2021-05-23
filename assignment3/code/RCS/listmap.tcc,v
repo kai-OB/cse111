@@ -1,9 +1,14 @@
-head	1.24;
+head	1.25;
 access;
 symbols;
 locks;
 comment	@# @;
 
+
+1.25
+date	2021.05.23.07.08.49;	author -;	state -;
+branches;
+next	1.24;
 
 1.24
 date	2021.05.23.06.21.44;	author -;	state -;
@@ -130,7 +135,7 @@ desc
 @@
 
 
-1.24
+1.25
 log
 @-
 @
@@ -155,14 +160,12 @@ template <typename key_t, typename mapped_t, class less_t>
 listmap<key_t,mapped_t,less_t>::~listmap() {
    DEBUGF ('l', reinterpret_cast<const void*> (this));
    //typical double linked list deconstructor
-   //begin() is the "head"
    //DONT DELETE ANCHOR!
-   node* temp1 = anchor()->next;//or just do anchor().next
+   node* temp1 = anchor()->next;
    node* temp2;
    while(temp1!=anchor()){
       temp2 = temp1;
       temp1 = temp1->next;
-      //delete temp2;
       erase(temp2);
    }
 }
@@ -191,13 +194,9 @@ listmap<key_t,mapped_t,less_t>::insert (const value_type& pair) {
          itor->second = pair.second;//this works
          return iterator(new_node);
       }
-         //if  pair.first is >= itor, not less than itor
+      //if  pair.first is >= itor, not less than itor
        else if(less(pair.first,itor->first)){
-          cout<<"else if"<<endl;
-           //at the end of the list, pair.first is greater 
-          // than the end, what to do
-
-         new_node = new node(itor.where,itor.where->prev,pair);
+           new_node = new node(itor.where,itor.where->prev,pair);
             itor.where->prev->next = new_node;
          itor.where->prev = new_node;
         return iterator(new_node);
@@ -221,16 +220,12 @@ typename listmap<key_t,mapped_t,less_t>::iterator
 listmap<key_t,mapped_t,less_t>::find (const key_type& that) {
    DEBUGF ('l', that);
    auto itor = begin();
-   //for (auto itor = begin(); itor != end(); ++itor) {
     while(itor !=end()){
       if(!less(itor->first,that) && !less(that,itor->first)){
-         //return itor;
-         //return iterator(itor);
          break;
       }
       ++itor;
    }
-  //return end();
   return iterator(itor);
 }
 
@@ -242,20 +237,61 @@ typename listmap<key_t,mapped_t,less_t>::iterator
 listmap<key_t,mapped_t,less_t>::erase (iterator position) {
    DEBUGF ('l', &*position);
    //dont need to iterate because have .where
-
    node *temp = position.where;
-      iterator p = temp->prev;
-      iterator n = temp->next;
+   iterator p = temp->prev;
+   iterator n = temp->next;
    p.where->next = n.where;
    n.where->prev = p.where;
 
-   //delete temp->key;
-   delete temp;//valgrind
+  
+   delete temp;
    return n;//should return temp->next's position
    
 }
 
 
+@
+
+
+1.24
+log
+@-
+@
+text
+@a20 1
+   //begin() is the "head"
+d22 1
+a22 1
+   node* temp1 = anchor()->next;//or just do anchor().next
+a26 1
+      //delete temp2;
+d55 1
+a55 1
+         //if  pair.first is >= itor, not less than itor
+d57 1
+a57 5
+          cout<<"else if"<<endl;
+           //at the end of the list, pair.first is greater 
+          // than the end, what to do
+
+         new_node = new node(itor.where,itor.where->prev,pair);
+a80 1
+   //for (auto itor = begin(); itor != end(); ++itor) {
+a82 2
+         //return itor;
+         //return iterator(itor);
+a86 1
+  //return end();
+a97 1
+
+d99 2
+a100 2
+      iterator p = temp->prev;
+      iterator n = temp->next;
+d104 2
+a105 2
+   //delete temp->key;
+   delete temp;//valgrind
 @
 
 
