@@ -1,9 +1,14 @@
-head	1.19;
+head	1.20;
 access;
 symbols;
 locks;
 comment	@# @;
 
+
+1.20
+date	2021.05.23.03.51.17;	author -;	state -;
+branches;
+next	1.19;
 
 1.19
 date	2021.05.23.03.46.04;	author -;	state -;
@@ -105,12 +110,16 @@ desc
 @@
 
 
-1.19
+1.20
 log
 @-
 @
 text
-@// $Id: listmap.tcc,v 1.18 2021-05-22 20:38:58-07 - - $
+@<<<<<<< HEAD
+// $Id: listmap.tcc,v 1.17 2021-05-22 19:49:45-07 - - $
+=======
+// $Id: listmap.tcc,v 1.19 2021-05-22 20:46:04-07 - - $
+>>>>>>> 04712adc87054b2f2b6db3619f2b8eb3b2715442
 //Kai O'Brien (kimobrie@@ucsc.edu)
 
 #include "listmap.h"
@@ -221,12 +230,26 @@ listmap<key_t,mapped_t,less_t>::erase (iterator position) {
    n.where->prev = p.where;
 
    //delete temp->key;
-   delete temp;
+   delete temp;//valgrind
    return n;//should return temp->next's position
    
 }
 
 
+@
+
+
+1.19
+log
+@-
+@
+text
+@d1 5
+a5 1
+// $Id: listmap.tcc,v 1.18 2021-05-22 20:38:58-07 - - $
+d116 1
+a116 1
+   delete temp;
 @
 
 

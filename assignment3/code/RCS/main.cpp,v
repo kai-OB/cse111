@@ -1,9 +1,14 @@
-head	1.17;
+head	1.18;
 access;
 symbols;
 locks;
 comment	@// @;
 
+
+1.18
+date	2021.05.23.03.51.17;	author -;	state -;
+branches;
+next	1.17;
 
 1.17
 date	2021.05.23.03.38.58;	author -;	state -;
@@ -95,7 +100,7 @@ desc
 @@
 
 
-1.17
+1.18
 log
 @-
 @
@@ -217,8 +222,8 @@ void catfile_helper (istream& infile, const string& filename) {
          //key = value, if found, replace val, if not, insert
          else if (regex_search (line, result, key_value_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
-            if(line.at(line.size()-1)=='='){
-               test.erase(test.find(result[1]));
+            if(line.at(line.size()-1)=='='&&test.find(result[1])!=test.end()){
+               test.erase(test.find(result[1]));//valgrind
             }
             else{
             cout<< result[1]<< " = " <<result[2]<<endl;
@@ -302,6 +307,18 @@ int status = 0;
   // return EXIT_SUCCESS;
 }
 
+@
+
+
+1.17
+log
+@-
+@
+text
+@d118 2
+a119 2
+            if(line.at(line.size()-1)=='='){
+               test.erase(test.find(result[1]));
 @
 
 
