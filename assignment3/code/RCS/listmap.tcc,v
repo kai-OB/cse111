@@ -1,9 +1,14 @@
-head	1.23;
+head	1.24;
 access;
 symbols;
 locks;
 comment	@# @;
 
+
+1.24
+date	2021.05.23.06.21.44;	author -;	state -;
+branches;
+next	1.23;
 
 1.23
 date	2021.05.23.05.09.18;	author -;	state -;
@@ -125,12 +130,12 @@ desc
 @@
 
 
-1.23
+1.24
 log
 @-
 @
 text
-@// $Id: listmap.tcc,v 1.22 2021-05-22 21:33:03-07 - - $
+@// $Id: listmap.tcc,v 1.23 2021-05-22 22:09:18-07 - - $
 //Kai O'Brien (kimobrie@@ucsc.edu)
 
 #include "listmap.h"
@@ -178,28 +183,31 @@ listmap<key_t,mapped_t,less_t>::insert (const value_type& pair) {
    }
    //otherwise
    //if key is already there, the value is replaced
-    node *new_node = new node(nullptr,nullptr,pair);
+    node *new_node = nullptr;
    for (auto itor = begin(); itor != end(); ++itor) {
          //if the itr is == key, update value
       if(!less(itor->first,pair.first) && 
          !less(pair.first,itor->first)) {
-         itor->second = pair.second;//?? maybe
-         return itor;
+         itor->second = pair.second;//this works
+         return iterator(new_node);
       }
          //if  pair.first is >= itor, not less than itor
-      else if(!less(pair.first,itor->first)){
+       else if(less(pair.first,itor->first)){
+          cout<<"else if"<<endl;
            //at the end of the list, pair.first is greater 
           // than the end, what to do
-         new_node->next = itor.where->next;
-         new_node->prev = itor.where;
-         if(itor.where->next!=nullptr){
-            itor.where->next->prev = new_node;
-         }
-         itor.where->next = new_node;
-         break;
+
+         new_node = new node(itor.where,itor.where->prev,pair);
+            itor.where->prev->next = new_node;
+         itor.where->prev = new_node;
+        return iterator(new_node);
       }
+     
    }
-   
+   //if at the end, just insert after everything
+   new_node = new node(anchor(),anchor_.prev,pair);
+   anchor_.prev->next = new_node;
+   anchor_.prev = new_node;
    return iterator(new_node);
 
 }
@@ -248,6 +256,40 @@ listmap<key_t,mapped_t,less_t>::erase (iterator position) {
 }
 
 
+@
+
+
+1.23
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: listmap.tcc,v 1.22 2021-05-22 21:33:03-07 - - $
+d49 1
+a49 1
+    node *new_node = new node(nullptr,nullptr,pair);
+d54 2
+a55 2
+         itor->second = pair.second;//?? maybe
+         return itor;
+d58 2
+a59 1
+      else if(!less(pair.first,itor->first)){
+d62 5
+a66 7
+         new_node->next = itor.where->next;
+         new_node->prev = itor.where;
+         if(itor.where->next!=nullptr){
+            itor.where->next->prev = new_node;
+         }
+         itor.where->next = new_node;
+         break;
+d68 1
+d70 4
+a73 1
+   
 @
 
 

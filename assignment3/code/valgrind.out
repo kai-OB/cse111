@@ -1,8 +1,8 @@
-==4695== Memcheck, a memory error detector
-==4695== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==4695== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
-==4695== Command: keyvalue test1.in test2.in test3.in
-==4695== 
+==6466== Memcheck, a memory error detector
+==6466== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==6466== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==6466== Command: keyvalue test1.in test2.in test3.in
+==6466== 
 ::::::::::::::::::::::::::::::::
 test1.in
 ::::::::::::::::::::::::::::::::
@@ -20,8 +20,8 @@ test1.in: 6: a
 a = b
 test1.in: 7: =
 a = b
-this = is a test
 key = value
+this = is a test
 test1.in: 8: # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
 ::::::::::::::::::::::::::::::::
 test2.in
@@ -30,38 +30,42 @@ test2.in: 1: key=value
 key = value
 test2.in: 2: second=third
 second = third
+else if
 test2.in: 3: foo=bar
 foo = bar
+else if
 test2.in: 4: f1=51
 f1 = 51
+else if
 test2.in: 5: f2=52
 f2 = 52
+else if
 test2.in: 6: foobar=baz
 foobar = baz
+else if
 test2.in: 7: baz=quux
 baz = quux
+else if
 test2.in: 8: this=is=a=test
 this = is=a=test
 test2.in: 9: =
 a = b
-this = is=a=test
 baz = quux
-foobar = baz
-f2 = 52
 f1 = 51
+f2 = 52
 foo = bar
+foobar = baz
+key = value
 second = third
-key = value
-this = is a test
-key = value
+this = is=a=test
 test2.in: 10: a=value
 a = value
 test2.in: 11: b=value
 b = value
+else if
 test2.in: 12: =value
 a = value
 b = value
-key = value
 key = value
 test2.in: 13: # $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $
 ::::::::::::::::::::::::::::::::
@@ -75,18 +79,12 @@ this file contains nonexistent keys: key not found
 test3.in: 4: all output should be error messages
 all output should be error messages: key not found
 test3.in: 5: # $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $
-==4695== 
-==4695== HEAP SUMMARY:
-==4695==     in use at exit: 88 bytes in 3 blocks
-==4695==   total heap usage: 30,607 allocs, 30,604 frees, 582,842 bytes allocated
-==4695== 
-==4695== LEAK SUMMARY:
-==4695==    definitely lost: 32 bytes in 1 blocks
-==4695==    indirectly lost: 56 bytes in 2 blocks
-==4695==      possibly lost: 0 bytes in 0 blocks
-==4695==    still reachable: 0 bytes in 0 blocks
-==4695==         suppressed: 0 bytes in 0 blocks
-==4695== Rerun with --leak-check=full to see details of leaked memory
-==4695== 
-==4695== For counts of detected and suppressed errors, rerun with: -v
-==4695== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==6466== 
+==6466== HEAP SUMMARY:
+==6466==     in use at exit: 0 bytes in 0 blocks
+==6466==   total heap usage: 30,600 allocs, 30,600 frees, 582,622 bytes allocated
+==6466== 
+==6466== All heap blocks were freed -- no leaks are possible
+==6466== 
+==6466== For counts of detected and suppressed errors, rerun with: -v
+==6466== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
