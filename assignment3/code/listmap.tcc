@@ -1,4 +1,4 @@
-// $Id: listmap.tcc,v 1.24 2021-05-22 23:21:44-07 - - $
+// $Id: listmap.tcc,v 1.23 2021-05-22 22:09:18-07 - - $
 //Kai O'Brien (kimobrie@ucsc.edu)
 
 #include "listmap.h"
@@ -18,14 +18,12 @@ template <typename key_t, typename mapped_t, class less_t>
 listmap<key_t,mapped_t,less_t>::~listmap() {
    DEBUGF ('l', reinterpret_cast<const void*> (this));
    //typical double linked list deconstructor
-   //begin() is the "head"
    //DONT DELETE ANCHOR!
-   node* temp1 = anchor()->next;//or just do anchor().next
+   node* temp1 = anchor()->next;
    node* temp2;
    while(temp1!=anchor()){
       temp2 = temp1;
       temp1 = temp1->next;
-      //delete temp2;
       erase(temp2);
    }
 }
@@ -54,13 +52,9 @@ listmap<key_t,mapped_t,less_t>::insert (const value_type& pair) {
          itor->second = pair.second;//this works
          return iterator(new_node);
       }
-         //if  pair.first is >= itor, not less than itor
+      //if  pair.first is >= itor, not less than itor
        else if(less(pair.first,itor->first)){
-          cout<<"else if"<<endl;
-           //at the end of the list, pair.first is greater 
-          // than the end, what to do
-
-         new_node = new node(itor.where,itor.where->prev,pair);
+           new_node = new node(itor.where,itor.where->prev,pair);
             itor.where->prev->next = new_node;
          itor.where->prev = new_node;
         return iterator(new_node);
@@ -84,16 +78,12 @@ typename listmap<key_t,mapped_t,less_t>::iterator
 listmap<key_t,mapped_t,less_t>::find (const key_type& that) {
    DEBUGF ('l', that);
    auto itor = begin();
-   //for (auto itor = begin(); itor != end(); ++itor) {
     while(itor !=end()){
       if(!less(itor->first,that) && !less(that,itor->first)){
-         //return itor;
-         //return iterator(itor);
          break;
       }
       ++itor;
    }
-  //return end();
   return iterator(itor);
 }
 
@@ -105,15 +95,14 @@ typename listmap<key_t,mapped_t,less_t>::iterator
 listmap<key_t,mapped_t,less_t>::erase (iterator position) {
    DEBUGF ('l', &*position);
    //dont need to iterate because have .where
-
    node *temp = position.where;
-      iterator p = temp->prev;
-      iterator n = temp->next;
+   iterator p = temp->prev;
+   iterator n = temp->next;
    p.where->next = n.where;
    n.where->prev = p.where;
 
-   //delete temp->key;
-   delete temp;//valgrind
+  
+   delete temp;
    return n;//should return temp->next's position
    
 }

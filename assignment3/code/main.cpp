@@ -21,8 +21,6 @@ using namespace std;
 #include "xpair.h"
 #include "util.h"
 
-//m.insert(xpair{key,value})
-
 using str_str_map = listmap<string,string>;
 using str_str_pair = str_str_map::value_type;
 str_str_map test;//listmap
@@ -46,7 +44,7 @@ void scan_options (int argc, char** argv) {
 
 void whitespace(string *line){
    //trim leading whitespace and returns position of =sign or -1
-   unsigned long first = 0;//0 or 1?
+   unsigned long first = 0;
    while(first<line->size() &&line->at(first) == ' '){
       line->erase(first,1);//at first position
       if(line->at(first)=='='){
@@ -67,7 +65,7 @@ void whitespace(string *line){
       ++first;
    }
    //trims trailing whitespace
-    ssize_t last = line->size()-1;//0 or 1?
+    ssize_t last = line->size()-1;
    while(last>0 &&line->at(last) == ' '){
       if(line->at(last)=='='){
       }
@@ -87,12 +85,10 @@ size_t eq_pos(string *line){
       }
       ++first;
    }
-   
    return eq;
 }
 
 //insert stuff to map when key = value not found
-//just do insert because already wrote code for that
 void catfile_helper (istream& infile, const string& filename) {
    static string colons (32, ':');
 //   cout << colons << endl << filename << endl << colons << endl;
@@ -104,23 +100,18 @@ void catfile_helper (istream& infile, const string& filename) {
       string line;
       getline (infile, line);
       whitespace(&line);//trim whitespace
-      //-----regex code
-
+    
  //      cout << "input: \"" << line << "\"" << endl;
-
       if(line.length()>0){
-	
         // cout << colons << endl << filename << endl << colons << endl;
-
          smatch result;
-         if (regex_search (line, result, comment_regex)) {//prints twice maybe idk
+         if (regex_search (line, result, comment_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
            
          }
         
          else if (regex_search (line, result, key_value_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
-
             //= 
            if(line.at(0)=='='){
               //if the = is the only thing
@@ -137,7 +128,6 @@ void catfile_helper (istream& infile, const string& filename) {
                   }
               }
            }
-            
             else if(line.at(line.size()-1)=='='){ //key = 
                if(test.find(result[1])!=test.end() ){
                   test.erase(test.find(result[1]));//valgrind
@@ -147,46 +137,31 @@ void catfile_helper (istream& infile, const string& filename) {
                }
             }
             else{//key = value
-             cout<< result[1]<< " = " <<result[2]<<endl;
-         // cout << "key  : \"" << result[1] << "\"" << endl;
-         //   cout << "value: \"" << result[2] << "\"" << endl;
-            test.insert(str_str_pair(result[1],result[2]));
+               test.insert(str_str_pair(result[1],result[2]));
             }
          }
          //  key = , =, or =value
          else if (regex_search (line, result, trimmed_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
-           // cout<< result[1]<< endl;
-            //if its the key(can be more than 1 word key
-            //) and nothing else, print the value
             size_t eq_pos1 = eq_pos(&line);
-            //if no eq sign
             //key 
             if(eq_pos1==1234){
                auto it = test.find(result[1]);
                if(test.find(result[1])!=test.end()){
-                cout<< it->first<< " = " <<it->second<<endl;
-                  
+                  cout<< it->first<< " = " <<it->second<<endl;
                }
                else{
                   cout<< result[1]<< ": " <<"key not found"<<endl;
                }
             }
-            
-
-            //cout << "query: \"" << result[1] << "\"" << endl;
          }else {
             assert (false and "This can not happen.");
-         }
-         //-----
-         
-      // cout << line << endl;
+         }         
          i++;
       }
       if (infile.eof()) break;
    }
 }
-// node* temp = new node(anchor(), anchor(), pair);
 
 int main (int argc, char** argv) {
    sys_info::execname (argv[0]);
