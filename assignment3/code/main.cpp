@@ -91,7 +91,7 @@ size_t eq_pos(string *line){
 //insert stuff to map when key = value not found
 void catfile_helper (istream& infile, const string& filename) {
    static string colons (32, ':');
-//   cout << colons << endl << filename << endl << colons << endl;
+ //  cout << colons << endl << filename << endl << colons << endl;
    regex comment_regex {R"(^\s*(#.*)?$)"};
    regex key_value_regex {R"(^\s*(.*?)\s*=\s*(.*?)\s*$)"};
    regex trimmed_regex {R"(^\s*([^=]+?)\s*$)"};
@@ -138,6 +138,7 @@ void catfile_helper (istream& infile, const string& filename) {
             }
             else{//key = value
                test.insert(str_str_pair(result[1],result[2]));
+               cout<<result[1]<< " = " <<result[2]<<endl;
             }
          }
          //  key = , =, or =value
