@@ -116,12 +116,14 @@ void catfile_helper (istream& infile, const string& filename) {
            if(line.at(0)=='='){
               //if the = is the only thing
               if(line.size()==1){
-                  for (auto itor = test.begin(); itor != test.end(); ++itor) {
+                  for (auto itor = test.begin(); 
+                     itor != test.end(); ++itor) {
                      cout<< itor->first<< " = " <<itor->second<<endl;
                   }
               }
               else{  //=value              
-               for (auto itor = test.begin(); itor != test.end(); ++itor) {
+                  for (auto itor = test.begin(); 
+                     itor != test.end(); ++itor) {
                       if(itor->second == result[2]){
                         cout<< itor->first<< " = " <<itor->second<<endl;
                       }
