@@ -1,1 +1,90 @@
-valgrind: keyvalue: command not found
+==10187== Memcheck, a memory error detector
+==10187== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==10187== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==10187== Command: keyvalue test1.in test2.in test3.in
+==10187== 
+::::::::::::::::::::::::::::::::
+test1.in
+::::::::::::::::::::::::::::::::
+test1.in: 1: a=b
+a = b
+test1.in: 2: key=value
+key = value
+test1.in: 3: this=is a test
+this = is a test
+test1.in: 4: this
+this = is a test
+test1.in: 5: key
+key = value
+test1.in: 6: a
+a = b
+test1.in: 7: =
+ = 
+test1.in: 8: # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
+::::::::::::::::::::::::::::::::
+test2.in
+::::::::::::::::::::::::::::::::
+test2.in: 1: key=value
+key = value
+test2.in: 2: second=third
+second = third
+test2.in: 3: foo=bar
+foo = bar
+test2.in: 4: f1=51
+f1 = 51
+test2.in: 5: f2=52
+f2 = 52
+test2.in: 6: foobar=baz
+foobar = baz
+test2.in: 7: baz=quux
+baz = quux
+test2.in: 8: this=is=a=test
+this = is=a=test
+test2.in: 9: =
+ = 
+test2.in: 10: a=value
+a = value
+test2.in: 11: b=value
+b = value
+test2.in: 12: =value
+ = value
+test2.in: 13: # $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $
+::::::::::::::::::::::::::::::::
+test3.in
+::::::::::::::::::::::::::::::::
+test3.in: 1: # Comments should be ignored
+test3.in: 2: also ignore blank lines
+==10187== Invalid read of size 8
+==10187==    at 0x4ECC6A3: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:2758)
+==10187==    by 0x40701C: catfile_helper(std::istream&, std::string const&) (main.cpp:136)
+==10187==    by 0x407521: main (main.cpp:186)
+==10187==  Address 0xffffffffffffffe8 is not stack'd, malloc'd or (recently) free'd
+==10187== 
+==10187== 
+==10187== Process terminating with default action of signal 11 (SIGSEGV)
+==10187==  Access not within mapped region at address 0xFFFFFFFFFFFFFFE8
+==10187==    at 0x4ECC6A3: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (basic_string.h:2758)
+==10187==    by 0x40701C: catfile_helper(std::istream&, std::string const&) (main.cpp:136)
+==10187==    by 0x407521: main (main.cpp:186)
+==10187==  If you believe this happened as a result of a stack
+==10187==  overflow in your program's main thread (unlikely but
+==10187==  possible), you can try to increase the size of the
+==10187==  main thread stack using the --main-stacksize= flag.
+==10187==  The main thread stack size used in this run was 8388608.
+==10187== 
+==10187== HEAP SUMMARY:
+==10187==     in use at exit: 15,136 bytes in 72 blocks
+==10187==   total heap usage: 30,559 allocs, 30,487 frees, 578,094 bytes allocated
+==10187== 
+==10187== LEAK SUMMARY:
+==10187==    definitely lost: 128 bytes in 4 blocks
+==10187==    indirectly lost: 56 bytes in 2 blocks
+==10187==      possibly lost: 0 bytes in 0 blocks
+==10187==    still reachable: 14,952 bytes in 66 blocks
+==10187==                       of which reachable via heuristic:
+==10187==                         stdstring          : 991 bytes in 32 blocks
+==10187==         suppressed: 0 bytes in 0 blocks
+==10187== Rerun with --leak-check=full to see details of leaked memory
+==10187== 
+==10187== For counts of detected and suppressed errors, rerun with: -v
+==10187== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)

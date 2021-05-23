@@ -3,7 +3,7 @@
 %%Title: ./Listing.ps
 %%For: Kai Monique O'Brien
 %%Creator: GNU Enscript 1.6.6
-%%CreationDate: Sat May 22 02:50:10 2021
+%%CreationDate: Sat May 22 19:49:52 2021
 %%Orientation: Portrait
 %%Pages: (atend)
 %%DocumentMedia: Letter 612 792 0 () ()
@@ -507,7 +507,7 @@ _S
 % User defined strings:
 /pagenumstr (1) def
 /moddatestr (05/22/21) def
-/modtimestr (02:50:06) def
+/modtimestr (19:49:45) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment3/code) def
 /user_header_center_str () def
@@ -675,7 +675,7 @@ _S
 % User defined strings:
 /pagenumstr (2) def
 /moddatestr (05/22/21) def
-/modtimestr (02:50:06) def
+/modtimestr (19:49:45) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment3/code) def
 /user_header_center_str () def
@@ -775,7 +775,7 @@ _S
 % User defined strings:
 /pagenumstr (1) def
 /moddatestr (05/22/21) def
-/modtimestr (02:50:06) def
+/modtimestr (19:49:45) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment3/code) def
 /user_header_center_str () def
@@ -786,7 +786,7 @@ column_borders
 do_header
 32.4 694 M (1:) s
 52.2 694 M
-(// $Id: listmap.tcc,v 1.16 2021-05-22 02:29:26-07 - - $) s
+(// $Id: listmap.tcc,v 1.17 2021-05-22 19:49:45-07 - - $) s
 32.4 682 M (2:) s
 52.2 682 M
 (//Kai O'Brien \(kimobrie@ucsc.edu\)) s
@@ -895,61 +895,61 @@ do_header
 (   DEBUGF \('l', &pair << "->" << pair\);) s
 25.8 226 M (40:) s
 52.2 226 M
-(   //if key is already there, the value is replaced) s
+(   //if empty) s
 25.8 214 M (41:) s
 52.2 214 M
-(    node *new_node = new node\(nullptr,nullptr,pair\);) s
+(   if\(empty\(\)\){) s
 25.8 202 M (42:) s
 52.2 202 M
-(   for \(auto itor = begin\(\); itor != end\(\); ++itor\) {) s
+(      node *empty_node = new node\(anchor\(\),anchor\(\),pair\);) s
 25.8 190 M (43:) s
 52.2 190 M
-(         //if the itr is == key, update value) s
+(      anchor_.next = empty_node;) s
 25.8 178 M (44:) s
 52.2 178 M
-(      if\(!less\(itor->first,pair.first\) && ) s
+(      anchor_.prev = empty_node;) s
 25.8 166 M (45:) s
 52.2 166 M
-(         !less\(pair.first,itor->first\)\) {) s
+(      return iterator\(empty_node\);) s
 25.8 154 M (46:) s
 52.2 154 M
-(         itor->second = pair.second;//?? maybe) s
+(   }) s
 25.8 142 M (47:) s
 52.2 142 M
-(         return itor;) s
+(   //otherwise) s
 25.8 130 M (48:) s
 52.2 130 M
-(      }) s
+(   //if key is already there, the value is replaced) s
 25.8 118 M (49:) s
 52.2 118 M
-(         //if  pair.first is >= itor, not less than itor) s
+(    node *new_node = new node\(nullptr,nullptr,pair\);) s
 25.8 106 M (50:) s
 52.2 106 M
-(      else if\(!less\(pair.first,itor->first\)\){) s
+(   for \(auto itor = begin\(\); itor != end\(\); ++itor\) {) s
 25.8 94 M (51:) s
 52.2 94 M
-(           //at the end of the list, pair.first is greater ) s
+(         //if the itr is == key, update value) s
 25.8 82 M (52:) s
 52.2 82 M
-(          // than the end, what to do) s
+(      if\(!less\(itor->first,pair.first\) && ) s
 25.8 70 M (53:) s
 52.2 70 M
-(         new_node->next = itor.where->next;) s
+(         !less\(pair.first,itor->first\)\) {) s
 25.8 58 M (54:) s
 52.2 58 M
-(         new_node->prev = itor.where;) s
+(         itor->second = pair.second;//?? maybe) s
 25.8 46 M (55:) s
 52.2 46 M
-(         if\(itor.where->next!=nullptr\){) s
+(         return itor;) s
 25.8 34 M (56:) s
 52.2 34 M
-(            itor.where->next->prev = new_node;) s
+(      }) s
 25.8 22 M (57:) s
 52.2 22 M
-(         }) s
+(         //if  pair.first is >= itor, not less than itor) s
 25.8 10 M (58:) s
 52.2 10 M
-(         itor.where->next = new_node;) s
+(      else if\(!less\(pair.first,itor->first\)\){) s
 _R
 S
 %%Page: (2) 4
@@ -963,7 +963,7 @@ _S
 % User defined strings:
 /pagenumstr (2) def
 /moddatestr (05/22/21) def
-/modtimestr (02:50:06) def
+/modtimestr (19:49:45) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment3/code) def
 /user_header_center_str () def
@@ -974,118 +974,154 @@ column_borders
 do_header
 25.8 694 M (59:) s
 52.2 694 M
-(         break;) s
+(           //at the end of the list, pair.first is greater ) s
 25.8 682 M (60:) s
 52.2 682 M
-(      }) s
+(          // than the end, what to do) s
 25.8 670 M (61:) s
 52.2 670 M
-(   }) s
+(         new_node->next = itor.where->next;) s
 25.8 658 M (62:) s
 52.2 658 M
-( ) s
+(         new_node->prev = itor.where;) s
 25.8 646 M (63:) s
 52.2 646 M
-(   return iterator\(new_node\);) s
+(         if\(itor.where->next!=nullptr\){) s
 25.8 634 M (64:) s
+52.2 634 M
+(            itor.where->next->prev = new_node;) s
 25.8 622 M (65:) s
 52.2 622 M
-(}) s
+(         }) s
 25.8 610 M (66:) s
+52.2 610 M
+(         itor.where->next = new_node;) s
 25.8 598 M (67:) s
 52.2 598 M
-(//) s
+(         break;) s
 25.8 586 M (68:) s
 52.2 586 M
-(// listmap::find\(const key_type&\)) s
+(      }) s
 25.8 574 M (69:) s
 52.2 574 M
-(// cant use ==, must use less\(\)) s
+(   }) s
 25.8 562 M (70:) s
 52.2 562 M
-(//if not is less and not is greater) s
+(   ) s
 25.8 550 M (71:) s
 52.2 550 M
-(template <typename key_t, typename mapped_t, class less_t>) s
+(   return iterator\(new_node\);) s
 25.8 538 M (72:) s
-52.2 538 M
-(typename listmap<key_t,mapped_t,less_t>::iterator) s
 25.8 526 M (73:) s
 52.2 526 M
-(listmap<key_t,mapped_t,less_t>::find \(const key_type& that\) {) s
+(}) s
 25.8 514 M (74:) s
-52.2 514 M
-(   DEBUGF \('l', that\);) s
 25.8 502 M (75:) s
 52.2 502 M
-(   for \(auto itor = begin\(\); itor != end\(\); ++itor\) {) s
+(//) s
 25.8 490 M (76:) s
 52.2 490 M
-(      if\(!less\(itor->first,that\) && !less\(that,itor->first\)\){) s
+(// listmap::find\(const key_type&\)) s
 25.8 478 M (77:) s
 52.2 478 M
-(         return itor;) s
+(// cant use ==, must use less\(\)) s
 25.8 466 M (78:) s
 52.2 466 M
-(      }) s
+(//if not is less and not is greater) s
 25.8 454 M (79:) s
 52.2 454 M
-(   }) s
+(template <typename key_t, typename mapped_t, class less_t>) s
 25.8 442 M (80:) s
 52.2 442 M
-(   return end\(\);) s
+(typename listmap<key_t,mapped_t,less_t>::iterator) s
 25.8 430 M (81:) s
 52.2 430 M
-(}) s
+(listmap<key_t,mapped_t,less_t>::find \(const key_type& that\) {) s
 25.8 418 M (82:) s
+52.2 418 M
+(   DEBUGF \('l', that\);) s
 25.8 406 M (83:) s
 52.2 406 M
-(//) s
+(   auto itor = begin\(\);) s
 25.8 394 M (84:) s
 52.2 394 M
-(// iterator listmap::erase \(iterator position\)) s
+(   //for \(auto itor = begin\(\); itor != end\(\); ++itor\) {) s
 25.8 382 M (85:) s
 52.2 382 M
-(//) s
+(    while\(itor !=end\(\)\){) s
 25.8 370 M (86:) s
 52.2 370 M
-(template <typename key_t, typename mapped_t, class less_t>) s
+(      if\(!less\(itor->first,that\) && !less\(that,itor->first\)\){) s
 25.8 358 M (87:) s
 52.2 358 M
-(typename listmap<key_t,mapped_t,less_t>::iterator) s
+(         //return itor;) s
 25.8 346 M (88:) s
 52.2 346 M
-(listmap<key_t,mapped_t,less_t>::erase \(iterator position\) {) s
+(         break;) s
 25.8 334 M (89:) s
 52.2 334 M
-(   DEBUGF \('l', &*position\);) s
+(      }) s
 25.8 322 M (90:) s
 52.2 322 M
-(   //dont need to iterate because have .where) s
+(      ++itor;) s
 25.8 310 M (91:) s
+52.2 310 M
+(   }) s
 25.8 298 M (92:) s
 52.2 298 M
-(   node* temp = position.where;) s
+(   return iterator\(itor\);) s
 25.8 286 M (93:) s
 52.2 286 M
-(   iterator rtrn = temp->next;) s
+(}) s
 25.8 274 M (94:) s
-52.2 274 M
-(   temp->prev->next = temp->next;) s
 25.8 262 M (95:) s
 52.2 262 M
-(   temp->next->prev = temp->prev;) s
+(//) s
 25.8 250 M (96:) s
 52.2 250 M
-(   delete temp;) s
+(// iterator listmap::erase \(iterator position\)) s
 25.8 238 M (97:) s
 52.2 238 M
-(   return rtrn;//should return temp->next's position) s
+(//) s
 25.8 226 M (98:) s
 52.2 226 M
-(}) s
+(template <typename key_t, typename mapped_t, class less_t>) s
 25.8 214 M (99:) s
+52.2 214 M
+(typename listmap<key_t,mapped_t,less_t>::iterator) s
 19.2 202 M (100:) s
+52.2 202 M
+(listmap<key_t,mapped_t,less_t>::erase \(iterator position\) {) s
+19.2 190 M (101:) s
+52.2 190 M
+(   DEBUGF \('l', &*position\);) s
+19.2 178 M (102:) s
+52.2 178 M
+(   //dont need to iterate because have .where) s
+19.2 166 M (103:) s
+19.2 154 M (104:) s
+52.2 154 M
+(   node* temp = position.where;) s
+19.2 142 M (105:) s
+52.2 142 M
+(   iterator rtrn = temp->next;) s
+19.2 130 M (106:) s
+52.2 130 M
+(   temp->prev->next = temp->next;) s
+19.2 118 M (107:) s
+52.2 118 M
+(   temp->next->prev = temp->prev;) s
+19.2 106 M (108:) s
+52.2 106 M
+(   delete temp;) s
+19.2 94 M (109:) s
+52.2 94 M
+(   return rtrn;//should return temp->next's position) s
+19.2 82 M (110:) s
+52.2 82 M
+(}) s
+19.2 70 M (111:) s
+19.2 58 M (112:) s
 _R
 S
 %%Page: (1) 5
@@ -1099,7 +1135,7 @@ _S
 % User defined strings:
 /pagenumstr (1) def
 /moddatestr (05/22/21) def
-/modtimestr (02:50:06) def
+/modtimestr (19:49:45) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment3/code) def
 /user_header_center_str () def
@@ -1165,7 +1201,7 @@ _S
 % User defined strings:
 /pagenumstr (1) def
 /moddatestr (05/22/21) def
-/modtimestr (02:50:06) def
+/modtimestr (19:49:45) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment3/code) def
 /user_header_center_str () def
@@ -1279,7 +1315,7 @@ _S
 % User defined strings:
 /pagenumstr (1) def
 /moddatestr (05/22/21) def
-/modtimestr (02:50:06) def
+/modtimestr (19:49:45) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment3/code) def
 /user_header_center_str () def
@@ -1384,7 +1420,7 @@ _S
 % User defined strings:
 /pagenumstr (2) def
 /moddatestr (05/22/21) def
-/modtimestr (02:50:06) def
+/modtimestr (19:49:45) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment3/code) def
 /user_header_center_str () def
@@ -1518,7 +1554,7 @@ _S
 % User defined strings:
 /pagenumstr (1) def
 /moddatestr (05/22/21) def
-/modtimestr (02:50:06) def
+/modtimestr (19:49:45) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment3/code) def
 /user_header_center_str () def
@@ -1626,7 +1662,7 @@ _S
 % User defined strings:
 /pagenumstr (1) def
 /moddatestr (05/22/21) def
-/modtimestr (02:50:06) def
+/modtimestr (19:49:45) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment3/code) def
 /user_header_center_str () def
@@ -1744,7 +1780,7 @@ _S
 % User defined strings:
 /pagenumstr (2) def
 /moddatestr (05/22/21) def
-/modtimestr (02:50:06) def
+/modtimestr (19:49:45) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment3/code) def
 /user_header_center_str () def
@@ -1873,7 +1909,7 @@ _S
 % User defined strings:
 /pagenumstr (1) def
 /moddatestr (05/22/21) def
-/modtimestr (02:50:06) def
+/modtimestr (19:49:45) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment3/code) def
 /user_header_center_str () def
@@ -1962,7 +1998,7 @@ _S
 % User defined strings:
 /pagenumstr (1) def
 /moddatestr (05/22/21) def
-/modtimestr (02:50:06) def
+/modtimestr (19:49:45) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment3/code) def
 /user_header_center_str () def
@@ -2117,7 +2153,7 @@ _S
 % User defined strings:
 /pagenumstr (1) def
 /moddatestr (05/22/21) def
-/modtimestr (02:50:06) def
+/modtimestr (19:49:45) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment3/code) def
 /user_header_center_str () def
@@ -2128,7 +2164,7 @@ column_borders
 do_header
 32.4 694 M (1:) s
 52.2 694 M
-(// $Id: main.cpp,v 1.15 2021-05-22 02:49:32-07 - - $) s
+(// $Id: main.cpp,v 1.16 2021-05-22 19:49:45-07 - - $) s
 32.4 682 M (2:) s
 52.2 682 M
 (//Kai O'Brien \(kimobrie@ucsc.edu\)) s
@@ -2198,96 +2234,94 @@ do_header
 52.2 382 M
 (using str_str_pair = str_str_map::value_type;) s
 25.8 370 M (28:) s
+52.2 370 M
+(str_str_map test;//listmap) s
 25.8 358 M (29:) s
-52.2 358 M
-(void scan_options \(int argc, char** argv\) {) s
 25.8 346 M (30:) s
 52.2 346 M
-(   opterr = 0;) s
+(void scan_options \(int argc, char** argv\) {) s
 25.8 334 M (31:) s
 52.2 334 M
-(   for \(;;\) {) s
+(   opterr = 0;) s
 25.8 322 M (32:) s
 52.2 322 M
-(      int option = getopt \(argc, argv, "@:"\);) s
+(   for \(;;\) {) s
 25.8 310 M (33:) s
 52.2 310 M
-(      if \(option == EOF\) break;) s
+(      int option = getopt \(argc, argv, "@:"\);) s
 25.8 298 M (34:) s
 52.2 298 M
-(      switch \(option\) {) s
+(      if \(option == EOF\) break;) s
 25.8 286 M (35:) s
 52.2 286 M
-(         case '@':) s
+(      switch \(option\) {) s
 25.8 274 M (36:) s
 52.2 274 M
-(            debugflags::setflags \(optarg\);) s
+(         case '@':) s
 25.8 262 M (37:) s
 52.2 262 M
-(            break;) s
+(            debugflags::setflags \(optarg\);) s
 25.8 250 M (38:) s
 52.2 250 M
-(         default:) s
+(            break;) s
 25.8 238 M (39:) s
 52.2 238 M
-(            complain\(\) << "-" << char \(optopt\) << ": invalid option") s
+(         default:) s
 25.8 226 M (40:) s
 52.2 226 M
-(                       << endl;) s
+(            complain\(\) << "-" << char \(optopt\) << ": invalid option") s
 25.8 214 M (41:) s
 52.2 214 M
-(            break;) s
+(                       << endl;) s
 25.8 202 M (42:) s
 52.2 202 M
-(      }) s
+(            break;) s
 25.8 190 M (43:) s
 52.2 190 M
-(   }) s
+(      }) s
 25.8 178 M (44:) s
 52.2 178 M
-(}) s
+(   }) s
 25.8 166 M (45:) s
 52.2 166 M
-(/*) s
+(}) s
 25.8 154 M (46:) s
-52.2 154 M
-(xpair <string, str_str_pair> regex_helper\( string &line\){) s
 25.8 142 M (47:) s
 52.2 142 M
-(   regex comment_regex {R"\(^\\s*\(#.*\)?$\)"};) s
+(void whitespace\(string *line\){) s
 25.8 130 M (48:) s
 52.2 130 M
-(   regex key_value_regex {R"\(^\\s*\(.*?\)\\s*=\\s*\(.*?\)\\s*$\)"};) s
+(   //trim leading whitespace and returns position of =sign or -1) s
 25.8 118 M (49:) s
 52.2 118 M
-(   regex trimmed_regex {R"\(^\\s*\([^=]+?\)\\s*$\)"};) s
+(   unsigned long first = 0;//0 or 1?) s
 25.8 106 M (50:) s
 52.2 106 M
-(   for \(;;\) {) s
+(   while\(first<line->size\(\) &&line->at\(first\) == ' '\){) s
 25.8 94 M (51:) s
 52.2 94 M
-(      string line;) s
+(      line->erase\(first,1\);//at first position) s
 25.8 82 M (52:) s
 52.2 82 M
-(      getline \(cin, line\);) s
+(      if\(line->at\(first\)=='='\){) s
 25.8 70 M (53:) s
 52.2 70 M
-(      if \(cin.eof\(\)\) break;) s
+(        ) s
 25.8 58 M (54:) s
 52.2 58 M
-(      cout << "input: \\"" << line << "\\"" << endl;) s
+(      }) s
 25.8 46 M (55:) s
 52.2 46 M
-(      smatch result;) s
+(      ++first;) s
 25.8 34 M (56:) s
 52.2 34 M
-(      if \(regex_search \(line, result, comment_regex\)\) {) s
+(   }) s
 25.8 22 M (57:) s
 52.2 22 M
-(         cout << "Comment or empty line." << endl;) s
+(   int mid = 1;) s
 25.8 10 M (58:) s
 52.2 10 M
-(      }else if \(regex_search \(line, result, key_value_regex\)\) {) s
+(   while\(first<line->size\(\)\){) s
 _R
 S
 %%Page: (2) 15
@@ -2301,7 +2335,7 @@ _S
 % User defined strings:
 /pagenumstr (2) def
 /moddatestr (05/22/21) def
-/modtimestr (02:50:06) def
+/modtimestr (19:49:45) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment3/code) def
 /user_header_center_str () def
@@ -2312,86 +2346,86 @@ column_borders
 do_header
 25.8 694 M (59:) s
 52.2 694 M
-(         cout << "key  : \\"" << result[1] << "\\"" << endl;) s
+(      if\(line->at\(first\)=='='\){) s
 25.8 682 M (60:) s
 52.2 682 M
-(         cout << "value: \\"" << result[2] << "\\"" << endl;) s
+(      }) s
 25.8 670 M (61:) s
 52.2 670 M
-(      }else if \(regex_search \(line, result, trimmed_regex\)\) {) s
+(      if\(line->at\(first\)=='\\n'\){) s
 25.8 658 M (62:) s
 52.2 658 M
-(         cout << "query: \\"" << result[1] << "\\"" << endl;) s
+(         line->erase\(first,mid\);//at first position) s
 25.8 646 M (63:) s
 52.2 646 M
-(      }else {) s
+(      }) s
 25.8 634 M (64:) s
 52.2 634 M
-(         assert \(false and "This can not happen."\);) s
+(      else{) s
 25.8 622 M (65:) s
 52.2 622 M
-(      }) s
+(         ++mid;) s
 25.8 610 M (66:) s
 52.2 610 M
-(   }) s
+(      }) s
 25.8 598 M (67:) s
 52.2 598 M
-(   //return 0;) s
+(      ++first;) s
 25.8 586 M (68:) s
 52.2 586 M
-(  ) s
+(   }) s
 25.8 574 M (69:) s
 52.2 574 M
-(}*/) s
+(   //trims trailing whitespace) s
 25.8 562 M (70:) s
+52.2 562 M
+(    ssize_t last = line->size\(\)-1;//0 or 1?) s
 25.8 550 M (71:) s
 52.2 550 M
-(//do a trimfile helper function) s
+(   while\(last>0 &&line->at\(last\) == ' '\){) s
 25.8 538 M (72:) s
 52.2 538 M
-(void whitespace\(string *line\){) s
+(      if\(line->at\(last\)=='='\){) s
 25.8 526 M (73:) s
 52.2 526 M
-(   //trim leading whitespace) s
+(      }) s
 25.8 514 M (74:) s
 52.2 514 M
-(  ) s
+(      ) s
 25.8 502 M (75:) s
 52.2 502 M
-(   unsigned long first = 0;//0 or 1?) s
+(      line->erase\(last,line->size\(\)-1\);//at first position) s
 25.8 490 M (76:) s
 52.2 490 M
-(   while\(first<line->size\(\) &&line->at\(first\) == ' '\){) s
+(      --last;) s
 25.8 478 M (77:) s
 52.2 478 M
-(      line->erase\(first,1\);//at first position) s
+(   }) s
 25.8 466 M (78:) s
 52.2 466 M
-(      ++first;) s
+(}) s
 25.8 454 M (79:) s
-52.2 454 M
-(   }) s
 25.8 442 M (80:) s
 52.2 442 M
-(   int mid = 1;) s
+(size_t eq_pos\(string *line\){) s
 25.8 430 M (81:) s
 52.2 430 M
-(   while\(first<line->size\(\)\){) s
+(   size_t eq = 1234;) s
 25.8 418 M (82:) s
 52.2 418 M
-(      if\(line->at\(first\)=='\\n'\){) s
+(   size_t  first =  0;) s
 25.8 406 M (83:) s
 52.2 406 M
-(         line->erase\(first,mid\);//at first position) s
+(   while\(first<line->size\(\)\){) s
 25.8 394 M (84:) s
 52.2 394 M
-(      }) s
+(      if\(line->at\(first\) == '='\){) s
 25.8 382 M (85:) s
 52.2 382 M
-(      else{) s
+(         eq = first;) s
 25.8 370 M (86:) s
 52.2 370 M
-(         ++mid;) s
+(         break;) s
 25.8 358 M (87:) s
 52.2 358 M
 (      }) s
@@ -2403,81 +2437,82 @@ do_header
 (   }) s
 25.8 322 M (90:) s
 52.2 322 M
-(   //trims trailing whitespace) s
+(   ) s
 25.8 310 M (91:) s
 52.2 310 M
-(    ssize_t last = 0;//0 or 1?) s
+(   return eq;) s
 25.8 298 M (92:) s
 52.2 298 M
-(   while\(last>0 &&line->at\(last\) == ' '\){) s
+(}) s
 25.8 286 M (93:) s
-52.2 286 M
-(      line->erase\(last,line->size\(\)-1\);//at first position) s
 25.8 274 M (94:) s
 52.2 274 M
-(      --last;) s
+(//insert stuff to map when key = value not found) s
 25.8 262 M (95:) s
 52.2 262 M
-(   }) s
+(//just do insert because already wrote code for that) s
 25.8 250 M (96:) s
 52.2 250 M
-(}) s
+(void catfile_helper \(istream& infile, const string& filename\) {) s
 25.8 238 M (97:) s
+52.2 238 M
+(   static string colons \(32, ':'\);) s
 25.8 226 M (98:) s
 52.2 226 M
-(void catfile_helper \(istream& infile, const string& filename, str_str_ma) s
-5 214 M
-(p test\) {) s
-25.8 202 M (99:) s
-52.2 202 M
-(   static string colons \(32, ':'\);) s
-19.2 190 M (100:) s
-52.2 190 M
 (   cout << colons << endl << filename << endl << colons << endl;) s
-19.2 178 M (101:) s
-52.2 178 M
+25.8 214 M (99:) s
+52.2 214 M
 (   regex comment_regex {R"\(^\\s*\(#.*\)?$\)"};) s
-19.2 166 M (102:) s
-52.2 166 M
+19.2 202 M (100:) s
+52.2 202 M
 (   regex key_value_regex {R"\(^\\s*\(.*?\)\\s*=\\s*\(.*?\)\\s*$\)"};) s
-19.2 154 M (103:) s
-52.2 154 M
+19.2 190 M (101:) s
+52.2 190 M
 (   regex trimmed_regex {R"\(^\\s*\([^=]+?\)\\s*$\)"};) s
-19.2 142 M (104:) s
-52.2 142 M
+19.2 178 M (102:) s
+52.2 178 M
 (   int i = 1;) s
-19.2 130 M (105:) s
-52.2 130 M
+19.2 166 M (103:) s
+52.2 166 M
 (   for\(;;\) {) s
-19.2 118 M (106:) s
-52.2 118 M
+19.2 154 M (104:) s
+52.2 154 M
 (      string line;) s
-19.2 106 M (107:) s
-52.2 106 M
+19.2 142 M (105:) s
+52.2 142 M
 (      getline \(infile, line\);) s
-19.2 94 M (108:) s
-52.2 94 M
+19.2 130 M (106:) s
+52.2 130 M
 (      whitespace\(&line\);//trim whitespace) s
-19.2 82 M (109:) s
-52.2 82 M
+19.2 118 M (107:) s
+52.2 118 M
 (      //-----regex code) s
-19.2 70 M (110:) s
-52.2 70 M
-(      // cout << "input: \\"" << line << "\\"" << endl;) s
-19.2 58 M (111:) s
-52.2 58 M
+19.2 106 M (108:) s
+52.2 106 M
+( //      cout << "input: \\"" << line << "\\"" << endl;) s
+19.2 94 M (109:) s
+52.2 94 M
 (      if\(line.length\(\)>0\){) s
+19.2 82 M (110:) s
+52.2 82 M
+(         smatch result;) s
+19.2 70 M (111:) s
+52.2 70 M
+(         if \(regex_search \(line, result, comment_regex\)\) {//prints twice) s
+5 58 M
+( maybe idk) s
 19.2 46 M (112:) s
 52.2 46 M
-(         smatch result;) s
+(            cout<<filename<<": "<<i<<": "<<line<<endl;) s
 19.2 34 M (113:) s
 52.2 34 M
-(         if \(regex_search \(line, result, comment_regex\)\) {//prints twice) s
-5 22 M
-( maybe idk) s
-19.2 10 M (114:) s
+(           // cout << "comment." << endl;) s
+19.2 22 M (114:) s
+52.2 22 M
+(         }) s
+19.2 10 M (115:) s
 52.2 10 M
-(            cout<<filename<<": "<<i<<": "<<line<<endl;) s
+(         //key = value, if found, replace val, if not, insert) s
 _R
 S
 %%Page: (3) 16
@@ -2491,7 +2526,7 @@ _S
 % User defined strings:
 /pagenumstr (3) def
 /moddatestr (05/22/21) def
-/modtimestr (02:50:06) def
+/modtimestr (19:49:45) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment3/code) def
 /user_header_center_str () def
@@ -2500,172 +2535,175 @@ _S
 %%EndPageSetup
 column_borders
 do_header
-19.2 694 M (115:) s
+19.2 694 M (116:) s
 52.2 694 M
-(            //cout << "comment." << endl;) s
-19.2 682 M (116:) s
+(         else if \(regex_search \(line, result, key_value_regex\)\) {) s
+19.2 682 M (117:) s
 52.2 682 M
-(         }else if \(regex_search \(line, result, key_value_regex\)\) {) s
-19.2 670 M (117:) s
+(            cout<<filename<<": "<<i<<": "<<line<<endl;) s
+19.2 670 M (118:) s
 52.2 670 M
-(            cout<<filename<<": "<<i<<": "<<line<<endl;) s
-19.2 658 M (118:) s
-52.2 658 M
 (            cout<< result[1]<< " = " <<result[2]<<endl;) s
-19.2 646 M (119:) s
+19.2 658 M (119:) s
+52.2 658 M
+(        //  cout << "key  : \\"" << result[1] << "\\"" << endl;) s
+19.2 646 M (120:) s
 52.2 646 M
-(         // cout << "key  : \\"" << result[1] << "\\"" << endl;) s
-19.2 634 M (120:) s
+(         //   cout << "value: \\"" << result[2] << "\\"" << endl;) s
+19.2 634 M (121:) s
 52.2 634 M
-(            //cout << "value: \\"" << result[2] << "\\"" << endl;) s
-19.2 622 M (121:) s
+(            test.insert\(str_str_pair\(result[1],result[2]\)\);) s
+19.2 622 M (122:) s
 52.2 622 M
-(         }else if \(regex_search \(line, result, trimmed_regex\)\) {) s
-19.2 610 M (122:) s
-52.2 610 M
-(            cout<<filename<<": "<<i<<": "<<line<<endl;) s
-19.2 598 M (123:) s
-52.2 598 M
-(           // cout<< result[1]<< endl;) s
-19.2 586 M (124:) s
-52.2 586 M
-(            //if its the key print the value) s
-19.2 574 M (125:) s
-52.2 574 M
-(            cout<<"key";) s
-19.2 562 M (126:) s
-52.2 562 M
-(             auto it = test.find\(line\);) s
-19.2 550 M (127:) s
-52.2 550 M
-(            if\(it!=test.end\(\)\){) s
-19.2 538 M (128:) s
-52.2 538 M
-(              ) s
-19.2 526 M (129:) s
-52.2 526 M
-(               cout<< it->first<< " = " <<it->second<<endl;) s
-19.2 514 M (130:) s
-52.2 514 M
-(            }) s
-19.2 502 M (131:) s
-52.2 502 M
-(            else{) s
-19.2 490 M (132:) s
-52.2 490 M
-(               cout<< result[1]<< ": " <<"key not found"<<endl;) s
-19.2 478 M (133:) s
-19.2 466 M (134:) s
-52.2 466 M
-(            }) s
-19.2 454 M (135:) s
-19.2 442 M (136:) s
-52.2 442 M
-(            //cout << "query: \\"" << result[1] << "\\"" << endl;) s
-19.2 430 M (137:) s
-52.2 430 M
-(         }else {) s
-19.2 418 M (138:) s
-52.2 418 M
-(            assert \(false and "This can not happen."\);) s
-19.2 406 M (139:) s
-52.2 406 M
-(         }) s
-19.2 394 M (140:) s
-52.2 394 M
-(         //-----) s
-19.2 382 M (141:) s
-52.2 382 M
 (         ) s
-19.2 370 M (142:) s
+19.2 610 M (123:) s
+52.2 610 M
+(         }) s
+19.2 598 M (124:) s
+52.2 598 M
+(         //  key = , =, or =value) s
+19.2 586 M (125:) s
+52.2 586 M
+(         else if \(regex_search \(line, result, trimmed_regex\)\) {) s
+19.2 574 M (126:) s
+52.2 574 M
+(            cout<<filename<<": "<<i<<": "<<line<<endl;) s
+19.2 562 M (127:) s
+52.2 562 M
+(           // cout<< result[1]<< endl;) s
+19.2 550 M (128:) s
+52.2 550 M
+(            //if its the key\(can be more than 1 word key) s
+19.2 538 M (129:) s
+52.2 538 M
+(            //\) and nothing else, print the value) s
+19.2 526 M (130:) s
+52.2 526 M
+(            size_t eq_pos1 = eq_pos\(&line\);) s
+19.2 514 M (131:) s
+52.2 514 M
+(            //if no eq sign) s
+19.2 502 M (132:) s
+52.2 502 M
+(            //key ) s
+19.2 490 M (133:) s
+52.2 490 M
+(            if\(eq_pos1==1234\){) s
+19.2 478 M (134:) s
+52.2 478 M
+(               auto it = test.find\(result[1]\);) s
+19.2 466 M (135:) s
+52.2 466 M
+(               if\(test.find\(result[1]\)\){) s
+19.2 454 M (136:) s
+52.2 454 M
+(                cout<< it->first<< " = " <<it->second<<endl;) s
+19.2 442 M (137:) s
+52.2 442 M
+(                  ) s
+19.2 430 M (138:) s
+52.2 430 M
+(               }) s
+19.2 418 M (139:) s
+52.2 418 M
+(               else{) s
+19.2 406 M (140:) s
+52.2 406 M
+(                  cout<< result[1]<< ": " <<"key not found"<<endl;) s
+19.2 394 M (141:) s
+52.2 394 M
+(               }) s
+19.2 382 M (142:) s
+52.2 382 M
+(            }) s
+19.2 370 M (143:) s
 52.2 370 M
-(      // cout << line << endl;) s
-19.2 358 M (143:) s
+(            else if\(eq_pos1==line.size\(\)-1\){) s
+19.2 358 M (144:) s
 52.2 358 M
-(         i++;) s
-19.2 346 M (144:) s
+(           //    cout<<"in else if";) s
+19.2 346 M (145:) s
 52.2 346 M
-(      }) s
-19.2 334 M (145:) s
+(               test.erase\(test.find\(line\)\);) s
+19.2 334 M (146:) s
 52.2 334 M
-(      if \(infile.eof\(\)\) break;) s
-19.2 322 M (146:) s
+(            }) s
+19.2 322 M (147:) s
 52.2 322 M
-(   }) s
-19.2 310 M (147:) s
+(            /*else{) s
+19.2 310 M (148:) s
 52.2 310 M
-(}) s
-19.2 298 M (148:) s
+(               //str_str_pair\(result[1],result[2]\);) s
+19.2 298 M (149:) s
 52.2 298 M
-(// node* temp = new node\(anchor\(\), anchor\(\), pair\);) s
-19.2 286 M (149:) s
+(               //test.insert\(   xpair{line.substr\(0,eq_pos\),line.substr\() s
+5 286 M
+(eq_pos,line.size\(\)\)}\);) s
 19.2 274 M (150:) s
 52.2 274 M
-(int main \(int argc, char** argv\) {) s
+(               test.insert\(str_str_pair\(result[1],result[2]\)\);) s
 19.2 262 M (151:) s
 52.2 262 M
-(   sys_info::execname \(argv[0]\);) s
+(            }*/) s
 19.2 250 M (152:) s
 52.2 250 M
-(   scan_options \(argc, argv\);) s
+(            ) s
 19.2 238 M (153:) s
-52.2 238 M
-(   str_str_map test;//listmap) s
 19.2 226 M (154:) s
+52.2 226 M
+(            //cout << "query: \\"" << result[1] << "\\"" << endl;) s
 19.2 214 M (155:) s
 52.2 214 M
-(//-------------------------matchlines) s
+(         }else {) s
 19.2 202 M (156:) s
 52.2 202 M
-(const string cin_name = "-";) s
+(            assert \(false and "This can not happen."\);) s
 19.2 190 M (157:) s
 52.2 190 M
-(int status = 0;) s
+(         }) s
 19.2 178 M (158:) s
 52.2 178 M
-(   string progname \( \(argv[0]\)\);) s
+(         //-----) s
 19.2 166 M (159:) s
 52.2 166 M
-(   vector<string> filenames \(&argv[1], &argv[argc]\);) s
+(         ) s
 19.2 154 M (160:) s
 52.2 154 M
-(   if \(filenames.size\(\) == 0\) filenames.push_back \(cin_name\);) s
+(      // cout << line << endl;) s
 19.2 142 M (161:) s
 52.2 142 M
-(   for \(const auto& filename: filenames\) {) s
+(         i++;) s
 19.2 130 M (162:) s
 52.2 130 M
-(      if \(filename == cin_name\) catfile_helper \(cin, filename,test\);) s
+(      }) s
 19.2 118 M (163:) s
 52.2 118 M
-(      else {) s
+(      if \(infile.eof\(\)\) break;) s
 19.2 106 M (164:) s
 52.2 106 M
-(         ifstream infile \(filename\);) s
+(   }) s
 19.2 94 M (165:) s
 52.2 94 M
-(         if \(infile.fail\(\)\) {) s
+(}) s
 19.2 82 M (166:) s
 52.2 82 M
-(            status = 1;) s
+(// node* temp = new node\(anchor\(\), anchor\(\), pair\);) s
 19.2 70 M (167:) s
-52.2 70 M
-(            cerr << progname << ": " << filename << ": ") s
 19.2 58 M (168:) s
 52.2 58 M
-(                 << strerror \(errno\) << endl;) s
+(int main \(int argc, char** argv\) {) s
 19.2 46 M (169:) s
 52.2 46 M
-(         }else {) s
+(   sys_info::execname \(argv[0]\);) s
 19.2 34 M (170:) s
 52.2 34 M
-(           ) s
+(   scan_options \(argc, argv\);) s
 19.2 22 M (171:) s
 52.2 22 M
-(             catfile_helper \(infile, filename,test\);) s
+(//-------------------------matchlines) s
 19.2 10 M (172:) s
 52.2 10 M
-(         ) s
+(const string cin_name = "-";) s
 _R
 S
 %%Page: (4) 17
@@ -2679,7 +2717,7 @@ _S
 % User defined strings:
 /pagenumstr (4) def
 /moddatestr (05/22/21) def
-/modtimestr (02:50:06) def
+/modtimestr (19:49:45) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment3/code) def
 /user_header_center_str () def
@@ -2690,29 +2728,71 @@ column_borders
 do_header
 19.2 694 M (173:) s
 52.2 694 M
-(            infile.close\(\);) s
+(int status = 0;) s
 19.2 682 M (174:) s
 52.2 682 M
-(         }) s
+(   string progname \( \(argv[0]\)\);) s
 19.2 670 M (175:) s
 52.2 670 M
-(      }) s
+(   vector<string> filenames \(&argv[1], &argv[argc]\);) s
 19.2 658 M (176:) s
 52.2 658 M
-(   }) s
+(   if \(filenames.size\(\) == 0\) filenames.push_back \(cin_name\);) s
 19.2 646 M (177:) s
 52.2 646 M
-(   return status;) s
+(   for \(const auto& filename: filenames\) {) s
 19.2 634 M (178:) s
 52.2 634 M
-(  // cout << "EXIT_SUCCESS" << endl;) s
+(      if \(filename == cin_name\) catfile_helper \(cin, filename\);) s
 19.2 622 M (179:) s
 52.2 622 M
-(  // return EXIT_SUCCESS;) s
+(      else {) s
 19.2 610 M (180:) s
 52.2 610 M
-(}) s
+(         ifstream infile \(filename\);) s
 19.2 598 M (181:) s
+52.2 598 M
+(         if \(infile.fail\(\)\) {) s
+19.2 586 M (182:) s
+52.2 586 M
+(            status = 1;) s
+19.2 574 M (183:) s
+52.2 574 M
+(            cerr << progname << ": " << filename << ": ") s
+19.2 562 M (184:) s
+52.2 562 M
+(                 << strerror \(errno\) << endl;) s
+19.2 550 M (185:) s
+52.2 550 M
+(         }else {) s
+19.2 538 M (186:) s
+52.2 538 M
+(            catfile_helper \(infile, filename\);) s
+19.2 526 M (187:) s
+52.2 526 M
+(            infile.close\(\);) s
+19.2 514 M (188:) s
+52.2 514 M
+(         }) s
+19.2 502 M (189:) s
+52.2 502 M
+(      }) s
+19.2 490 M (190:) s
+52.2 490 M
+(   }) s
+19.2 478 M (191:) s
+52.2 478 M
+(   return status;) s
+19.2 466 M (192:) s
+52.2 466 M
+(  // cout << "EXIT_SUCCESS" << endl;) s
+19.2 454 M (193:) s
+52.2 454 M
+(  // return EXIT_SUCCESS;) s
+19.2 442 M (194:) s
+52.2 442 M
+(}) s
+19.2 430 M (195:) s
 _R
 S
 %%Page: (1) 18
@@ -2726,7 +2806,7 @@ _S
 % User defined strings:
 /pagenumstr (1) def
 /moddatestr (05/22/21) def
-/modtimestr (02:50:06) def
+/modtimestr (19:49:46) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment3/code) def
 /user_header_center_str () def
@@ -2894,7 +2974,7 @@ _S
 % User defined strings:
 /pagenumstr (2) def
 /moddatestr (05/22/21) def
-/modtimestr (02:50:06) def
+/modtimestr (19:49:46) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment3/code) def
 /user_header_center_str () def
@@ -2940,7 +3020,7 @@ _S
 % User defined strings:
 /pagenumstr (1) def
 /moddatestr (05/22/21) def
-/modtimestr (02:49:32) def
+/modtimestr (19:49:45) def
 /user_header_p true def
 /user_header_left_str (~/cse111/assignment3/code) def
 /user_header_center_str () def
@@ -2951,7 +3031,7 @@ column_borders
 do_header
 32.4 694 M (1:) s
 52.2 694 M
-(# Makefile.dep created Sat May 22 02:49:32 PDT 2021) s
+(# Makefile.dep created Sat May 22 19:49:45 PDT 2021) s
 32.4 682 M (2:) s
 52.2 682 M
 (debug.o: debug.cpp debug.h util.h util.tcc) s
