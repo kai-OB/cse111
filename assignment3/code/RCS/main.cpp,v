@@ -1,9 +1,14 @@
-head	1.19;
+head	1.20;
 access;
 symbols;
 locks;
 comment	@// @;
 
+
+1.20
+date	2021.05.23.04.33.03;	author -;	state -;
+branches;
+next	1.19;
 
 1.19
 date	2021.05.23.03.58.22;	author -;	state -;
@@ -105,12 +110,12 @@ desc
 @@
 
 
-1.19
+1.20
 log
 @-
 @
 text
-@// $Id: main.cpp,v 1.18 2021-05-22 20:51:17-07 - - $
+@// $Id: main.cpp,v 1.19 2021-05-22 20:58:22-07 - - $
 //Kai O'Brien (kimobrie@@ucsc.edu)
 
 #include <cstdlib>
@@ -222,16 +227,39 @@ void catfile_helper (istream& infile, const string& filename) {
          smatch result;
          if (regex_search (line, result, comment_regex)) {//prints twice maybe idk
             cout<<filename<<": "<<i<<": "<<line<<endl;
-            cout << "comment." << endl;
+           
          }
-         //key = value, if found, replace val, if not, insert
+        
          else if (regex_search (line, result, key_value_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
-            if(line.at(line.size()-1)=='='&&test.find(result[1])!=test.end() ){
-               test.erase(test.find(result[1]));//valgrind
+
+            //= 
+           if(line.at(0)=='='){
+              //if the = is the only thing
+              if(line.size()==1){
+                  for (auto itor = test.begin(); itor != test.end(); ++itor) {
+                     cout<< itor->first<< " = " <<itor->second<<endl;
+                  }
+              }
+              else{  //=value              
+               for (auto itor = test.begin(); itor != test.end(); ++itor) {
+                      if(itor->second == result[2]){
+                        cout<< itor->first<< " = " <<itor->second<<endl;
+                      }
+                  }
+              }
+           }
+            
+            else if(line.at(line.size()-1)=='='){ //key = 
+               if(test.find(result[1])!=test.end() ){
+                  test.erase(test.find(result[1]));//valgrind
+               }
+               else{
+                  cout<< result[1]<< ": " <<"key not found"<<endl;
+               }
             }
-            else{
-            cout<< result[1]<< " = " <<result[2]<<endl;
+            else{//key = value
+             cout<< result[1]<< " = " <<result[2]<<endl;
          // cout << "key  : \"" << result[1] << "\"" << endl;
          //   cout << "value: \"" << result[2] << "\"" << endl;
             test.insert(str_str_pair(result[1],result[2]));
@@ -256,18 +284,6 @@ void catfile_helper (istream& infile, const string& filename) {
                   cout<< result[1]<< ": " <<"key not found"<<endl;
                }
             }
-            
-           if(line.at(0)=='='){
-              //if the = is the only thing
-              if(line.size()==1){
-                  for (auto itor = test.begin(); itor != test.end(); ++itor) {
-                     cout<< itor->first<< " = " <<itor->second<<endl;
-                  }
-              }
-              else{  //result[2] or 1? iterate and match
-
-              }
-           }
             
 
             //cout << "query: \"" << result[1] << "\"" << endl;
@@ -312,6 +328,44 @@ int status = 0;
   // return EXIT_SUCCESS;
 }
 
+@
+
+
+1.19
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: main.cpp,v 1.18 2021-05-22 20:51:17-07 - - $
+d113 1
+a113 1
+            cout << "comment." << endl;
+d115 1
+a115 1
+         //key = value, if found, replace val, if not, insert
+d118 25
+a142 2
+            if(line.at(line.size()-1)=='='&&test.find(result[1])!=test.end() ){
+               test.erase(test.find(result[1]));//valgrind
+d144 2
+a145 2
+            else{
+            cout<< result[1]<< " = " <<result[2]<<endl;
+a169 12
+            
+           if(line.at(0)=='='){
+              //if the = is the only thing
+              if(line.size()==1){
+                  for (auto itor = test.begin(); itor != test.end(); ++itor) {
+                     cout<< itor->first<< " = " <<itor->second<<endl;
+                  }
+              }
+              else{  //result[2] or 1? iterate and match
+
+              }
+           }
 @
 
 

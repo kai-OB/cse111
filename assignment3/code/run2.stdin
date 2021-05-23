@@ -18,12 +18,13 @@ baz = quux
 -: 8: this=is=a=test
 this = is=a=test
 -: 9: =
- = 
+key = value
+this = is=a=test
+second = third
 -: 10: a=value
 a = value
 -: 11: b=value
 b = value
 -: 12: =value
- = value
+key = value
 -: 13: # $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $
-comment.

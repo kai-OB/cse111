@@ -22,6 +22,6 @@ test1.in: 6: a
 a
 a: key not found
 test1.in: 7: =
- = 
+stdin = value
+this = is a test
 test1.in: 8: # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
-comment.

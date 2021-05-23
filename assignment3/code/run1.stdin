@@ -17,6 +17,7 @@ key = value
 a
 a = b
 -: 7: =
- = 
+a = b
+this = is a test
+key = value
 -: 8: # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
-comment.

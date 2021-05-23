@@ -2,7 +2,6 @@
 test3.in
 ::::::::::::::::::::::::::::::::
 test3.in: 1: # Comments should be ignored
-comment.
 test3.in: 2: also ignore blank lines
 also ignore blank lines
 also ignore blank lines: key not found
@@ -13,4 +12,3 @@ test3.in: 4: all output should be error messages
 all output should be error messages
 all output should be error messages: key not found
 test3.in: 5: # $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $
-comment.

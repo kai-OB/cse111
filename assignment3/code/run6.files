@@ -17,9 +17,10 @@ test1.in: 6: a
 a
 a = b
 test1.in: 7: =
- = 
+a = b
+this = is a test
+key = value
 test1.in: 8: # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
-comment.
 ::::::::::::::::::::::::::::::::
 test2.in
 ::::::::::::::::::::::::::::::::
@@ -40,20 +41,31 @@ baz = quux
 test2.in: 8: this=is=a=test
 this = is=a=test
 test2.in: 9: =
- = 
+a = b
+this = is=a=test
+baz = quux
+foobar = baz
+f2 = 52
+f1 = 51
+foo = bar
+second = third
+key = value
+this = is a test
+key = value
 test2.in: 10: a=value
 a = value
 test2.in: 11: b=value
 b = value
 test2.in: 12: =value
- = value
+a = value
+b = value
+key = value
+key = value
 test2.in: 13: # $Id: test2.in,v 1.1 2016-06-28 14:48:38-07 - - $
-comment.
 ::::::::::::::::::::::::::::::::
 test3.in
 ::::::::::::::::::::::::::::::::
 test3.in: 1: # Comments should be ignored
-comment.
 test3.in: 2: also ignore blank lines
 also ignore blank lines
 also ignore blank lines: key not found
@@ -64,4 +76,3 @@ test3.in: 4: all output should be error messages
 all output should be error messages
 all output should be error messages: key not found
 test3.in: 5: # $Id: test3.in,v 1.1 2016-06-28 14:48:38-07 - - $
-comment.

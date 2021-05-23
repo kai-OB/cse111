@@ -1,9 +1,14 @@
-head	1.21;
+head	1.22;
 access;
 symbols;
 locks;
 comment	@# @;
 
+
+1.22
+date	2021.05.23.04.33.03;	author -;	state -;
+branches;
+next	1.21;
 
 1.21
 date	2021.05.23.03.58.22;	author -;	state -;
@@ -115,12 +120,12 @@ desc
 @@
 
 
-1.21
+1.22
 log
 @-
 @
 text
-@// $Id: listmap.tcc,v 1.20 2021-05-22 20:51:17-07 - - $
+@// $Id: listmap.tcc,v 1.21 2021-05-22 20:58:22-07 - - $
 //Kai O'Brien (kimobrie@@ucsc.edu)
 
 #include "listmap.h"
@@ -207,12 +212,13 @@ listmap<key_t,mapped_t,less_t>::find (const key_type& that) {
     while(itor !=end()){
       if(!less(itor->first,that) && !less(that,itor->first)){
          //return itor;
-         return iterator(itor);
+         //return iterator(itor);
          break;
       }
       ++itor;
    }
-   return end();
+  //return end();
+  return iterator(itor);
 }
 
 //
@@ -237,6 +243,23 @@ listmap<key_t,mapped_t,less_t>::erase (iterator position) {
 }
 
 
+@
+
+
+1.21
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: listmap.tcc,v 1.20 2021-05-22 20:51:17-07 - - $
+d88 1
+a88 1
+         return iterator(itor);
+d93 2
+a94 1
+   return end();
 @
 
 
