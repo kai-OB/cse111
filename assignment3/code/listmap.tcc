@@ -109,7 +109,7 @@ listmap<key_t,mapped_t,less_t>::erase (iterator position) {
    n.where->prev = p.where;
 
    //delete temp->key;
-   delete position.where;
+   delete temp;
    return n;//should return temp->next's position
    
 }
