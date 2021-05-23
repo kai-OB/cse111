@@ -1,9 +1,14 @@
-head	1.14;
+head	1.15;
 access;
 symbols;
 locks;
 comment	@// @;
 
+
+1.15
+date	2021.05.22.09.49.32;	author -;	state -;
+branches;
+next	1.14;
 
 1.14
 date	2021.05.22.09.29.26;	author -;	state -;
@@ -80,12 +85,12 @@ desc
 @@
 
 
-1.14
+1.15
 log
 @-
 @
 text
-@// $Id: main.cpp,v 1.13 2021-02-01 18:58:18-08 - - $
+@// $Id: main.cpp,v 1.14 2021-05-22 02:29:26-07 - - $
 //Kai O'Brien (kimobrie@@ucsc.edu)
 
 #include <cstdlib>
@@ -238,6 +243,7 @@ int main (int argc, char** argv) {
    sys_info::execname (argv[0]);
    scan_options (argc, argv);
    str_str_map test;//listmap
+
 //-------------------------matchlines
 const string cin_name = "-";
 int status = 0;
@@ -265,6 +271,18 @@ int status = 0;
   // return EXIT_SUCCESS;
 }
 
+@
+
+
+1.14
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: main.cpp,v 1.13 2021-02-01 18:58:18-08 - - $
+d154 1
 @
 
 
