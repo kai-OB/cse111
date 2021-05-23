@@ -85,12 +85,13 @@ listmap<key_t,mapped_t,less_t>::find (const key_type& that) {
     while(itor !=end()){
       if(!less(itor->first,that) && !less(that,itor->first)){
          //return itor;
-         return iterator(itor);
+         //return iterator(itor);
          break;
       }
       ++itor;
    }
-   return end();
+  //return end();
+  return iterator(itor);
 }
 
 //

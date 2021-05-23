@@ -110,16 +110,35 @@ void catfile_helper (istream& infile, const string& filename) {
          smatch result;
          if (regex_search (line, result, comment_regex)) {//prints twice maybe idk
             cout<<filename<<": "<<i<<": "<<line<<endl;
-            cout << "comment." << endl;
+           
          }
-         //key = value, if found, replace val, if not, insert
+        
          else if (regex_search (line, result, key_value_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
-            if(line.at(line.size()-1)=='='&&test.find(result[1])!=test.end() ){
-               test.erase(test.find(result[1]));//valgrind
+
+            //= 
+           if(line.at(0)=='='){
+              //if the = is the only thing
+              if(line.size()==1){
+                  for (auto itor = test.begin(); itor != test.end(); ++itor) {
+                     cout<< itor->first<< " = " <<itor->second<<endl;
+                  }
+              }
+              else{  //=value
+
+              }
+           }
+            
+            else if(line.at(line.size()-1)=='='){ //key = 
+               if(test.find(result[1])!=test.end() ){
+                  test.erase(test.find(result[1]));//valgrind
+               }
+               else{
+                  cout<< result[1]<< ": " <<"key not found"<<endl;
+               }
             }
-            else{
-            cout<< result[1]<< " = " <<result[2]<<endl;
+            else{//key = value
+             cout<< result[1]<< " = " <<result[2]<<endl;
          // cout << "key  : \"" << result[1] << "\"" << endl;
          //   cout << "value: \"" << result[2] << "\"" << endl;
             test.insert(str_str_pair(result[1],result[2]));
@@ -144,18 +163,6 @@ void catfile_helper (istream& infile, const string& filename) {
                   cout<< result[1]<< ": " <<"key not found"<<endl;
                }
             }
-            
-           if(line.at(0)=='='){
-              //if the = is the only thing
-              if(line.size()==1){
-                  for (auto itor = test.begin(); itor != test.end(); ++itor) {
-                     cout<< itor->first<< " = " <<itor->second<<endl;
-                  }
-              }
-              else{  //result[2] or 1? iterate and match
-
-              }
-           }
             
 
             //cout << "query: \"" << result[1] << "\"" << endl;
