@@ -103,7 +103,7 @@ void catfile_helper (istream& infile, const string& filename) {
     
  //      cout << "input: \"" << line << "\"" << endl;
       if(line.length()>0){
-        // cout << colons << endl << filename << endl << colons << endl;
+        cout << colons << endl << filename << endl << colons << endl;
          smatch result;
          if (regex_search (line, result, comment_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
