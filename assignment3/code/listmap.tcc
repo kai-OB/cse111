@@ -25,8 +25,8 @@ listmap<key_t,mapped_t,less_t>::~listmap() {
    while(temp1!=anchor()){
       temp2 = temp1;
       temp1 = temp1->next;
-      delete temp2;
-     // erase(temp2);
+      //delete temp2;
+      erase(temp2);
    }
 }
 
