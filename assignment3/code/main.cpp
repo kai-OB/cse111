@@ -44,21 +44,19 @@ void scan_options (int argc, char** argv) {
    }
 }
 
-unsigned long whitespace(string *line){
+void whitespace(string *line){
    //trim leading whitespace and returns position of =sign or -1
-   unsigned long eq_sign = 1234;
    unsigned long first = 0;//0 or 1?
    while(first<line->size() &&line->at(first) == ' '){
       line->erase(first,1);//at first position
       if(line->at(first)=='='){
-         eq_sign = 0;
+        
       }
       ++first;
    }
    int mid = 1;
    while(first<line->size()){
       if(line->at(first)=='='){
-         eq_sign = mid;
       }
       if(line->at(first)=='\n'){
          line->erase(first,mid);//at first position
@@ -72,14 +70,27 @@ unsigned long whitespace(string *line){
     ssize_t last = line->size()-1;//0 or 1?
    while(last>0 &&line->at(last) == ' '){
       if(line->at(last)=='='){
-         eq_sign = last;
       }
       
       line->erase(last,line->size()-1);//at first position
       --last;
    }
-   return eq_sign;
 }
+
+size_t eq_pos(string *line){
+   size_t eq = 1234;
+   size_t  first =  0;
+   while(first<line->size()){
+      if(line->at(first) == '='){
+         eq = first;
+         break;
+      }
+      ++first;
+   }
+   
+   return eq;
+}
+
 //insert stuff to map when key = value not found
 //just do insert because already wrote code for that
 void catfile_helper (istream& infile, const string& filename) {
@@ -92,38 +103,52 @@ void catfile_helper (istream& infile, const string& filename) {
    for(;;) {
       string line;
       getline (infile, line);
-     unsigned long eq_pos = whitespace(&line);//trim whitespace
+      whitespace(&line);//trim whitespace
       //-----regex code
-      // cout << "input: \"" << line << "\"" << endl;
+ //      cout << "input: \"" << line << "\"" << endl;
       if(line.length()>0){
          smatch result;
          if (regex_search (line, result, comment_regex)) {//prints twice maybe idk
             cout<<filename<<": "<<i<<": "<<line<<endl;
-            //cout << "comment." << endl;
-         }else if (regex_search (line, result, key_value_regex)) {
+           // cout << "comment." << endl;
+         }
+         //key = value, if found, replace val, if not, insert
+         else if (regex_search (line, result, key_value_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
             cout<< result[1]<< " = " <<result[2]<<endl;
-         // cout << "key  : \"" << result[1] << "\"" << endl;
-            //cout << "value: \"" << result[2] << "\"" << endl;
-         }else if (regex_search (line, result, trimmed_regex)) {
+        //  cout << "key  : \"" << result[1] << "\"" << endl;
+         //   cout << "value: \"" << result[2] << "\"" << endl;
+            test.insert(str_str_pair(result[1],result[2]));
+         
+         }
+         //  key = , =, or =value
+         else if (regex_search (line, result, trimmed_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
            // cout<< result[1]<< endl;
             //if its the key(can be more than 1 word key
             //) and nothing else, print the value
-
+            size_t eq_pos1 = eq_pos(&line);
             //if no eq sign
-            if(eq_pos==1234){
-               //cout<<"key";
-               auto it = test.find(line);
-               if(it!=test.end()){
-               
-                  cout<< it->first<< " = " <<it->second<<endl;
+            //key 
+            if(eq_pos1==1234){
+               auto it = test.find(result[1]);
+               if(test.find(result[1])){
+                cout<< it->first<< " = " <<it->second<<endl;
+                  
                }
                else{
                   cout<< result[1]<< ": " <<"key not found"<<endl;
-
                }
             }
+            else if(eq_pos1==line.size()-1){
+           //    cout<<"in else if";
+               test.erase(test.find(line));
+            }
+            /*else{
+               //str_str_pair(result[1],result[2]);
+               //test.insert(   xpair{line.substr(0,eq_pos),line.substr(eq_pos,line.size())});
+               test.insert(str_str_pair(result[1],result[2]));
+            }*/
             
 
             //cout << "query: \"" << result[1] << "\"" << endl;
