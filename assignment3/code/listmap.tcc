@@ -20,7 +20,7 @@ listmap<key_t,mapped_t,less_t>::~listmap() {
    //typical double linked list deconstructor
    //begin() is the "head"
    //DONT DELETE ANCHOR!
-   node* temp1 = begin().where;//or just do anchor().next
+   node* temp1 = anchor()->next;//or just do anchor().next
    node* temp2;
    while(temp1!=anchor()){
       temp2 = temp1;
