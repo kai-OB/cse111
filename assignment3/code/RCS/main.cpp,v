@@ -1,9 +1,14 @@
-head	1.16;
+head	1.17;
 access;
 symbols;
 locks;
 comment	@// @;
 
+
+1.17
+date	2021.05.23.03.38.58;	author -;	state -;
+branches;
+next	1.16;
 
 1.16
 date	2021.05.23.02.49.45;	author -;	state -;
@@ -90,12 +95,12 @@ desc
 @@
 
 
-1.16
+1.17
 log
 @-
 @
 text
-@// $Id: main.cpp,v 1.15 2021-05-22 02:49:32-07 - - $
+@// $Id: main.cpp,v 1.16 2021-05-22 19:49:45-07 - - $
 //Kai O'Brien (kimobrie@@ucsc.edu)
 
 #include <cstdlib>
@@ -207,21 +212,25 @@ void catfile_helper (istream& infile, const string& filename) {
          smatch result;
          if (regex_search (line, result, comment_regex)) {//prints twice maybe idk
             cout<<filename<<": "<<i<<": "<<line<<endl;
-           // cout << "comment." << endl;
+            cout << "comment." << endl;
          }
          //key = value, if found, replace val, if not, insert
          else if (regex_search (line, result, key_value_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
+            if(line.at(line.size()-1)=='='){
+               test.erase(test.find(result[1]));
+            }
+            else{
             cout<< result[1]<< " = " <<result[2]<<endl;
-        //  cout << "key  : \"" << result[1] << "\"" << endl;
+         // cout << "key  : \"" << result[1] << "\"" << endl;
          //   cout << "value: \"" << result[2] << "\"" << endl;
             test.insert(str_str_pair(result[1],result[2]));
-         
+            }
          }
          //  key = , =, or =value
          else if (regex_search (line, result, trimmed_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
-           // cout<< result[1]<< endl;
+            cout<< result[1]<< endl;
             //if its the key(can be more than 1 word key
             //) and nothing else, print the value
             size_t eq_pos1 = eq_pos(&line);
@@ -229,7 +238,7 @@ void catfile_helper (istream& infile, const string& filename) {
             //key 
             if(eq_pos1==1234){
                auto it = test.find(result[1]);
-               if(test.find(result[1])){
+               if(test.find(result[1])!=test.end()){
                 cout<< it->first<< " = " <<it->second<<endl;
                   
                }
@@ -237,15 +246,18 @@ void catfile_helper (istream& infile, const string& filename) {
                   cout<< result[1]<< ": " <<"key not found"<<endl;
                }
             }
-            else if(eq_pos1==line.size()-1){
-           //    cout<<"in else if";
-               test.erase(test.find(line));
-            }
-            /*else{
-               //str_str_pair(result[1],result[2]);
-               //test.insert(   xpair{line.substr(0,eq_pos),line.substr(eq_pos,line.size())});
-               test.insert(str_str_pair(result[1],result[2]));
-            }*/
+            
+           if(line.at(0)=='='){
+              //if the = is the only thing
+              if(line.size()==1){
+                  for (auto itor = test.begin(); itor != test.end(); ++itor) {
+                     cout<< itor->first<< " = " <<itor->second<<endl;
+                  }
+              }
+              else{  //result[2] or 1? iterate and match
+
+              }
+           }
             
 
             //cout << "query: \"" << result[1] << "\"" << endl;
@@ -290,6 +302,44 @@ int status = 0;
   // return EXIT_SUCCESS;
 }
 
+@
+
+
+1.16
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: main.cpp,v 1.15 2021-05-22 02:49:32-07 - - $
+d113 1
+a113 1
+           // cout << "comment." << endl;
+d118 4
+d123 1
+a123 1
+        //  cout << "key  : \"" << result[1] << "\"" << endl;
+d126 1
+a126 1
+         
+d131 1
+a131 1
+           // cout<< result[1]<< endl;
+d139 1
+a139 1
+               if(test.find(result[1])){
+d147 12
+a158 9
+            else if(eq_pos1==line.size()-1){
+           //    cout<<"in else if";
+               test.erase(test.find(line));
+            }
+            /*else{
+               //str_str_pair(result[1],result[2]);
+               //test.insert(   xpair{line.substr(0,eq_pos),line.substr(eq_pos,line.size())});
+               test.insert(str_str_pair(result[1],result[2]));
+            }*/
 @
 
 
