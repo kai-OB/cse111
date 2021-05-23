@@ -151,7 +151,7 @@ void catfile_helper (istream& infile, const string& filename) {
          //  key = , =, or =value
          else if (regex_search (line, result, trimmed_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
-            cout<< result[1]<< endl;
+           // cout<< result[1]<< endl;
             //if its the key(can be more than 1 word key
             //) and nothing else, print the value
             size_t eq_pos1 = eq_pos(&line);
