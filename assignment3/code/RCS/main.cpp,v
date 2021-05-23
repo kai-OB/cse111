@@ -1,9 +1,14 @@
-head	1.23;
+head	1.24;
 access;
 symbols;
 locks;
 comment	@// @;
 
+
+1.24
+date	2021.05.23.07.08.49;	author -;	state -;
+branches;
+next	1.23;
 
 1.23
 date	2021.05.23.06.29.01;	author -;	state -;
@@ -125,12 +130,12 @@ desc
 @@
 
 
-1.23
+1.24
 log
 @-
 @
 text
-@// $Id: main.cpp,v 1.20 2021-05-22 21:33:03-07 - - $
+@// $Id: main.cpp,v 1.23 2021-05-22 23:29:01-07 - - $
 //Kai O'Brien (kimobrie@@ucsc.edu)
 
 #include <cstdlib>
@@ -152,8 +157,6 @@ using namespace std;
 #include "listmap.h"
 #include "xpair.h"
 #include "util.h"
-
-//m.insert(xpair{key,value})
 
 using str_str_map = listmap<string,string>;
 using str_str_pair = str_str_map::value_type;
@@ -178,7 +181,7 @@ void scan_options (int argc, char** argv) {
 
 void whitespace(string *line){
    //trim leading whitespace and returns position of =sign or -1
-   unsigned long first = 0;//0 or 1?
+   unsigned long first = 0;
    while(first<line->size() &&line->at(first) == ' '){
       line->erase(first,1);//at first position
       if(line->at(first)=='='){
@@ -199,7 +202,7 @@ void whitespace(string *line){
       ++first;
    }
    //trims trailing whitespace
-    ssize_t last = line->size()-1;//0 or 1?
+    ssize_t last = line->size()-1;
    while(last>0 &&line->at(last) == ' '){
       if(line->at(last)=='='){
       }
@@ -219,15 +222,13 @@ size_t eq_pos(string *line){
       }
       ++first;
    }
-   
    return eq;
 }
 
 //insert stuff to map when key = value not found
-//just do insert because already wrote code for that
 void catfile_helper (istream& infile, const string& filename) {
    static string colons (32, ':');
-   cout << colons << endl << filename << endl << colons << endl;
+//   cout << colons << endl << filename << endl << colons << endl;
    regex comment_regex {R"(^\s*(#.*)?$)"};
    regex key_value_regex {R"(^\s*(.*?)\s*=\s*(.*?)\s*$)"};
    regex trimmed_regex {R"(^\s*([^=]+?)\s*$)"};
@@ -236,20 +237,18 @@ void catfile_helper (istream& infile, const string& filename) {
       string line;
       getline (infile, line);
       whitespace(&line);//trim whitespace
-      //-----regex code
- //      cout << "input: \"" << line << "\"" << endl;
+    
+     //cout << "input: \"" << line << "\"" << endl;
       if(line.length()>0){
-        // cout << colons << endl << filename << endl << colons << endl;
-
+         cout<< line;
          smatch result;
-         if (regex_search (line, result, comment_regex)) {//prints twice maybe idk
+         if (regex_search (line, result, comment_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
            
          }
         
          else if (regex_search (line, result, key_value_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
-
             //= 
            if(line.at(0)=='='){
               //if the = is the only thing
@@ -266,7 +265,6 @@ void catfile_helper (istream& infile, const string& filename) {
                   }
               }
            }
-            
             else if(line.at(line.size()-1)=='='){ //key = 
                if(test.find(result[1])!=test.end() ){
                   test.erase(test.find(result[1]));//valgrind
@@ -276,46 +274,31 @@ void catfile_helper (istream& infile, const string& filename) {
                }
             }
             else{//key = value
-             cout<< result[1]<< " = " <<result[2]<<endl;
-         // cout << "key  : \"" << result[1] << "\"" << endl;
-         //   cout << "value: \"" << result[2] << "\"" << endl;
-            test.insert(str_str_pair(result[1],result[2]));
+               test.insert(str_str_pair(result[1],result[2]));
             }
          }
          //  key = , =, or =value
          else if (regex_search (line, result, trimmed_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
-           // cout<< result[1]<< endl;
-            //if its the key(can be more than 1 word key
-            //) and nothing else, print the value
             size_t eq_pos1 = eq_pos(&line);
-            //if no eq sign
             //key 
             if(eq_pos1==1234){
                auto it = test.find(result[1]);
                if(test.find(result[1])!=test.end()){
-                cout<< it->first<< " = " <<it->second<<endl;
-                  
+                  cout<< it->first<< " = " <<it->second<<endl;
                }
                else{
                   cout<< result[1]<< ": " <<"key not found"<<endl;
                }
             }
-            
-
-            //cout << "query: \"" << result[1] << "\"" << endl;
          }else {
             assert (false and "This can not happen.");
-         }
-         //-----
-         
-      // cout << line << endl;
+         }         
          i++;
       }
       if (infile.eof()) break;
    }
 }
-// node* temp = new node(anchor(), anchor(), pair);
 
 int main (int argc, char** argv) {
    sys_info::execname (argv[0]);
@@ -345,6 +328,76 @@ int status = 0;
   // return EXIT_SUCCESS;
 }
 
+@
+
+
+1.23
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: main.cpp,v 1.20 2021-05-22 21:33:03-07 - - $
+a23 2
+//m.insert(xpair{key,value})
+
+d47 1
+a47 1
+   unsigned long first = 0;//0 or 1?
+d68 1
+a68 1
+    ssize_t last = line->size()-1;//0 or 1?
+a87 1
+   
+a91 1
+//just do insert because already wrote code for that
+d94 1
+a94 1
+   cout << colons << endl << filename << endl << colons << endl;
+d103 2
+a104 2
+      //-----regex code
+ //      cout << "input: \"" << line << "\"" << endl;
+d106 1
+a106 2
+        // cout << colons << endl << filename << endl << colons << endl;
+
+d108 1
+a108 1
+         if (regex_search (line, result, comment_regex)) {//prints twice maybe idk
+a114 1
+
+a130 1
+            
+d140 1
+a140 4
+             cout<< result[1]<< " = " <<result[2]<<endl;
+         // cout << "key  : \"" << result[1] << "\"" << endl;
+         //   cout << "value: \"" << result[2] << "\"" << endl;
+            test.insert(str_str_pair(result[1],result[2]));
+a145 3
+           // cout<< result[1]<< endl;
+            //if its the key(can be more than 1 word key
+            //) and nothing else, print the value
+a146 1
+            //if no eq sign
+d151 1
+a151 2
+                cout<< it->first<< " = " <<it->second<<endl;
+                  
+a156 3
+            
+
+            //cout << "query: \"" << result[1] << "\"" << endl;
+d159 1
+a159 4
+         }
+         //-----
+         
+      // cout << line << endl;
+a164 1
+// node* temp = new node(anchor(), anchor(), pair);
 @
 
 
