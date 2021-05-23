@@ -124,8 +124,12 @@ void catfile_helper (istream& infile, const string& filename) {
                      cout<< itor->first<< " = " <<itor->second<<endl;
                   }
               }
-              else{  //=value
-
+              else{  //=value              
+               for (auto itor = test.begin(); itor != test.end(); ++itor) {
+                      if(itor->second == result[2]){
+                        cout<< itor->first<< " = " <<itor->second<<endl;
+                      }
+                  }
               }
            }
             
