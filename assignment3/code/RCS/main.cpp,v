@@ -1,9 +1,14 @@
-head	1.22;
+head	1.23;
 access;
 symbols;
 locks;
 comment	@// @;
 
+
+1.23
+date	2021.05.23.06.29.01;	author -;	state -;
+branches;
+next	1.22;
 
 1.22
 date	2021.05.23.06.26.57;	author -;	state -;
@@ -120,7 +125,7 @@ desc
 @@
 
 
-1.22
+1.23
 log
 @-
 @
@@ -234,7 +239,7 @@ void catfile_helper (istream& infile, const string& filename) {
       //-----regex code
  //      cout << "input: \"" << line << "\"" << endl;
       if(line.length()>0){
-         cout << colons << endl << filename << endl << colons << endl;
+        // cout << colons << endl << filename << endl << colons << endl;
 
          smatch result;
          if (regex_search (line, result, comment_regex)) {//prints twice maybe idk
@@ -340,6 +345,17 @@ int status = 0;
   // return EXIT_SUCCESS;
 }
 
+@
+
+
+1.22
+log
+@-
+@
+text
+@d110 1
+a110 1
+         cout << colons << endl << filename << endl << colons << endl;
 @
 
 
