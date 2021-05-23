@@ -115,7 +115,7 @@ void catfile_helper (istream& infile, const string& filename) {
          //key = value, if found, replace val, if not, insert
          else if (regex_search (line, result, key_value_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
-            if(line.at(line.size()-1)=='='&&test.find(result[1])!=test.end()){
+            if(line.at(line.size()-1)=='='&&test.find(result[1])!=test.end() ){
                test.erase(test.find(result[1]));//valgrind
             }
             else{

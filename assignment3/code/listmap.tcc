@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 // $Id: listmap.tcc,v 1.20 2021-05-22 20:51:17-07 - - $
-=======
-// $Id: listmap.tcc,v 1.20 2021-05-22 20:51:17-07 - - $
->>>>>>> 04712adc87054b2f2b6db3619f2b8eb3b2715442
 //Kai O'Brien (kimobrie@ucsc.edu)
 
 #include "listmap.h"
