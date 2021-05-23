@@ -1,4 +1,4 @@
-// $Id: main.cpp,v 1.21 2021-05-22 23:21:44-07 - - $
+// $Id: main.cpp,v 1.20 2021-05-22 21:33:03-07 - - $
 //Kai O'Brien (kimobrie@ucsc.edu)
 
 #include <cstdlib>
@@ -107,6 +107,8 @@ void catfile_helper (istream& infile, const string& filename) {
       //-----regex code
  //      cout << "input: \"" << line << "\"" << endl;
       if(line.length()>0){
+         cout << colons << endl << filename << endl << colons << endl;
+
          smatch result;
          if (regex_search (line, result, comment_regex)) {//prints twice maybe idk
             cout<<filename<<": "<<i<<": "<<line<<endl;
