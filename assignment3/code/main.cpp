@@ -95,7 +95,7 @@ size_t eq_pos(string *line){
 //just do insert because already wrote code for that
 void catfile_helper (istream& infile, const string& filename) {
    static string colons (32, ':');
-   cout << colons << endl << filename << endl << colons << endl;
+//   cout << colons << endl << filename << endl << colons << endl;
    regex comment_regex {R"(^\s*(#.*)?$)"};
    regex key_value_regex {R"(^\s*(.*?)\s*=\s*(.*?)\s*$)"};
    regex trimmed_regex {R"(^\s*([^=]+?)\s*$)"};
@@ -105,8 +105,11 @@ void catfile_helper (istream& infile, const string& filename) {
       getline (infile, line);
       whitespace(&line);//trim whitespace
       //-----regex code
+
  //      cout << "input: \"" << line << "\"" << endl;
+
       if(line.length()>0){
+	
         // cout << colons << endl << filename << endl << colons << endl;
 
          smatch result;
