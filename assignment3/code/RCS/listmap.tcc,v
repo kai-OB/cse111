@@ -1,9 +1,14 @@
-head	1.17;
+head	1.18;
 access;
 symbols;
 locks;
 comment	@# @;
 
+
+1.18
+date	2021.05.23.03.38.58;	author -;	state -;
+branches;
+next	1.17;
 
 1.17
 date	2021.05.23.02.49.45;	author -;	state -;
@@ -95,12 +100,12 @@ desc
 @@
 
 
-1.17
+1.18
 log
 @-
 @
 text
-@// $Id: listmap.tcc,v 1.16 2021-05-22 02:29:26-07 - - $
+@// $Id: listmap.tcc,v 1.17 2021-05-22 19:49:45-07 - - $
 //Kai O'Brien (kimobrie@@ucsc.edu)
 
 #include "listmap.h"
@@ -127,8 +132,8 @@ listmap<key_t,mapped_t,less_t>::~listmap() {
    while(temp1!=anchor()){
       temp2 = temp1;
       temp1 = temp1->next;
-      //or delete temp2;
-      erase(temp2);
+      delete temp2;
+     // erase(temp2);
    }
 }
 
@@ -187,11 +192,12 @@ listmap<key_t,mapped_t,less_t>::find (const key_type& that) {
     while(itor !=end()){
       if(!less(itor->first,that) && !less(that,itor->first)){
          //return itor;
+         return iterator(itor);
          break;
       }
       ++itor;
    }
-   return iterator(itor);
+   return end();
 }
 
 //
@@ -203,15 +209,46 @@ listmap<key_t,mapped_t,less_t>::erase (iterator position) {
    DEBUGF ('l', &*position);
    //dont need to iterate because have .where
 
+   node *temp = position.where;
+      iterator p = temp->prev;
+      iterator n = temp->next;
+   p.where->next = n.where;
+   n.where->prev = p.where;
+
+   //delete temp->key;
+   delete position.where;
+   return n;//should return temp->next's position
+   
+}
+
+
+@
+
+
+1.17
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: listmap.tcc,v 1.16 2021-05-22 02:29:26-07 - - $
+d28 2
+a29 2
+      //or delete temp2;
+      erase(temp2);
+d88 1
+d93 1
+a93 1
+   return iterator(itor);
+d105 10
+a114 6
    node* temp = position.where;
    iterator rtrn = temp->next;
    temp->prev->next = temp->next;
    temp->next->prev = temp->prev;
    delete temp;
    return rtrn;//should return temp->next's position
-}
-
-
 @
 
 
