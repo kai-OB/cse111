@@ -110,21 +110,25 @@ void catfile_helper (istream& infile, const string& filename) {
          smatch result;
          if (regex_search (line, result, comment_regex)) {//prints twice maybe idk
             cout<<filename<<": "<<i<<": "<<line<<endl;
-           // cout << "comment." << endl;
+            cout << "comment." << endl;
          }
          //key = value, if found, replace val, if not, insert
          else if (regex_search (line, result, key_value_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
+            if(line.at(line.size()-1)=='='){
+               test.erase(test.find(result[1]));
+            }
+            else{
             cout<< result[1]<< " = " <<result[2]<<endl;
-        //  cout << "key  : \"" << result[1] << "\"" << endl;
+         // cout << "key  : \"" << result[1] << "\"" << endl;
          //   cout << "value: \"" << result[2] << "\"" << endl;
             test.insert(str_str_pair(result[1],result[2]));
-         
+            }
          }
          //  key = , =, or =value
          else if (regex_search (line, result, trimmed_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
-           // cout<< result[1]<< endl;
+            cout<< result[1]<< endl;
             //if its the key(can be more than 1 word key
             //) and nothing else, print the value
             size_t eq_pos1 = eq_pos(&line);
@@ -132,7 +136,7 @@ void catfile_helper (istream& infile, const string& filename) {
             //key 
             if(eq_pos1==1234){
                auto it = test.find(result[1]);
-               if(test.find(result[1])){
+               if(test.find(result[1])!=test.end()){
                 cout<< it->first<< " = " <<it->second<<endl;
                   
                }
@@ -140,15 +144,18 @@ void catfile_helper (istream& infile, const string& filename) {
                   cout<< result[1]<< ": " <<"key not found"<<endl;
                }
             }
-            else if(eq_pos1==line.size()-1){
-           //    cout<<"in else if";
-               test.erase(test.find(line));
-            }
-            /*else{
-               //str_str_pair(result[1],result[2]);
-               //test.insert(   xpair{line.substr(0,eq_pos),line.substr(eq_pos,line.size())});
-               test.insert(str_str_pair(result[1],result[2]));
-            }*/
+            
+           if(line.at(0)=='='){
+              //if the = is the only thing
+              if(line.size()==1){
+                  for (auto itor = test.begin(); itor != test.end(); ++itor) {
+                     cout<< itor->first<< " = " <<itor->second<<endl;
+                  }
+              }
+              else{  //result[2] or 1? iterate and match
+
+              }
+           }
             
 
             //cout << "query: \"" << result[1] << "\"" << endl;

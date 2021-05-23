@@ -25,8 +25,8 @@ listmap<key_t,mapped_t,less_t>::~listmap() {
    while(temp1!=anchor()){
       temp2 = temp1;
       temp1 = temp1->next;
-      //or delete temp2;
-      erase(temp2);
+      delete temp2;
+     // erase(temp2);
    }
 }
 
@@ -85,11 +85,12 @@ listmap<key_t,mapped_t,less_t>::find (const key_type& that) {
     while(itor !=end()){
       if(!less(itor->first,that) && !less(that,itor->first)){
          //return itor;
+         return iterator(itor);
          break;
       }
       ++itor;
    }
-   return iterator(itor);
+   return end();
 }
 
 //
@@ -101,12 +102,16 @@ listmap<key_t,mapped_t,less_t>::erase (iterator position) {
    DEBUGF ('l', &*position);
    //dont need to iterate because have .where
 
-   node* temp = position.where;
-   iterator rtrn = temp->next;
-   temp->prev->next = temp->next;
-   temp->next->prev = temp->prev;
-   delete temp;
-   return rtrn;//should return temp->next's position
+   node *temp = position.where;
+      iterator p = temp->prev;
+      iterator n = temp->next;
+   p.where->next = n.where;
+   n.where->prev = p.where;
+
+   //delete temp->key;
+   delete position.where;
+   return n;//should return temp->next's position
+   
 }
 
 
