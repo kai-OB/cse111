@@ -1,9 +1,14 @@
-head	1.22;
+head	1.23;
 access;
 symbols;
 locks;
 comment	@# @;
 
+
+1.23
+date	2021.05.23.05.09.18;	author -;	state -;
+branches;
+next	1.22;
 
 1.22
 date	2021.05.23.04.33.03;	author -;	state -;
@@ -120,12 +125,12 @@ desc
 @@
 
 
-1.22
+1.23
 log
 @-
 @
 text
-@// $Id: listmap.tcc,v 1.21 2021-05-22 20:58:22-07 - - $
+@// $Id: listmap.tcc,v 1.22 2021-05-22 21:33:03-07 - - $
 //Kai O'Brien (kimobrie@@ucsc.edu)
 
 #include "listmap.h"
@@ -147,13 +152,13 @@ listmap<key_t,mapped_t,less_t>::~listmap() {
    //typical double linked list deconstructor
    //begin() is the "head"
    //DONT DELETE ANCHOR!
-   node* temp1 = begin().where;//or just do anchor().next
+   node* temp1 = anchor()->next;//or just do anchor().next
    node* temp2;
    while(temp1!=anchor()){
       temp2 = temp1;
       temp1 = temp1->next;
-      delete temp2;
-     // erase(temp2);
+      //delete temp2;
+      erase(temp2);
    }
 }
 
@@ -243,6 +248,24 @@ listmap<key_t,mapped_t,less_t>::erase (iterator position) {
 }
 
 
+@
+
+
+1.22
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: listmap.tcc,v 1.21 2021-05-22 20:58:22-07 - - $
+d23 1
+a23 1
+   node* temp1 = begin().where;//or just do anchor().next
+d28 2
+a29 2
+      delete temp2;
+     // erase(temp2);
 @
 
 

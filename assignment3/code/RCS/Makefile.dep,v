@@ -1,9 +1,14 @@
-head	1.56;
+head	1.57;
 access;
 symbols;
 locks;
 comment	@# @;
 
+
+1.57
+date	2021.05.23.05.09.18;	author -;	state -;
+branches;
+next	1.56;
 
 1.56
 date	2021.05.23.04.33.03;	author -;	state -;
@@ -290,16 +295,27 @@ desc
 @@
 
 
+1.57
+log
+@-
+@
+text
+@# Makefile.dep created Sat May 22 22:09:18 PDT 2021
+debug.o: debug.cpp debug.h util.h util.tcc
+util.o: util.cpp debug.h util.h util.tcc
+main.o: main.cpp listmap.h debug.h xless.h xpair.h listmap.tcc util.h \
+ util.tcc
+@
+
+
 1.56
 log
 @-
 @
 text
-@# Makefile.dep created Sat May 22 21:33:03 PDT 2021
-debug.o: debug.cpp debug.h util.h util.tcc
-util.o: util.cpp debug.h util.h util.tcc
-main.o: main.cpp listmap.h debug.h xless.h xpair.h listmap.tcc util.h \
- util.tcc
+@d1 1
+a1 1
+# Makefile.dep created Sat May 22 21:33:03 PDT 2021
 @
 
 
