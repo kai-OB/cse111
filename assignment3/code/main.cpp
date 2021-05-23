@@ -1,4 +1,4 @@
-// $Id: main.cpp,v 1.17 2021-05-22 20:38:58-07 - - $
+// $Id: main.cpp,v 1.16 2021-05-22 19:49:45-07 - - $
 //Kai O'Brien (kimobrie@ucsc.edu)
 
 #include <cstdlib>
@@ -115,8 +115,8 @@ void catfile_helper (istream& infile, const string& filename) {
          //key = value, if found, replace val, if not, insert
          else if (regex_search (line, result, key_value_regex)) {
             cout<<filename<<": "<<i<<": "<<line<<endl;
-            if(line.at(line.size()-1)=='='){
-               test.erase(test.find(result[1]));
+            if(line.at(line.size()-1)=='='&&test.find(result[1]!=test.end())){
+               test.erase(test.find(result[1]));//valgrind
             }
             else{
             cout<< result[1]<< " = " <<result[2]<<endl;

@@ -1,4 +1,4 @@
-// $Id: listmap.tcc,v 1.18 2021-05-22 20:38:58-07 - - $
+// $Id: listmap.tcc,v 1.17 2021-05-22 19:49:45-07 - - $
 //Kai O'Brien (kimobrie@ucsc.edu)
 
 #include "listmap.h"
@@ -109,7 +109,7 @@ listmap<key_t,mapped_t,less_t>::erase (iterator position) {
    n.where->prev = p.where;
 
    //delete temp->key;
-   delete temp;
+   delete temp;//valgrind
    return n;//should return temp->next's position
    
 }
