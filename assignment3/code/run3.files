@@ -1,16 +1,16 @@
-stdin=value-: 1: stdin=value
-a=btest1.in: 1: a=b
-key=valuetest1.in: 2: key=value
-this=is a testtest1.in: 3: this=is a test
-thistest1.in: 4: this
+-: 1: stdin=value
+test1.in: 1: a=b
+test1.in: 2: key=value
+test1.in: 3: this=is a test
+test1.in: 4: this
 this = is a test
-keytest1.in: 5: key
+test1.in: 5: key
 key = value
-atest1.in: 6: a
+test1.in: 6: a
 a = b
-=test1.in: 7: =
+test1.in: 7: =
 a = b
 key = value
 stdin = value
 this = is a test
-# $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $test1.in: 8: # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
+test1.in: 8: # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $

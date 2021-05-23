@@ -1,14 +1,14 @@
-a=b-: 1: a=b
-key=value-: 2: key=value
-this=is a test-: 3: this=is a test
-this-: 4: this
+-: 1: a=b
+-: 2: key=value
+-: 3: this=is a test
+-: 4: this
 this = is a test
-key-: 5: key
+-: 5: key
 key = value
-a-: 6: a
+-: 6: a
 a = b
-=-: 7: =
+-: 7: =
 a = b
 key = value
 this = is a test
-# $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $-: 8: # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
+-: 8: # $Id: test1.in,v 1.2 2021-02-08 14:03:08-08 - - $
