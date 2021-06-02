@@ -1,9 +1,14 @@
-head	1.23;
+head	1.24;
 access;
 symbols;
 locks;
 comment	@# @;
 
+
+1.24
+date	2021.06.02.03.01.20;	author -;	state -;
+branches;
+next	1.23;
 
 1.23
 date	2021.03.11.05.16.18;	author kimobrie;	state Exp;
@@ -125,12 +130,12 @@ desc
 @@
 
 
-1.23
+1.24
 log
-@*** empty log message ***
+@-
 @
 text
-@# $Id: Makefile,v 1.22 2021-03-10 19:57:08-08 - - $
+@# $Id: Makefile,v 1.23 2021/03/11 05:16:18 kimobrie Exp $
 
 MKFILE      = Makefile
 DEPFILE     = ${MKFILE}.dep
@@ -199,12 +204,26 @@ again: ${ALLSOURCE}
 	${GMAKE} spotless dep ci all lis
 
 submit:
-	submit cse111-wm.w21 asg4 ${ALLSOURCE} README
+	submit cse111-wm.s21 asg4 *.cpp *.h Makefile README
 
 ifeq (${NEEDINCL}, )
 include ${DEPFILE}
 endif
 
+@
+
+
+1.23
+log
+@*** empty log message ***
+@
+text
+@d1 1
+a1 1
+# $Id: Makefile,v 1.22 2021-03-10 19:57:08-08 - - $
+d70 1
+a70 1
+	submit cse111-wm.w21 asg4 ${ALLSOURCE} README
 @
 
 

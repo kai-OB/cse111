@@ -1,9 +1,9 @@
 %!PS-Adobe-3.0
 %%BoundingBox: 38 24 574 768
 %%Title: ./Listing.ps
-%%For: Wesley Mackey
+%%For: Kai Monique O'Brien
 %%Creator: GNU Enscript 1.6.6
-%%CreationDate: Wed Feb 17 18:21:07 2021
+%%CreationDate: Tue Jun  1 20:01:58 2021
 %%Orientation: Portrait
 %%Pages: (atend)
 %%DocumentMedia: Letter 612 792 0 () ()
@@ -408,7 +408,7 @@ gs_languagelevel 1 gt {
     /PageSize [612 792] 
   >> setpagedevice
 } if
-%%BeginResource: procset Enscript-Header-enscript-mycolor 1.6 6
+%%BeginResource: procset Enscript-Header-enscript 1.6 6
 %%IncludeResource: font Times-Bold
 %%IncludeResource: font Times-Roman
 
@@ -420,94 +420,67 @@ gs_languagelevel 1 gt {
 /HeaderHDRF /HeaderFont-Times findfont 14 scalefont def
 
 /HeaderPageNumF /Helvetica-Bold findfont 28.8 scalefont def
-/HeaderPageCountF /Helvetica-Bold findfont 18 scalefont def
 
 /do_header {	% print enscript header
   gsave
     d_header_x d_header_y translate
 
-    /dhw d_header_w 4 sub def
+    % light bar
+    0 0 d_header_w d_header_h 2 div Box
+    .95 setgray fill
 
-    /linecolor {0 0 0 setrgbcolor} bind def  % line color
-    /txcolor   {0 0 0 setrgbcolor} bind def  % text color
-    /fncolor   {0 0 0 setrgbcolor} bind def  % filename line color
+    % dark gray boxes
+    /dbw d_header_h 2 mul def	% dark box width
+    /dbc .7 def			% dark box color
 
-    .5 setlinewidth
+    % left dark box.
+    0 0 dbw d_header_h Box
+    dbc setgray fill
 
-    % line across bottom of the header area
-    linecolor
-    0 0 moveto dhw 0 lineto
-
-    % side boxes
-    /sbw d_header_h 2 mul def	% side box width
-
-    % left side box
-    0 0 sbw d_header_h Box
-    linecolor
-    stroke
-
-    % date/time in left box
-    txcolor
+    0 setgray 
     HeaderDateF setfont
-    moddatestr dup stringwidth pop sbw exch sub 2 div
+    moddatestr dup stringwidth pop dbw exch sub 2 div 
     d_header_h 2 div 2 add moveto show
-    modtimestr dup stringwidth pop sbw exch sub 2 div
+    modtimestr dup stringwidth pop dbw exch sub 2 div 
     d_header_h 5 div moveto show
 
-    % right side box
-    dhw sbw sub 0 sbw d_header_h Box
-    linecolor
-    stroke
+    % right dark box
+    d_header_w dbw sub 0 dbw d_header_h Box
+    dbc setgray fill
 
-    % get width of pagecount
-    HeaderPageCountF setfont
-    pagecountstr stringwidth pop
-
-    txcolor
     HeaderPageNumF setfont
-    pagenumstr stringwidth pop add  % add to width of pagecount
-    sbw exch sub 2 div dhw sbw sub add
-    d_header_h .2 mul moveto
-
-    pagenumstr show
-
-    HeaderPageCountF setfont
-    pagecountstr show
+    1 setgray
+    pagenumstr dup
+    stringwidth pop dbw exch sub 2 div d_header_w dbw sub add
+    d_header_h .2 mul moveto show
 
     % filename
-    fncolor
+    0 setgray 
     HeaderHDRF setfont
-    dhw fname stringwidth pop sub 2 div d_header_h 8 div moveto
+    d_header_w fname stringwidth pop sub 2 div d_header_h 8 div moveto
     fname show
 
     % user supplied header string.
     user_header_p {
       /h d_header_h 8 div 5 mul def
 
-      % HACK around a bug in enscript 1.6.0:
-      % for some reason this is getting set to "(null)" and
-      %
-      user_header_center_str (\(null\)) eq {
-        /user_header_center_str () def
-      } if
-
       % Implement strict enscript compatibility.
       user_header_center_str () eq user_header_right_str () eq and {
-        dhw user_header_left_str stringwidth pop sub 2 div
+        d_header_w user_header_left_str stringwidth pop sub 2 div 
         h moveto user_header_left_str show
       } {
-        sbw 5 add h moveto user_header_left_str show
+        dbw 5 add h moveto user_header_left_str show
 
-        dhw user_header_center_str stringwidth pop sub 2 div
+        d_header_w user_header_center_str stringwidth pop sub 2 div 
         h moveto user_header_center_str show
 
-	dhw sbw sub 5 sub user_header_right_str stringwidth pop
+	d_header_w dbw sub 5 sub user_header_right_str stringwidth pop
 	sub h moveto user_header_right_str show
       } ifelse
     } if
 
   grestore
-} bind def
+} def
 %%EndResource
 /d_page_w 536 def
 /d_page_h 744 def
@@ -533,11 +506,10 @@ _S
 /ftail (logstream.h) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (02/17/21) def
-/pagecountstr (/1) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
@@ -546,7 +518,7 @@ column_borders
 do_header
 32.4 694 M (1:) s
 52.2 694 M
-(// $Id: logstream.h,v 1.5 2020-12-12 22:09:29-08 - - $) s
+(// $Id: logstream.h,v 1.6 2021-02-24 15:29:53-08 - - $) s
 32.4 682 M (2:) s
 32.4 670 M (3:) s
 52.2 670 M
@@ -588,80 +560,90 @@ do_header
 (#include <string>) s
 25.8 502 M (17:) s
 52.2 502 M
-(using namespace std;) s
+(#include <vector>) s
 25.8 490 M (18:) s
+52.2 490 M
+(using namespace std;) s
 25.8 478 M (19:) s
-52.2 478 M
-(class logstream {) s
 25.8 466 M (20:) s
 52.2 466 M
-(   private:) s
+(#include <sys/types.h>) s
 25.8 454 M (21:) s
 52.2 454 M
-(      ostream& out_;) s
+(#include <unistd.h>) s
 25.8 442 M (22:) s
-52.2 442 M
-(      string execname_;) s
 25.8 430 M (23:) s
 52.2 430 M
-(   public:) s
+(class logstream {) s
 25.8 418 M (24:) s
+52.2 418 M
+(   private:) s
 25.8 406 M (25:) s
 52.2 406 M
-(      // Constructor may or may not have the execname available.) s
+(      ostream& out_;) s
 25.8 394 M (26:) s
 52.2 394 M
-(      logstream \(ostream& out, const string& execname = ""\):) s
+(      string execname_;) s
 25.8 382 M (27:) s
 52.2 382 M
-(                 out_ \(out\), execname_ \(execname\) {) s
+(   public:) s
 25.8 370 M (28:) s
-52.2 370 M
-(      }) s
 25.8 358 M (29:) s
+52.2 358 M
+(      // Constructor may or may not have the execname available.) s
 25.8 346 M (30:) s
 52.2 346 M
-(      // First line of main should set execname if logstream is global.) s
+(      logstream \(ostream& out, const string& execname = ""\):) s
 25.8 334 M (31:) s
 52.2 334 M
-(      void execname \(const string& name\) { execname_ = name; }) s
+(                 out_ \(out\), execname_ \(execname\) {) s
 25.8 322 M (32:) s
 52.2 322 M
-(      string execname\(\) { return execname_; }) s
+(      }) s
 25.8 310 M (33:) s
 25.8 298 M (34:) s
 52.2 298 M
-(      // First call should be the logstream, not cout.) s
+(      // First line of main should set execname if logstream is global.) s
 25.8 286 M (35:) s
 52.2 286 M
-(      // Then forward result to the standard ostream.) s
+(      void execname \(const string& name\) { execname_ = name; }) s
 25.8 274 M (36:) s
 52.2 274 M
-(      template <typename T>) s
+(      string execname\(\) { return execname_; }) s
 25.8 262 M (37:) s
-52.2 262 M
-(      ostream& operator<< \(const T& obj\) {) s
 25.8 250 M (38:) s
 52.2 250 M
-(         assert \(execname_.size\(\) > 0\);) s
+(      // First call should be the logstream, not cout.) s
 25.8 238 M (39:) s
 52.2 238 M
-(         out_ << execname_ << "\(" << getpid\(\) << "\): " << obj;) s
+(      // Then forward result to the standard ostream.) s
 25.8 226 M (40:) s
 52.2 226 M
-(         return out_;) s
+(      template <typename T>) s
 25.8 214 M (41:) s
 52.2 214 M
-(      }) s
+(      ostream& operator<< \(const T& obj\) {) s
 25.8 202 M (42:) s
+52.2 202 M
+(         assert \(execname_.size\(\) > 0\);) s
 25.8 190 M (43:) s
 52.2 190 M
-(};) s
+(         out_ << execname_ << "\(" << getpid\(\) << "\): " << obj;) s
 25.8 178 M (44:) s
+52.2 178 M
+(         return out_;) s
 25.8 166 M (45:) s
 52.2 166 M
-(#endif) s
+(      }) s
 25.8 154 M (46:) s
+25.8 142 M (47:) s
+52.2 142 M
+(};) s
+25.8 130 M (48:) s
+25.8 118 M (49:) s
+52.2 118 M
+(#endif) s
+25.8 106 M (50:) s
 _R
 S
 %%Page: (1) 2
@@ -674,11 +656,10 @@ _S
 /ftail (protocol.h) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (02/17/21) def
-/pagecountstr (/1) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
@@ -784,11 +765,10 @@ _S
 /ftail (protocol.cpp) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (02/17/21) def
-/pagecountstr (/2) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
@@ -797,7 +777,7 @@ column_borders
 do_header
 32.4 694 M (1:) s
 52.2 694 M
-(// $Id: protocol.cpp,v 1.14 2020-12-12 22:09:29-08 - - $) s
+(// $Id: protocol.cpp,v 1.15 2021-03-01 16:08:48-08 - - $) s
 32.4 682 M (2:) s
 32.4 670 M (3:) s
 52.2 670 M
@@ -952,11 +932,10 @@ _S
 /ftail (protocol.cpp) def
 % User defined strings:
 /pagenumstr (2) def
-/moddatestr (02/17/21) def
-/pagecountstr (/2) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
@@ -985,74 +964,92 @@ do_header
 (ostream& operator<< \(ostream& out, const cxi_header& header\) {) s
 25.8 598 M (62:) s
 52.2 598 M
-(   return out << "{" << to_hex32_string \(header.nbytes\) << ':') s
+(   constexpr size_t WARNING_NBYTES = 1<<20;) s
 25.8 586 M (63:) s
 52.2 586 M
-(              << header.nbytes << ':' << ntohl \(header.nbytes\) << ",") s
+(   uint32_t nbytes = htonl \(header.nbytes\);) s
 25.8 574 M (64:) s
 52.2 574 M
-(              << unsigned \(header.command\)) s
+(   if \(nbytes > WARNING_NBYTES\) {) s
 25.8 562 M (65:) s
 52.2 562 M
-(              << "\(" << to_string \(header.command\) << "\),\\"") s
+(      out << "WARNING: Payload nbytes " << nbytes << " > ") s
 25.8 550 M (66:) s
 52.2 550 M
-(              << header.filename << "\\"}";) s
+(          << WARNING_NBYTES << endl;) s
 25.8 538 M (67:) s
 52.2 538 M
-(}    ) s
+(   }) s
 25.8 526 M (68:) s
+52.2 526 M
+(   return out << "{" << to_hex32_string \(header.nbytes\) << ':') s
 25.8 514 M (69:) s
 52.2 514 M
-(string get_cxi_server_host \(const vector<string>& args, size_t index\) {) s
+(              << header.nbytes << ':' << ntohl \(header.nbytes\) << ",") s
 25.8 502 M (70:) s
 52.2 502 M
-(   if \(index < args.size\(\)\) return args[index];) s
+(              << unsigned \(header.command\)) s
 25.8 490 M (71:) s
 52.2 490 M
-(   char* host = getenv \("CIX_SERVER_HOST"\);) s
+(              << "\(" << to_string \(header.command\) << "\),\\"") s
 25.8 478 M (72:) s
 52.2 478 M
-(   if \(host != nullptr\) return host;) s
+(              << header.filename << "\\"}";) s
 25.8 466 M (73:) s
 52.2 466 M
-(   return "localhost";) s
+(}    ) s
 25.8 454 M (74:) s
-52.2 454 M
-(}) s
 25.8 442 M (75:) s
+52.2 442 M
+(string get_cxi_server_host \(const vector<string>& args, size_t index\) {) s
 25.8 430 M (76:) s
 52.2 430 M
-(in_port_t get_cxi_server_port \(const vector<string>& args,) s
+(   if \(index < args.size\(\)\) return args[index];) s
 25.8 418 M (77:) s
 52.2 418 M
-(                               size_t index\) {) s
+(   char* host = getenv \("CIX_SERVER_HOST"\);) s
 25.8 406 M (78:) s
 52.2 406 M
-(   string port = "-1";) s
+(   if \(host != nullptr\) return host;) s
 25.8 394 M (79:) s
 52.2 394 M
-(   if \(index < args.size\(\)\) port = args[index];) s
+(   return "localhost";) s
 25.8 382 M (80:) s
 52.2 382 M
-(   else {) s
+(}) s
 25.8 370 M (81:) s
-52.2 370 M
-(      char* envport = getenv \("CIX_SERVER_PORT"\);) s
 25.8 358 M (82:) s
 52.2 358 M
-(      if \(envport != nullptr\) port = envport;) s
+(in_port_t get_cxi_server_port \(const vector<string>& args,) s
 25.8 346 M (83:) s
 52.2 346 M
-(   }) s
+(                               size_t index\) {) s
 25.8 334 M (84:) s
 52.2 334 M
-(   return stoi \(port\);) s
+(   string port = "-1";) s
 25.8 322 M (85:) s
 52.2 322 M
-(}) s
+(   if \(index < args.size\(\)\) port = args[index];) s
 25.8 310 M (86:) s
 52.2 310 M
+(   else {) s
+25.8 298 M (87:) s
+52.2 298 M
+(      char* envport = getenv \("CIX_SERVER_PORT"\);) s
+25.8 286 M (88:) s
+52.2 286 M
+(      if \(envport != nullptr\) port = envport;) s
+25.8 274 M (89:) s
+52.2 274 M
+(   }) s
+25.8 262 M (90:) s
+52.2 262 M
+(   return stoi \(port\);) s
+25.8 250 M (91:) s
+52.2 250 M
+(}) s
+25.8 238 M (92:) s
+52.2 238 M
 (     ) s
 _R
 S
@@ -1066,11 +1063,10 @@ _S
 /ftail (sockets.h) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (02/17/21) def
-/pagecountstr (/4) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
@@ -1236,11 +1232,10 @@ _S
 /ftail (sockets.h) def
 % User defined strings:
 /pagenumstr (2) def
-/moddatestr (02/17/21) def
-/pagecountstr (/4) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
@@ -1350,11 +1345,10 @@ _S
 /ftail (sockets.h) def
 % User defined strings:
 /pagenumstr (3) def
-/moddatestr (02/17/21) def
-/pagecountstr (/4) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
@@ -1470,11 +1464,10 @@ _S
 /ftail (sockets.h) def
 % User defined strings:
 /pagenumstr (4) def
-/moddatestr (02/17/21) def
-/pagecountstr (/4) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
@@ -1552,11 +1545,10 @@ _S
 /ftail (sockets.cpp) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (02/17/21) def
-/pagecountstr (/4) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
@@ -1717,11 +1709,10 @@ _S
 /ftail (sockets.cpp) def
 % User defined strings:
 /pagenumstr (2) def
-/moddatestr (02/17/21) def
-/pagecountstr (/4) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
@@ -1894,11 +1885,10 @@ _S
 /ftail (sockets.cpp) def
 % User defined strings:
 /pagenumstr (3) def
-/moddatestr (02/17/21) def
-/pagecountstr (/4) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
@@ -1995,11 +1985,10 @@ _S
 /ftail (sockets.cpp) def
 % User defined strings:
 /pagenumstr (4) def
-/moddatestr (02/17/21) def
-/pagecountstr (/4) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
@@ -2153,11 +2142,10 @@ _S
 /ftail (cxi.cpp) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (02/17/21) def
-/pagecountstr (/3) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
@@ -2166,7 +2154,7 @@ column_borders
 do_header
 32.4 694 M (1:) s
 52.2 694 M
-(// $Id: cxi.cpp,v 1.1 2020-11-22 16:51:43-08 - - $) s
+(// $Id: cxi.cpp,v 1.5 2021-06-01 20:01:20-07 - - $) s
 32.4 682 M (2:) s
 32.4 670 M (3:) s
 52.2 670 M
@@ -2185,143 +2173,141 @@ do_header
 (#include <vector>) s
 32.4 610 M (8:) s
 52.2 610 M
-(using namespace std;) s
+(#include <fstream>) s
 32.4 598 M (9:) s
 25.8 586 M (10:) s
 52.2 586 M
-(#include <libgen.h>) s
+(using namespace std;) s
 25.8 574 M (11:) s
-52.2 574 M
-(#include <sys/types.h>) s
 25.8 562 M (12:) s
 52.2 562 M
-(#include <unistd.h>) s
+(#include <libgen.h>) s
 25.8 550 M (13:) s
+52.2 550 M
+(#include <sys/types.h>) s
 25.8 538 M (14:) s
 52.2 538 M
-(#include "protocol.h") s
+(#include <sys/stat.h>) s
 25.8 526 M (15:) s
 52.2 526 M
-(#include "logstream.h") s
+(#include <unistd.h>) s
 25.8 514 M (16:) s
-52.2 514 M
-(#include "sockets.h") s
 25.8 502 M (17:) s
+52.2 502 M
+(#include "protocol.h") s
 25.8 490 M (18:) s
 52.2 490 M
-(logstream outlog \(cout\);) s
+(#include "logstream.h") s
 25.8 478 M (19:) s
 52.2 478 M
-(struct cxi_exit: public exception {};) s
+(#include "sockets.h") s
 25.8 466 M (20:) s
 25.8 454 M (21:) s
 52.2 454 M
-(unordered_map<string,cxi_command> command_map {) s
+(logstream outlog \(cout\);) s
 25.8 442 M (22:) s
 52.2 442 M
-(   {"exit", cxi_command::EXIT},) s
+(struct cxi_exit: public exception {};) s
 25.8 430 M (23:) s
-52.2 430 M
-(   {"help", cxi_command::HELP},) s
 25.8 418 M (24:) s
 52.2 418 M
-(   {"ls"  , cxi_command::LS  },) s
+(unordered_map<string,cxi_command> command_map {) s
 25.8 406 M (25:) s
 52.2 406 M
-(};) s
+(   {"exit", cxi_command::EXIT},) s
 25.8 394 M (26:) s
+52.2 394 M
+(   {"help", cxi_command::HELP},) s
 25.8 382 M (27:) s
 52.2 382 M
-(static const char help[] = R"||\() s
+(   {"ls"  , cxi_command::LS  },) s
 25.8 370 M (28:) s
 52.2 370 M
-(exit         - Exit the program.  Equivalent to EOF.) s
+(   {"get" , cxi_command::GET },) s
 25.8 358 M (29:) s
 52.2 358 M
-(get filename - Copy remote file to local host.) s
+(   {"put" , cxi_command::PUT },) s
 25.8 346 M (30:) s
 52.2 346 M
-(help         - Print help summary.) s
+(   {"rm"  , cxi_command::RM  },) s
 25.8 334 M (31:) s
 52.2 334 M
-(ls           - List names of files on remote server.) s
+(};) s
 25.8 322 M (32:) s
-52.2 322 M
-(put filename - Copy local file to remote host.) s
 25.8 310 M (33:) s
 52.2 310 M
-(rm filename  - Remove file from remote server.) s
+(static const char help[] = R"||\() s
 25.8 298 M (34:) s
 52.2 298 M
-(\)||";) s
+(exit         - Exit the program.  Equivalent to EOF.) s
 25.8 286 M (35:) s
+52.2 286 M
+(get filename - Copy remote file to local host.) s
 25.8 274 M (36:) s
 52.2 274 M
-(void cxi_help\(\) {) s
+(help         - Print help summary.) s
 25.8 262 M (37:) s
 52.2 262 M
-(   cout << help;) s
+(ls           - List names of files on remote server.) s
 25.8 250 M (38:) s
 52.2 250 M
-(}) s
+(put filename - Copy local file to remote host.) s
 25.8 238 M (39:) s
+52.2 238 M
+(rm filename  - Remove file from remote server.) s
 25.8 226 M (40:) s
 52.2 226 M
-(void cxi_ls \(client_socket& server\) {) s
+(\)||";) s
 25.8 214 M (41:) s
-52.2 214 M
-(   cxi_header header;) s
 25.8 202 M (42:) s
 52.2 202 M
-(   header.command = cxi_command::LS;) s
+(void cxi_help\(\) {) s
 25.8 190 M (43:) s
 52.2 190 M
-(   outlog << "sending header " << header << endl;) s
+(   cout << help;) s
 25.8 178 M (44:) s
 52.2 178 M
-(   send_packet \(server, &header, sizeof header\);) s
+(}) s
 25.8 166 M (45:) s
-52.2 166 M
-(   recv_packet \(server, &header, sizeof header\);) s
 25.8 154 M (46:) s
 52.2 154 M
-(   outlog << "received header " << header << endl;) s
+(void cxi_ls \(client_socket& server\) {) s
 25.8 142 M (47:) s
 52.2 142 M
-(   if \(header.command != cxi_command::LSOUT\) {) s
+(   cxi_header header;) s
 25.8 130 M (48:) s
 52.2 130 M
-(      outlog << "sent LS, server did not return LSOUT" << endl;) s
+(   header.command = cxi_command::LS;) s
 25.8 118 M (49:) s
 52.2 118 M
-(      outlog << "server returned " << header << endl;) s
+(   outlog << "sending header " << header << endl;) s
 25.8 106 M (50:) s
 52.2 106 M
-(   }else {) s
+(   send_packet \(server, &header, sizeof header\);) s
 25.8 94 M (51:) s
 52.2 94 M
-(      size_t host_nbytes = ntohl \(header.nbytes\);) s
+(   recv_packet \(server, &header, sizeof header\);) s
 25.8 82 M (52:) s
 52.2 82 M
-(      auto buffer = make_unique<char[]> \(host_nbytes + 1\);) s
+(   outlog << "received header " << header << endl;) s
 25.8 70 M (53:) s
 52.2 70 M
-(      recv_packet \(server, buffer.get\(\), host_nbytes\);) s
+(   if \(header.command != cxi_command::LSOUT\) {  //if!LSOUT) s
 25.8 58 M (54:) s
 52.2 58 M
-(      outlog << "received " << host_nbytes << " bytes" << endl;) s
+(      outlog << "sent LS, server did not return LSOUT" << endl;) s
 25.8 46 M (55:) s
 52.2 46 M
-(      buffer[host_nbytes] = '\\0';) s
+(      outlog << "server returned " << header << endl;) s
 25.8 34 M (56:) s
 52.2 34 M
-(      cout << buffer.get\(\);) s
+(   }else {) s
 25.8 22 M (57:) s
 52.2 22 M
-(   }) s
+(      size_t host_nbytes = ntohl \(header.nbytes\);//setnbytes) s
 25.8 10 M (58:) s
 52.2 10 M
-(}) s
+(      auto buffer = make_unique<char[]> \(host_nbytes + 1\);) s
 _R
 S
 %%Page: (2) 14
@@ -2334,11 +2320,10 @@ _S
 /ftail (cxi.cpp) def
 % User defined strings:
 /pagenumstr (2) def
-/moddatestr (02/17/21) def
-/pagecountstr (/3) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
@@ -2346,6 +2331,179 @@ _S
 column_borders
 do_header
 25.8 694 M (59:) s
+52.2 694 M
+(      recv_packet \(server, buffer.get\(\), host_nbytes\); ) s
+25.8 682 M (60:) s
+52.2 682 M
+(      outlog << "received " << host_nbytes << " bytes" << endl;) s
+25.8 670 M (61:) s
+52.2 670 M
+(      buffer[host_nbytes] = '\\0';) s
+25.8 658 M (62:) s
+52.2 658 M
+(      cout << buffer.get\(\);) s
+25.8 646 M (63:) s
+52.2 646 M
+(   }) s
+25.8 634 M (64:) s
+52.2 634 M
+(}) s
+25.8 622 M (65:) s
+52.2 622 M
+(void cxi_get \(client_socket& server, vector<string>& splitvec\) {) s
+25.8 610 M (66:) s
+52.2 610 M
+(   cxi_header header;) s
+25.8 598 M (67:) s
+52.2 598 M
+(   header.command = cxi_command::GET;) s
+25.8 586 M (68:) s
+52.2 586 M
+(   strcpy\(header.filename,splitvec[1].c_str\(\)\);) s
+25.8 574 M (69:) s
+52.2 574 M
+(   ) s
+25.8 562 M (70:) s
+52.2 562 M
+(   outlog << "sending header " << header << endl;) s
+25.8 550 M (71:) s
+52.2 550 M
+(   send_packet \(server, &header, sizeof header\);) s
+25.8 538 M (72:) s
+52.2 538 M
+(   recv_packet \(server, &header, sizeof header\);) s
+25.8 526 M (73:) s
+52.2 526 M
+(   outlog << "received header " << header << endl;) s
+25.8 514 M (74:) s
+52.2 514 M
+(   //if\(!fileout\) error) s
+25.8 502 M (75:) s
+52.2 502 M
+(   if \(header.command != cxi_command::FILEOUT\) {) s
+25.8 490 M (76:) s
+52.2 490 M
+(      outlog << "sent GET, server did not return FILEOUT" << endl;) s
+25.8 478 M (77:) s
+52.2 478 M
+(      outlog << "server returned " << header << endl;) s
+25.8 466 M (78:) s
+52.2 466 M
+(   }) s
+25.8 454 M (79:) s
+52.2 454 M
+(   //else set nbytes, declare buffer, recv, writefile,log<<success) s
+25.8 442 M (80:) s
+52.2 442 M
+(   else {) s
+25.8 430 M (81:) s
+52.2 430 M
+(      size_t host_nbytes = ntohl \(header.nbytes\);) s
+25.8 418 M (82:) s
+52.2 418 M
+(      auto buffer = make_unique<char[]> \(host_nbytes + 1\);) s
+25.8 406 M (83:) s
+52.2 406 M
+(      recv_packet \(server, buffer.get\(\), host_nbytes\);) s
+25.8 394 M (84:) s
+52.2 394 M
+(      buffer[host_nbytes] = '\\0';) s
+25.8 382 M (85:) s
+52.2 382 M
+(      cout << buffer.get\(\);) s
+25.8 370 M (86:) s
+52.2 370 M
+(   //create ofstream and write ) s
+25.8 358 M (87:) s
+52.2 358 M
+(   ofstream write_file \(header.filename, ios::out |ios::binary\);) s
+25.8 346 M (88:) s
+52.2 346 M
+(   write_file.write\(buffer.get\(\),host_nbytes\);  ) s
+25.8 334 M (89:) s
+52.2 334 M
+(   write_file.close\(\);) s
+25.8 322 M (90:) s
+52.2 322 M
+(   write_file << "GET sucess" << endl;) s
+25.8 310 M (91:) s
+52.2 310 M
+(   }) s
+25.8 298 M (92:) s
+52.2 298 M
+(   ) s
+25.8 286 M (93:) s
+52.2 286 M
+(}) s
+25.8 274 M (94:) s
+52.2 274 M
+(void cxi_put \(client_socket& server, vector<string>& splitvec\) {) s
+25.8 262 M (95:) s
+52.2 262 M
+(   cxi_header header;) s
+25.8 250 M (96:) s
+52.2 250 M
+(   header.command = cxi_command::PUT;) s
+25.8 238 M (97:) s
+52.2 238 M
+(   ) s
+25.8 226 M (98:) s
+52.2 226 M
+(   strcpy\(header.filename,splitvec[1].c_str\(\)\);) s
+25.8 214 M (99:) s
+52.2 214 M
+(   //if !file.exist ->error) s
+19.2 202 M (100:) s
+52.2 202 M
+(   struct stat stat_buf;) s
+19.2 190 M (101:) s
+52.2 190 M
+(   int status = stat\(header.filename, &stat_buf\);) s
+19.2 178 M (102:) s
+52.2 178 M
+(   if\(status !=0\){   //check if this works lol) s
+19.2 166 M (103:) s
+52.2 166 M
+(      cerr<< "Cannot put file. File: "<< header.filename << ) s
+19.2 154 M (104:) s
+52.2 154 M
+(             " does not exist" << endl;) s
+19.2 142 M (105:) s
+52.2 142 M
+(      return;) s
+19.2 130 M (106:) s
+52.2 130 M
+(   }) s
+19.2 118 M (107:) s
+52.2 118 M
+(   auto buffer = make_unique<char[]> \(stat_buf.st_size\);) s
+19.2 106 M (108:) s
+52.2 106 M
+(   //send payload) s
+19.2 94 M (109:) s
+52.2 94 M
+(   ifstream read_file \(header.filename, ios::in | ios::binary\);) s
+19.2 82 M (110:) s
+52.2 82 M
+(   read_file.read\(buffer.get\(\), stat_buf.st_size\);) s
+19.2 70 M (111:) s
+52.2 70 M
+(   header.command = cxi_command::PUT;//send PUT) s
+19.2 58 M (112:) s
+52.2 58 M
+(   send_packet \(server, &header, sizeof header\);) s
+19.2 46 M (113:) s
+52.2 46 M
+(   send_packet \(server, buffer.get\(\), stat_buf.st_size\); ) s
+19.2 34 M (114:) s
+52.2 34 M
+(   recv_packet \(server, &header, sizeof header\);) s
+19.2 22 M (115:) s
+52.2 22 M
+(      ) s
+19.2 10 M (116:) s
+52.2 10 M
+(   if\(header.command == cxi_command::ACK\){) s
 _R
 S
 %%Page: (3) 15
@@ -2358,164 +2516,335 @@ _S
 /ftail (cxi.cpp) def
 % User defined strings:
 /pagenumstr (3) def
-/moddatestr (02/17/21) def
-/pagecountstr (/3) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
 %%EndPageSetup
 column_borders
 do_header
-25.8 694 M (60:) s
-25.8 682 M (61:) s
+19.2 694 M (117:) s
+52.2 694 M
+(      cout << "PUT: ACK, sucess" << endl;) s
+19.2 682 M (118:) s
 52.2 682 M
-(void usage\(\) {) s
-25.8 670 M (62:) s
-52.2 670 M
-(   cerr << "Usage: " << outlog.execname\(\) << " [host] [port]" << endl;) s
-25.8 658 M (63:) s
-52.2 658 M
-(   throw cxi_exit\(\);) s
-25.8 646 M (64:) s
-52.2 646 M
-(}) s
-25.8 634 M (65:) s
-25.8 622 M (66:) s
-52.2 622 M
-(int main \(int argc, char** argv\) {) s
-25.8 610 M (67:) s
-52.2 610 M
-(   outlog.execname \(basename \(argv[0]\)\);) s
-25.8 598 M (68:) s
-52.2 598 M
-(   outlog << "starting" << endl;) s
-25.8 586 M (69:) s
-52.2 586 M
-(   vector<string> args \(&argv[1], &argv[argc]\);) s
-25.8 574 M (70:) s
-52.2 574 M
-(   if \(args.size\(\) > 2\) usage\(\);) s
-25.8 562 M (71:) s
-52.2 562 M
-(   string host = get_cxi_server_host \(args, 0\);) s
-25.8 550 M (72:) s
-52.2 550 M
-(   in_port_t port = get_cxi_server_port \(args, 1\);) s
-25.8 538 M (73:) s
-52.2 538 M
-(   outlog << to_string \(hostinfo\(\)\) << endl;) s
-25.8 526 M (74:) s
-52.2 526 M
-(   try {) s
-25.8 514 M (75:) s
-52.2 514 M
-(      outlog << "connecting to " << host << " port " << port << endl;) s
-25.8 502 M (76:) s
-52.2 502 M
-(      client_socket server \(host, port\);) s
-25.8 490 M (77:) s
-52.2 490 M
-(      outlog << "connected to " << to_string \(server\) << endl;) s
-25.8 478 M (78:) s
-52.2 478 M
-(      for \(;;\) {) s
-25.8 466 M (79:) s
-52.2 466 M
-(         string line;) s
-25.8 454 M (80:) s
-52.2 454 M
-(         getline \(cin, line\);) s
-25.8 442 M (81:) s
-52.2 442 M
-(         if \(cin.eof\(\)\) throw cxi_exit\(\);) s
-25.8 430 M (82:) s
-52.2 430 M
-(         outlog << "command " << line << endl;) s
-25.8 418 M (83:) s
-52.2 418 M
-(         const auto& itor = command_map.find \(line\);) s
-25.8 406 M (84:) s
-52.2 406 M
-(         cxi_command cmd = itor == command_map.end\(\)) s
-25.8 394 M (85:) s
-52.2 394 M
-(                         ? cxi_command::ERROR : itor->second;) s
-25.8 382 M (86:) s
-52.2 382 M
-(         switch \(cmd\) {) s
-25.8 370 M (87:) s
-52.2 370 M
-(            case cxi_command::EXIT:) s
-25.8 358 M (88:) s
-52.2 358 M
-(               throw cxi_exit\(\);) s
-25.8 346 M (89:) s
-52.2 346 M
-(               break;) s
-25.8 334 M (90:) s
-52.2 334 M
-(            case cxi_command::HELP:) s
-25.8 322 M (91:) s
-52.2 322 M
-(               cxi_help\(\);) s
-25.8 310 M (92:) s
-52.2 310 M
-(               break;) s
-25.8 298 M (93:) s
-52.2 298 M
-(            case cxi_command::LS:) s
-25.8 286 M (94:) s
-52.2 286 M
-(               cxi_ls \(server\);) s
-25.8 274 M (95:) s
-52.2 274 M
-(               break;) s
-25.8 262 M (96:) s
-52.2 262 M
-(            default:) s
-25.8 250 M (97:) s
-52.2 250 M
-(               outlog << line << ": invalid command" << endl;) s
-25.8 238 M (98:) s
-52.2 238 M
-(               break;) s
-25.8 226 M (99:) s
-52.2 226 M
-(         }) s
-19.2 214 M (100:) s
-52.2 214 M
-(      }) s
-19.2 202 M (101:) s
-52.2 202 M
-(   }catch \(socket_error& error\) {) s
-19.2 190 M (102:) s
-52.2 190 M
-(      outlog << error.what\(\) << endl;) s
-19.2 178 M (103:) s
-52.2 178 M
-(   }catch \(cxi_exit& error\) {) s
-19.2 166 M (104:) s
-52.2 166 M
-(      outlog << "caught cxi_exit" << endl;) s
-19.2 154 M (105:) s
-52.2 154 M
 (   }) s
-19.2 142 M (106:) s
-52.2 142 M
-(   outlog << "finishing" << endl;) s
-19.2 130 M (107:) s
-52.2 130 M
-(   return 0;) s
-19.2 118 M (108:) s
-52.2 118 M
+19.2 670 M (119:) s
+52.2 670 M
+(   if\(header.command == cxi_command::NAK\){) s
+19.2 658 M (120:) s
+52.2 658 M
+(      cout << "PUT: NAK, failure" << endl;) s
+19.2 646 M (121:) s
+52.2 646 M
+(   }) s
+19.2 634 M (122:) s
+52.2 634 M
+(   read_file.close\(\);) s
+19.2 622 M (123:) s
+52.2 622 M
 (}) s
-19.2 106 M (109:) s
 _R
 S
-%%Page: (1) 16
+%%Page: (4) 16
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 4 def
+/fname (cxi.cpp) def
+/fdir (.) def
+/ftail (cxi.cpp) def
+% User defined strings:
+/pagenumstr (4) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
+/user_header_p true def
+/user_header_left_str (~/cse111/assignment4/code) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+19.2 694 M (124:) s
+19.2 682 M (125:) s
+52.2 682 M
+(void cxi_rm \(client_socket& server, vector<string>& splitvec\) {) s
+19.2 670 M (126:) s
+52.2 670 M
+(   cxi_header header;) s
+19.2 658 M (127:) s
+52.2 658 M
+(   header.command = cxi_command::RM;//send RM) s
+19.2 646 M (128:) s
+52.2 646 M
+(   strcpy\(header.filename,splitvec[1].c_str\(\)\);) s
+19.2 634 M (129:) s
+19.2 622 M (130:) s
+52.2 622 M
+(   send_packet \(server, &header, sizeof header\);) s
+19.2 610 M (131:) s
+52.2 610 M
+(   recv_packet \(server, &header, sizeof header\);) s
+19.2 598 M (132:) s
+52.2 598 M
+(   if\(header.command == cxi_command::ACK\){) s
+19.2 586 M (133:) s
+52.2 586 M
+(      cout << "RM: ACK, sucess" << endl;) s
+19.2 574 M (134:) s
+52.2 574 M
+(   }) s
+19.2 562 M (135:) s
+52.2 562 M
+(   if\(header.command == cxi_command::NAK\){) s
+19.2 550 M (136:) s
+52.2 550 M
+(      cout << "RM: NAK, failure" << endl;) s
+19.2 538 M (137:) s
+52.2 538 M
+(   }) s
+19.2 526 M (138:) s
+52.2 526 M
+(}) s
+19.2 514 M (139:) s
+19.2 502 M (140:) s
+52.2 502 M
+(void usage\(\) {) s
+19.2 490 M (141:) s
+52.2 490 M
+(   cerr << "Usage: " << outlog.execname\(\) << " [host] [port]" << endl;) s
+19.2 478 M (142:) s
+52.2 478 M
+(   throw cxi_exit\(\);) s
+19.2 466 M (143:) s
+52.2 466 M
+(}) s
+19.2 454 M (144:) s
+52.2 454 M
+(//taken from split function in asg2) s
+19.2 442 M (145:) s
+52.2 442 M
+(vector<string> split \(const string& line, const string& delimiters\) {) s
+19.2 430 M (146:) s
+52.2 430 M
+(   vector<string> words;) s
+19.2 418 M (147:) s
+52.2 418 M
+(   size_t end = 0;) s
+19.2 406 M (148:) s
+52.2 406 M
+(    for \(;;\) {) s
+19.2 394 M (149:) s
+52.2 394 M
+(      size_t start = line.find_first_not_of \(delimiters, end\);) s
+19.2 382 M (150:) s
+52.2 382 M
+(      if \(start == string::npos\) break;) s
+19.2 370 M (151:) s
+52.2 370 M
+(      end = line.find_first_of \(delimiters, start\);) s
+19.2 358 M (152:) s
+52.2 358 M
+(      words.push_back \(line.substr \(start, end - start\)\);) s
+19.2 346 M (153:) s
+52.2 346 M
+(   }) s
+19.2 334 M (154:) s
+52.2 334 M
+(   return words;) s
+19.2 322 M (155:) s
+52.2 322 M
+(}) s
+19.2 310 M (156:) s
+19.2 298 M (157:) s
+52.2 298 M
+(int main \(int argc, char** argv\) {) s
+19.2 286 M (158:) s
+52.2 286 M
+(   outlog.execname \(basename \(argv[0]\)\);) s
+19.2 274 M (159:) s
+52.2 274 M
+(   outlog << "starting" << endl;) s
+19.2 262 M (160:) s
+52.2 262 M
+(   vector<string> args \(&argv[1], &argv[argc]\);) s
+19.2 250 M (161:) s
+52.2 250 M
+(   if \(args.size\(\) > 2\) usage\(\);) s
+19.2 238 M (162:) s
+52.2 238 M
+(   string host = get_cxi_server_host \(args, 0\);) s
+19.2 226 M (163:) s
+52.2 226 M
+(   in_port_t port = get_cxi_server_port \(args, 1\);) s
+19.2 214 M (164:) s
+52.2 214 M
+(   outlog << to_string \(hostinfo\(\)\) << endl;) s
+19.2 202 M (165:) s
+52.2 202 M
+(   try {) s
+19.2 190 M (166:) s
+52.2 190 M
+(      outlog << "connecting to " << host << " port " << port << endl;) s
+19.2 178 M (167:) s
+52.2 178 M
+(      client_socket server \(host, port\);) s
+19.2 166 M (168:) s
+52.2 166 M
+(      outlog << "connected to " << to_string \(server\) << endl;) s
+19.2 154 M (169:) s
+52.2 154 M
+(      for \(;;\) {) s
+19.2 142 M (170:) s
+52.2 142 M
+(         string line;) s
+19.2 130 M (171:) s
+52.2 130 M
+(         getline \(cin, line\); //split line after if) s
+19.2 118 M (172:) s
+52.2 118 M
+(         if \(cin.eof\(\)\) throw cxi_exit\(\);) s
+19.2 106 M (173:) s
+52.2 106 M
+(         vector<string> splitline = split\(line," "\);//makes new vector) s
+19.2 94 M (174:) s
+52.2 94 M
+(         outlog << "command " << line << endl;) s
+19.2 82 M (175:) s
+52.2 82 M
+(         const auto& itor = command_map.find \(splitline[0]\);) s
+19.2 70 M (176:) s
+52.2 70 M
+(         cxi_command cmd = itor == command_map.end\(\)) s
+19.2 58 M (177:) s
+52.2 58 M
+(                         ? cxi_command::ERROR : itor->second;) s
+19.2 46 M (178:) s
+52.2 46 M
+(         switch \(cmd\) { //added appropriate switch cases) s
+19.2 34 M (179:) s
+52.2 34 M
+(            case cxi_command::EXIT:) s
+19.2 22 M (180:) s
+52.2 22 M
+(               throw cxi_exit\(\);) s
+19.2 10 M (181:) s
+52.2 10 M
+(               break;) s
+_R
+S
+%%Page: (5) 17
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 5 def
+/fname (cxi.cpp) def
+/fdir (.) def
+/ftail (cxi.cpp) def
+% User defined strings:
+/pagenumstr (5) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
+/user_header_p true def
+/user_header_left_str (~/cse111/assignment4/code) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+19.2 694 M (182:) s
+52.2 694 M
+(            case cxi_command::HELP:) s
+19.2 682 M (183:) s
+52.2 682 M
+(               cxi_help\(\);) s
+19.2 670 M (184:) s
+52.2 670 M
+(               break;) s
+19.2 658 M (185:) s
+52.2 658 M
+(            case cxi_command::LS:   ) s
+19.2 646 M (186:) s
+52.2 646 M
+(               cxi_ls \(server\);) s
+19.2 634 M (187:) s
+52.2 634 M
+(               break;) s
+19.2 622 M (188:) s
+52.2 622 M
+(            case cxi_command::GET:   ) s
+19.2 610 M (189:) s
+52.2 610 M
+(               cxi_get \(server, splitline\);) s
+19.2 598 M (190:) s
+52.2 598 M
+(               break;) s
+19.2 586 M (191:) s
+52.2 586 M
+(            case cxi_command::PUT:   ) s
+19.2 574 M (192:) s
+52.2 574 M
+(               cxi_put \(server, splitline\);) s
+19.2 562 M (193:) s
+52.2 562 M
+(               break;) s
+19.2 550 M (194:) s
+52.2 550 M
+(            case cxi_command::RM:   ) s
+19.2 538 M (195:) s
+52.2 538 M
+(               cxi_rm \(server, splitline\);) s
+19.2 526 M (196:) s
+52.2 526 M
+(               break;   ) s
+19.2 514 M (197:) s
+52.2 514 M
+(            default:) s
+19.2 502 M (198:) s
+52.2 502 M
+(               outlog << line << ": invalid command" << endl;) s
+19.2 490 M (199:) s
+52.2 490 M
+(               break;) s
+19.2 478 M (200:) s
+52.2 478 M
+(         }) s
+19.2 466 M (201:) s
+52.2 466 M
+(      }) s
+19.2 454 M (202:) s
+52.2 454 M
+(   }catch \(socket_error& error\) {) s
+19.2 442 M (203:) s
+52.2 442 M
+(      outlog << error.what\(\) << endl;) s
+19.2 430 M (204:) s
+52.2 430 M
+(   }catch \(cxi_exit& error\) {) s
+19.2 418 M (205:) s
+52.2 418 M
+(      outlog << "caught cxi_exit" << endl;) s
+19.2 406 M (206:) s
+52.2 406 M
+(   }) s
+19.2 394 M (207:) s
+52.2 394 M
+(   outlog << "finishing" << endl;) s
+19.2 382 M (208:) s
+52.2 382 M
+(   return 0;) s
+19.2 370 M (209:) s
+52.2 370 M
+(}) s
+19.2 358 M (210:) s
+_R
+S
+%%Page: (1) 18
 %%BeginPageSetup
 _S
 38 24 translate
@@ -2525,11 +2854,10 @@ _S
 /ftail (cxid.cpp) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (02/17/21) def
-/pagecountstr (/4) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
@@ -2538,7 +2866,7 @@ column_borders
 do_header
 32.4 694 M (1:) s
 52.2 694 M
-(// $Id: cxid.cpp,v 1.3 2020-12-12 22:09:29-08 - - $) s
+(// $Id: cxid.cpp,v 1.6 2021-06-01 20:01:20-07 - - $) s
 32.4 682 M (2:) s
 32.4 670 M (3:) s
 52.2 670 M
@@ -2551,129 +2879,158 @@ do_header
 (#include <vector>) s
 32.4 634 M (6:) s
 52.2 634 M
-(using namespace std;) s
+(#include <fstream>) s
 32.4 622 M (7:) s
+52.2 622 M
+(#include <memory>) s
 32.4 610 M (8:) s
 52.2 610 M
-(#include <libgen.h>) s
+(using namespace std;) s
 32.4 598 M (9:) s
-52.2 598 M
-(#include <sys/types.h>) s
 25.8 586 M (10:) s
 52.2 586 M
-(#include <unistd.h>) s
+(#include <libgen.h>) s
 25.8 574 M (11:) s
+52.2 574 M
+(#include <sys/types.h>) s
 25.8 562 M (12:) s
 52.2 562 M
-(#include "protocol.h") s
+(#include <sys/stat.h>) s
 25.8 550 M (13:) s
 52.2 550 M
-(#include "logstream.h") s
+(#include <unistd.h>) s
 25.8 538 M (14:) s
-52.2 538 M
-(#include "sockets.h") s
 25.8 526 M (15:) s
+52.2 526 M
+(#include "protocol.h") s
 25.8 514 M (16:) s
 52.2 514 M
-(logstream outlog \(cout\);) s
+(#include "logstream.h") s
 25.8 502 M (17:) s
 52.2 502 M
-(struct cxi_exit: public exception {};) s
+(#include "sockets.h") s
 25.8 490 M (18:) s
 25.8 478 M (19:) s
 52.2 478 M
-(void reply_ls \(accepted_socket& client_sock, cxi_header& header\) {) s
+(logstream outlog \(cout\);) s
 25.8 466 M (20:) s
 52.2 466 M
-(   const char* ls_cmd = "ls -l 2>&1";) s
+(struct cxi_exit: public exception {};) s
 25.8 454 M (21:) s
-52.2 454 M
-(   FILE* ls_pipe = popen \(ls_cmd, "r"\);) s
 25.8 442 M (22:) s
 52.2 442 M
-(   if \(ls_pipe == NULL\) { ) s
+(void reply_ls \(accepted_socket& client_sock, cxi_header& header\) {) s
 25.8 430 M (23:) s
 52.2 430 M
-(      outlog << ls_cmd << ": " << strerror \(errno\) << endl;) s
+(   const char* ls_cmd = "ls -l 2>&1";) s
 25.8 418 M (24:) s
 52.2 418 M
-(      header.command = cxi_command::NAK;) s
+(   FILE* ls_pipe = popen \(ls_cmd, "r"\);) s
 25.8 406 M (25:) s
 52.2 406 M
-(      header.nbytes = htonl \(errno\);) s
+(   if \(ls_pipe == NULL\) { //gets ls output) s
 25.8 394 M (26:) s
 52.2 394 M
-(      send_packet \(client_sock, &header, sizeof header\);) s
+(      outlog << ls_cmd << ": " << strerror \(errno\) << endl;) s
 25.8 382 M (27:) s
 52.2 382 M
-(      return;) s
+(      header.command = cxi_command::NAK;//if err return NAK) s
 25.8 370 M (28:) s
 52.2 370 M
-(   }) s
+(      header.nbytes = htonl \(errno\);) s
 25.8 358 M (29:) s
 52.2 358 M
-(   string ls_output;) s
+(      send_packet \(client_sock, &header, sizeof header\);) s
 25.8 346 M (30:) s
 52.2 346 M
-(   char buffer[0x1000];) s
+(      return;) s
 25.8 334 M (31:) s
 52.2 334 M
-(   for \(;;\) {) s
+(   }) s
 25.8 322 M (32:) s
 52.2 322 M
-(      char* rc = fgets \(buffer, sizeof buffer, ls_pipe\);) s
+(   string ls_output;) s
 25.8 310 M (33:) s
 52.2 310 M
-(      if \(rc == nullptr\) break;) s
+(   char buffer[0x1000];//else create buffer) s
 25.8 298 M (34:) s
 52.2 298 M
-(      ls_output.append \(buffer\);) s
+(   for \(;;\) {) s
 25.8 286 M (35:) s
 52.2 286 M
-(   }) s
+(      char* rc = fgets \(buffer, sizeof buffer, ls_pipe\);) s
 25.8 274 M (36:) s
 52.2 274 M
-(   int status = pclose \(ls_pipe\);) s
+(      if \(rc == nullptr\) break;) s
 25.8 262 M (37:) s
 52.2 262 M
-(   if \(status < 0\) outlog << ls_cmd << ": " << strerror \(errno\) << endl;) s
+(      ls_output.append \(buffer\);//make output) s
 25.8 250 M (38:) s
 52.2 250 M
-(              else outlog << ls_cmd << ": exit " << \(status >> 8\)) s
+(   }) s
 25.8 238 M (39:) s
 52.2 238 M
-(                          << " signal " << \(status & 0x7F\)) s
+(   int status = pclose \(ls_pipe\);//close status) s
 25.8 226 M (40:) s
 52.2 226 M
-(                          << " core " << \(status >> 7 & 1\) << endl;) s
+(   if \(status < 0\) outlog << ls_cmd << ": " << strerror \(errno\) << endl;) s
 25.8 214 M (41:) s
 52.2 214 M
-(   header.command = cxi_command::LSOUT;) s
+(              else outlog << ls_cmd << ": exit " << \(status >> 8\)) s
 25.8 202 M (42:) s
 52.2 202 M
-(   header.nbytes = htonl \(ls_output.size\(\)\);) s
+(                          << " signal " << \(status & 0x7F\)) s
 25.8 190 M (43:) s
 52.2 190 M
-(   memset \(header.filename, 0, FILENAME_SIZE\);) s
+(                          << " core " << \(status >> 7 & 1\) << endl;) s
 25.8 178 M (44:) s
 52.2 178 M
-(   outlog << "sending header " << header << endl;) s
+(   header.command = cxi_command::LSOUT;//sends LSOUT) s
 25.8 166 M (45:) s
 52.2 166 M
-(   send_packet \(client_sock, &header, sizeof header\);) s
+(   header.nbytes = htonl \(ls_output.size\(\)\);//sets nbytes) s
 25.8 154 M (46:) s
 52.2 154 M
-(   send_packet \(client_sock, ls_output.c_str\(\), ls_output.size\(\)\);) s
+(   memset \(header.filename, 0, FILENAME_SIZE\);//memset) s
 25.8 142 M (47:) s
 52.2 142 M
-(   outlog << "sent " << ls_output.size\(\) << " bytes" << endl;) s
+(   outlog << "sending header " << header << endl;) s
 25.8 130 M (48:) s
 52.2 130 M
-(}) s
+(   send_packet \(client_sock, &header, sizeof header\);//sends lsout) s
 25.8 118 M (49:) s
+52.2 118 M
+(   send_packet \(client_sock, ls_output.c_str\(\), ls_output.size\(\)\);) s
+25.8 106 M (50:) s
+52.2 106 M
+(   outlog << "sent " << ls_output.size\(\) << " bytes" << endl;) s
+25.8 94 M (51:) s
+52.2 94 M
+(}) s
+25.8 82 M (52:) s
+52.2 82 M
+(void reply_get \(accepted_socket& client_sock, cxi_header& header\) {) s
+25.8 70 M (53:) s
+52.2 70 M
+(   struct stat stat_buf;   //or file?) s
+25.8 58 M (54:) s
+52.2 58 M
+(   int status = stat\(header.filename, &stat_buf\);) s
+25.8 46 M (55:) s
+52.2 46 M
+(   if\(status !=0\){   //check if this works lol) s
+25.8 34 M (56:) s
+52.2 34 M
+(      cerr<< "Cannot get file. File: " << header.filename << ) s
+25.8 22 M (57:) s
+52.2 22 M
+(             " does not exist" << endl;) s
+25.8 10 M (58:) s
+52.2 10 M
+(      header.command = cxi_command::NAK;  //send NAK) s
 _R
 S
-%%Page: (2) 17
+%%Page: (2) 19
 %%BeginPageSetup
 _S
 38 24 translate
@@ -2683,143 +3040,165 @@ _S
 /ftail (cxid.cpp) def
 % User defined strings:
 /pagenumstr (2) def
-/moddatestr (02/17/21) def
-/pagecountstr (/4) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
 %%EndPageSetup
 column_borders
 do_header
-25.8 694 M (50:) s
-25.8 682 M (51:) s
+25.8 694 M (59:) s
+52.2 694 M
+(      header.nbytes = htonl \(errno\);) s
+25.8 682 M (60:) s
 52.2 682 M
-(void run_server \(accepted_socket& client_sock\) {) s
-25.8 670 M (52:) s
+(      send_packet \(client_sock, &header, sizeof header\);) s
+25.8 670 M (61:) s
 52.2 670 M
-(   outlog.execname \(outlog.execname\(\) + "*"\);) s
-25.8 658 M (53:) s
+(      return;) s
+25.8 658 M (62:) s
 52.2 658 M
-(   outlog << "connected to " << to_string \(client_sock\) << endl;) s
-25.8 646 M (54:) s
+(   }) s
+25.8 646 M (63:) s
 52.2 646 M
-(   try {   ) s
-25.8 634 M (55:) s
+(   //check size of file, declare buf, set nbytes) s
+25.8 634 M (64:) s
 52.2 634 M
-(      for \(;;\) {) s
-25.8 622 M (56:) s
+(   auto buffer = make_unique<char[]> \(stat_buf.st_size\);) s
+25.8 622 M (65:) s
 52.2 622 M
-(         cxi_header header; ) s
-25.8 610 M (57:) s
+(   ifstream read_file \(header.filename, ios::in | ios::binary\);) s
+25.8 610 M (66:) s
 52.2 610 M
-(         recv_packet \(client_sock, &header, sizeof header\);) s
-25.8 598 M (58:) s
+(   read_file.read\(buffer.get\(\), stat_buf.st_size\);) s
+25.8 598 M (67:) s
 52.2 598 M
-(         outlog << "received header " << header << endl;) s
-25.8 586 M (59:) s
+(   read_file.close\(\);) s
+25.8 586 M (68:) s
 52.2 586 M
-(         switch \(header.command\) {) s
-25.8 574 M (60:) s
+(   header.command = cxi_command::FILEOUT;) s
+25.8 574 M (69:) s
 52.2 574 M
-(            case cxi_command::LS: ) s
-25.8 562 M (61:) s
+(   header.nbytes = htonl \(stat_buf.st_size\);//set nbytes) s
+25.8 562 M (70:) s
 52.2 562 M
-(               reply_ls \(client_sock, header\);) s
-25.8 550 M (62:) s
+(   //sends FILEOUT) s
+25.8 550 M (71:) s
 52.2 550 M
-(               break;) s
-25.8 538 M (63:) s
+(   send_packet \(client_sock, &header, sizeof header\);) s
+25.8 538 M (72:) s
 52.2 538 M
-(            default:) s
-25.8 526 M (64:) s
+(   //sends output) s
+25.8 526 M (73:) s
 52.2 526 M
-(               outlog << "invalid client header:" << header << endl;) s
-25.8 514 M (65:) s
+(   send_packet \(client_sock, buffer.get\(\), stat_buf.st_size\);) s
+25.8 514 M (74:) s
 52.2 514 M
-(               break;) s
-25.8 502 M (66:) s
+(}) s
+25.8 502 M (75:) s
 52.2 502 M
-(         }) s
-25.8 490 M (67:) s
+(void reply_put \(accepted_socket& client_sock, cxi_header& header\) {) s
+25.8 490 M (76:) s
 52.2 490 M
-(      }) s
-25.8 478 M (68:) s
+(   struct stat stat_buf;) s
+25.8 478 M (77:) s
 52.2 478 M
-(   }catch \(socket_error& error\) {) s
-25.8 466 M (69:) s
+(   int status = stat\(header.filename, &stat_buf\);) s
+25.8 466 M (78:) s
 52.2 466 M
-(      outlog << error.what\(\) << endl;) s
-25.8 454 M (70:) s
+(   if\(status !=0\){ ) s
+25.8 454 M (79:) s
 52.2 454 M
-(   }catch \(cxi_exit& error\) {) s
-25.8 442 M (71:) s
+(      cerr<< "Cannot get file. File: " << header.filename << ) s
+25.8 442 M (80:) s
 52.2 442 M
-(      outlog << "caught cxi_exit" << endl;) s
-25.8 430 M (72:) s
+(             " does not exist" << endl;) s
+25.8 430 M (81:) s
 52.2 430 M
-(   }) s
-25.8 418 M (73:) s
+(      header.command = cxi_command::NAK;  //send NAK) s
+25.8 418 M (82:) s
 52.2 418 M
-(   outlog << "finishing" << endl;) s
-25.8 406 M (74:) s
+(      header.nbytes = htonl \(errno\);) s
+25.8 406 M (83:) s
 52.2 406 M
-(   throw cxi_exit\(\);) s
-25.8 394 M (75:) s
+(      send_packet \(client_sock, &header, sizeof header\);) s
+25.8 394 M (84:) s
 52.2 394 M
-(}) s
-25.8 382 M (76:) s
-25.8 370 M (77:) s
-52.2 370 M
-(void fork_cxiserver \(server_socket& server, accepted_socket& accept\) {) s
-25.8 358 M (78:) s
-52.2 358 M
-(   pid_t pid = fork\(\);) s
-25.8 346 M (79:) s
-52.2 346 M
-(   if \(pid == 0\) { // child) s
-25.8 334 M (80:) s
-52.2 334 M
-(      server.close\(\);) s
-25.8 322 M (81:) s
-52.2 322 M
-(      run_server \(accept\);) s
-25.8 310 M (82:) s
-52.2 310 M
-(      throw cxi_exit\(\);) s
-25.8 298 M (83:) s
-52.2 298 M
-(   }else {) s
-25.8 286 M (84:) s
-52.2 286 M
-(      accept.close\(\);) s
-25.8 274 M (85:) s
-52.2 274 M
-(      if \(pid < 0\) {) s
-25.8 262 M (86:) s
-52.2 262 M
-(         outlog << "fork failed: " << strerror \(errno\) << endl;) s
-25.8 250 M (87:) s
-52.2 250 M
-(      }else {) s
-25.8 238 M (88:) s
-52.2 238 M
-(         outlog << "forked cxiserver pid " << pid << endl;) s
-25.8 226 M (89:) s
-52.2 226 M
-(      }) s
-25.8 214 M (90:) s
-52.2 214 M
+(      return;) s
+25.8 382 M (85:) s
+52.2 382 M
 (   }) s
-25.8 202 M (91:) s
-52.2 202 M
+25.8 370 M (86:) s
+52.2 370 M
+(   size_t host_nbytes = ntohl \(header.nbytes\);//setnbytes) s
+25.8 358 M (87:) s
+52.2 358 M
+(   auto buffer = make_unique<char[]> \(host_nbytes+1\);//set buffer) s
+25.8 346 M (88:) s
+25.8 334 M (89:) s
+52.2 334 M
+(   recv_packet \(client_sock, buffer.get\(\), host_nbytes\);) s
+25.8 322 M (90:) s
+52.2 322 M
+(   buffer[host_nbytes] = '\\0';) s
+25.8 310 M (91:) s
+52.2 310 M
+(   ofstream write_file \(header.filename, ios::out | ios::binary\);) s
+25.8 298 M (92:) s
+52.2 298 M
+(   write_file.write\(buffer.get\(\),host_nbytes\);  ) s
+25.8 286 M (93:) s
+52.2 286 M
+(   header.command = cxi_command::ACK;  //send ACK) s
+25.8 274 M (94:) s
+52.2 274 M
+(   send_packet \(client_sock, &header, sizeof header\);//sends FILEOUT) s
+25.8 262 M (95:) s
+25.8 250 M (96:) s
+52.2 250 M
+(   write_file.close\(\);) s
+25.8 238 M (97:) s
+25.8 226 M (98:) s
+25.8 214 M (99:) s
+52.2 214 M
 (}) s
-25.8 190 M (92:) s
+19.2 202 M (100:) s
+52.2 202 M
+(void reply_rm \(accepted_socket& client_sock, cxi_header& header\) {) s
+19.2 190 M (101:) s
+52.2 190 M
+(   int status = unlink\(header.filename\);) s
+19.2 178 M (102:) s
+52.2 178 M
+(   if\(status !=0\){  ) s
+19.2 166 M (103:) s
+52.2 166 M
+(      header.command = cxi_command::NAK;  //send NAK) s
+19.2 154 M (104:) s
+52.2 154 M
+(      header.nbytes = htonl \(errno\);) s
+19.2 142 M (105:) s
+52.2 142 M
+(      send_packet \(client_sock, &header, sizeof header\);) s
+19.2 130 M (106:) s
+52.2 130 M
+(   }     ) s
+19.2 118 M (107:) s
+52.2 118 M
+(   header.command = cxi_command::ACK;  //send ACK) s
+19.2 106 M (108:) s
+52.2 106 M
+(   send_packet \(client_sock, &header, sizeof header\);) s
+19.2 94 M (109:) s
+52.2 94 M
+(}) s
+19.2 82 M (110:) s
 _R
 S
-%%Page: (3) 18
+%%Page: (3) 20
 %%BeginPageSetup
 _S
 38 24 translate
@@ -2829,96 +3208,171 @@ _S
 /ftail (cxid.cpp) def
 % User defined strings:
 /pagenumstr (3) def
-/moddatestr (02/17/21) def
-/pagecountstr (/4) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
 %%EndPageSetup
 column_borders
 do_header
-25.8 694 M (93:) s
-25.8 682 M (94:) s
+19.2 694 M (111:) s
+5 694 M
+(//edit) s
+19.2 682 M (112:) s
 52.2 682 M
-(void reap_zombies\(\) {) s
-25.8 670 M (95:) s
+(void run_server \(accepted_socket& client_sock\) {) s
+19.2 670 M (113:) s
 52.2 670 M
-(   for \(;;\) {) s
-25.8 658 M (96:) s
+(   outlog.execname \(outlog.execname\(\) + "*"\);) s
+19.2 658 M (114:) s
 52.2 658 M
-(      int status;) s
-25.8 646 M (97:) s
+(   outlog << "connected to " << to_string \(client_sock\) << endl;) s
+19.2 646 M (115:) s
 52.2 646 M
-(      pid_t child = waitpid \(-1, &status, WNOHANG\);) s
-25.8 634 M (98:) s
+(   try {   ) s
+19.2 634 M (116:) s
 52.2 634 M
-(      if \(child <= 0\) break;) s
-25.8 622 M (99:) s
+(      for \(;;\) {) s
+19.2 622 M (117:) s
 52.2 622 M
-(      outlog << "child " << child) s
-19.2 610 M (100:) s
+(         cxi_header header; ) s
+19.2 610 M (118:) s
 52.2 610 M
-(             << " exit " << \(status >> 8\)) s
-19.2 598 M (101:) s
+(         recv_packet \(client_sock, &header, sizeof header\);) s
+19.2 598 M (119:) s
 52.2 598 M
-(             << " signal " << \(status & 0x7F\)) s
-19.2 586 M (102:) s
+(         outlog << "received header " << header << endl;) s
+19.2 586 M (120:) s
 52.2 586 M
-(             << " core " << \(status >> 7 & 1\) << endl;) s
-19.2 574 M (103:) s
+(         switch \(header.command\) { ) s
+19.2 574 M (121:) s
 52.2 574 M
-(   }) s
-19.2 562 M (104:) s
+(            case cxi_command::LS:   //put, rm, get) s
+19.2 562 M (122:) s
 52.2 562 M
-(}) s
-19.2 550 M (105:) s
-19.2 538 M (106:) s
+(               reply_ls \(client_sock, header\);) s
+19.2 550 M (123:) s
+52.2 550 M
+(               break;) s
+19.2 538 M (124:) s
 52.2 538 M
-(void signal_handler \(int signal\) {) s
-19.2 526 M (107:) s
+(            case cxi_command::GET:   ) s
+19.2 526 M (125:) s
 52.2 526 M
-(   outlog << "signal_handler: caught " << strsignal \(signal\) << endl;) s
-19.2 514 M (108:) s
+(               reply_get \(client_sock, header\);) s
+19.2 514 M (126:) s
 52.2 514 M
-(   reap_zombies\(\);) s
-19.2 502 M (109:) s
+(               break;) s
+19.2 502 M (127:) s
 52.2 502 M
-(}) s
-19.2 490 M (110:) s
-19.2 478 M (111:) s
+(            case cxi_command::PUT:   ) s
+19.2 490 M (128:) s
+52.2 490 M
+(               reply_put \(client_sock, header\);) s
+19.2 478 M (129:) s
 52.2 478 M
-(void signal_action \(int signal, void \(*handler\) \(int\)\) {) s
-19.2 466 M (112:) s
+(               break;) s
+19.2 466 M (130:) s
 52.2 466 M
-(   struct sigaction action;) s
-19.2 454 M (113:) s
+(            case cxi_command::RM:   ) s
+19.2 454 M (131:) s
 52.2 454 M
-(   action.sa_handler = handler;) s
-19.2 442 M (114:) s
+(               reply_rm \(client_sock, header\);) s
+19.2 442 M (132:) s
 52.2 442 M
-(   sigfillset \(&action.sa_mask\);) s
-19.2 430 M (115:) s
+(               break;   ) s
+19.2 430 M (133:) s
 52.2 430 M
-(   action.sa_flags = 0;) s
-19.2 418 M (116:) s
+(            default:) s
+19.2 418 M (134:) s
 52.2 418 M
-(   int rc = sigaction \(signal, &action, nullptr\);) s
-19.2 406 M (117:) s
+(               outlog << "invalid client header:" << header << endl;) s
+19.2 406 M (135:) s
 52.2 406 M
-(   if \(rc < 0\) outlog << "sigaction " << strsignal \(signal\)) s
-19.2 394 M (118:) s
+(               break;) s
+19.2 394 M (136:) s
 52.2 394 M
-(                      << " failed: " << strerror \(errno\) << endl;) s
-19.2 382 M (119:) s
+(         }) s
+19.2 382 M (137:) s
 52.2 382 M
+(      }) s
+19.2 370 M (138:) s
+52.2 370 M
+(   }catch \(socket_error& error\) {) s
+19.2 358 M (139:) s
+52.2 358 M
+(      outlog << error.what\(\) << endl;) s
+19.2 346 M (140:) s
+52.2 346 M
+(   }catch \(cxi_exit& error\) {) s
+19.2 334 M (141:) s
+52.2 334 M
+(      outlog << "caught cxi_exit" << endl;) s
+19.2 322 M (142:) s
+52.2 322 M
+(   }) s
+19.2 310 M (143:) s
+52.2 310 M
+(   outlog << "finishing" << endl;) s
+19.2 298 M (144:) s
+52.2 298 M
+(   throw cxi_exit\(\);) s
+19.2 286 M (145:) s
+52.2 286 M
 (}) s
-19.2 370 M (120:) s
+19.2 274 M (146:) s
+19.2 262 M (147:) s
+52.2 262 M
+(void fork_cxiserver \(server_socket& server, accepted_socket& accept\) {) s
+19.2 250 M (148:) s
+52.2 250 M
+(   pid_t pid = fork\(\);) s
+19.2 238 M (149:) s
+52.2 238 M
+(   if \(pid == 0\) { // child) s
+19.2 226 M (150:) s
+52.2 226 M
+(      server.close\(\);) s
+19.2 214 M (151:) s
+52.2 214 M
+(      run_server \(accept\);) s
+19.2 202 M (152:) s
+52.2 202 M
+(      throw cxi_exit\(\);) s
+19.2 190 M (153:) s
+52.2 190 M
+(   }else {) s
+19.2 178 M (154:) s
+52.2 178 M
+(      accept.close\(\);) s
+19.2 166 M (155:) s
+52.2 166 M
+(      if \(pid < 0\) {) s
+19.2 154 M (156:) s
+52.2 154 M
+(         outlog << "fork failed: " << strerror \(errno\) << endl;) s
+19.2 142 M (157:) s
+52.2 142 M
+(      }else {) s
+19.2 130 M (158:) s
+52.2 130 M
+(         outlog << "forked cxiserver pid " << pid << endl;) s
+19.2 118 M (159:) s
+52.2 118 M
+(      }) s
+19.2 106 M (160:) s
+52.2 106 M
+(   }) s
+19.2 94 M (161:) s
+52.2 94 M
+(}) s
+19.2 82 M (162:) s
 _R
 S
-%%Page: (4) 19
+%%Page: (4) 21
 %%BeginPageSetup
 _S
 38 24 translate
@@ -2928,151 +3382,248 @@ _S
 /ftail (cxid.cpp) def
 % User defined strings:
 /pagenumstr (4) def
-/moddatestr (02/17/21) def
-/pagecountstr (/4) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
 %%EndPageSetup
 column_borders
 do_header
-19.2 694 M (121:) s
-19.2 682 M (122:) s
+19.2 694 M (163:) s
+19.2 682 M (164:) s
 52.2 682 M
-(int main \(int argc, char** argv\) {) s
-19.2 670 M (123:) s
+(void reap_zombies\(\) {) s
+19.2 670 M (165:) s
 52.2 670 M
-(   outlog.execname \(basename \(argv[0]\)\);) s
-19.2 658 M (124:) s
+(   for \(;;\) {) s
+19.2 658 M (166:) s
 52.2 658 M
-(   outlog << "starting" << endl;) s
-19.2 646 M (125:) s
+(      int status;) s
+19.2 646 M (167:) s
 52.2 646 M
-(   vector<string> args \(&argv[1], &argv[argc]\);) s
-19.2 634 M (126:) s
+(      pid_t child = waitpid \(-1, &status, WNOHANG\);) s
+19.2 634 M (168:) s
 52.2 634 M
-(   signal_action \(SIGCHLD, signal_handler\);) s
-19.2 622 M (127:) s
+(      if \(child <= 0\) break;) s
+19.2 622 M (169:) s
 52.2 622 M
-(   in_port_t port = get_cxi_server_port \(args, 0\);) s
-19.2 610 M (128:) s
+(      outlog << "child " << child) s
+19.2 610 M (170:) s
 52.2 610 M
-(   try {) s
-19.2 598 M (129:) s
+(             << " exit " << \(status >> 8\)) s
+19.2 598 M (171:) s
 52.2 598 M
-(      server_socket listener \(port\);) s
-19.2 586 M (130:) s
+(             << " signal " << \(status & 0x7F\)) s
+19.2 586 M (172:) s
 52.2 586 M
-(      for \(;;\) {) s
-19.2 574 M (131:) s
+(             << " core " << \(status >> 7 & 1\) << endl;) s
+19.2 574 M (173:) s
 52.2 574 M
-(         outlog << to_string \(hostinfo\(\)\) << " accepting port ") s
-19.2 562 M (132:) s
-52.2 562 M
-(             << to_string \(port\) << endl;) s
-19.2 550 M (133:) s
-52.2 550 M
-(         accepted_socket client_sock;) s
-19.2 538 M (134:) s
-52.2 538 M
-(         for \(;;\) {) s
-19.2 526 M (135:) s
-52.2 526 M
-(            try {) s
-19.2 514 M (136:) s
-52.2 514 M
-(               listener.accept \(client_sock\);) s
-19.2 502 M (137:) s
-52.2 502 M
-(               break;) s
-19.2 490 M (138:) s
-52.2 490 M
-(            }catch \(socket_sys_error& error\) {) s
-19.2 478 M (139:) s
-52.2 478 M
-(               switch \(error.sys_errno\) {) s
-19.2 466 M (140:) s
-52.2 466 M
-(                  case EINTR:) s
-19.2 454 M (141:) s
-52.2 454 M
-(                     outlog << "listener.accept caught ") s
-19.2 442 M (142:) s
-52.2 442 M
-(                         << strerror \(EINTR\) << endl;) s
-19.2 430 M (143:) s
-52.2 430 M
-(                     break;) s
-19.2 418 M (144:) s
-52.2 418 M
-(                  default:) s
-19.2 406 M (145:) s
-52.2 406 M
-(                     throw;) s
-19.2 394 M (146:) s
-52.2 394 M
-(               }) s
-19.2 382 M (147:) s
-52.2 382 M
-(            }) s
-19.2 370 M (148:) s
-52.2 370 M
-(         }) s
-19.2 358 M (149:) s
-52.2 358 M
-(         outlog << "accepted " << to_string \(client_sock\) << endl;) s
-19.2 346 M (150:) s
-52.2 346 M
-(         try {) s
-19.2 334 M (151:) s
-52.2 334 M
-(            fork_cxiserver \(listener, client_sock\);) s
-19.2 322 M (152:) s
-52.2 322 M
-(            reap_zombies\(\);) s
-19.2 310 M (153:) s
-52.2 310 M
-(         }catch \(socket_error& error\) {) s
-19.2 298 M (154:) s
-52.2 298 M
-(            outlog << error.what\(\) << endl;) s
-19.2 286 M (155:) s
-52.2 286 M
-(         }) s
-19.2 274 M (156:) s
-52.2 274 M
-(      }) s
-19.2 262 M (157:) s
-52.2 262 M
-(   }catch \(socket_error& error\) {) s
-19.2 250 M (158:) s
-52.2 250 M
-(      outlog << error.what\(\) << endl;) s
-19.2 238 M (159:) s
-52.2 238 M
-(   }catch \(cxi_exit& error\) {) s
-19.2 226 M (160:) s
-52.2 226 M
-(      outlog << "caught cxi_exit" << endl;) s
-19.2 214 M (161:) s
-52.2 214 M
 (   }) s
-19.2 202 M (162:) s
-52.2 202 M
-(   outlog << "finishing" << endl;) s
-19.2 190 M (163:) s
-52.2 190 M
-(   return 0;) s
-19.2 178 M (164:) s
-52.2 178 M
+19.2 562 M (174:) s
+52.2 562 M
 (}) s
-19.2 166 M (165:) s
+19.2 550 M (175:) s
+19.2 538 M (176:) s
+52.2 538 M
+(void signal_handler \(int signal\) {) s
+19.2 526 M (177:) s
+52.2 526 M
+(   outlog << "signal_handler: caught " << strsignal \(signal\) << endl;) s
+19.2 514 M (178:) s
+52.2 514 M
+(   reap_zombies\(\);) s
+19.2 502 M (179:) s
+52.2 502 M
+(}) s
+19.2 490 M (180:) s
+19.2 478 M (181:) s
+52.2 478 M
+(void signal_action \(int signal, void \(*handler\) \(int\)\) {) s
+19.2 466 M (182:) s
+52.2 466 M
+(   struct sigaction action;) s
+19.2 454 M (183:) s
+52.2 454 M
+(   action.sa_handler = handler;) s
+19.2 442 M (184:) s
+52.2 442 M
+(   sigfillset \(&action.sa_mask\);) s
+19.2 430 M (185:) s
+52.2 430 M
+(   action.sa_flags = 0;) s
+19.2 418 M (186:) s
+52.2 418 M
+(   int rc = sigaction \(signal, &action, nullptr\);) s
+19.2 406 M (187:) s
+52.2 406 M
+(   if \(rc < 0\) outlog << "sigaction " << strsignal \(signal\)) s
+19.2 394 M (188:) s
+52.2 394 M
+(                      << " failed: " << strerror \(errno\) << endl;) s
+19.2 382 M (189:) s
+52.2 382 M
+(}) s
+19.2 370 M (190:) s
 _R
 S
-%%Page: (1) 20
+%%Page: (5) 22
+%%BeginPageSetup
+_S
+38 24 translate
+/pagenum 5 def
+/fname (cxid.cpp) def
+/fdir (.) def
+/ftail (cxid.cpp) def
+% User defined strings:
+/pagenumstr (5) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
+/user_header_p true def
+/user_header_left_str (~/cse111/assignment4/code) def
+/user_header_center_str () def
+/user_header_right_str () def
+/user_footer_p false def
+%%EndPageSetup
+column_borders
+do_header
+19.2 694 M (191:) s
+19.2 682 M (192:) s
+52.2 682 M
+(int main \(int argc, char** argv\) {) s
+19.2 670 M (193:) s
+52.2 670 M
+(   outlog.execname \(basename \(argv[0]\)\);) s
+19.2 658 M (194:) s
+52.2 658 M
+(   outlog << "starting" << endl;) s
+19.2 646 M (195:) s
+52.2 646 M
+(   vector<string> args \(&argv[1], &argv[argc]\);) s
+19.2 634 M (196:) s
+52.2 634 M
+(   signal_action \(SIGCHLD, signal_handler\);) s
+19.2 622 M (197:) s
+52.2 622 M
+(   in_port_t port = get_cxi_server_port \(args, 0\);) s
+19.2 610 M (198:) s
+52.2 610 M
+(   try {) s
+19.2 598 M (199:) s
+52.2 598 M
+(      server_socket listener \(port\);) s
+19.2 586 M (200:) s
+52.2 586 M
+(      for \(;;\) {) s
+19.2 574 M (201:) s
+52.2 574 M
+(         outlog << to_string \(hostinfo\(\)\) << " accepting port ") s
+19.2 562 M (202:) s
+52.2 562 M
+(             << to_string \(port\) << endl;) s
+19.2 550 M (203:) s
+52.2 550 M
+(         accepted_socket client_sock;) s
+19.2 538 M (204:) s
+52.2 538 M
+(         for \(;;\) {) s
+19.2 526 M (205:) s
+52.2 526 M
+(            try {) s
+19.2 514 M (206:) s
+52.2 514 M
+(               listener.accept \(client_sock\);) s
+19.2 502 M (207:) s
+52.2 502 M
+(               break;) s
+19.2 490 M (208:) s
+52.2 490 M
+(            }catch \(socket_sys_error& error\) {) s
+19.2 478 M (209:) s
+52.2 478 M
+(               switch \(error.sys_errno\) {) s
+19.2 466 M (210:) s
+52.2 466 M
+(                  case EINTR:) s
+19.2 454 M (211:) s
+52.2 454 M
+(                     outlog << "listener.accept caught ") s
+19.2 442 M (212:) s
+52.2 442 M
+(                         << strerror \(EINTR\) << endl;) s
+19.2 430 M (213:) s
+52.2 430 M
+(                     break;) s
+19.2 418 M (214:) s
+52.2 418 M
+(                  default:) s
+19.2 406 M (215:) s
+52.2 406 M
+(                     throw;) s
+19.2 394 M (216:) s
+52.2 394 M
+(               }) s
+19.2 382 M (217:) s
+52.2 382 M
+(            }) s
+19.2 370 M (218:) s
+52.2 370 M
+(         }) s
+19.2 358 M (219:) s
+52.2 358 M
+(         outlog << "accepted " << to_string \(client_sock\) << endl;) s
+19.2 346 M (220:) s
+52.2 346 M
+(         try {) s
+19.2 334 M (221:) s
+52.2 334 M
+(            fork_cxiserver \(listener, client_sock\);) s
+19.2 322 M (222:) s
+52.2 322 M
+(            reap_zombies\(\);) s
+19.2 310 M (223:) s
+52.2 310 M
+(         }catch \(socket_error& error\) {) s
+19.2 298 M (224:) s
+52.2 298 M
+(            outlog << error.what\(\) << endl;) s
+19.2 286 M (225:) s
+52.2 286 M
+(         }) s
+19.2 274 M (226:) s
+52.2 274 M
+(      }) s
+19.2 262 M (227:) s
+52.2 262 M
+(   }catch \(socket_error& error\) {) s
+19.2 250 M (228:) s
+52.2 250 M
+(      outlog << error.what\(\) << endl;) s
+19.2 238 M (229:) s
+52.2 238 M
+(   }catch \(cxi_exit& error\) {) s
+19.2 226 M (230:) s
+52.2 226 M
+(      outlog << "caught cxi_exit" << endl;) s
+19.2 214 M (231:) s
+52.2 214 M
+(   }) s
+19.2 202 M (232:) s
+52.2 202 M
+(   outlog << "finishing" << endl;) s
+19.2 190 M (233:) s
+52.2 190 M
+(   return 0;) s
+19.2 178 M (234:) s
+52.2 178 M
+(}) s
+19.2 166 M (235:) s
+_R
+S
+%%Page: (1) 23
 %%BeginPageSetup
 _S
 38 24 translate
@@ -3082,11 +3633,10 @@ _S
 /ftail (Makefile) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (02/17/21) def
-/pagecountstr (/2) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
@@ -3095,7 +3645,7 @@ column_borders
 do_header
 32.4 694 M (1:) s
 52.2 694 M
-(# $Id: Makefile,v 1.19 2021-02-17 18:20:54-08 - - $) s
+(# $Id: Makefile,v 1.24 2021-06-01 20:01:20-07 - - $) s
 32.4 682 M (2:) s
 32.4 670 M (3:) s
 52.2 670 M
@@ -3237,7 +3787,7 @@ do_header
 25.8 34 M (56:) s
 _R
 S
-%%Page: (2) 21
+%%Page: (2) 24
 %%BeginPageSetup
 _S
 38 24 translate
@@ -3247,11 +3797,10 @@ _S
 /ftail (Makefile) def
 % User defined strings:
 /pagenumstr (2) def
-/moddatestr (02/17/21) def
-/pagecountstr (/2) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
@@ -3288,17 +3837,24 @@ do_header
 25.8 562 M (68:) s
 25.8 550 M (69:) s
 52.2 550 M
-(ifeq \(${NEEDINCL}, \)) s
+(submit:) s
 25.8 538 M (70:) s
 52.2 538 M
-(include ${DEPFILE}) s
+(        submit cse111-wm.s21 asg4 *.cpp *.h Makefile README) s
 25.8 526 M (71:) s
-52.2 526 M
-(endif) s
 25.8 514 M (72:) s
+52.2 514 M
+(ifeq \(${NEEDINCL}, \)) s
+25.8 502 M (73:) s
+52.2 502 M
+(include ${DEPFILE}) s
+25.8 490 M (74:) s
+52.2 490 M
+(endif) s
+25.8 478 M (75:) s
 _R
 S
-%%Page: (1) 22
+%%Page: (1) 25
 %%BeginPageSetup
 _S
 38 24 translate
@@ -3308,11 +3864,10 @@ _S
 /ftail (Makefile.dep) def
 % User defined strings:
 /pagenumstr (1) def
-/moddatestr (02/17/21) def
-/pagecountstr (/1) def
-/modtimestr (18:20:58) def
+/moddatestr (06/01/21) def
+/modtimestr (20:01:54) def
 /user_header_p true def
-/user_header_left_str ($cse111-wm/Assignments/asg4-client-server/code) def
+/user_header_left_str (~/cse111/assignment4/code) def
 /user_header_center_str () def
 /user_header_right_str () def
 /user_footer_p false def
@@ -3337,6 +3892,6 @@ do_header
 _R
 S
 %%Trailer
-%%Pages: 22
+%%Pages: 25
 %%DocumentNeededResources: font Times-Roman Courier-Bold Times-Bold 
 %%EOF

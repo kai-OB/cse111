@@ -1,9 +1,14 @@
-head	1.5;
+head	1.6;
 access;
 symbols;
 locks;
 comment	@// @;
 
+
+1.6
+date	2021.06.02.03.01.20;	author -;	state -;
+branches;
+next	1.5;
 
 1.5
 date	2021.03.11.03.57.08;	author -;	state -;
@@ -35,12 +40,12 @@ desc
 @@
 
 
-1.5
+1.6
 log
 @-
 @
 text
-@// $Id: cxid.cpp,v 1.4 2021-03-10 17:21:54-08 - - $
+@// $Id: cxid.cpp,v 1.5 2021-03-10 19:57:08-08 - - $
 
 #include <iostream>
 #include <string>
@@ -104,7 +109,7 @@ void reply_get (accepted_socket& client_sock, cxi_header& header) {
    }
    //check size of file, declare buf, set nbytes
    auto buffer = make_unique<char[]> (stat_buf.st_size);
-   ifstream read_file (header.filename);
+   ifstream read_file (header.filename, ios::in | ios::binary);
    read_file.read(buffer.get(), stat_buf.st_size);
    read_file.close();
    header.command = cxi_command::FILEOUT;
@@ -130,7 +135,7 @@ void reply_put (accepted_socket& client_sock, cxi_header& header) {
 
    recv_packet (client_sock, buffer.get(), host_nbytes);
    buffer[host_nbytes] = '\0';
-   ofstream write_file (header.filename);
+   ofstream write_file (header.filename, ios::out | ios::binary);
    write_file.write(buffer.get(),host_nbytes);  
    header.command = cxi_command::ACK;  //send ACK
    send_packet (client_sock, &header, sizeof header);//sends FILEOUT
@@ -275,6 +280,23 @@ int main (int argc, char** argv) {
    return 0;
 }
 
+@
+
+
+1.5
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: cxid.cpp,v 1.4 2021-03-10 17:21:54-08 - - $
+d65 1
+a65 1
+   ifstream read_file (header.filename);
+d91 1
+a91 1
+   ofstream write_file (header.filename);
 @
 
 
