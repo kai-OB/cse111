@@ -1,4 +1,5 @@
 // $Id: sockets.cpp,v 1.3 2019-05-08 11:36:22-07 - - $
+//Kai O'Brien (kimobrie@ucsc.edu)
 
 #include <cerrno>
 #include <cstring>

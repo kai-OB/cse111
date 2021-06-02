@@ -1,4 +1,5 @@
 # $Id: Makefile,v 1.24 2021-06-01 20:01:20-07 - - $
+#Kai O'Brien (kimobrie@ucsc.edu)
 
 MKFILE      = Makefile
 DEPFILE     = ${MKFILE}.dep
