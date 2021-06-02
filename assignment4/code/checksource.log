@@ -1,12 +1,13 @@
+checksource: line length > 144 characters
+HEADER.html: 1 errors: line 42
+checksource: line length > 72 characters
+HEADER.html: 2 errors: lines 41--42
 checksource: missing newline at end of line
-HEADER.html: 1 errors: line 48
+HEADER.html: 1 errors: line 44
 checksource: non-ASCII character \x80 = \200
 README: 1 errors: line 3
-README copy: 1 errors: line 3
 checksource: non-ASCII character \x99 = \231
 README: 1 errors: line 3
-README copy: 1 errors: line 3
 checksource: non-ASCII character \xE2 = \342
 README: 1 errors: line 3
-README copy: 1 errors: line 3
 checksource: TOTAL COMPLAINTS: 7
