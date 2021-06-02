@@ -45,7 +45,7 @@ listmap<key_t,mapped_t,less_t>::insert (const value_type& pair) {
    //otherwise
    //if key is already there, the value is replaced
     node *new_node = nullptr;
-   for (auto itor = begin(); itor != end(); ++itor) {
+   for (auto itor = begin(); less(itor,end()); ++itor) {
          //if the itr is == key, update value
       if(!less(itor->first,pair.first) && 
          !less(pair.first,itor->first)) {
@@ -78,7 +78,7 @@ typename listmap<key_t,mapped_t,less_t>::iterator
 listmap<key_t,mapped_t,less_t>::find (const key_type& that) {
    DEBUGF ('l', that);
    auto itor = begin();
-    while(itor !=end()){
+    while(less(itor,end())){
       if(!less(itor->first,that) && !less(that,itor->first)){
          break;
       }
