@@ -67,7 +67,7 @@ again: ${ALLSOURCE}
 	${GMAKE} spotless dep ci all lis
 
 submit:
-	submit cse111-wm.w21 asg4 ${ALLSOURCE} README
+	submit cse111-wm.s21 asg4 *.cpp *.h Makefile README
 
 ifeq (${NEEDINCL}, )
 include ${DEPFILE}
